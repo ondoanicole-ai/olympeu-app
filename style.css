@@ -1214,3 +1214,40 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 }
+/* =========================
+ONBOARDING US
+========================= */
+
+.us-onboarding-grid{
+display:grid;
+grid-template-columns:minmax(0,1fr) 460px;
+gap:24px;
+align-items:start;
+}
+
+.us-onboarding-left,
+.us-onboarding-right{
+padding:28px;
+}
+
+.us-onboarding-left h1{
+margin-bottom:14px;
+}
+
+.us-onboarding-benefits{
+display:grid;
+gap:14px;
+margin-top:22px;
+}
+
+.multi-select button.active{
+background:linear-gradient(135deg, rgba(79,172,254,.22), rgba(124,108,255,.22));
+border-color:#73d7ff;
+box-shadow:0 0 0 1px rgba(115,215,255,.35) inset;
+}
+
+@media (max-width: 980px){
+.us-onboarding-grid{
+grid-template-columns:1fr;
+}
+}
