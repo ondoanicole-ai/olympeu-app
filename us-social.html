@@ -1,774 +1,101 @@
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<section class="us-shell">
-<style>
-.us-shell{
---bg:#f6f4ff;
---bg-2:#efeaff;
---card:rgba(255,255,255,.72);
---card-strong:#ffffff;
---text:#1f2340;
---muted:#737899;
---primary:#7a72ff;
---primary-2:#9a72ff;
---soft:#eef0ff;
---line:rgba(116,98,255,.12);
---shadow:0 18px 44px rgba(90,76,185,.10);
---radius-xl:28px;
---radius-lg:22px;
---radius-md:16px;
---max:1380px;
-font-family:Inter,system-ui,sans-serif;
-color:var(--text);
-background:
-radial-gradient(circle at 15% 15%, rgba(154,114,255,.16), transparent 24%),
-radial-gradient(circle at 85% 12%, rgba(122,114,255,.12), transparent 22%),
-linear-gradient(180deg,#fcfbff 0%,#f3efff 100%);
-padding:24px;
-border-radius:32px;
-overflow:hidden;
-position:relative;
-}
-
-.us-shell *{box-sizing:border-box}
-.us-shell img{display:block;max-width:100%}
-.us-shell a{text-decoration:none}
-
-.us-wrap{
-max-width:var(--max);
-margin:0 auto;
-}
-
-.us-topbar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:16px;
-padding:18px 22px;
-margin-bottom:20px;
-background:rgba(255,255,255,.66);
-border:1px solid rgba(255,255,255,.75);
-border-radius:24px;
-backdrop-filter:blur(16px);
-box-shadow:0 10px 26px rgba(90,76,185,.08);
-}
-
-.us-brand{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.us-logo{
-width:54px;
-height:54px;
-border-radius:16px;
-overflow:hidden;
-flex:0 0 54px;
-box-shadow:0 12px 24px rgba(122,114,255,.22);
-background:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.us-logo img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.us-brand-text strong{
-display:block;
-font-size:28px;
-line-height:1;
-letter-spacing:-.04em;
-color:#27234a;
-}
-
-.us-brand-text span{
-display:block;
-margin-top:4px;
-font-size:13px;
-color:var(--muted);
-}
-
-.us-actions{
-display:flex;
-gap:12px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.us-btn{
-min-height:44px;
-padding:0 18px;
-border-radius:999px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-font-weight:700;
-transition:.2s ease;
-white-space:nowrap;
-}
-
-.us-btn-soft{
-background:#fff;
-border:1px solid var(--line);
-color:#5b5f83;
-}
-
-.us-btn-primary{
-background:linear-gradient(135deg,var(--primary),var(--primary-2));
-color:#fff;
-box-shadow:0 12px 22px rgba(122,114,255,.22);
-}
-
-.us-layout{
-display:grid;
-grid-template-columns:240px minmax(0,1fr) 290px;
-gap:20px;
-align-items:start;
-}
-
-.us-card{
-background:var(--card);
-border:1px solid rgba(255,255,255,.76);
-border-radius:var(--radius-xl);
-backdrop-filter:blur(16px);
-box-shadow:var(--shadow);
-}
-
-.us-side{
-padding:18px;
-}
-
-.us-side h3{
-margin:0 0 14px;
-font-size:16px;
-font-weight:800;
-color:#2a2550;
-}
-
-.us-mini-list{
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-.us-mini{
-padding:12px;
-border-radius:16px;
-background:rgba(255,255,255,.75);
-border:1px solid var(--line);
-}
-
-.us-mini strong{
-display:block;
-margin-bottom:4px;
-font-size:14px;
-color:#2a2550;
-}
-
-.us-mini span{
-display:block;
-font-size:12px;
-line-height:1.45;
-color:var(--muted);
-}
-
-.us-main-col{
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
-.us-hero{
-padding:26px;
-display:grid;
-grid-template-columns:1.05fr .95fr;
-gap:18px;
-}
-
-.us-hero-copy small{
-display:block;
-margin-bottom:10px;
-font-size:12px;
-font-weight:700;
-text-transform:uppercase;
-letter-spacing:.05em;
-color:#7b7596;
-}
-
-.us-hero-copy h1{
-margin:0 0 14px;
-font-size:56px;
-line-height:.97;
-letter-spacing:-.05em;
-color:#27224a;
-}
-
-.us-hero-copy h1 .accent{
-color:var(--primary);
-display:block;
-}
-
-.us-hero-copy p{
-margin:0 0 18px;
-font-size:17px;
-line-height:1.65;
-color:var(--muted);
-max-width:620px;
-}
-
-.us-hero-actions{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-margin-bottom:18px;
-}
-
-.us-preview-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
-
-.us-preview{
-background:#fff;
-border:1px solid var(--line);
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(90,76,185,.06);
-}
-
-.us-preview-media{
-aspect-ratio:16/9;
-overflow:hidden;
-background:#ece9ff;
-position:relative;
-}
-
-.us-preview-media img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.us-preview-video::after{
-content:"▶";
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-width:58px;
-height:58px;
-border-radius:999px;
-background:rgba(255,255,255,.9);
-color:var(--primary);
-font-size:22px;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 10px 24px rgba(50,45,95,.14);
-}
-
-.us-preview-body{
-padding:14px;
-}
-
-.us-preview-body strong{
-display:block;
-margin-bottom:5px;
-font-size:15px;
-color:#2a2550;
-}
-
-.us-preview-body span{
-display:block;
-font-size:13px;
-color:var(--muted);
-line-height:1.5;
-}
-
-.us-cta{
-padding:22px;
-}
-
-.us-cta h2{
-margin:0 0 12px;
-font-size:24px;
-line-height:1.12;
-color:#2b2550;
-}
-
-.us-cta h2 .accent{color:var(--primary)}
-.us-cta p{
-margin:0 0 18px;
-font-size:14px;
-line-height:1.7;
-color:var(--muted);
-}
-
-.us-cta-stack{
-display:flex;
-flex-direction:column;
-gap:10px;
-margin-bottom:18px;
-}
-
-.us-composer{
-padding:24px;
-}
-
-.us-composer h3{
-margin:0 0 8px;
-font-size:30px;
-line-height:1.05;
-letter-spacing:-.04em;
-color:#2b2550;
-}
-
-.us-composer p{
-margin:0 0 16px;
-font-size:14px;
-line-height:1.65;
-color:var(--muted);
-}
-
-.us-compose-row{
-display:flex;
-gap:12px;
-margin-bottom:14px;
-}
-
-.us-input{
-flex:1;
-min-height:52px;
-border-radius:999px;
-border:1px solid var(--line);
-background:rgba(255,255,255,.86);
-padding:0 18px;
-font-size:14px;
-color:var(--text);
-outline:none;
-}
-
-.us-pills{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-}
-
-.us-pill{
-min-height:40px;
-padding:0 14px;
-border-radius:999px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-font-size:13px;
-font-weight:700;
-color:#605a84;
-background:#fff;
-border:1px solid var(--line);
-}
-
-.us-feed{
-display:flex;
-flex-direction:column;
-gap:18px;
-}
-
-.us-post{
-padding:22px;
-}
-
-.us-post-head{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px;
-margin-bottom:14px;
-}
-
-.us-user{
-display:flex;
-gap:12px;
-align-items:center;
-}
-
-.us-avatar{
-width:42px;
-height:42px;
-border-radius:999px;
-background:linear-gradient(135deg,var(--primary),var(--primary-2));
-color:#fff;
-display:grid;
-place-items:center;
-font-weight:800;
-font-size:15px;
-flex:0 0 42px;
-}
-
-.us-user strong{
-display:block;
-font-size:16px;
-color:#2b2550;
-}
-
-.us-user span{
-display:block;
-margin-top:2px;
-font-size:12px;
-color:var(--muted);
-}
-
-.us-post-copy{
-margin:0 0 14px;
-font-size:15px;
-line-height:1.65;
-color:#413c66;
-}
-
-.us-media{
-border-radius:20px;
-overflow:hidden;
-background:#ebe7ff;
-margin-bottom:14px;
-border:1px solid var(--line);
-position:relative;
-}
-
-.us-media img{
-width:100%;
-aspect-ratio:16/9;
-object-fit:cover;
-}
-
-.us-media.video::after{
-content:"▶";
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-width:66px;
-height:66px;
-border-radius:999px;
-background:rgba(255,255,255,.92);
-color:var(--primary);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:24px;
-box-shadow:0 10px 24px rgba(35,24,92,.15);
-}
-
-.us-audio{
-display:flex;
-align-items:center;
-gap:14px;
-padding:16px;
-border-radius:18px;
-background:linear-gradient(135deg,#f2efff,#eef2ff);
-border:1px solid var(--line);
-margin-bottom:14px;
-}
-
-.us-audio-play{
-width:44px;
-height:44px;
-border-radius:999px;
-display:grid;
-place-items:center;
-background:linear-gradient(135deg,var(--primary),var(--primary-2));
-color:#fff;
-font-size:16px;
-flex:0 0 44px;
-box-shadow:0 10px 20px rgba(122,114,255,.22);
-}
-
-.us-wave{
-flex:1;
-height:28px;
-display:flex;
-align-items:center;
-gap:4px;
-}
-
-.us-wave span{
-display:block;
-width:4px;
-border-radius:999px;
-background:#8178ff;
-}
-
-.us-wave span:nth-child(1){height:10px}
-.us-wave span:nth-child(2){height:18px}
-.us-wave span:nth-child(3){height:24px}
-.us-wave span:nth-child(4){height:14px}
-.us-wave span:nth-child(5){height:20px}
-.us-wave span:nth-child(6){height:12px}
-.us-wave span:nth-child(7){height:26px}
-.us-wave span:nth-child(8){height:16px}
-
-.us-audio-time{
-font-size:12px;
-color:var(--muted);
-white-space:nowrap;
-}
-
-.us-post-actions{
-display:flex;
-gap:18px;
-flex-wrap:wrap;
-color:#726b93;
-font-size:13px;
-font-weight:600;
-}
-
-.us-trends{
-padding:18px;
-}
-
-.us-trends h3{
-margin:0 0 12px;
-font-size:16px;
-font-weight:800;
-color:#2b2550;
-}
-
-.us-trends ul{
-margin:0;
-padding-left:18px;
-color:var(--muted);
-}
-
-.us-trends li{
-margin-bottom:10px;
-line-height:1.5;
-font-size:13px;
-}
-
-@media (max-width:1180px){
-.us-layout{grid-template-columns:1fr}
-.us-hero{grid-template-columns:1fr}
-}
-
-@media (max-width:760px){
-.us-shell{padding:14px}
-.us-topbar{padding:16px}
-.us-brand-title, .us-brand-text strong{font-size:24px}
-.us-hero-copy h1{font-size:40px}
-.us-preview-grid{grid-template-columns:1fr}
-.us-compose-row{flex-direction:column}
-}
-</style>
-
-<div class="us-wrap">
-<div class="us-topbar">
-<div class="us-brand">
-<div class="us-logo">
-<img src="https://olympe-us.com/wp-content/uploads/2026/03/AE6FBB28-2C4C-4938-8D1A-2E74C3631E92.png" alt="US Social">
-</div>
-<div class="us-brand-text">
-<strong>US <span>Social</span></strong>
-<span>création, communauté, contenus</span>
-</div>
-</div>
-
-<div class="us-actions">
-<a class="us-btn us-btn-soft" href="#LIEN_SE_CONNECTER">Se connecter</a>
-<a class="us-btn us-btn-primary" href="#LIEN_CREER_COMPTE">
-<span style="color:#fff !important;">Créer mon compte</span>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Onboarding - OlympeUS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+
+<header class="topbar">
+<a href="index.html" class="brand">
+<span class="brand-mark"></span>
+<span class="brand-name">OlympeUS</span>
 </a>
-</div>
-</div>
+<div class="step-badge">Étape 1 sur 1</div>
+</header>
 
-<div class="us-layout">
-<aside>
-<div class="us-card us-side" style="margin-bottom:20px;">
-<h3>Besoin d’inspiration ?</h3>
-<div class="us-mini-list">
-<div class="us-mini"><strong>Générer une idée</strong><span>Suggestions créatives assistées par IA.</span></div>
-<div class="us-mini"><strong>Créer un post</strong><span>Texte, image, vidéo ou post mixte.</span></div>
-<div class="us-mini"><strong>Générer un script</strong><span>Hooks, plan vidéo, storytelling.</span></div>
-</div>
-</div>
+<main class="page-shell wide">
+<section class="onboarding-grid">
 
-<div class="us-card us-trends">
-<h3>Tendances</h3>
-<ul>
-<li><strong>Création vidéo</strong><br>Formats courts, hooks et storytelling.</li>
-<li><strong>Projet bio</strong><br>Contenus autour du naturel et du végétal.</li>
-<li><strong>Communauté</strong><br>Formats collaboratifs et co-création.</li>
-</ul>
-</div>
-</aside>
+<div class="panel">
+<p class="eyebrow">Bienvenue</p>
+<h1>Construisons votre profil</h1>
+<p class="muted">
+Quelques choix suffisent pour personnaliser votre expérience.
+</p>
 
-<main class="us-main-col">
-<section class="us-card us-hero">
-<div class="us-hero-copy">
-<small>Réseau social créatif</small>
-<h1>Exprimez vos idées.<br>Créez du contenu.<span class="accent">Inspirez le monde.</span></h1>
-<p>Rejoignez la communauté US pour publier vos idées, photos, vidéos, commentaires vocaux et développer vos projets avec l’aide de l’IA.</p>
-
-<div class="us-hero-actions">
-<a class="us-btn us-btn-primary" href="#LIEN_CREER_COMPTE">
-<span style="color:#fff !important;">Créer mon compte</span>
-</a>
-<a class="us-btn us-btn-soft" href="#LIEN_SE_CONNECTER">Se connecter</a>
+<div class="info-stack">
+<div class="info-card">
+<strong>Profil intelligent</strong>
+<span>Adaptez votre espace à votre rôle.</span>
 </div>
-
-<div class="us-hero-tabs">
-<span>US</span>
-<span>Explore</span>
-<span>Créateurs</span>
-<span>Tendances</span>
+<div class="info-card">
+<strong>Feed pertinent</strong>
+<span>Recevez des contenus utiles.</span>
 </div>
-</div>
-
-<div class="us-preview-grid">
-<div class="us-preview">
-<div class="us-preview-media">
-<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" alt="Photo créative">
-</div>
-<div class="us-preview-body">
-<strong>Photo créative</strong>
-<span>Portrait, lifestyle, inspiration visuelle.</span>
-</div>
-</div>
-
-<div class="us-preview">
-<div class="us-preview-media us-preview-video">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Vidéo courte">
-</div>
-<div class="us-preview-body">
-<strong>Capsule dynamique</strong>
-<span>Formats courts, rythme rapide et contenus engageants.</span>
-</div>
-</div>
-
-<div class="us-preview">
-<div class="us-preview-media" style="display:grid;place-items:center;background:linear-gradient(135deg,#f4f0ff,#edf2ff)">
-<div class="us-wave" style="max-width:150px">
-<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-</div>
-</div>
-<div class="us-preview-body">
-<strong>Commentaire audio</strong>
-<span>Réagissez à un post avec votre voix.</span>
-</div>
-</div>
-
-<div class="us-preview">
-<div class="us-preview-media">
-<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Communauté active">
-</div>
-<div class="us-preview-body">
-<strong>Communauté active</strong>
-<span>Discussions, réponses vidéo et échanges créatifs.</span>
-</div>
-</div>
-</div>
-</section>
-
-<section class="us-card us-composer">
-<h3>Créer un post</h3>
-<p>Partagez une idée, une actualité, une image, une vidéo ou un commentaire vocal.</p>
-
-<div class="us-compose-row">
-<input class="us-input" type="text" placeholder="Partagez quelque chose...">
-<a class="us-btn us-btn-primary" href="#LIEN_CREER_COMPTE">Créer</a>
-</div>
-
-<div class="us-pills">
-<span class="us-pill">Photo</span>
-<span class="us-pill">Vidéo</span>
-<span class="us-pill">Audio</span>
-<span class="us-pill">Commentaire vocal</span>
-<span class="us-pill">Réponse vidéo</span>
-</div>
-</section>
-
-<section class="us-feed">
-<article class="us-card us-post">
-<div class="us-post-head">
-<div class="us-user">
-<div class="us-avatar">E</div>
-<div>
-<strong>Emma Martin</strong>
-<span>Photo · Vidéo · il y a 2 h</span>
+<div class="info-card">
+<strong>Meilleures connexions</strong>
+<span>Trouvez les bons profils plus vite.</span>
 </div>
 </div>
 </div>
 
-<p class="us-post-copy">Nouveau concept vidéo autour du voyage et de l’inspiration. <strong style="color:#6f66ff">#exploration #projet</strong></p>
-
-<div class="us-media video">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80" alt="Publication vidéo">
-</div>
-
-<div class="us-post-actions">
-<span>♡ 11</span>
-<span>💬 28</span>
-<span>↗ 19</span>
-</div>
-</article>
-
-<article class="us-card us-post">
-<div class="us-post-head">
-<div class="us-user">
-<div class="us-avatar" style="background:linear-gradient(135deg,#f28d8d,#d67aff)">L</div>
-<div>
-<strong>Léa Dupont</strong>
-<span>Texte · Audio · il y a 40 min</span>
-</div>
+<div class="onboarding-right">
+<div class="panel">
+<h2>Quel est votre rôle principal ?</h2>
+<div class="choice-grid">
+<button class="choice-btn" type="button">Porteur de projet</button>
+<button class="choice-btn" type="button">Collaborateur</button>
+<button class="choice-btn" type="button">Investisseur</button>
+<button class="choice-btn" type="button">Entrepreneur</button>
 </div>
 </div>
 
-<p class="us-post-copy">Je cherche des profils créatifs pour lancer une série de contenus autour du bio.</p>
-
-<div class="us-audio">
-<div class="us-audio-play">▶</div>
-<div class="us-wave">
-<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+<div class="panel">
+<h2>Que recherchez-vous ?</h2>
+<div class="tag-grid">
+<button class="tag-btn" type="button">Collaborateurs</button>
+<button class="tag-btn" type="button">Financement</button>
+<button class="tag-btn" type="button">Opportunités</button>
+<button class="tag-btn" type="button">Visibilité</button>
+<button class="tag-btn" type="button">Réseau</button>
+<button class="tag-btn" type="button">Missions</button>
 </div>
-<div class="us-audio-time">1:24</div>
 </div>
 
-<p class="us-post-copy" style="font-size:14px;color:#6f6a86"><strong style="color:#2c2552">Commentaire vocal</strong><br>Réagissez à un post avec votre voix.</p>
-
-<div class="us-post-actions">
-<span>♡ 231</span>
-<span>💬 18</span>
-<span>↗ 7</span>
+<div class="panel">
+<h2>Quels sujets vous intéressent ?</h2>
+<div class="tag-grid">
+<button class="tag-btn" type="button">IA</button>
+<button class="tag-btn" type="button">Santé</button>
+<button class="tag-btn" type="button">Énergie</button>
+<button class="tag-btn" type="button">Cosmétique</button>
+<button class="tag-btn" type="button">Tech</button>
+<button class="tag-btn" type="button">Finance</button>
+<button class="tag-btn" type="button">Éducation</button>
+<button class="tag-btn" type="button">Agriculture</button>
+<button class="tag-btn" type="button">Mode</button>
+<button class="tag-btn" type="button">Média</button>
+<button class="tag-btn" type="button">Religion</button>
+<button class="tag-btn" type="button">Cinéma</button>
+<button class="tag-btn" type="button">Astrologie</button>
+<button class="tag-btn" type="button">Astronomie</button>
+<button class="tag-btn" type="button">Occultisme</button>
+<button class="tag-btn" type="button">Musique</button>
 </div>
-</article>
+</div>
+
+<div class="action-row">
+<a href="profile.html" class="btn btn-soft">Compléter plus tard</a>
+<button type="button" class="btn btn-primary" onclick="finishOnboarding()">Continuer</button>
+</div>
+</div>
+
 </section>
 </main>
 
-<aside>
-<div class="us-card us-cta" style="margin-bottom:20px;">
-<h2>Exprimez vos idées.<br>Créez du contenu.<span class="accent">Inspirez le monde.</span></h2>
-<p>US permet de publier du texte, de la photo, de la vidéo, des commentaires audio et des réponses vidéo.</p>
-
-<div class="us-cta-stack">
-<a class="us-btn us-btn-primary" href="#LIEN_CREER_COMPTE">Créer mon compte</a>
-<a class="us-btn us-btn-soft" href="#LIEN_SE_CONNECTER">Se connecter</a>
-</div>
-</div>
-
-<div class="us-card us-trends">
-<h3>Tendances</h3>
-<ul>
-<li>5 étapes pour lancer votre idée</li>
-<li>Validez votre concept</li>
-<li>Créez vos premiers contenus</li>
-</ul>
-</div>
-</aside>
-</div>
-</div>
-</section>
+<script src="script.js"></script>
+</body>
+</html>
