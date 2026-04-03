@@ -341,3 +341,271 @@ align-items:flex-start;
 width:100%;
 }
 }
+/* =========================
+SIGNUP WORDPRESS STYLE
+========================= */
+
+.signup-layout{
+display:grid;
+grid-template-columns: minmax(0, 1.2fr) 360px;
+gap:22px;
+align-items:start;
+}
+
+.signup-left{
+display:grid;
+gap:22px;
+}
+
+.signup-right{
+display:grid;
+gap:22px;
+position:sticky;
+top:16px;
+}
+
+.signup-hero{
+padding:34px;
+}
+
+.signup-hero h1{
+margin-bottom:20px;
+}
+
+.hero-actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:18px;
+}
+
+.showcase-card{
+padding:24px;
+}
+
+.showcase-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:14px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+
+.showcase-head > span{
+font-weight:700;
+}
+
+.mini-nav{
+display:flex;
+gap:18px;
+color:var(--muted);
+font-size:.95rem;
+flex-wrap:wrap;
+}
+
+.showcase-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+}
+
+.mini-project{
+background:rgba(255,255,255,.04);
+border:1px solid var(--border);
+border-radius:20px;
+padding:20px;
+}
+
+.mini-project h3{
+margin-bottom:10px;
+font-size:1.05rem;
+}
+
+.mini-project p{
+color:var(--muted);
+margin:0;
+line-height:1.5;
+}
+
+.project-steps-card{
+padding:24px;
+}
+
+.steps-grid{
+margin-top:22px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+}
+
+.step-box{
+background:rgba(255,255,255,.04);
+border:1px solid var(--border);
+border-radius:20px;
+padding:18px;
+display:grid;
+gap:10px;
+}
+
+.step-num{
+width:28px;
+height:28px;
+border-radius:999px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+background:rgba(79,172,254,.14);
+color:var(--primary-2);
+font-size:.9rem;
+font-weight:700;
+}
+
+.step-box strong{
+line-height:1.35;
+}
+
+.step-box p{
+margin:0;
+color:var(--muted);
+line-height:1.45;
+}
+
+.highlight-box ul{
+margin:0;
+padding-left:18px;
+color:var(--muted);
+}
+
+.signup-form-card{
+padding:26px;
+}
+
+.small-brand{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:14px;
+font-weight:700;
+}
+
+.brand-mark.small{
+width:22px;
+height:22px;
+border-radius:999px;
+}
+
+.signup-form-card h2{
+font-size:2rem;
+margin-bottom:18px;
+}
+
+.ai-side-card{
+padding:22px;
+display:grid;
+gap:18px;
+}
+
+.ai-side-head{
+display:flex;
+justify-content:space-between;
+gap:16px;
+align-items:flex-start;
+}
+
+.ai-side-head p{
+margin:6px 0 0;
+color:var(--muted);
+line-height:1.45;
+}
+
+.ai-mini-avatar{
+width:48px;
+height:48px;
+border-radius:16px;
+background:linear-gradient(135deg,var(--primary-2),var(--primary));
+box-shadow:0 0 24px rgba(124,108,255,.28);
+flex:0 0 auto;
+}
+
+.ai-creator-card{
+background:rgba(255,255,255,.04);
+border:1px solid var(--border);
+border-radius:22px;
+padding:18px;
+display:grid;
+gap:14px;
+}
+
+.ai-ring{
+width:34px;
+height:34px;
+border-radius:999px;
+border:6px solid var(--primary-2);
+opacity:.95;
+}
+
+.ai-creator-card h3{
+margin:0;
+font-size:1.8rem;
+}
+
+.side-info-box{
+background:rgba(255,255,255,.03);
+border:1px solid var(--border);
+border-radius:16px;
+padding:14px;
+}
+
+.side-info-box p{
+margin:8px 0 0;
+color:var(--muted);
+line-height:1.45;
+}
+
+.side-bottom-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+color:var(--muted);
+font-size:.92rem;
+}
+
+@media (max-width: 1100px){
+.signup-layout{
+grid-template-columns:1fr;
+}
+
+.signup-right{
+position:static;
+}
+
+.steps-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media (max-width: 720px){
+.showcase-grid,
+.steps-grid{
+grid-template-columns:1fr;
+}
+
+.signup-hero,
+.showcase-card,
+.project-steps-card,
+.signup-form-card,
+.ai-side-card{
+padding:20px;
+}
+
+.signup-form-card h2{
+font-size:1.7rem;
+}
+
+.ai-creator-card h3{
+font-size:1.5rem;
+}
+}
