@@ -1,22 +1,38 @@
-<div class="oly-auth">
-<div class="oly-auth-box">
-<div class="oly-auth-header"><img src="https://olympe-us.com/wp-content/uploads/2026/03/ChatGPT-Image-15-mars-2026-20_27_47.png" alt="OlympeUS" />
-<h2>Connexion</h2>
-</div>
-<form class="oly-auth-form"><input required="" type="email" placeholder="Email" /><br /><input required="" type="password" placeholder="Mot de passe" /><button class="oly-btn primary" type="submit"><br />Se connecter<br /></button></form>
-<div class="oly-auth-links"><a href="/signup">Créer un compte</a></div>
-</div>
-</div>
-<p><script><br />
-const params = new URLSearchParams(window.location.search);<br />
-const redirect = params.get("redirect");</p>
-<p>if(redirect){<br />
-localStorage.setItem("oly_redirect", "/" + redirect);<br />
-}<br />
-</script><br /><script><br />
-const params = new URLSearchParams(window.location.search);<br />
-const redirect = params.get("redirect");</p>
-<p>if(redirect){<br />
-localStorage.setItem("oly_redirect", "/" + redirect);<br />
-}<br />
-</script></p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Connexion - OlympeUS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+
+<header class="topbar">
+<a href="index.html" class="brand">
+<span class="brand-mark"></span>
+<span class="brand-name">OlympeUS</span>
+</a>
+</header>
+
+<main class="page-shell">
+<section class="panel auth-panel">
+<p class="eyebrow">Connexion</p>
+<h1>Bon retour</h1>
+
+<form class="form-stack" onsubmit="event.preventDefault(); login();">
+<input type="email" placeholder="Email" required />
+<input type="password" placeholder="Mot de passe" required />
+<button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+</form>
+
+<p class="helper">
+Pas encore inscrit ?
+<a href="signup.html">Créer un compte</a>
+</p>
+</section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
