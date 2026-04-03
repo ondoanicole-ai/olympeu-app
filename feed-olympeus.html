@@ -1,44 +1,101 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>OlympeUS Projets</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Onboarding - OlympeUS</title>
+<link rel="stylesheet" href="style.css" />
 </head>
+<body class="theme-dark">
 
-<body>
+<header class="topbar">
+<a href="index.html" class="brand">
+<span class="brand-mark"></span>
+<span class="brand-name">OlympeUS</span>
+</a>
+<div class="step-badge">Étape 1 sur 1</div>
+</header>
 
-<h1>Projets OlympeUS</h1>
+<main class="page-shell wide">
+<section class="onboarding-grid">
 
-<nav>
-<a href="index.html">Accueil</a>
-<a href="feed.html">US Social</a>
-<a href="olympeus-ai.html">AI</a>
-</nav>
+<div class="panel">
+<p class="eyebrow">Bienvenue</p>
+<h1>Construisons votre profil</h1>
+<p class="muted">
+Quelques choix suffisent pour personnaliser votre expérience.
+</p>
 
-<section>
-<h2>Créer un projet</h2>
-<input type="text" placeholder="Nom du projet">
-<textarea placeholder="Description"></textarea>
-<button>Créer</button>
-</section>
-
-<section>
-<h2>Projets récents</h2>
-
-<div class="project">
-<h3>Isis Royale</h3>
-<p>Marque cosmétique premium</p>
-<button>Voir</button>
+<div class="info-stack">
+<div class="info-card">
+<strong>Profil intelligent</strong>
+<span>Adaptez votre espace à votre rôle.</span>
+</div>
+<div class="info-card">
+<strong>Feed pertinent</strong>
+<span>Recevez des contenus utiles.</span>
+</div>
+<div class="info-card">
+<strong>Meilleures connexions</strong>
+<span>Trouvez les bons profils plus vite.</span>
+</div>
+</div>
 </div>
 
-<div class="project">
-<h3>OlympeUS AI</h3>
-<p>Assistant intelligent pour projets</p>
-<button>Voir</button>
+<div class="onboarding-right">
+<div class="panel">
+<h2>Quel est votre rôle principal ?</h2>
+<div class="choice-grid">
+<button class="choice-btn" type="button">Porteur de projet</button>
+<button class="choice-btn" type="button">Collaborateur</button>
+<button class="choice-btn" type="button">Investisseur</button>
+<button class="choice-btn" type="button">Entrepreneur</button>
+</div>
+</div>
+
+<div class="panel">
+<h2>Que recherchez-vous ?</h2>
+<div class="tag-grid">
+<button class="tag-btn" type="button">Collaborateurs</button>
+<button class="tag-btn" type="button">Financement</button>
+<button class="tag-btn" type="button">Opportunités</button>
+<button class="tag-btn" type="button">Visibilité</button>
+<button class="tag-btn" type="button">Réseau</button>
+<button class="tag-btn" type="button">Missions</button>
+</div>
+</div>
+
+<div class="panel">
+<h2>Quels sujets vous intéressent ?</h2>
+<div class="tag-grid">
+<button class="tag-btn" type="button">IA</button>
+<button class="tag-btn" type="button">Santé</button>
+<button class="tag-btn" type="button">Énergie</button>
+<button class="tag-btn" type="button">Cosmétique</button>
+<button class="tag-btn" type="button">Tech</button>
+<button class="tag-btn" type="button">Finance</button>
+<button class="tag-btn" type="button">Éducation</button>
+<button class="tag-btn" type="button">Agriculture</button>
+<button class="tag-btn" type="button">Mode</button>
+<button class="tag-btn" type="button">Média</button>
+<button class="tag-btn" type="button">Religion</button>
+<button class="tag-btn" type="button">Cinéma</button>
+<button class="tag-btn" type="button">Astrologie</button>
+<button class="tag-btn" type="button">Astronomie</button>
+<button class="tag-btn" type="button">Occultisme</button>
+<button class="tag-btn" type="button">Musique</button>
+</div>
+</div>
+
+<div class="action-row">
+<a href="profile.html" class="btn btn-soft">Compléter plus tard</a>
+<button type="button" class="btn btn-primary" onclick="finishOnboarding()">Continuer</button>
+</div>
 </div>
 
 </section>
+</main>
 
+<script src="script.js"></script>
 </body>
 </html>
