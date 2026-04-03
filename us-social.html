@@ -4,14 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>US Social - OlympeUS</title>
-
-<!-- LIGNE CRUCIALE (ne jamais oublier) -->
 <link rel="stylesheet" href="style.css" />
 </head>
-
 <body class="theme-dark">
 
-<!-- HEADER -->
 <header class="topbar">
 <a href="index.html" class="brand">
 <span class="brand-mark"></span>
@@ -25,130 +21,214 @@
 </nav>
 </header>
 
-<!-- LAYOUT -->
-<main class="us-dark-layout">
+<main class="page-shell wide">
+<section class="us-page-grid">
 
-<!-- GAUCHE -->
-<aside class="us-left panel">
-
+<!-- COLONNE GAUCHE -->
+<aside class="us-side-left">
+<div class="panel us-side-card">
 <h3>Besoin d’inspiration ?</h3>
 
-<div class="us-card">
+<div class="us-mini-card">
 <strong>Générer une idée</strong>
 <p>Suggestions créatives assistées par IA.</p>
 </div>
 
-<div class="us-card">
+<div class="us-mini-card">
 <strong>Créer un post</strong>
 <p>Texte, image, vidéo ou post mixte.</p>
 </div>
 
-<div class="us-card">
+<div class="us-mini-card">
 <strong>Générer un script</strong>
 <p>Hooks, plan vidéo, storytelling.</p>
 </div>
+</div>
 
-<h4>Tendances</h4>
-<ul class="us-list">
-<li>Création vidéo</li>
-<li>Projet bio</li>
-<li>Communauté</li>
+<div class="panel us-side-card">
+<h3>Tendances</h3>
+<ul class="us-trend-list">
+<li>
+<strong>Création vidéo</strong>
+<span>Formats courts, hooks et storytelling.</span>
+</li>
+<li>
+<strong>Projet bio</strong>
+<span>Contenus autour du naturel et du végétal.</span>
+</li>
+<li>
+<strong>Communauté</strong>
+<span>Formats collaboratifs et co-création.</span>
+</li>
 </ul>
-
+</div>
 </aside>
 
-
 <!-- CENTRE -->
-<section class="us-center">
+<section class="us-center-col">
 
-<!-- HERO -->
-<div class="panel us-hero">
-<p class="eyebrow">Réseau social créatif</p>
-
+<div class="panel us-hero-card-dark">
+<div class="us-hero-inner">
+<div class="us-hero-copy">
+<p class="eyebrow">RÉSEAU SOCIAL CRÉATIF</p>
 <h1>
 Exprimez vos idées.<br>
 Créez du contenu.<br>
 <span>Inspirez le monde.</span>
 </h1>
-
 <p class="muted">
-Publiez, interagissez et développez vos projets avec votre communauté.
+Rejoignez la communauté US pour publier vos idées, photos, vidéos,
+commentaires vocaux et développer vos projets avec l’aide de l’IA.
 </p>
 
 <div class="hero-actions">
 <a href="signup-olympeus.html" class="btn btn-primary">Créer mon compte</a>
 <a href="login.html" class="btn btn-soft">Se connecter</a>
 </div>
+
+<p class="us-subnav">US Explore · Créateurs · Tendances</p>
 </div>
 
+<div class="us-hero-media-grid">
+<article class="us-media-card">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Photo créative" />
+<h4>Photo créative</h4>
+<p>Portrait, lifestyle, inspiration visuelle.</p>
+</article>
 
-<!-- CREATE POST -->
-<div class="panel us-create">
-<h3>Créer un post</h3>
+<article class="us-media-card">
+<img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80" alt="Capsule dynamique" />
+<h4>Capsule dynamique</h4>
+<p>Formats courts, rythme rapide et contenus engageants.</p>
+</article>
 
-<input type="text" placeholder="Partagez quelque chose..." />
+<article class="us-media-card us-media-audio">
+<div class="us-audio-visual">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+<h4>Commentaire audio</h4>
+<p>Réagissez à un post avec votre voix.</p>
+</article>
 
-<div class="action-row">
-<button class="btn btn-soft">Photo</button>
-<button class="btn btn-soft">Vidéo</button>
-<button class="btn btn-soft">Audio</button>
-<button class="btn btn-primary">Créer</button>
+<article class="us-media-card">
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="Communauté active" />
+<h4>Communauté active</h4>
+<p>Discussions, réponses vidéo et échanges créatifs.</p>
+</article>
 </div>
 </div>
-
-
-<!-- POST EXEMPLE -->
-<div class="panel us-post">
-
-<div class="post-head">
-<div class="avatar"></div>
-<div>
-<strong>Emma Martin</strong>
-<p class="muted">Photo · il y a 2h</p>
-</div>
 </div>
 
-<p>
-Nouveau concept autour du voyage et de l’inspiration.
-<span class="tag">#exploration</span>
-<span class="tag">#projet</span>
+<div class="panel us-create-post-card">
+<h2>Créer un post</h2>
+<p class="muted">
+Partagez une idée, une actualité, une image, une vidéo ou un commentaire vocal.
 </p>
 
-<div class="post-image"></div>
-
-<div class="action-row">
-<button class="btn btn-soft">Like</button>
-<button class="btn btn-soft">Commenter</button>
+<div class="us-post-composer">
+<input type="text" placeholder="Partagez quelque chose..." />
+<button class="btn btn-primary" type="button">Créer</button>
 </div>
 
+<div class="us-post-types">
+<button class="btn btn-soft" type="button">Photo</button>
+<button class="btn btn-soft" type="button">Vidéo</button>
+<button class="btn btn-soft" type="button">Audio</button>
+<button class="btn btn-soft" type="button">Commentaire vocal</button>
+<button class="btn btn-soft" type="button">Réponse vidéo</button>
 </div>
+</div>
+
+<article class="panel us-feed-post">
+<div class="us-post-head">
+<div class="us-avatar">E</div>
+<div>
+<strong>Emma Martin</strong>
+<p class="muted">Photo · Vidéo · il y a 2 h</p>
+</div>
+</div>
+
+<p class="us-post-text">
+Nouveau concept vidéo autour du voyage et de l’inspiration.
+<span class="us-hash">#exploration</span>
+<span class="us-hash">#projet</span>
+</p>
+
+<div class="us-big-image">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80" alt="Publication voyage" />
+<div class="us-play">▶</div>
+</div>
+
+<div class="us-post-meta">
+<span>♡ 11</span>
+<span>◔ 28</span>
+<span>↗ 19</span>
+</div>
+</article>
+
+<article class="panel us-feed-post">
+<div class="us-post-head">
+<div class="us-avatar">L</div>
+<div>
+<strong>Léa Dupont</strong>
+<p class="muted">Texte · Audio · il y a 40 min</p>
+</div>
+</div>
+
+<p class="us-post-text">
+Je cherche des profils créatifs pour lancer une série de contenus autour du bio.
+</p>
+
+<div class="us-audio-post">
+<div class="us-audio-round">▶</div>
+<div class="us-audio-bars">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+<small>1:24</small>
+</div>
+
+<h4>Commentaire vocal</h4>
+<p class="muted">Réagissez à un post avec votre voix.</p>
+
+<div class="us-post-meta">
+<span>♡ 231</span>
+<span>◔ 18</span>
+<span>↗ 7</span>
+</div>
+</article>
 
 </section>
 
-
-<!-- DROITE -->
-<aside class="us-right panel">
-
-<h3>Exprimez vos idées</h3>
+<!-- COLONNE DROITE -->
+<aside class="us-side-right">
+<div class="panel us-cta-card">
+<h2>
+Exprimez vos idées.<br>
+Créez du contenu.<br>
+<span>Inspirez le monde.</span>
+</h2>
 
 <p class="muted">
-Publiez du texte, photo, vidéo et développez votre audience.
+US permet de publier du texte, de la photo, de la vidéo, des commentaires audio et des réponses vidéo.
 </p>
 
-<a href="signup-olympeus.html" class="btn btn-primary">Créer mon compte</a>
-<a href="login.html" class="btn btn-soft">Se connecter</a>
+<a href="signup-olympeus.html" class="btn btn-primary btn-full">Créer mon compte</a>
+<a href="login.html" class="btn btn-soft btn-full">Se connecter</a>
+</div>
 
-<h4>Tendances</h4>
-
-<ul class="us-list">
-<li>5 étapes pour lancer</li>
-<li>Valider un concept</li>
-<li>Créer du contenu</li>
+<div class="panel us-side-card">
+<h3>Tendances</h3>
+<ul class="us-trend-list">
+<li><span>5 étapes pour lancer votre idée</span></li>
+<li><span>Validez votre concept</span></li>
+<li><span>Créez vos premiers contenus</span></li>
 </ul>
-
+</div>
 </aside>
 
+</section>
 </main>
 
+<script src="script.js"></script>
 </body>
 </html>
