@@ -1,41 +1,42 @@
-window.addEventListener("load", function () {
-function syncState() {
-document.querySelectorAll(".oo-choice").forEach(function (label) {
-const input = label.querySelector("input");
-label.classList.toggle("active", !!input && input.checked);
+document.addEventListener("DOMContentLoaded", function () {
+const choiceButtons = document.querySelectorAll(".choice-btn");
+choiceButtons.forEach((btn) => {
+btn.addEventListener("click", function () {
+choiceButtons.forEach((b) => b.classList.remove("active"));
+this.classList.add("active");
+});
 });
 
-document.querySelectorAll(".oo-tag").forEach(function (label) {
-const input = label.querySelector("input");
-label.classList.toggle("active", !!input && input.checked);
+const tagButtons = document.querySelectorAll(".tag-btn");
+tagButtons.forEach((btn) => {
+btn.addEventListener("click", function () {
+this.classList.toggle("active");
 });
+});
+
+const protectedPages = ["feed.html", "profile.html", "settings.html"];
+const currentPage = window.location.pathname.split("/").pop();
+
+if (protectedPages.includes(currentPage) && !localStorage.getItem("user")) {
+window.location.href = "login.html";
+}
+});
+
+function signup() {
+localStorage.setItem("user", "true");
+window.location.href = "onboarding.html";
 }
 
-document.addEventListener("change", function (e) {
-if (e.target.matches(".oo-choice input, .oo-tag input")) {
-syncState();
-}
-});
-
-const continueBtn = document.querySelector(".oo-btn-primary");
-
-if (continueBtn) {
-continueBtn.addEventListener("click", function (e) {
-e.preventDefault();
-
-const activeRoleInput = document.querySelector(".oo-choice input:checked");
-const role = activeRoleInput ? activeRoleInput.value.trim() : "";
-
-const selectedTags = Array.from(document.querySelectorAll(".oo-tag input:checked")).map(function (input) {
-return input.value.trim();
-});
-
-localStorage.setItem("olympe_role", role);
-localStorage.setItem("olympe_tags", JSON.stringify(selectedTags));
-
-window.location.href = "/activity/";
-});
+function login() {
+localStorage.setItem("user", "true");
+window.location.href = "feed.html";
 }
 
-syncState();
-});
+function finishOnboarding() {
+window.location.href = "feed.html";
+}
+
+function logout() {
+localStorage.removeItem("user");
+window.location.href = "index.html";
+}
