@@ -1152,3 +1152,65 @@ flex:0 0 auto;
 grid-template-columns:1fr;
 }
 }
+.us-signup-grid{
+display:grid;
+grid-template-columns:minmax(0,1fr) 430px;
+gap:24px;
+align-items:start;
+}
+
+.us-signup-left,
+.us-signup-right{
+padding:28px;
+}
+
+.us-signup-left h1{
+margin-bottom:14px;
+}
+
+.us-signup-benefits{
+display:grid;
+gap:14px;
+margin-top:22px;
+}
+
+.us-signup-benefit{
+background:rgba(255,255,255,.04);
+border:1px solid var(--border);
+border-radius:18px;
+padding:16px;
+}
+
+.us-signup-benefit p{
+margin:8px 0 0;
+color:var(--muted);
+line-height:1.45;
+}
+
+.us-inline-fields{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+select{
+width:100%;
+padding:14px 16px;
+border-radius:16px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.04);
+color:var(--text);
+outline:none;
+}
+
+@media (max-width: 980px){
+.us-signup-grid{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width: 640px){
+.us-inline-fields{
+grid-template-columns:1fr;
+}
+}
