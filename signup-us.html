@@ -21,9 +21,10 @@
 </header>
 
 <main class="page-shell wide">
-<section class="us-auth-layout">
+<section class="us-signup-grid">
 
-<div class="us-auth-left panel">
+<!-- COLONNE GAUCHE -->
+<div class="panel us-signup-left">
 <p class="eyebrow">US Social</p>
 <h1>
 Rejoignez une communauté<br>
@@ -32,28 +33,30 @@ créative, sociale et<br>
 </h1>
 
 <p class="muted">
-Créez votre profil, partagez du contenu, trouvez votre audience et développez des collaborations.
+Créez votre profil, partagez du contenu, trouvez votre audience
+et développez des collaborations selon vos centres d’intérêt.
 </p>
 
-<div class="us-auth-highlights">
-<div class="us-auth-highlight">
-<strong>Publiez facilement</strong>
+<div class="us-signup-benefits">
+<div class="us-signup-benefit">
+<strong>Publier facilement</strong>
 <p>Texte, photo, vidéo, audio et réponses créatives.</p>
 </div>
 
-<div class="us-auth-highlight">
-<strong>Développez votre réseau</strong>
+<div class="us-signup-benefit">
+<strong>Développer votre réseau</strong>
 <p>Rencontrez des profils, créateurs et communautés utiles.</p>
 </div>
 
-<div class="us-auth-highlight">
-<strong>Exprimez votre univers</strong>
-<p>Donnez une identité claire à votre profil et à vos contenus.</p>
+<div class="us-signup-benefit">
+<strong>Recevoir un contenu plus pertinent</strong>
+<p>Votre âge, votre rôle et vos préférences aident à personnaliser le feed.</p>
 </div>
 </div>
 </div>
 
-<div class="us-auth-right panel">
+<!-- COLONNE DROITE -->
+<div class="panel us-signup-right">
 <p class="eyebrow">Inscription</p>
 <h2>Créer un compte US</h2>
 
@@ -62,6 +65,17 @@ Créez votre profil, partagez du contenu, trouvez votre audience et développez 
 <input type="email" placeholder="Email" required />
 <input type="password" placeholder="Mot de passe" required />
 <input type="text" placeholder="Pseudo ou nom affiché" required />
+
+<div class="us-inline-fields">
+<input type="number" placeholder="Âge" min="13" max="99" />
+<select>
+<option value="">Genre</option>
+<option>Femme</option>
+<option>Homme</option>
+<option>Non-binaire</option>
+<option>Préfère ne pas dire</option>
+</select>
+</div>
 
 <div class="role-select">
 <p>Quel est votre rôle ?</p>
@@ -80,6 +94,16 @@ Créez votre profil, partagez du contenu, trouvez votre audience et développez 
 <button type="button">Visibilité</button>
 <button type="button">Communauté</button>
 <button type="button">Collaboration</button>
+</div>
+</div>
+
+<div class="role-select">
+<p>Quel type de contenu vous intéresse ?</p>
+<div class="role-options">
+<button type="button">Photo</button>
+<button type="button">Vidéo</button>
+<button type="button">Audio</button>
+<button type="button">Lifestyle</button>
 </div>
 </div>
 
