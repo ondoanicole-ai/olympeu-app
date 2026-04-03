@@ -50,3 +50,22 @@ this.classList.add("active");
 });
 });
 });
+document.addEventListener("DOMContentLoaded", function () {
+const groups = document.querySelectorAll(".role-options");
+
+groups.forEach((group) => {
+const buttons = group.querySelectorAll("button");
+const isMulti = group.classList.contains("multi-select");
+
+buttons.forEach((btn) => {
+btn.addEventListener("click", function () {
+if (isMulti) {
+this.classList.toggle("active");
+} else {
+buttons.forEach((b) => b.classList.remove("active"));
+this.classList.add("active");
+}
+});
+});
+});
+});
