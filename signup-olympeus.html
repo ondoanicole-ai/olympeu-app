@@ -1,22 +1,184 @@
-<div class="oly-auth">
-<div class="oly-auth-box">
-<div class="oly-auth-header"><img src="https://olympe-us.com/wp-content/uploads/2026/03/ChatGPT-Image-15-mars-2026-20_27_47.png" alt="OlympeUS" />
-<h2>Connexion</h2>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inscription - OlympeUS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+
+<header class="topbar">
+<a href="index.html" class="brand">
+<span class="brand-mark"></span>
+<span class="brand-name">OlympeUS</span>
+</a>
+
+<nav class="topnav">
+<a href="index.html" class="btn btn-soft">Accueil</a>
+<a href="login.html" class="btn btn-primary">Se connecter</a>
+</nav>
+</header>
+
+<main class="page-shell wide">
+<section class="signup-layout">
+
+<!-- COLONNE GAUCHE -->
+<div class="signup-left">
+
+<section class="panel signup-hero">
+<p class="eyebrow">OlympeUS</p>
+<h1>
+Construisez des projets.<br>
+Trouvez les bonnes personnes.<br>
+<span>Accédez aux opportunités.</span>
+</h1>
+
+<div class="hero-actions">
+<a href="feed.html" class="btn btn-primary">Créer un projet</a>
+<a href="us-social.html" class="btn btn-soft">Explorer le réseau</a>
 </div>
-<form class="oly-auth-form"><input required="" type="email" placeholder="Email" /><br /><input required="" type="password" placeholder="Mot de passe" /><button class="oly-btn primary" type="submit"><br />Se connecter<br /></button></form>
-<div class="oly-auth-links"><a href="/signup">Créer un compte</a></div>
+</section>
+
+<section class="panel showcase-card">
+<div class="showcase-head">
+<span>OlympeUS</span>
+<nav class="mini-nav">
+<span>Dashboard</span>
+<span>Projets</span>
+<span>Opportunités</span>
+</nav>
+</div>
+
+<div class="showcase-grid">
+<article class="mini-project">
+<h3>Projet bio végétal</h3>
+<p>Production naturelle, identité de marque et structuration locale.</p>
+</article>
+
+<article class="mini-project">
+<h3>Application santé</h3>
+<p>Recherche de partenaires et cadrage produit.</p>
+</article>
+
+<article class="mini-project">
+<h3>Énergie durable</h3>
+<p>Collaboration en cours.</p>
+</article>
+
+<article class="mini-project">
+<h3>Création média</h3>
+<p>Contenus, communauté et diffusion d’idées.</p>
+</article>
+</div>
+</section>
+
+<section class="panel project-steps-card">
+<p class="eyebrow">OlympeUS</p>
+<h2>Les projets au centre</h2>
+<p class="muted">
+Décrivez une idée, trouvez les bonnes personnes et transformez-la en projet structuré.
+</p>
+
+<div class="steps-grid">
+<div class="step-box">
+<span class="step-num">1</span>
+<strong>Décrivez votre idée</strong>
+<p>Clarifiez votre vision et votre besoin.</p>
+</div>
+
+<div class="step-box">
+<span class="step-num">2</span>
+<strong>Trouvez les bonnes personnes</strong>
+<p>Repérez les profils adaptés à votre projet.</p>
+</div>
+
+<div class="step-box">
+<span class="step-num">3</span>
+<strong>Développez votre projet</strong>
+<p>Faites avancer votre projet étape par étape.</p>
+</div>
+
+<div class="step-box highlight-box">
+<strong>Projets trouvés</strong>
+<ul>
+<li>Projet bio végétal</li>
+<li>Application créative</li>
+<li>Projet média</li>
+</ul>
 </div>
 </div>
-<p><script><br />
-const params = new URLSearchParams(window.location.search);<br />
-const redirect = params.get("redirect");</p>
-<p>if(redirect){<br />
-localStorage.setItem("oly_redirect", "/" + redirect);<br />
-}<br />
-</script><br /><script><br />
-const params = new URLSearchParams(window.location.search);<br />
-const redirect = params.get("redirect");</p>
-<p>if(redirect){<br />
-localStorage.setItem("oly_redirect", "/" + redirect);<br />
-}<br />
-</script></p>
+</section>
+
+</div>
+
+<!-- COLONNE DROITE -->
+<aside class="signup-right">
+
+<section class="panel signup-form-card">
+<div class="small-brand">
+<span class="brand-mark small"></span>
+<span>OlympeUS</span>
+</div>
+
+<h2>Créez votre compte</h2>
+
+<form class="form-stack" onsubmit="event.preventDefault(); signup();">
+<input type="text" placeholder="Nom" required />
+<input type="email" placeholder="Email" required />
+<input type="password" placeholder="Mot de passe" required />
+<input type="text" placeholder="Profil ou rôle" />
+<input type="text" placeholder="Objectif" />
+<button type="submit" class="btn btn-primary btn-full">Créer votre compte</button>
+</form>
+
+<p class="helper">
+Vous avez déjà un compte ?
+<a href="login.html">Se connecter</a>
+</p>
+</section>
+
+<section class="panel ai-side-card">
+<div class="ai-side-head">
+<div>
+<strong>Bonjour Nicole !</strong>
+<p>Décrivez une idée et laissez l’IA vous aider à la structurer.</p>
+</div>
+<div class="ai-mini-avatar"></div>
+</div>
+
+<div class="ai-creator-card">
+<div class="ai-ring"></div>
+<h3>Créer un projet…</h3>
+<input type="text" value="Créer une marque bio végétale..." readonly />
+
+<div class="side-info-box">
+<strong>Marque bio végétale</strong>
+<p>Positionnement, offre, production naturelle et identité visuelle.</p>
+</div>
+
+<div class="side-info-box">
+<strong>Compétences recherchées</strong>
+<p>Branding, formulation, distribution, communication.</p>
+</div>
+
+<div class="side-info-box">
+<strong>Plan d’action</strong>
+<p>Concept, prototype, validation, lancement et communauté.</p>
+</div>
+
+<div class="side-bottom-row">
+<span>Créer une marque bio végétale...</span>
+<a href="olympeus-ai.html" class="btn btn-primary">Continuer</a>
+</div>
+</div>
+</section>
+
+</aside>
+
+</section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
