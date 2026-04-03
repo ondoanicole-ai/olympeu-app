@@ -1,53 +1,108 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>US Social - OlympeUS</title>
-<link rel="stylesheet" href="style.css" />
-</head>
-<body class="theme-dark">
+<main class="us-dark-layout">
 
-<header class="topbar">
-<a href="index.html" class="brand">
-<span class="brand-mark"></span>
-<span class="brand-name">OlympeUS</span>
-</a>
+<!-- COLONNE GAUCHE -->
+<aside class="us-left panel">
+<h3>Besoin d’inspiration ?</h3>
 
-<nav class="topnav">
-<a href="index.html" class="btn btn-soft">Accueil</a>
-<a href="login.html" class="btn btn-soft">Connexion</a>
-<a href="signup.html" class="btn btn-primary">Créer un compte</a>
-</nav>
-</header>
+<div class="us-card">
+<strong>Générer une idée</strong>
+<p>Suggestions créatives assistées par IA.</p>
+</div>
 
-<main class="page-shell">
-<section class="panel">
-<p class="eyebrow">Réseau social</p>
-<h1>US Social</h1>
+<div class="us-card">
+<strong>Créer un post</strong>
+<p>Texte, image, vidéo ou post mixte.</p>
+</div>
+
+<div class="us-card">
+<strong>Générer un script</strong>
+<p>Hooks, plan vidéo, storytelling.</p>
+</div>
+
+<h4>Tendances</h4>
+<ul class="us-list">
+<li>Création vidéo</li>
+<li>Projet bio</li>
+<li>Communauté</li>
+</ul>
+</aside>
+
+
+<!-- CENTRE -->
+<section class="us-center">
+
+<!-- HERO -->
+<div class="panel us-hero">
+<p class="eyebrow">Réseau social créatif</p>
+
+<h1>
+Exprimez vos idées.<br>
+Créez du contenu.<br>
+<span>Inspirez le monde.</span>
+</h1>
+
 <p class="muted">
-Rejoignez la communauté, publiez du contenu, trouvez des collaborateurs et développez votre réseau.
+Publiez, interagissez et développez vos projets avec votre communauté.
 </p>
 
-<div class="portal-grid">
-<a href="signup.html" class="portal-card">
-<h2>S’inscrire</h2>
-<p>Créer un compte et personnaliser votre profil.</p>
-</a>
-
-<a href="login.html" class="portal-card">
-<h2>Se connecter</h2>
-<p>Accéder à votre fil d’activité et à votre espace membre.</p>
-</a>
-
-<a href="feed.html" class="portal-card">
-<h2>Voir le feed</h2>
-<p>Entrer directement dans le fil d’activité si vous êtes déjà connecté.</p>
-</a>
+<div class="hero-actions">
+<a href="signup-olympeus.html" class="btn btn-primary">Créer mon compte</a>
+<a href="login.html" class="btn btn-soft">Se connecter</a>
 </div>
-</section>
-</main>
+</div>
 
-<script src="script.js"></script>
-</body>
-</html>
+
+<!-- CREATE POST -->
+<div class="panel us-create">
+<h3>Créer un post</h3>
+
+<input type="text" placeholder="Partagez quelque chose..." />
+
+<div class="action-row">
+<button class="btn btn-soft">Photo</button>
+<button class="btn btn-soft">Vidéo</button>
+<button class="btn btn-soft">Audio</button>
+<button class="btn btn-primary">Créer</button>
+</div>
+</div>
+
+
+<!-- FEED -->
+<div class="panel us-post">
+<div class="post-head">
+<div class="avatar"></div>
+<div>
+<strong>Emma Martin</strong>
+<p>Photo · il y a 2h</p>
+</div>
+</div>
+
+<p>Nouveau concept autour du voyage et de l’inspiration.</p>
+
+<div class="post-image"></div>
+</div>
+
+</section>
+
+
+<!-- DROITE -->
+<aside class="us-right panel">
+
+<h3>Exprimez vos idées</h3>
+<p class="muted">
+Publiez du texte, photo, vidéo et développez votre audience.
+</p>
+
+<a href="signup-olympeus.html" class="btn btn-primary">Créer mon compte</a>
+<a href="login.html" class="btn btn-soft">Se connecter</a>
+
+<h4>Tendances</h4>
+<ul class="us-list">
+<li>5 étapes pour lancer</li>
+<li>Valider un concept</li>
+<li>Créer du contenu</li>
+</ul>
+
+</aside>
+
+</main>
