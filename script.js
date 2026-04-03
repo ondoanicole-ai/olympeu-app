@@ -40,3 +40,13 @@ function logout() {
 localStorage.removeItem("user");
 window.location.href = "index.html";
 }
+document.addEventListener("DOMContentLoaded", function () {
+const roleButtons = document.querySelectorAll(".role-options button");
+
+roleButtons.forEach((btn) => {
+btn.addEventListener("click", function () {
+roleButtons.forEach((b) => b.classList.remove("active"));
+this.classList.add("active");
+});
+});
+});
