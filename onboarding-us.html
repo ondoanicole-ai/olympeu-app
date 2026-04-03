@@ -1,30 +1,133 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Onboarding</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Onboarding US Social</title>
+<link rel="stylesheet" href="style.css" />
 </head>
+<body class="theme-dark">
 
-<body>
+<header class="topbar">
+<a href="us-social.html" class="brand">
+<span class="brand-mark"></span>
+<span class="brand-name">US Social</span>
+</a>
 
-<h1>Bienvenue 👋</h1>
+<div class="step-badge">Étape 1 sur 1</div>
+</header>
 
-<h2>Quel est votre rôle ?</h2>
+<main class="page-shell wide">
+<section class="us-onboarding-grid">
 
-<label><input type="radio" name="role"> Porteur de projet</label><br>
-<label><input type="radio" name="role"> Collaborateur</label><br>
-<label><input type="radio" name="role"> Investisseur</label><br>
+<!-- GAUCHE -->
+<div class="panel us-onboarding-left">
+<p class="eyebrow">Bienvenue sur US</p>
+<h1>
+Personnalisons votre<br>
+expérience sociale et<br>
+<span>créative.</span>
+</h1>
 
-<h2>Que recherchez-vous ?</h2>
+<p class="muted">
+Quelques choix suffisent pour construire un feed plus pertinent, de meilleures suggestions de profils et une expérience plus adaptée à votre univers.
+</p>
 
-<label><input type="checkbox"> Collaborateurs</label><br>
-<label><input type="checkbox"> Financement</label><br>
-<label><input type="checkbox"> Opportunités</label><br>
+<div class="us-onboarding-benefits">
+<div class="us-signup-benefit">
+<strong>Feed personnalisé</strong>
+<p>Recevez du contenu en fonction de votre profil, de vos intérêts et de vos formats préférés.</p>
+</div>
 
-<br><br>
+<div class="us-signup-benefit">
+<strong>Communautés adaptées</strong>
+<p>Découvrez plus vite les groupes, tendances et discussions qui vous correspondent.</p>
+</div>
 
-<a href="feed.html">Continuer</a>
+<div class="us-signup-benefit">
+<strong>Meilleures connexions</strong>
+<p>Trouvez des profils compatibles avec votre âge, vos centres d’intérêt et vos objectifs.</p>
+</div>
+</div>
+</div>
 
+<!-- DROITE -->
+<div class="panel us-onboarding-right">
+<p class="eyebrow">Profil</p>
+<h2>Complétez votre profil US</h2>
+
+<div class="role-select">
+<p>Quel est votre rôle principal ?</p>
+<div class="role-options">
+<button type="button">Créateur</button>
+<button type="button">Membre</button>
+<button type="button">Entrepreneur</button>
+<button type="button">Collaborateur</button>
+</div>
+</div>
+
+<div class="role-select">
+<p>Quel type de contenu voulez-vous voir ?</p>
+<div class="role-options multi-select">
+<button type="button">Photo</button>
+<button type="button">Vidéo</button>
+<button type="button">Audio</button>
+<button type="button">Commentaire vocal</button>
+<button type="button">Réponse vidéo</button>
+<button type="button">Lifestyle</button>
+<button type="button">Inspiration</button>
+<button type="button">Communauté</button>
+</div>
+</div>
+
+<div class="role-select">
+<p>Quels sujets vous intéressent ?</p>
+<div class="role-options multi-select">
+<button type="button">Mode</button>
+<button type="button">Beauté</button>
+<button type="button">Cosmétique</button>
+<button type="button">Musique</button>
+<button type="button">Cinéma</button>
+<button type="button">Religion</button>
+<button type="button">Média</button>
+<button type="button">Agriculture</button>
+<button type="button">Bio</button>
+<button type="button">Tech</button>
+<button type="button">IA</button>
+<button type="button">Entrepreneuriat</button>
+</div>
+</div>
+
+<div class="role-select">
+<p>Quel est votre objectif principal ?</p>
+<div class="role-options">
+<button type="button">Publier</button>
+<button type="button">Visibilité</button>
+<button type="button">Communauté</button>
+<button type="button">Collaboration</button>
+</div>
+</div>
+
+<div class="us-inline-fields">
+<input type="number" placeholder="Âge" min="13" max="99" />
+<select>
+<option value="">Genre</option>
+<option>Femme</option>
+<option>Homme</option>
+<option>Non-binaire</option>
+<option>Préfère ne pas dire</option>
+</select>
+</div>
+
+<div class="action-row">
+<a href="us-social.html" class="btn btn-soft">Compléter plus tard</a>
+<button type="button" class="btn btn-primary" onclick="window.location.href='feed-us.html'">Continuer</button>
+</div>
+</div>
+
+</section>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
