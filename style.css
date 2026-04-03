@@ -609,3 +609,23 @@ font-size:1.7rem;
 font-size:1.5rem;
 }
 }
+.signup-layout{
+display:grid;
+grid-template-columns: 1fr 380px;
+gap:24px;
+align-items:start;
+}
+
+.signup-left{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.signup-right{
+position:sticky;
+top:20px;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
