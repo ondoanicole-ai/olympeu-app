@@ -177,50 +177,103 @@ Opportunités
 
 <section class="panel ol-composer-card">
 <div class="ol-composer-top">
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="">
-<div class="ol-composer-input">
-<input type="text" placeholder="Partagez une idée, une avancée ou une opportunité..." />
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="Antoine Dubois" />
+
+<div class="ol-composer-main">
+<textarea placeholder="Partagez une idée, une avancée, une opportunité ou un besoin de collaboration..."></textarea>
+
+<div class="ol-composer-added">
+<span class="ol-added-chip">Texte</span>
+<span class="ol-added-chip">Capture ajoutée</span>
+<span class="ol-added-chip">Document joint</span>
+<span class="ol-added-chip ol-added-chip-ai">@OlympeUS AI</span>
+<span class="ol-added-chip ol-added-chip-tag">Avancée projet</span>
+</div>
 </div>
 </div>
 
-<div class="ol-composer-actions">
-<button>
+<div class="ol-composer-actions-v2">
+<button type="button">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M8 5h8l3 3v11H5V5z"></path>
 <path d="M9 10h6M9 14h6"></path>
 </svg>
 Texte
 </button>
-<button>
+
+<button type="button">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <rect x="4" y="6" width="16" height="12" rx="2"></rect>
 <circle cx="9" cy="11" r="1.5"></circle>
 <path d="M20 15l-4-4-5 5-2-2-5 4"></path>
 </svg>
-Photo
+Ajouter image
 </button>
-<button>
+
+<button type="button">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <rect x="4" y="6" width="16" height="12" rx="2"></rect>
 <path d="M11 10l4 2-4 2z"></path>
 </svg>
-Vidéo
+Ajouter vidéo
 </button>
-<button class="ol-project-action">
+
+<button type="button">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 5v14M5 12h14"></path>
+<path d="M6 5h12v14H6z"></path>
+<path d="M9 9h6M9 13h6"></path>
 </svg>
-Créer un projet
+Ajouter document
+</button>
+
+<button type="button">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 3l2.3 4.7L19 10l-4.7 2.3L12 17l-2.3-4.7L5 10l4.7-2.3z"></path>
+</svg>
+Mentionner IA
 </button>
 </div>
 
-<div class="ol-feed-filters">
-<button class="active">Tous</button>
-<button>Projets</button>
-<button>Opportunités</button>
-<button>Collaborateurs</button>
+<div class="ol-project-tags">
+<button class="active" type="button">Avancée projet</button>
+<button type="button">Idée</button>
+<button type="button">Recherche collaborateur</button>
+<button type="button">Opportunité</button>
+</div>
+
+<div class="ol-preview-grid">
+<div class="ol-preview-card">
+<strong>Aperçu image / maquette</strong>
+<div class="ol-preview-thumb ol-preview-image"></div>
+</div>
+
+<div class="ol-preview-card">
+<strong>Document joint</strong>
+<div class="ol-doc-preview">
+<div class="ol-doc-icon">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M8 5h8l3 3v11H5V5z"></path>
+<path d="M9 10h6M9 14h6"></path>
+</svg>
+</div>
+<div>
+<span>pitch-deck-v1.pdf</span>
+<small>2,4 Mo</small>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ol-composer-footer-v2">
+<div class="ol-composer-visibility">
+<span class="ol-visibility-dot"></span>
+<span>Visible à : réseau, collaborateurs, groupes, opportunités</span>
+</div>
+
+<button class="btn btn-primary">Publier</button>
 </div>
 </section>
+
 
 <article class="panel ol-post-card">
 <div class="ol-post-head">
