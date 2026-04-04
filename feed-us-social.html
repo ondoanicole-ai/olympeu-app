@@ -49,19 +49,92 @@
 <section class="ol-feed-center">
 
 <!-- COMPOSER -->
-<section class="panel ol-composer-card">
-<div class="ol-composer-top">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" />
-<input type="text" placeholder="Exprime une idée, une vibe, une création..." />
+<section class="panel us-composer-card">
+<div class="us-composer-top">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt="Nicole" />
+<div class="us-composer-main">
+<textarea placeholder="Exprime une idée, une vibe, une création..."></textarea>
+
+<div class="us-composer-added">
+<span class="us-added-chip">Texte</span>
+<span class="us-added-chip">Image ajoutée</span>
+<span class="us-added-chip">Audio ajouté</span>
+<span class="us-added-chip us-ai-chip">@OlympeUS AI</span>
+</div>
+</div>
 </div>
 
-<div class="ol-composer-actions">
-<button>📝 Texte</button>
-<button>🎥 Vidéo</button>
-<button>🎙️ Audio</button>
-<button>✨ IA</button>
+<div class="us-composer-toolbar">
+<button type="button" class="us-tool-btn">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<rect x="4" y="6" width="16" height="12" rx="2"></rect>
+<circle cx="9" cy="11" r="1.5"></circle>
+<path d="M20 15l-4-4-5 5-2-2-5 4"></path>
+</svg>
+Ajouter image
+</button>
+
+<button type="button" class="us-tool-btn">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<rect x="4" y="6" width="16" height="12" rx="2"></rect>
+<path d="M11 10l4 2-4 2z"></path>
+</svg>
+Ajouter vidéo
+</button>
+
+<button type="button" class="us-tool-btn">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 4a3 3 0 0 1 3 3v5a3 3 0 1 1-6 0V7a3 3 0 0 1 3-3z"></path>
+<path d="M19 11a7 7 0 0 1-14 0"></path>
+<path d="M12 18v3"></path>
+</svg>
+Ajouter audio
+</button>
+
+<button type="button" class="us-tool-btn">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 3l2.3 4.7L19 10l-4.7 2.3L12 17l-2.3-4.7L5 10l4.7-2.3z"></path>
+</svg>
+Mentionner IA
+</button>
+
+<button type="button" class="us-tool-btn">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M7 12h10"></path>
+<path d="M12 7v10"></path>
+</svg>
+Ajouter hashtag
+</button>
+</div>
+
+<div class="us-composer-preview">
+<div class="us-preview-card">
+<strong>Aperçu image</strong>
+<div class="us-preview-thumb image-preview"></div>
+</div>
+
+<div class="us-preview-card">
+<strong>Aperçu audio</strong>
+<div class="us-audio-preview">
+<button type="button" class="us-audio-play">▶</button>
+<div class="us-audio-bars">
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+<small>0:21</small>
+</div>
+</div>
+</div>
+
+<div class="us-composer-footer">
+<div class="us-composer-visibility">
+<span class="us-visibility-dot"></span>
+<span>Visible à : communauté, amis, abonnés</span>
+</div>
+
+<button class="btn btn-primary">Publier</button>
 </div>
 </section>
+
 
 <!-- POST VIDEO -->
 <article class="panel ol-post-card">
