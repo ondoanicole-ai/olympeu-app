@@ -2597,3 +2597,196 @@ grid-template-columns:1fr;
 height:220px;
 }
 }
+/* =========================
+OLYMPEUS COMPOSER V2
+========================= */
+
+.ol-composer-main{
+flex:1;
+display:grid;
+gap:12px;
+}
+
+.ol-composer-main textarea{
+width:100%;
+min-height:96px;
+padding:16px;
+border-radius:18px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.04);
+color:var(--text);
+resize:vertical;
+outline:none;
+}
+
+.ol-composer-added{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.ol-added-chip{
+display:inline-flex;
+align-items:center;
+padding:8px 12px;
+border-radius:999px;
+background:rgba(255,255,255,.05);
+border:1px solid var(--border);
+color:var(--muted);
+font-size:.9rem;
+}
+
+.ol-added-chip-ai{
+color:#d9d3ff;
+background:rgba(124,108,255,.14);
+border-color:rgba(124,108,255,.28);
+}
+
+.ol-added-chip-tag{
+color:#b6f0c6;
+background:rgba(80,200,120,.14);
+border-color:rgba(80,200,120,.2);
+}
+
+.ol-composer-actions-v2{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:16px;
+}
+
+.ol-composer-actions-v2 button{
+min-height:48px;
+padding:12px 14px;
+border-radius:16px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.04);
+color:#fff;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.ol-composer-actions-v2 svg,
+.ol-doc-icon svg{
+width:18px;
+height:18px;
+stroke:currentColor;
+fill:none;
+stroke-width:1.9;
+stroke-linecap:round;
+stroke-linejoin:round;
+}
+
+.ol-project-tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:16px;
+}
+
+.ol-project-tags button{
+padding:10px 14px;
+border-radius:999px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.04);
+color:var(--muted);
+cursor:pointer;
+}
+
+.ol-project-tags button.active{
+color:#fff;
+border-color:rgba(115,215,255,.35);
+background:linear-gradient(135deg, rgba(79,172,254,.18), rgba(124,108,255,.18));
+}
+
+.ol-preview-grid{
+margin-top:18px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.ol-preview-card{
+background:rgba(255,255,255,.04);
+border:1px solid var(--border);
+border-radius:18px;
+padding:14px;
+display:grid;
+gap:10px;
+}
+
+.ol-preview-thumb{
+height:120px;
+border-radius:14px;
+overflow:hidden;
+}
+
+.ol-preview-image{
+background:
+linear-gradient(135deg, rgba(79,172,254,.12), rgba(124,108,255,.12)),
+url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+}
+
+.ol-doc-preview{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.ol-doc-icon{
+width:42px;
+height:42px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,var(--primary-2),var(--primary));
+color:#fff;
+flex:0 0 auto;
+}
+
+.ol-doc-preview span{
+display:block;
+font-weight:600;
+}
+
+.ol-doc-preview small{
+display:block;
+margin-top:4px;
+color:var(--muted);
+}
+
+.ol-composer-footer-v2{
+margin-top:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.ol-composer-visibility{
+display:flex;
+align-items:center;
+gap:10px;
+color:var(--muted);
+font-size:.92rem;
+}
+
+.ol-visibility-dot{
+width:10px;
+height:10px;
+border-radius:999px;
+background:linear-gradient(135deg,var(--primary-2),var(--primary));
+box-shadow:0 0 10px rgba(79,172,254,.4);
+}
+
+@media (max-width: 820px){
+.ol-preview-grid{
+grid-template-columns:1fr;
+}
+}
