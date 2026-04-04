@@ -2790,3 +2790,105 @@ box-shadow:0 0 10px rgba(79,172,254,.4);
 grid-template-columns:1fr;
 }
 }
+/* =========================
+OLYMPEUS AI IN FEED
+========================= */
+
+.ol-ai-trigger{
+background:linear-gradient(135deg, rgba(79,172,254,.18), rgba(124,108,255,.18)) !important;
+border-color:rgba(115,215,255,.35) !important;
+}
+
+.ol-ai-panel{
+padding:18px;
+}
+
+.ol-ai-panel-head{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:12px;
+}
+
+.ol-ai-panel-title{
+display:flex;
+gap:12px;
+align-items:flex-start;
+}
+
+.ol-ai-badge-round{
+width:38px;
+height:38px;
+border-radius:999px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,var(--primary-2),var(--primary));
+color:#fff;
+font-size:.85rem;
+font-weight:700;
+box-shadow:0 0 18px rgba(124,108,255,.3);
+flex:0 0 auto;
+}
+
+.ol-ai-panel-title h3{
+margin:0 0 6px;
+}
+
+.ol-ai-panel-title p{
+margin:0;
+color:var(--muted);
+line-height:1.45;
+}
+
+.ol-ai-chat-box{
+margin-top:16px;
+display:grid;
+gap:14px;
+}
+
+.ol-ai-chat-box textarea{
+width:100%;
+min-height:110px;
+padding:16px;
+border-radius:18px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.04);
+color:var(--text);
+resize:vertical;
+outline:none;
+}
+
+.ol-ai-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.ol-ai-response-box{
+padding:16px;
+border-radius:18px;
+background:rgba(124,108,255,.12);
+border:1px solid rgba(124,108,255,.22);
+}
+
+.ol-ai-response-box strong{
+display:block;
+margin-bottom:8px;
+}
+
+.ol-ai-response-box p{
+margin:0;
+color:#f0f2ff;
+line-height:1.55;
+}
+
+.ol-ai-side-card{
+padding:18px;
+}
+
+.ol-ai-side-actions{
+display:grid;
+gap:10px;
+margin-top:14px;
+}
