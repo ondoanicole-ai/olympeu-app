@@ -3,99 +3,479 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Onboarding - OlympeUS</title>
+<title>Feed OlympeUS</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body class="theme-dark">
 
-<header class="topbar">
+<header class="ol-feed-topbar">
 <a href="index.html" class="brand">
 <span class="brand-mark"></span>
 <span class="brand-name">OlympeUS</span>
 </a>
-<div class="step-badge">Étape 1 sur 1</div>
+
+<div class="ol-feed-search">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="11" cy="11" r="7"></circle>
+<path d="M20 20l-3.5-3.5"></path>
+</svg>
+<input type="text" placeholder="Recherche" />
+</div>
+
+<div class="ol-feed-top-actions">
+<button class="btn btn-primary ol-create-post-btn">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 5v14M5 12h14"></path>
+</svg>
+Créer un post
+</button>
+
+<button class="ol-icon-btn" aria-label="Messages">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+</button>
+
+<button class="ol-icon-btn" aria-label="Notifications">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M6 17h12"></path>
+<path d="M8 17V11a4 4 0 1 1 8 0v6"></path>
+<path d="M10 20a2 2 0 0 0 4 0"></path>
+</svg>
+</button>
+
+<div class="ol-user-mini">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Profil utilisateur" />
+<span>Antoine Dubois</span>
+</div>
+</div>
 </header>
 
-<main class="page-shell wide">
-<section class="onboarding-grid">
+<main class="ol-feed-layout">
 
-<div class="panel">
-<p class="eyebrow">Bienvenue</p>
-<h1>Construisons votre profil</h1>
-<p class="muted">
-Quelques choix suffisent pour personnaliser votre expérience.
+<!-- SIDEBAR GAUCHE -->
+<aside class="ol-feed-left">
+<section class="panel ol-profile-card">
+<div class="ol-profile-head">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Antoine Dubois" />
+<div>
+<h3>Antoine Dubois</h3>
+<span class="ol-role-badge">Porteur de projet</span>
+</div>
+</div>
+
+<div class="ol-ai-pill">
+<span class="ol-ai-dot"></span>
+<span>IA</span>
+<span class="ol-ai-sep">Entrepreneuriat</span>
+</div>
+
+<a href="#" class="ol-side-primary">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 5v14M5 12h14"></path>
+</svg>
+Créer un projet
+</a>
+
+<nav class="ol-side-nav">
+<a class="active" href="#">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v12H4z"></path>
+</svg>
+Fil d’actualités
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="9" cy="9" r="3"></circle>
+<circle cx="17" cy="10" r="2.5"></circle>
+<path d="M3 18c1.5-3 4-4.5 6-4.5s4.5 1.5 6 4.5"></path>
+</svg>
+Mes amis
+<span>950</span>
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 8h16M4 12h10M4 16h16"></path>
+</svg>
+Mes groupes
+<span>8</span>
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M6 5h12v14H6z"></path>
+<path d="M9 9h6M9 13h6"></path>
+</svg>
+Mes projets
+<span>3</span>
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M7 4h10v16l-5-3-5 3V4z"></path>
+</svg>
+Éléments enregistrés
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 3a9 9 0 1 0 9 9"></path>
+<path d="M12 7v5l3 2"></path>
+</svg>
+Mon évolution
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 18l6-6 4 4 6-8"></path>
+</svg>
+Opportunités
+</a>
+</nav>
+</section>
+
+<section class="panel ol-friends-card">
+<div class="ol-side-title-row">
+<h3>Contacts</h3>
+<span>950</span>
+</div>
+
+<div class="ol-friend-item">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80" alt="">
+<div>
+<strong>Jeanne Durand</strong>
+<p>IA Expert</p>
+</div>
+</div>
+
+<div class="ol-friend-item">
+<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&q=80" alt="">
+<div>
+<strong>Éric Lefebvre</strong>
+<p>Blockchain</p>
+</div>
+</div>
+
+<div class="ol-friend-item">
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&q=80" alt="">
+<div>
+<strong>Sophie Lambert</strong>
+<p>Marketing</p>
+</div>
+</div>
+
+<div class="ol-friend-item">
+<img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=160&q=80" alt="">
+<div>
+<strong>Karim Diouf</strong>
+<p>Eco Leader</p>
+</div>
+</div>
+
+<a href="#" class="ol-more-btn">Voir tout</a>
+</section>
+</aside>
+
+<!-- CENTRE -->
+<section class="ol-feed-center">
+
+<section class="panel ol-composer-card">
+<div class="ol-composer-top">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="">
+<div class="ol-composer-input">
+<input type="text" placeholder="Partagez une idée, une avancée ou une opportunité..." />
+</div>
+</div>
+
+<div class="ol-composer-actions">
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M8 5h8l3 3v11H5V5z"></path>
+<path d="M9 10h6M9 14h6"></path>
+</svg>
+Texte
+</button>
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<rect x="4" y="6" width="16" height="12" rx="2"></rect>
+<circle cx="9" cy="11" r="1.5"></circle>
+<path d="M20 15l-4-4-5 5-2-2-5 4"></path>
+</svg>
+Photo
+</button>
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<rect x="4" y="6" width="16" height="12" rx="2"></rect>
+<path d="M11 10l4 2-4 2z"></path>
+</svg>
+Vidéo
+</button>
+<button class="ol-project-action">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 5v14M5 12h14"></path>
+</svg>
+Créer un projet
+</button>
+</div>
+
+<div class="ol-feed-filters">
+<button class="active">Tous</button>
+<button>Projets</button>
+<button>Opportunités</button>
+<button>Collaborateurs</button>
+</div>
+</section>
+
+<article class="panel ol-post-card">
+<div class="ol-post-head">
+<div class="ol-post-user">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="">
+<div>
+<h3>Antoine Dubois</h3>
+<p>Porteur de projet · il y a 2 h</p>
+</div>
+</div>
+<button class="ol-dots-btn" aria-label="Options">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="6" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="18" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+
+<div class="ol-post-tags">
+<span class="ol-tag tag-idea">Idée</span>
+<span class="ol-tag tag-collab">Recherche collaborateur</span>
+</div>
+
+<p class="ol-post-text">
+Il me faudrait un développeur pour un projet d’application IA pour simplifier le traitement de documents. Quelqu’un de partant ?
+<a href="#">#startup</a>
+<a href="#">#opportunité</a>
 </p>
 
-<div class="info-stack">
-<div class="info-card">
-<strong>Profil intelligent</strong>
-<span>Adaptez votre espace à votre rôle.</span>
-</div>
-<div class="info-card">
-<strong>Feed pertinent</strong>
-<span>Recevez des contenus utiles.</span>
-</div>
-<div class="info-card">
-<strong>Meilleures connexions</strong>
-<span>Trouvez les bons profils plus vite.</span>
-</div>
-</div>
+<div class="ol-post-image">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Projet application IA">
 </div>
 
-<div class="onboarding-right">
-<div class="panel">
-<h2>Quel est votre rôle principal ?</h2>
-<div class="choice-grid">
-<button class="choice-btn" type="button">Porteur de projet</button>
-<button class="choice-btn" type="button">Collaborateur</button>
-<button class="choice-btn" type="button">Investisseur</button>
-<button class="choice-btn" type="button">Entrepreneur</button>
-</div>
-</div>
-
-<div class="panel">
-<h2>Que recherchez-vous ?</h2>
-<div class="tag-grid">
-<button class="tag-btn" type="button">Collaborateurs</button>
-<button class="tag-btn" type="button">Financement</button>
-<button class="tag-btn" type="button">Opportunités</button>
-<button class="tag-btn" type="button">Visibilité</button>
-<button class="tag-btn" type="button">Réseau</button>
-<button class="tag-btn" type="button">Missions</button>
-</div>
-</div>
-
-<div class="panel">
-<h2>Quels sujets vous intéressent ?</h2>
-<div class="tag-grid">
-<button class="tag-btn" type="button">IA</button>
-<button class="tag-btn" type="button">Santé</button>
-<button class="tag-btn" type="button">Énergie</button>
-<button class="tag-btn" type="button">Cosmétique</button>
-<button class="tag-btn" type="button">Tech</button>
-<button class="tag-btn" type="button">Finance</button>
-<button class="tag-btn" type="button">Éducation</button>
-<button class="tag-btn" type="button">Agriculture</button>
-<button class="tag-btn" type="button">Mode</button>
-<button class="tag-btn" type="button">Média</button>
-<button class="tag-btn" type="button">Religion</button>
-<button class="tag-btn" type="button">Cinéma</button>
-<button class="tag-btn" type="button">Astrologie</button>
-<button class="tag-btn" type="button">Astronomie</button>
-<button class="tag-btn" type="button">Occultisme</button>
-<button class="tag-btn" type="button">Musique</button>
-</div>
+<div class="ol-post-actions">
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+42
+</button>
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+16
+</button>
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+Partager
+</button>
 </div>
 
-<div class="action-row">
-<a href="profile.html" class="btn btn-soft">Compléter plus tard</a>
-<button type="button" class="btn btn-primary" onclick="finishOnboarding()">Continuer</button>
+<div class="ol-comment-card">
+<div class="ol-comment-head">
+<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80" alt="">
+<div>
+<strong>Gabriel Martin</strong>
+<p>Développeur · 2 jours</p>
 </div>
 </div>
+<p>Salut Antoine, je suis développeur et j’adore l’IA. Ça m’intéresse, on en discute ?</p>
+<input type="text" placeholder="Répondre..." />
+</div>
+</article>
+
+<article class="panel ol-post-card">
+<div class="ol-post-head">
+<div class="ol-post-user">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="">
+<div>
+<h3>Antoine Dubois</h3>
+<p>Porteur de projet · il y a 2 h</p>
+</div>
+</div>
+<button class="ol-dots-btn" aria-label="Options">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="6" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="18" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+
+<div class="ol-post-tags">
+<span class="ol-tag tag-progress">Avancée projet</span>
+</div>
+
+<p class="ol-post-text">
+Bonne nouvelle ! On a finalisé la version bêta de l’application bio végétale. Prochaine étape : tests utilisateurs et feedback.
+<a href="#">#innovation</a>
+<a href="#">#startup</a>
+</p>
+
+<div class="ol-post-image">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Réunion projet">
+</div>
+
+<div class="ol-post-actions">
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+31
+</button>
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+9
+</button>
+<button>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+Partager
+</button>
+</div>
+</article>
 
 </section>
-</main>
 
-<script src="script.js"></script>
+<!-- SIDEBAR DROITE -->
+<aside class="ol-feed-right">
+<section class="panel ol-suggest-card">
+<div class="ol-side-title-row">
+<h3>Suggestions pour vous</h3>
+</div>
+
+<div class="ol-suggest-item">
+<div class="ol-suggest-icon blue">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 3l7 4v10l-7 4-7-4V7z"></path>
+</svg>
+</div>
+<div>
+<strong>Apis Santé</strong>
+<p>AI startup</p>
+</div>
+</div>
+
+<div class="ol-suggest-item">
+<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="">
+<div>
+<strong>Florent Raoux</strong>
+<p>Ingénieur créatif</p>
+</div>
+</div>
+
+<div class="ol-suggest-item">
+<div class="ol-suggest-icon purple">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 7h16v10H4z"></path>
+<path d="M8 12h8"></path>
+</svg>
+</div>
+<div>
+<strong>Projets Chocoloco</strong>
+<p>Projet food</p>
+</div>
+</div>
+
+<div class="ol-suggest-item">
+<img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=120&q=80" alt="">
+<div>
+<strong>Karim Diouf</strong>
+<p>Eco leader</p>
+</div>
+</div>
+
+<a href="#" class="ol-more-btn">Voir plus</a>
+</section>
+
+<section class="panel ol-suggest-card">
+<div class="ol-side-title-row">
+<h3>Groupes populaires</h3>
+</div>
+
+<div class="ol-suggest-item">
+<div class="ol-suggest-icon blue">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 5v14M5 12h14"></path>
+</svg>
+</div>
+<div>
+<strong>Développeurs IA</strong>
+<p>Tech · IA · produit</p>
+</div>
+</div>
+
+<div class="ol-suggest-item">
+<div class="ol-suggest-icon coral">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+</div>
+<div>
+<strong>Marketing & Startups France</strong>
+<p>Growth · innovation</p>
+</div>
+</div>
+
+<div class="ol-suggest-item">
+<div class="ol-suggest-icon green">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M5 19c6-1 10-5 14-14"></path>
+<path d="M7 11c2 1 3 3 4 5"></path>
+</svg>
+</div>
+<div>
+<strong>Projets Énergie verte</strong>
+<p>Transition · impact</p>
+</div>
+</div>
+
+<a href="#" class="ol-more-btn">Découvrir</a>
+</section>
+
+<section class="panel ol-suggest-card">
+<div class="ol-side-title-row">
+<h3>Projets tendances</h3>
+</div>
+
+<div class="ol-suggest-item">
+<div class="ol-suggest-icon blue">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 12h16"></path>
+<path d="M12 4v16"></path>
+</svg>
+</div>
+<div>
+<strong>Application IA</strong>
+<p>Projet en cours</p>
+</div>
+</div>
+
+<div class="ol-suggest-item">
+<div class="ol-suggest-icon green">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 3c5 0 9 4 9 9s-4 9-9 9-9-4-9-9 4-9 9-9z"></path>
+<path d="M8 12h8"></path>
+</svg>
+</div>
+<div>
+<strong>Startups Santé</strong>
+<p>Innovation médicale</p>
+</div>
+</div>
+</section>
+</aside>
+
+</main>
 </body>
 </html>
