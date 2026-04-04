@@ -69,13 +69,10 @@ this.classList.add("active");
 });
 });
 });
-function toggleOlympeusAI() {
-const panel = document.getElementById("ol-ai-panel");
-if (!panel) return;
-
-panel.style.display = panel.style.display === "none" ? "block" : "none";
+function toggleOlympeusAI(){
+const btn = document.querySelector('.ol-ai-trigger');
+btn.classList.toggle('active');
 }
-
 function fillOlympeusAIPrompt(type) {
 const input = document.getElementById("ol-ai-input");
 if (!input) return;
@@ -90,15 +87,17 @@ input.value = "Aide-moi à rédiger une demande pour trouver un développeur ou 
 }
 
 function simulateOlympeusAI() {
-const input = document.getElementById("ol-ai-input");
 const output = document.getElementById("ol-ai-response-text");
-if (!input || !output) return;
+const text = "Je te propose une version optimisée de ton post pour attirer les bons profils...";
 
-const text = input.value.trim().toLowerCase();
+let i = 0;
+output.textContent = "";
 
-if (!text) {
-output.textContent = "Décrivez votre besoin et je vous aiderai à structurer votre publication ou votre projet.";
-return;
+const interval = setInterval(() => {
+output.textContent += text.charAt(i);
+i++;
+if (i >= text.length) clearInterval(interval);
+}, 20);
 }
 
 if (text.includes("collaborateur") || text.includes("développeur")) {
