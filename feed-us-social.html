@@ -3,121 +3,158 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>US Social</title>
+<title>US Social - Feed</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body class="theme-dark">
 
-<header class="ol-feed-topbar">
+<header class="usf-topbar">
 <a href="us-social.html" class="brand">
 <span class="brand-mark"></span>
 <span class="brand-name">US Social</span>
 </a>
 
-<div class="ol-feed-search">
-<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<div class="usf-search">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="11" cy="11" r="7"></circle>
+<path d="M20 20l-3.5-3.5"></path>
+</svg>
 <input type="text" placeholder="Rechercher du contenu..." />
 </div>
 
-<div class="ol-feed-top-actions">
-<button class="btn btn-primary">Créer</button>
-<div class="ol-user-mini">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" />
+<div class="usf-top-actions">
+<button class="btn btn-primary usf-create-btn">Créer</button>
+
+<a href="profile-us.html" class="usf-user-mini">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Nicole">
 <span>Nicole</span>
-</div>
+</a>
 </div>
 </header>
 
-<main class="ol-feed-layout">
+<main class="usf-layout">
 
-<!-- LEFT -->
-<aside class="ol-feed-left">
-<section class="panel">
+<!-- SIDEBAR GAUCHE -->
+<aside class="usf-left">
+<section class="panel usf-profile-card">
+<a href="profile-us.html" class="usf-profile-link">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Nicole">
+<div>
+<h3>Nicole</h3>
+<p>Photographie · Vidéo</p>
+</div>
+</a>
+
+<div class="usf-mini-icons">
+<button class="usf-mini-icon" aria-label="Profil">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 19c1.8-3.2 4.3-4.8 7-4.8s5.2 1.6 7 4.8"></path></svg>
+</button>
+<button class="usf-mini-icon" aria-label="Contenus">
+<svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"></rect><path d="M9 10h6M9 14h4"></path></svg>
+</button>
+<button class="usf-mini-icon" aria-label="Audio">
+<svg viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 1 3 3v5a3 3 0 1 1-6 0V7a3 3 0 0 1 3-3z"></path><path d="M19 11a7 7 0 0 1-14 0"></path></svg>
+</button>
+</div>
+</section>
+
+<section class="panel usf-menu-card">
 <h3>Explorer</h3>
-<nav class="ol-side-nav">
-<a class="active">Fil</a>
-<a>Tendances</a>
-<a>Créateurs</a>
-<a>Audio</a>
-<a>Vidéo</a>
-<a>Live</a>
+
+<nav class="usf-nav">
+<a class="active" href="feed-us-social.html">
+<svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"></path></svg>
+Fil
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24"><path d="M5 19l6-6 4 4 4-8"></path></svg>
+Tendances
+</a>
+<a href="search-us.html">
+<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+Créateurs
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 1 3 3v5a3 3 0 1 1-6 0V7a3 3 0 0 1 3-3z"></path><path d="M19 11a7 7 0 0 1-14 0"></path></svg>
+Audio
+</a>
+<a href="#">
+<svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"></rect><path d="M11 10l4 2-4 2z"></path></svg>
+Vidéo
+</a>
+<a href="groups-us.html">
+<svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"></circle><circle cx="17" cy="10" r="2.5"></circle><path d="M3 18c1.5-3 4-4.5 6-4.5s4.5 1.5 6 4.5"></path></svg>
+Groupes
+</a>
+<a href="messages-us.html">
+<svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4V6z"></path></svg>
+Messages
+</a>
+<a href="profile-us.html">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 19c1.8-3.2 4.3-4.8 7-4.8s5.2 1.6 7 4.8"></path></svg>
+Mon profil
+</a>
 </nav>
 </section>
 </aside>
 
-<!-- CENTER -->
-<section class="ol-feed-center">
+<!-- CENTRE -->
+<section class="usf-center">
 
-<!-- COMPOSER -->
-<section class="panel us-composer-card">
-<div class="us-composer-top">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt="Nicole" />
-<div class="us-composer-main">
+<section class="panel usf-composer-card">
+<div class="usf-composer-top">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Nicole">
+
+<div class="usf-composer-main">
 <textarea placeholder="Exprime une idée, une vibe, une création..."></textarea>
 
-<div class="us-composer-added">
-<span class="us-added-chip">Texte</span>
-<span class="us-added-chip">Image ajoutée</span>
-<span class="us-added-chip">Audio ajouté</span>
-<span class="us-added-chip us-ai-chip">@OlympeUS AI</span>
+<div class="usf-chips">
+<span class="usf-chip">Texte</span>
+<span class="usf-chip">Image ajoutée</span>
+<span class="usf-chip">Audio ajouté</span>
+<span class="usf-chip usf-chip-ai">@OlympeUS AI</span>
 </div>
 </div>
 </div>
 
-<div class="us-composer-toolbar">
-<button type="button" class="us-tool-btn">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<rect x="4" y="6" width="16" height="12" rx="2"></rect>
-<circle cx="9" cy="11" r="1.5"></circle>
-<path d="M20 15l-4-4-5 5-2-2-5 4"></path>
-</svg>
+<div class="usf-tools">
+<button type="button" class="usf-tool-btn">
+<svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"></rect><circle cx="9" cy="11" r="1.5"></circle><path d="M20 15l-4-4-5 5-2-2-5 4"></path></svg>
 Ajouter image
 </button>
 
-<button type="button" class="us-tool-btn">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<rect x="4" y="6" width="16" height="12" rx="2"></rect>
-<path d="M11 10l4 2-4 2z"></path>
-</svg>
+<button type="button" class="usf-tool-btn">
+<svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"></rect><path d="M11 10l4 2-4 2z"></path></svg>
 Ajouter vidéo
 </button>
 
-<button type="button" class="us-tool-btn">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 4a3 3 0 0 1 3 3v5a3 3 0 1 1-6 0V7a3 3 0 0 1 3-3z"></path>
-<path d="M19 11a7 7 0 0 1-14 0"></path>
-<path d="M12 18v3"></path>
-</svg>
+<button type="button" class="usf-tool-btn">
+<svg viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 1 3 3v5a3 3 0 1 1-6 0V7a3 3 0 0 1 3-3z"></path><path d="M19 11a7 7 0 0 1-14 0"></path></svg>
 Ajouter audio
 </button>
 
-<button type="button" class="us-tool-btn">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 3l2.3 4.7L19 10l-4.7 2.3L12 17l-2.3-4.7L5 10l4.7-2.3z"></path>
-</svg>
+<button type="button" class="usf-tool-btn">
+<svg viewBox="0 0 24 24"><path d="M12 3l2.3 4.7L19 10l-4.7 2.3L12 17l-2.3-4.7L5 10l4.7-2.3z"></path></svg>
 Mentionner IA
 </button>
 
-<button type="button" class="us-tool-btn">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M7 12h10"></path>
-<path d="M12 7v10"></path>
-</svg>
+<button type="button" class="usf-tool-btn">
+<svg viewBox="0 0 24 24"><path d="M7 12h10"></path><path d="M12 7v10"></path></svg>
 Ajouter hashtag
 </button>
 </div>
 
-<div class="us-composer-preview">
-<div class="us-preview-card">
+<div class="usf-preview-grid">
+<div class="usf-preview-card">
 <strong>Aperçu image</strong>
-<div class="us-preview-thumb image-preview"></div>
+<div class="usf-preview-image"></div>
 </div>
 
-<div class="us-preview-card">
+<div class="usf-preview-card">
 <strong>Aperçu audio</strong>
-<div class="us-audio-preview">
-<button type="button" class="us-audio-play">▶</button>
-<div class="us-audio-bars">
+<div class="usf-audio-preview">
+<button type="button" class="usf-play-btn">▶</button>
+<div class="usf-audio-bars">
 <span></span><span></span><span></span><span></span><span></span>
 </div>
 <small>0:21</small>
@@ -125,9 +162,9 @@ Ajouter hashtag
 </div>
 </div>
 
-<div class="us-composer-footer">
-<div class="us-composer-visibility">
-<span class="us-visibility-dot"></span>
+<div class="usf-composer-footer">
+<div class="usf-visibility">
+<span class="usf-visibility-dot"></span>
 <span>Visible à : communauté, amis, abonnés</span>
 </div>
 
@@ -135,79 +172,97 @@ Ajouter hashtag
 </div>
 </section>
 
-
-<!-- POST VIDEO -->
-<article class="panel ol-post-card">
-<div class="ol-post-head">
-<div class="ol-post-user">
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200">
+<article class="panel usf-post-card">
+<div class="usf-post-head">
+<a href="profile-us.html" class="usf-post-user">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Emma Martin">
 <div>
 <h3>Emma Martin</h3>
-<p>Créatrice · 1h</p>
+<p>Créatrice · 1 h</p>
 </div>
-</div>
+</a>
+
+<button class="usf-dots-btn" aria-label="Options">
+<svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg>
+</button>
 </div>
 
-<p class="ol-post-text">
+<p class="usf-post-text">
 Nouvelle vidéo 🎬 dites-moi ce que vous en pensez !
 </p>
 
-<div class="ol-post-image">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=1200">
+<div class="usf-post-image">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1200&q=80" alt="Publication vidéo">
 </div>
 
-<div class="ol-post-actions">
-<button>❤️ 120</button>
-<button>💬 32</button>
-<button>↗ Partager</button>
+<div class="usf-post-actions">
+<button>
+<svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path></svg>
+120
+</button>
+<button>
+<svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4V6z"></path></svg>
+32
+</button>
+<button>
+<svg viewBox="0 0 24 24"><path d="M14 9l-4 3 4 3V9z"></path><path d="M20 6H4v12h16z"></path></svg>
+Partager
+</button>
 </div>
 </article>
 
-<!-- POST AUDIO -->
-<article class="panel ol-post-card">
-<div class="ol-post-head">
-<div class="ol-post-user">
-<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200">
+<article class="panel usf-post-card">
+<div class="usf-post-head">
+<a href="profile-us.html" class="usf-post-user">
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Sophie Lambert">
 <div>
 <h3>Sophie Lambert</h3>
-<p>Podcast · 2h</p>
+<p>Podcast · 2 h</p>
 </div>
-</div>
-</div>
+</a>
 
-<p class="ol-post-text">🎙️ Petit message audio pour vous</p>
-
-<div class="ol-audio-player">
-▶️ Écouter (simulation)
+<button class="usf-dots-btn" aria-label="Options">
+<svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg>
+</button>
 </div>
 
-</article>
+<p class="usf-post-text">Petit message audio pour vous</p>
 
-<!-- COMMENT + IA -->
-<article class="panel ol-post-card">
-
-<p class="ol-post-text">
-Comment développer une audience rapidement ?
-</p>
-
-<div class="ol-comment-card">
-<input id="commentInput" placeholder="Répondre ou mentionner @OlympeUS AI..." />
-
-<button onclick="simulateAI()">Envoyer</button>
-
-<div id="aiResponse" class="ol-ai-response"></div>
+<div class="usf-audio-post">
+<button type="button" class="usf-play-btn">▶</button>
+<div class="usf-audio-track">
+<span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<small>0:21</small>
 </div>
 
+<div class="usf-post-actions">
+<button>
+<svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path></svg>
+120
+</button>
+<button>
+<svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4V6z"></path></svg>
+Étaler
+</button>
+</div>
+
+<div class="usf-ai-comment">
+<div class="usf-ai-comment-head">
+<span class="usf-ai-badge">AI</span>
+<strong>OlympeUS AI</strong>
+</div>
+<p>Tu peux transformer ce message audio en mini script vidéo ou en texte de publication. Veux-tu un exemple ?</p>
+</div>
 </article>
 
 </section>
 
-<!-- RIGHT -->
-<aside class="ol-feed-right">
-
-<section class="panel">
+<!-- SIDEBAR DROITE -->
+<aside class="usf-right">
+<section class="panel usf-side-card">
 <h3>Tendances</h3>
-<ul>
+<ul class="usf-hashtag-list">
 <li>#création</li>
 <li>#startup</li>
 <li>#podcast</li>
@@ -215,25 +270,64 @@ Comment développer une audience rapidement ?
 </ul>
 </section>
 
-<section class="panel">
+<section class="panel usf-side-card">
 <h3>Créateurs suggérés</h3>
-<p>Découvre des profils inspirants</p>
+<p class="muted">Découvre des profils inspirants</p>
+
+<div class="usf-suggest-item">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="">
+<div>
+<strong>Jeanne Durand</strong>
+<p>Photo · IA</p>
+</div>
+<button class="usf-follow-btn">Suivre</button>
+</div>
+
+<div class="usf-suggest-item">
+<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="">
+<div>
+<strong>Hakim Ajiqua</strong>
+<p>Vidéo · UGC</p>
+</div>
+<button class="usf-follow-btn">Suivre</button>
+</div>
+
+<div class="usf-suggest-item">
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80" alt="">
+<div>
+<strong>Emilie Roche</strong>
+<p>Mode · Création</p>
+</div>
+<button class="usf-follow-btn">Suivre</button>
+</div>
 </section>
 
+<section class="panel usf-side-card">
+<h3>Groupes populaires</h3>
+
+<div class="usf-group-item">
+<div class="usf-group-dot blue"></div>
+<div>
+<strong>Développeurs IA</strong>
+<p>Tech · IA · produit</p>
+</div>
+<span>745</span>
+</div>
+
+<div class="usf-group-item">
+<div class="usf-group-dot coral"></div>
+<div>
+<strong>Mode & Lifestyle</strong>
+<p>Fashion · inspiration</p>
+</div>
+<span>682</span>
+</div>
+
+<a href="groups-us.html" class="ol-more-btn">Découvrir</a>
+</section>
 </aside>
 
 </main>
-
-<script>
-function simulateAI() {
-const input = document.getElementById("commentInput").value;
-const response = document.getElementById("aiResponse");
-
-if(input.includes("@OlympeUS AI")){
-response.innerHTML = "🤖 OlympeUS AI : Poste régulièrement, utilise les tendances et collabore avec d'autres créateurs.";
-}
-}
-</script>
 
 </body>
 </html>
