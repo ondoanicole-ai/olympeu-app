@@ -1810,3 +1810,22 @@ height:48px;
 display:none;
 }
 }
+/* US FEED */
+
+.ol-audio-player{
+margin-top:12px;
+padding:16px;
+border-radius:16px;
+background:rgba(255,255,255,.05);
+text-align:center;
+cursor:pointer;
+}
+
+.ol-ai-response{
+margin-top:10px;
+padding:12px;
+border-radius:14px;
+background:rgba(124,108,255,.15);
+border:1px solid rgba(124,108,255,.3);
+color:#fff;
+}
