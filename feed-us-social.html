@@ -1,45 +1,166 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>US Social</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css" />
 </head>
+<body class="theme-dark">
 
-<body>
+<header class="ol-feed-topbar">
+<a href="us-social.html" class="brand">
+<span class="brand-mark"></span>
+<span class="brand-name">US Social</span>
+</a>
 
-<h1>US Social</h1>
+<div class="ol-feed-search">
+<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<input type="text" placeholder="Rechercher du contenu..." />
+</div>
 
-<nav>
-<a href="index.html">Accueil</a>
-<a href="profile.html">Profil</a>
-<a href="olympeus-ai.html">AI</a>
+<div class="ol-feed-top-actions">
+<button class="btn btn-primary">Créer</button>
+<div class="ol-user-mini">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" />
+<span>Nicole</span>
+</div>
+</div>
+</header>
+
+<main class="ol-feed-layout">
+
+<!-- LEFT -->
+<aside class="ol-feed-left">
+<section class="panel">
+<h3>Explorer</h3>
+<nav class="ol-side-nav">
+<a class="active">Fil</a>
+<a>Tendances</a>
+<a>Créateurs</a>
+<a>Audio</a>
+<a>Vidéo</a>
+<a>Live</a>
 </nav>
-
-<section>
-<h2>Créer un post</h2>
-<textarea placeholder="Exprimez-vous..."></textarea>
-<button>Publier</button>
 </section>
+</aside>
 
-<section>
-<h2>Fil d’activité</h2>
+<!-- CENTER -->
+<section class="ol-feed-center">
 
-<div class="post">
-<p><strong>Nicole</strong></p>
-<p>Je lance un projet cosmétique naturel 🌿</p>
-<button>Like</button>
-<button>Commenter</button>
+<!-- COMPOSER -->
+<section class="panel ol-composer-card">
+<div class="ol-composer-top">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" />
+<input type="text" placeholder="Exprime une idée, une vibe, une création..." />
 </div>
 
-<div class="post">
-<p><strong>Jean</strong></p>
-<p>Recherche développeur pour startup IA</p>
-<button>Like</button>
-<button>Commenter</button>
+<div class="ol-composer-actions">
+<button>📝 Texte</button>
+<button>🎥 Vidéo</button>
+<button>🎙️ Audio</button>
+<button>✨ IA</button>
+</div>
+</section>
+
+<!-- POST VIDEO -->
+<article class="panel ol-post-card">
+<div class="ol-post-head">
+<div class="ol-post-user">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200">
+<div>
+<h3>Emma Martin</h3>
+<p>Créatrice · 1h</p>
+</div>
+</div>
 </div>
 
+<p class="ol-post-text">
+Nouvelle vidéo 🎬 dites-moi ce que vous en pensez !
+</p>
+
+<div class="ol-post-image">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=1200">
+</div>
+
+<div class="ol-post-actions">
+<button>❤️ 120</button>
+<button>💬 32</button>
+<button>↗ Partager</button>
+</div>
+</article>
+
+<!-- POST AUDIO -->
+<article class="panel ol-post-card">
+<div class="ol-post-head">
+<div class="ol-post-user">
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200">
+<div>
+<h3>Sophie Lambert</h3>
+<p>Podcast · 2h</p>
+</div>
+</div>
+</div>
+
+<p class="ol-post-text">🎙️ Petit message audio pour vous</p>
+
+<div class="ol-audio-player">
+▶️ Écouter (simulation)
+</div>
+
+</article>
+
+<!-- COMMENT + IA -->
+<article class="panel ol-post-card">
+
+<p class="ol-post-text">
+Comment développer une audience rapidement ?
+</p>
+
+<div class="ol-comment-card">
+<input id="commentInput" placeholder="Répondre ou mentionner @OlympeUS AI..." />
+
+<button onclick="simulateAI()">Envoyer</button>
+
+<div id="aiResponse" class="ol-ai-response"></div>
+</div>
+
+</article>
+
 </section>
+
+<!-- RIGHT -->
+<aside class="ol-feed-right">
+
+<section class="panel">
+<h3>Tendances</h3>
+<ul>
+<li>#création</li>
+<li>#startup</li>
+<li>#podcast</li>
+<li>#video</li>
+</ul>
+</section>
+
+<section class="panel">
+<h3>Créateurs suggérés</h3>
+<p>Découvre des profils inspirants</p>
+</section>
+
+</aside>
+
+</main>
+
+<script>
+function simulateAI() {
+const input = document.getElementById("commentInput").value;
+const response = document.getElementById("aiResponse");
+
+if(input.includes("@OlympeUS AI")){
+response.innerHTML = "🤖 OlympeUS AI : Poste régulièrement, utilise les tendances et collabore avec d'autres créateurs.";
+}
+}
+</script>
 
 </body>
 </html>
