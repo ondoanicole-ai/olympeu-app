@@ -279,6 +279,33 @@ Mentionner IA
 <button class="btn btn-primary">Publier</button>
 </div>
 </section>
+<section class="panel ol-ai-panel" id="ol-ai-panel" style="display:none;">
+<div class="ol-ai-panel-head">
+<div class="ol-ai-panel-title">
+<span class="ol-ai-badge-round">AI</span>
+<div>
+<h3>Assistant OlympeUS</h3>
+<p>Structurez une idée, un projet ou une recherche de collaborateur.</p>
+</div>
+</div>
+</div>
+
+<div class="ol-ai-chat-box">
+<textarea id="ol-ai-input" placeholder="Exemple : aide-moi à rédiger une publication pour trouver un développeur IA..."></textarea>
+
+<div class="ol-ai-actions">
+<button class="btn btn-soft" type="button" onclick="fillOlympeusAIPrompt('Rédige un post projet')">Rédiger un post</button>
+<button class="btn btn-soft" type="button" onclick="fillOlympeusAIPrompt('Transformer en projet')">Transformer en projet</button>
+<button class="btn btn-soft" type="button" onclick="fillOlympeusAIPrompt('Trouver un collaborateur')">Trouver un collaborateur</button>
+<button class="btn btn-primary" type="button" onclick="simulateOlympeusAI()">Envoyer</button>
+</div>
+
+<div class="ol-ai-response-box" id="ol-ai-response-box">
+<strong>Réponse IA</strong>
+<p id="ol-ai-response-text">L’IA vous aidera ici à structurer votre demande.</p>
+</div>
+</div>
+</section>
 
 
 <article class="panel ol-post-card">
