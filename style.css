@@ -2794,10 +2794,11 @@ grid-template-columns:1fr;
 OLYMPEUS AI IN FEED
 ========================= */
 
-.ol-ai-trigger{
-background:linear-gradient(135deg, rgba(79,172,254,.18), rgba(124,108,255,.18)) !important;
-border-color:rgba(115,215,255,.35) !important;
+.ol-ai-trigger.active {
+box-shadow: 0 0 20px rgba(124,108,255,.6);
+border-color: #7c6cff;
 }
+
 
 .ol-ai-panel{
 padding:18px;
