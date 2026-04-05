@@ -2898,3 +2898,15 @@ box-shadow: 0 0 20px rgba(124,108,255,.45);
 border-color: #7c6cff !important;
 transform: translateY(-1px);
 }
+/* Sélection onboarding */
+.role-options button.active{
+background: linear-gradient(135deg, rgba(79,172,254,.22), rgba(124,108,255,.22));
+border-color: #73d7ff;
+color: #fff;
+box-shadow: 0 0 0 1px rgba(115,215,255,.28) inset, 0 8px 24px rgba(79,172,254,.12);
+transform: translateY(-1px);
+}
+
+.role-options button{
+transition: all .18s ease;
+}
