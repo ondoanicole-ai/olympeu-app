@@ -1,17 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-initOnboardingSelections();
-});
+const groups = document.querySelectorAll(".choice-grid, .tag-grid, .role-options");
 
-function initOnboardingSelections() {
-const sections = document.querySelectorAll(".role-select");
-
-sections.forEach(function (section) {
-const group =
-section.querySelector(".role-options") ||
-section.querySelector(".tag-grid");
-
-if (!group) return;
-
+groups.forEach(function (group) {
 const buttons = group.querySelectorAll("button");
 const isMulti = group.classList.contains("multi-select");
 
@@ -20,6 +10,7 @@ btn.type = "button";
 
 btn.addEventListener("click", function (e) {
 e.preventDefault();
+e.stopPropagation();
 
 if (isMulti) {
 btn.classList.toggle("active");
@@ -32,12 +23,11 @@ btn.classList.add("active");
 });
 });
 });
-}
+});
 
 function toggleOlympeusAI() {
 const panel = document.getElementById("ol-ai-panel");
 if (!panel) return;
-
 const currentDisplay = window.getComputedStyle(panel).display;
 panel.style.display = currentDisplay === "none" ? "block" : "none";
 }
@@ -58,7 +48,6 @@ input.value = "Aide-moi à rédiger une demande pour trouver un développeur ou 
 function simulateOlympeusAI() {
 const input = document.getElementById("ol-ai-input");
 const output = document.getElementById("ol-ai-response-text");
-
 if (!input || !output) return;
 
 const text = input.value.trim().toLowerCase();
@@ -69,11 +58,9 @@ return;
 }
 
 if (text.includes("collaborateur") || text.includes("développeur")) {
-output.textContent = "Voici une version plus efficace : Je recherche un développeur motivé pour rejoindre un projet IA en phase de structuration. Objectif : construire une première version, tester le marché et faire évoluer le produit. Compétences recherchées : développement web, logique produit et intérêt pour l’IA.";
+output.textContent = "Voici une version plus efficace : Je recherche un développeur motivé pour rejoindre un projet IA en phase de structuration. Objectif : construire une première version, tester le marché et faire évoluer le produit.";
 } else if (text.includes("projet")) {
-output.textContent = "Je vous conseille de structurer votre projet en 4 blocs : problème, solution, public cible, besoins immédiats. Ensuite, transformez-le en publication claire avec un appel à action.";
-} else if (text.includes("opportunité")) {
-output.textContent = "Je peux reformuler cette opportunité sous forme de post plus visible, avec un titre fort, un résumé simple et les profils recherchés.";
+output.textContent = "Je vous conseille de structurer votre projet en 4 blocs : problème, solution, public cible, besoins immédiats.";
 } else {
 output.textContent = "Je peux vous aider à transformer cette idée en publication, en projet structuré ou en demande de collaboration plus claire.";
 }
@@ -84,25 +71,9 @@ const textarea = document.getElementById("olympeus-post-textarea");
 if (!textarea) return;
 
 const currentText = textarea.value.trim();
-
-let generatedText = "";
-
-if (currentText) {
-generatedText =
-"✨ Version optimisée par OlympeUS AI :\n\n" +
-currentText +
-"\n\n👉 Objectif : rendre la demande plus claire, plus attractive et orientée action.\n" +
-"📌 Proposition : Je recherche activement un profil motivé pour rejoindre ce projet en phase de structuration. " +
-"Le but est de construire une première version solide, tester le besoin utilisateur et faire évoluer le produit avec les bons partenaires.";
-} else {
-generatedText =
-"✨ Version optimisée par OlympeUS AI :\n\n" +
-"Je recherche un collaborateur motivé pour rejoindre un projet en phase de structuration. " +
-"Objectif : construire une première version claire, valider le besoin utilisateur et faire évoluer le produit rapidement avec une vision long terme.\n\n" +
-"#projet #collaboration #startup";
-}
-
-textarea.value = generatedText;
+textarea.value = currentText
+? "✨ Version optimisée par OlympeUS AI :\n\n" + currentText
+: "✨ Version optimisée par OlympeUS AI :\n\nJe recherche un collaborateur motivé pour rejoindre un projet en phase de structuration.\n\n#projet #collaboration #startup";
 
 const btn = document.querySelector(".ol-ai-trigger");
 if (btn) {
