@@ -3168,3 +3168,46 @@ grid-template-columns: 1fr;
 grid-template-columns: 1fr;
 }
 }
+/* ===== Réparer zones cliquables US ===== */
+
+.usf-composer-card,
+.usf-side-card,
+.usf-profile-card,
+.usf-explore-card {
+position: relative;
+overflow: visible;
+}
+
+.usf-composer-top,
+.usf-tools,
+.usf-preview-grid,
+.usf-composer-footer,
+.usf-side-card,
+.usf-profile-card .mini-actions,
+.usf-topbar .top-actions {
+position: relative;
+z-index: 3;
+}
+
+#us-post-textarea {
+position: relative;
+z-index: 1;
+width: 100%;
+min-height: 110px;
+max-height: 220px;
+resize: vertical;
+overflow-y: auto;
+}
+
+.usf-tool-btn,
+.usf-ai-trigger,
+.usf-side-card button,
+.usf-profile-card button,
+.top-actions button,
+.top-actions a,
+.btn {
+position: relative;
+z-index: 4;
+pointer-events: auto;
+cursor: pointer;
+}
