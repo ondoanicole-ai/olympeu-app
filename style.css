@@ -2893,3 +2893,8 @@ display:grid;
 gap:10px;
 margin-top:14px;
 }
+.ol-ai-trigger.active{
+box-shadow: 0 0 20px rgba(124,108,255,.45);
+border-color: #7c6cff !important;
+transform: translateY(-1px);
+}
