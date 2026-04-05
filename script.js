@@ -1,17 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-initSelectableGroup(".role-options", "button");
-initSelectableGroup(".tag-grid", "button, .tag-btn");
+initOnboardingSelections();
 });
 
-function initSelectableGroup(groupSelector, itemSelector) {
-const groups = document.querySelectorAll(groupSelector);
+function initOnboardingSelections() {
+const sections = document.querySelectorAll(".role-select");
 
-groups.forEach(function (group) {
-const buttons = group.querySelectorAll(itemSelector);
+sections.forEach(function (section) {
+const group =
+section.querySelector(".role-options") ||
+section.querySelector(".tag-grid");
+
+if (!group) return;
+
+const buttons = group.querySelectorAll("button");
 const isMulti = group.classList.contains("multi-select");
 
 buttons.forEach(function (btn) {
-btn.setAttribute("type", "button");
+btn.type = "button";
 
 btn.addEventListener("click", function (e) {
 e.preventDefault();
@@ -28,7 +33,6 @@ btn.classList.add("active");
 });
 });
 }
-
 
 function toggleOlympeusAI() {
 const panel = document.getElementById("ol-ai-panel");
