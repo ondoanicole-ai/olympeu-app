@@ -105,8 +105,8 @@ input.value = "Donne-moi une idée de vidéo originale et simple à produire pou
 }
 
 function simulateHiiveAI() {
-const input = document.getElementById("Hiive-ai-input");
-const output = document.getElementById("Hiive-ai-response-text");
+const input = document.getElementById("hiive-ai-input");
+const output = document.getElementById("hiive-ai-response-text");
 
 if (!input || !output) return;
 
@@ -129,7 +129,7 @@ output.textContent = "Je peux vous aider à transformer cette idée en post, lé
 }
 
 function optimizeWithHiiveAI() {
-const textarea = document.getElementById("us-post-textarea");
+const textarea = document.getElementById("hiide-post-textarea");
 if (!textarea) return;
 
 const currentText = textarea.value.trim();
@@ -149,7 +149,7 @@ generatedText =
 
 textarea.value = generatedText;
 
-const btn = document.querySelector(".usf-ai-trigger");
+const btn = document.querySelector(".hiive-ai-trigger");
 if (btn) {
 btn.classList.add("active");
 setTimeout(function () {
@@ -158,15 +158,15 @@ btn.classList.remove("active");
 }
 }
 function toggleHiiveAI() {
-const panel = document.getElementById("Hiive-ai-panel");
+const panel = document.getElementById("hiive-ai-panel");
 if (!panel) return;
 
 const currentDisplay = window.getComputedStyle(panel).display;
 panel.style.display = currentDisplay === "none" ? "block" : "none";
 }
 
-function fillUSAIPrompt(type) {
-const input = document.getElementById("Hiive-ai-input");
+function fillHiiveAIPrompt(type) {
+const input = document.getElementById("hiive-ai-input");
 if (!input) return;
 
 if (type === "post") {
@@ -178,7 +178,7 @@ input.value = "Donne-moi une idée de vidéo originale et simple à produire pou
 }
 }
 
-function simulateUSAI() {
+function simulateHiiveAI() {
 const input = document.getElementById("Hiive-ai-input");
 const output = document.getElementById("Hiive-ai-response-text");
 
@@ -203,7 +203,7 @@ output.textContent = "Je peux vous aider à transformer cette idée en post, lé
 }
 
 function optimizeWithHiiveAI() {
-const textarea = document.getElementById("us-post-textarea");
+const textarea = document.getElementById("hiive-post-textarea");
 if (!textarea) return;
 
 const currentText = textarea.value.trim();
@@ -223,7 +223,7 @@ generatedText =
 
 textarea.value = generatedText;
 
-const btn = document.querySelector(".usf-ai-trigger");
+const btn = document.querySelector(".hiive-ai-trigger");
 if (btn) {
 btn.classList.add("active");
 setTimeout(function () {
