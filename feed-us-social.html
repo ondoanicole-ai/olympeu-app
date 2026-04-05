@@ -179,6 +179,34 @@ Optimiser avec IA
 </div>
 </section>
 
+<section class="panel usf-ai-panel" id="us-ai-panel" style="display:none;">
+<div class="usf-ai-panel-head">
+<div class="usf-ai-title">
+<span class="usf-ai-badge">AI</span>
+<div>
+<h3>Assistant US Social</h3>
+<p>Créez un post, une légende, une idée de vidéo ou une réponse plus engageante.</p>
+</div>
+</div>
+</div>
+
+<div class="usf-ai-box">
+<textarea id="us-ai-input" placeholder="Exemple : aide-moi à rédiger un post inspirant sur la création de contenu..."></textarea>
+
+<div class="usf-ai-actions">
+<button class="btn btn-soft" type="button" onclick="fillUSAIPrompt('post')">Créer un post</button>
+<button class="btn btn-soft" type="button" onclick="fillUSAIPrompt('caption')">Créer une légende</button>
+<button class="btn btn-soft" type="button" onclick="fillUSAIPrompt('video')">Idée de vidéo</button>
+<button class="btn btn-primary" type="button" onclick="simulateUSAI()">Envoyer</button>
+</div>
+
+<div class="usf-ai-response" id="us-ai-response">
+<strong>Réponse IA</strong>
+<p id="us-ai-response-text">L’IA vous aidera ici à créer un contenu plus fort et plus visible.</p>
+</div>
+</div>
+</section>
+
 <article class="panel usf-post-card">
 <div class="usf-post-head">
 <a href="profile-us.html" class="usf-post-user">
@@ -277,6 +305,17 @@ Partager
 </ul>
 </section>
 
+<section class="panel usf-side-card">
+<h3>Assistant IA</h3>
+<p class="muted">Besoin d’aide pour écrire, reformuler ou lancer une idée de contenu ?</p>
+
+<div class="usf-ai-side-actions">
+<button class="btn btn-primary btn-full" type="button" onclick="toggleUSAI()">Discuter avec l’IA</button>
+<button class="btn btn-soft btn-full" type="button" onclick="fillUSAIPrompt('caption')">Créer une légende</button>
+<button class="btn btn-soft btn-full" type="button" onclick="fillUSAIPrompt('video')">Trouver une idée vidéo</button>
+</div>
+</section>
+  
 <section class="panel usf-side-card">
 <h3>Créateurs suggérés</h3>
 <p class="muted">Découvre des profils inspirants</p>
