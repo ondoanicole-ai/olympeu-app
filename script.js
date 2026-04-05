@@ -231,3 +231,77 @@ btn.classList.remove("active");
 }, 1200);
 }
 }
+function toggleHiiveAI() {
+const panel = document.getElementById("hiive-ai-panel");
+if (!panel) return;
+
+const currentDisplay = window.getComputedStyle(panel).display;
+panel.style.display = currentDisplay === "none" ? "block" : "none";
+}
+
+function fillHiiveAIPrompt(type) {
+const input = document.getElementById("hiive-ai-input");
+if (!input) return;
+
+if (type === "post") {
+input.value = "Aide-moi à rédiger un post inspirant pour présenter une idée créative et susciter des réactions.";
+} else if (type === "caption") {
+input.value = "Crée une légende courte, moderne et engageante pour une publication photo ou vidéo.";
+} else if (type === "video") {
+input.value = "Donne-moi une idée de vidéo originale et simple à produire pour engager ma communauté.";
+}
+}
+
+function simulateHiiveAI() {
+const input = document.getElementById("hiive-ai-input");
+const output = document.getElementById("hiive-ai-response-text");
+
+if (!input || !output) return;
+
+const text = input.value.trim().toLowerCase();
+
+if (!text) {
+output.textContent = "Décrivez votre besoin et je vous aiderai à créer un contenu plus fort, plus clair et plus visible.";
+return;
+}
+
+if (text.includes("légende") || text.includes("caption")) {
+output.textContent = "Voici une proposition : Créer, recommencer, évoluer. Chaque contenu est une étape de plus vers votre univers. #creation #inspiration #hiive";
+} else if (text.includes("vidéo")) {
+output.textContent = "Idée de vidéo : montrez votre processus en 3 étapes — inspiration, création, résultat final — avec une phrase courte à chaque étape.";
+} else if (text.includes("post")) {
+output.textContent = "Proposition de post : J’explore de nouvelles idées, de nouvelles formes et de nouvelles façons de créer. Ce n’est que le début. Dites-moi ce que ce contenu vous inspire.";
+} else {
+output.textContent = "Je peux vous aider à transformer cette idée en post, légende, vidéo ou réponse plus engageante.";
+}
+}
+
+function optimizeWithHiiveAI() {
+const textarea = document.getElementById("hiive-post-textarea");
+if (!textarea) return;
+
+const currentText = textarea.value.trim();
+
+let generatedText = "";
+
+if (currentText) {
+generatedText =
+"✨ Version optimisée par Hiive AI :\n\n" +
+currentText +
+"\n\n👉 Proposition : un ton plus fluide, plus engageant et plus inspirant pour encourager les réactions et le partage.";
+} else {
+generatedText =
+"✨ Version optimisée par Hiive AI :\n\n" +
+"J’explore une nouvelle idée créative aujourd’hui. Entre inspiration, expérimentation et expression, chaque contenu est une nouvelle étape. Qu’est-ce que cela vous inspire ?";
+}
+
+textarea.value = generatedText;
+
+const btn = document.querySelector(".hiive-ai-trigger");
+if (btn) {
+btn.classList.add("active");
+setTimeout(function () {
+btn.classList.remove("active");
+}, 1200);
+}
+}
