@@ -3211,3 +3211,23 @@ z-index: 4;
 pointer-events: auto;
 cursor: pointer;
 }
+#us-post-textarea {
+min-height: 140px;
+max-height: 260px;
+padding-right: 14px;
+line-height: 1.55;
+scrollbar-width: thin;
+}
+
+#us-post-textarea::-webkit-scrollbar {
+width: 8px;
+}
+
+#us-post-textarea::-webkit-scrollbar-thumb {
+background: rgba(115, 215, 255, 0.35);
+border-radius: 999px;
+}
+
+#us-post-textarea::-webkit-scrollbar-track {
+background: transparent;
+}
