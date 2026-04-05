@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-setupSelectableButtons();
-});
-
-function setupSelectableButtons() {
 const groups = document.querySelectorAll(".role-options");
 
 groups.forEach((group) => {
@@ -24,7 +20,7 @@ this.classList.add("active");
 });
 });
 });
-}
+});
 
 function toggleOlympeusAI() {
 const panel = document.getElementById("ol-ai-panel");
