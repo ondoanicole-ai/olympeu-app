@@ -68,7 +68,7 @@ Quelques choix suffisent pour personnaliser votre expérience.
 <div class="panel">
 <h2>Quels sujets vous intéressent ?</h2>
 <div class="tag-grid">
-<button class="tag-btn" type="button">IA</button>
+<button class="tag-btn" type="button" onclick="testSelect(this)">IA</button>
 <button class="tag-btn" type="button">Santé</button>
 <button class="tag-btn" type="button">Énergie</button>
 <button class="tag-btn" type="button">Cosmétique</button>
@@ -101,5 +101,13 @@ Quelques choix suffisent pour personnaliser votre expérience.
 </main>
 
 <script src="script.js"></script>
+<script>
+function testSelect(btn) {
+btn.classList.toggle('active');
+}
+</script>
+</body>
+</html>
+
 </body>
 </html>
