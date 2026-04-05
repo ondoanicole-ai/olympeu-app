@@ -1,56 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-const choiceButtons = document.querySelectorAll(".choice-btn");
-choiceButtons.forEach((btn) => {
-btn.addEventListener("click", function () {
-choiceButtons.forEach((b) => b.classList.remove("active"));
-this.classList.add("active");
-});
-});
-
-const tagButtons = document.querySelectorAll(".tag-btn");
-tagButtons.forEach((btn) => {
-btn.addEventListener("click", function () {
-this.classList.toggle("active");
-});
-});
-
-const protectedPages = ["feed.html", "profile.html", "settings.html"];
-const currentPage = window.location.pathname.split("/").pop();
-
-if (protectedPages.includes(currentPage) && !localStorage.getItem("user")) {
-window.location.href = "login.html";
-}
-});
-
-function signup() {
-localStorage.setItem("user", "true");
-window.location.href = "onboarding.html";
-}
-
-function login() {
-localStorage.setItem("user", "true");
-window.location.href = "feed.html";
-}
-
-function finishOnboarding() {
-window.location.href = "feed.html";
-}
-
-function logout() {
-localStorage.removeItem("user");
-window.location.href = "index.html";
-}
-document.addEventListener("DOMContentLoaded", function () {
-const roleButtons = document.querySelectorAll(".role-options button");
-
-roleButtons.forEach((btn) => {
-btn.addEventListener("click", function () {
-roleButtons.forEach((b) => b.classList.remove("active"));
-this.classList.add("active");
-});
-});
-});
-document.addEventListener("DOMContentLoaded", function () {
 const groups = document.querySelectorAll(".role-options");
 
 groups.forEach((group) => {
@@ -69,10 +17,14 @@ this.classList.add("active");
 });
 });
 });
-function toggleOlympeusAI(){
-const btn = document.querySelector('.ol-ai-trigger');
-btn.classList.toggle('active');
+
+function toggleOlympeusAI() {
+const panel = document.getElementById("ol-ai-panel");
+if (!panel) return;
+
+panel.style.display = panel.style.display === "none" ? "block" : "none";
 }
+
 function fillOlympeusAIPrompt(type) {
 const input = document.getElementById("ol-ai-input");
 if (!input) return;
@@ -87,17 +39,15 @@ input.value = "Aide-moi à rédiger une demande pour trouver un développeur ou 
 }
 
 function simulateOlympeusAI() {
+const input = document.getElementById("ol-ai-input");
 const output = document.getElementById("ol-ai-response-text");
-const text = "Je te propose une version optimisée de ton post pour attirer les bons profils...";
+if (!input || !output) return;
 
-let i = 0;
-output.textContent = "";
+const text = input.value.trim().toLowerCase();
 
-const interval = setInterval(() => {
-output.textContent += text.charAt(i);
-i++;
-if (i >= text.length) clearInterval(interval);
-}, 20);
+if (!text) {
+output.textContent = "Décrivez votre besoin et je vous aiderai à structurer votre publication ou votre projet.";
+return;
 }
 
 if (text.includes("collaborateur") || text.includes("développeur")) {
@@ -108,5 +58,33 @@ output.textContent = "Je vous conseille de structurer votre projet en 4 blocs : 
 output.textContent = "Je peux reformuler cette opportunité sous forme de post plus visible, avec un titre fort, un résumé simple et les profils recherchés.";
 } else {
 output.textContent = "Je peux vous aider à transformer cette idée en publication, en projet structuré ou en demande de collaboration plus claire.";
+}
+}
+
+function optimizeWithOlympeusAI() {
+const textarea = document.getElementById("olympeus-post-textarea");
+if (!textarea) return;
+
+const currentText = textarea.value.trim();
+
+const generatedText = currentText
+? `✨ Version optimisée par OlympeUS AI :
+
+${currentText}
+
+👉 Objectif : rendre la demande plus claire, plus attractive et orientée action.
+📌 Proposition : Je recherche activement un profil motivé pour rejoindre ce projet en phase de structuration. Le but est de construire une première version solide, tester le besoin utilisateur et faire évoluer le produit avec les bons partenaires.`
+: `✨ Version optimisée par OlympeUS AI :
+
+Je recherche un collaborateur motivé pour rejoindre un projet en phase de structuration. Objectif : construire une première version claire, valider le besoin utilisateur et faire évoluer le produit rapidement avec une vision long terme.
+
+#projet #collaboration #startup`;
+
+textarea.value = generatedText;
+
+const btn = document.querySelector(".ol-ai-trigger");
+if (btn) {
+btn.classList.add("active");
+setTimeout(() => btn.classList.remove("active"), 1200);
 }
 }
