@@ -83,16 +83,16 @@ btn.classList.remove("active");
 }, 1200);
 }
 }
-function toggleUSAI() {
-const panel = document.getElementById("us-ai-panel");
+function toggleHiiveAI() {
+const panel = document.getElementById("Hiive-ai-panel");
 if (!panel) return;
 
 const currentDisplay = window.getComputedStyle(panel).display;
 panel.style.display = currentDisplay === "none" ? "block" : "none";
 }
 
-function fillUSAIPrompt(type) {
-const input = document.getElementById("us-ai-input");
+function fillHiiveAIPrompt(type) {
+const input = document.getElementById("Hiive-ai-input");
 if (!input) return;
 
 if (type === "post") {
@@ -104,9 +104,9 @@ input.value = "Donne-moi une idée de vidéo originale et simple à produire pou
 }
 }
 
-function simulateUSAI() {
-const input = document.getElementById("us-ai-input");
-const output = document.getElementById("us-ai-response-text");
+function simulateHiiveAI() {
+const input = document.getElementById("Hiive-ai-input");
+const output = document.getElementById("Hiive-ai-response-text");
 
 if (!input || !output) return;
 
@@ -128,7 +128,7 @@ output.textContent = "Je peux vous aider à transformer cette idée en post, lé
 }
 }
 
-function optimizeWithUSAI() {
+function optimizeWithHiiveAI() {
 const textarea = document.getElementById("us-post-textarea");
 if (!textarea) return;
 
@@ -138,12 +138,12 @@ let generatedText = "";
 
 if (currentText) {
 generatedText =
-"✨ Version optimisée par US AI :\n\n" +
+"✨ Version optimisée par Hiive AI :\n\n" +
 currentText +
 "\n\n👉 Proposition : un ton plus fluide, plus engageant et plus inspirant pour encourager les réactions et le partage.";
 } else {
 generatedText =
-"✨ Version optimisée par US AI :\n\n" +
+"✨ Version optimisée par Hiive AI :\n\n" +
 "J’explore une nouvelle idée créative aujourd’hui. Entre inspiration, expérimentation et expression, chaque contenu est une nouvelle étape. Qu’est-ce que cela vous inspire ?";
 }
 
@@ -157,8 +157,8 @@ btn.classList.remove("active");
 }, 1200);
 }
 }
-function toggleUSAI() {
-const panel = document.getElementById("us-ai-panel");
+function toggleHiiveAI() {
+const panel = document.getElementById("Hiive-ai-panel");
 if (!panel) return;
 
 const currentDisplay = window.getComputedStyle(panel).display;
@@ -166,7 +166,7 @@ panel.style.display = currentDisplay === "none" ? "block" : "none";
 }
 
 function fillUSAIPrompt(type) {
-const input = document.getElementById("us-ai-input");
+const input = document.getElementById("Hiive-ai-input");
 if (!input) return;
 
 if (type === "post") {
@@ -179,8 +179,8 @@ input.value = "Donne-moi une idée de vidéo originale et simple à produire pou
 }
 
 function simulateUSAI() {
-const input = document.getElementById("us-ai-input");
-const output = document.getElementById("us-ai-response-text");
+const input = document.getElementById("Hiive-ai-input");
+const output = document.getElementById("Hiive-ai-response-text");
 
 if (!input || !output) return;
 
@@ -202,7 +202,7 @@ output.textContent = "Je peux vous aider à transformer cette idée en post, lé
 }
 }
 
-function optimizeWithUSAI() {
+function optimizeWithHiiveAI() {
 const textarea = document.getElementById("us-post-textarea");
 if (!textarea) return;
 
@@ -212,12 +212,12 @@ let generatedText = "";
 
 if (currentText) {
 generatedText =
-"✨ Version optimisée par US AI :\n\n" +
+"✨ Version optimisée par Hiive AI :\n\n" +
 currentText +
 "\n\n👉 Proposition : un ton plus fluide, plus engageant et plus inspirant pour encourager les réactions et le partage.";
 } else {
 generatedText =
-"✨ Version optimisée par US AI :\n\n" +
+"✨ Version optimisée par Hiive AI :\n\n" +
 "J’explore une nouvelle idée créative aujourd’hui. Entre inspiration, expérimentation et expression, chaque contenu est une nouvelle étape. Qu’est-ce que cela vous inspire ?";
 }
 
