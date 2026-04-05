@@ -2910,3 +2910,8 @@ transform: translateY(-1px);
 .role-options button{
 transition: all .18s ease;
 }
+.tag-btn.active{
+background: linear-gradient(135deg, rgba(79,172,254,.25), rgba(124,108,255,.25));
+border-color: #73d7ff;
+color: white;
+}
