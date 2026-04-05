@@ -3086,3 +3086,85 @@ stroke-width:1.9;
 stroke-linecap:round;
 stroke-linejoin:round;
 }
+/* Réparer les clics du composer US */
+.usf-composer-card{
+position: relative;
+}
+
+.usf-composer-top,
+.usf-composer-main,
+.usf-tools,
+.usf-preview-grid,
+.usf-composer-footer,
+.usf-ai-panel,
+.usf-ai-side-actions,
+.usf-side-card button,
+.usf-tool-btn,
+.usf-ai-trigger,
+.usf-follow-btn{
+position: relative;
+z-index: 2;
+pointer-events: auto;
+}
+
+.usf-composer-main textarea{
+position: relative;
+z-index: 1;
+}
+
+.usf-tool-btn,
+.usf-ai-trigger,
+.usf-side-card button,
+.btn{
+cursor: pointer;
+}
+/* Composer US plus propre */
+.usf-tools{
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 12px;
+margin-top: 16px;
+}
+
+.usf-tool-btn,
+.usf-ai-trigger{
+width: 100%;
+min-height: 48px;
+padding: 12px 14px;
+border-radius: 16px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+text-align: center;
+}
+
+.usf-chips{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:12px;
+}
+
+.usf-preview-grid{
+margin-top:18px;
+display:grid;
+grid-template-columns:repeat(2, minmax(0, 1fr));
+gap:14px;
+}
+
+@media (max-width: 900px){
+.usf-tools{
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 640px){
+.usf-tools{
+grid-template-columns: 1fr;
+}
+
+.usf-preview-grid{
+grid-template-columns: 1fr;
+}
+}
