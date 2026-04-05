@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
 initSelectableGroup(".role-options", "button");
-initSelectableGroup(".tag-grid", ".tag-btn");
-initSelectableGroup(".multi-select", "button, .tag-btn", true);
+initSelectableGroup(".tag-grid", "button, .tag-btn");
 });
 
-function initSelectableGroup(groupSelector, itemSelector, forceMulti = false) {
+function initSelectableGroup(groupSelector, itemSelector) {
 const groups = document.querySelectorAll(groupSelector);
 
 groups.forEach(function (group) {
 const buttons = group.querySelectorAll(itemSelector);
-const isMulti = forceMulti || group.classList.contains("multi-select");
+const isMulti = group.classList.contains("multi-select");
 
 buttons.forEach(function (btn) {
 btn.setAttribute("type", "button");
@@ -29,6 +28,7 @@ btn.classList.add("active");
 });
 });
 }
+
 
 function toggleOlympeusAI() {
 const panel = document.getElementById("ol-ai-panel");
