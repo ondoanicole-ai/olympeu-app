@@ -2915,3 +2915,83 @@ background: linear-gradient(135deg, rgba(79,172,254,.25), rgba(124,108,255,.25))
 border-color: #73d7ff;
 color: white;
 }
+/* =========================
+ONBOARDING OLYMPEUS
+========================= */
+
+.onboarding-grid{
+display:grid;
+grid-template-columns:minmax(0,1fr) 460px;
+gap:24px;
+align-items:start;
+}
+
+.onboarding-left,
+.onboarding-right{
+padding:28px;
+}
+
+.onboarding-left h1{
+margin-bottom:14px;
+}
+
+.role-select{
+display:grid;
+gap:12px;
+margin-bottom:18px;
+}
+
+.role-select p{
+margin:0;
+color:var(--muted);
+font-size:.95rem;
+}
+
+.role-options{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.role-options button,
+.role-options .tag-btn{
+min-height:44px;
+padding:10px 14px;
+border-radius:16px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.04);
+color:var(--text);
+cursor:pointer;
+transition:all .18s ease;
+font-size:.95rem;
+}
+
+.role-options button:hover,
+.role-options .tag-btn:hover{
+background:rgba(255,255,255,.08);
+border-color:rgba(115,215,255,.18);
+}
+
+.role-options button.active,
+.role-options .tag-btn.active{
+background:linear-gradient(135deg, rgba(79,172,254,.22), rgba(124,108,255,.22));
+border-color:#73d7ff;
+color:#fff;
+box-shadow:0 0 0 1px rgba(115,215,255,.28) inset, 0 8px 24px rgba(79,172,254,.12);
+transform:translateY(-1px);
+}
+
+.onboarding-actions{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+@media (max-width: 980px){
+.onboarding-grid{
+grid-template-columns:1fr;
+}
+}
