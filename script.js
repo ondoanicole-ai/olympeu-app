@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-initRoleSelections();
+initSelectableGroup(".role-options", "button");
+initSelectableGroup(".tag-grid", ".tag-btn");
+initSelectableGroup(".multi-select", "button, .tag-btn", true);
 });
 
-function initRoleSelections() {
-const groups = document.querySelectorAll(".role-options");
+function initSelectableGroup(groupSelector, itemSelector, forceMulti = false) {
+const groups = document.querySelectorAll(groupSelector);
 
 groups.forEach(function (group) {
-const buttons = group.querySelectorAll("button");
-const isMulti = group.classList.contains("multi-select");
+const buttons = group.querySelectorAll(itemSelector);
+const isMulti = forceMulti || group.classList.contains("multi-select");
 
 buttons.forEach(function (btn) {
 btn.setAttribute("type", "button");
