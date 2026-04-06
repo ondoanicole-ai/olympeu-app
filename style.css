@@ -4034,4 +4034,56 @@ transition:0.2s;
 opacity:1;
 text-decoration:underline;
 }
+.panel-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
+}
+
+.see-all{
+font-size:13px;
+color:#4facfe;
+text-decoration:none;
+font-weight:500;
+opacity:.85;
+transition:.2s;
+}
+
+.see-all:hover{
+opacity:1;
+text-decoration:underline;
+}
+
+.hiive-connections-card{
+padding:18px;
+}
+
+.hiive-connection-item{
+display:grid;
+grid-template-columns:46px 1fr;
+gap:12px;
+align-items:center;
+padding:10px 0;
+}
+
+.hiive-connection-item img{
+width:46px;
+height:46px;
+border-radius:999px;
+object-fit:cover;
+}
+
+.hiive-connection-item strong{
+display:block;
+line-height:1.1;
+}
+
+.hiive-connection-item p{
+margin:4px 0 0;
+color:var(--muted);
+font-size:.9rem;
+line-height:1.3;
+}
 
