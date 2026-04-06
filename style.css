@@ -4327,5 +4327,50 @@ margin-top:16px;
 border-top:1px solid rgba(255,255,255,0.04);
 padding-top:12px;
 }
+/* BASE */
+.chat-item{
+display:flex;
+align-items:center;
+gap:12px;
+padding:12px;
+border-radius:12px;
+transition:0.2s;
+position:relative;
+}
+
+/* HOVER */
+.chat-item:hover{
+background:rgba(255,255,255,0.06);
+}
+
+/* ACTIF (conversation ouverte) */
+.chat-item.active{
+background:linear-gradient(90deg, rgba(79,172,254,0.25), transparent);
+}
+
+/* NON LU */
+.chat-item.unread strong{
+font-weight:700;
+}
+
+.chat-item.unread p{
+opacity:1;
+color:#fff;
+}
+
+/* LU */
+.chat-item.read p{
+opacity:0.6;
+}
+
+/* BADGE */
+.badge{
+margin-left:auto;
+background:#4facfe;
+color:#fff;
+font-size:11px;
+padding:4px 8px;
+border-radius:999px;
+}
 
 
