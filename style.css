@@ -3246,3 +3246,15 @@ line-height: 1;
 body.login header {
 justify-content: flex-start !important;
 }
+.topbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.topbar .brand{
+margin-right:auto;
+text-decoration:none;
+display:flex;
+align-items:center;
+}
