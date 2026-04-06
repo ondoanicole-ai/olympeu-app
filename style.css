@@ -3871,3 +3871,23 @@ stroke-width:1.9;
 stroke-linecap:round;
 stroke-linejoin:round;
 }
+.connection-item{
+display:grid;
+grid-template-columns:46px 1fr;
+gap:12px;
+align-items:center;
+padding:10px 0;
+}
+
+.connection-item img{
+width:46px;
+height:46px;
+border-radius:999px;
+object-fit:cover;
+}
+
+.connection-item p{
+margin:4px 0 0;
+color:var(--muted);
+font-size:.92rem;
+}
