@@ -3841,3 +3841,33 @@ padding:22px 16px !important;
 font-size:2rem;
 }
 }
+/* Correction topbar OlympeUS profil */
+.top-actions{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.top-actions a{
+width:42px;
+height:42px;
+border-radius:14px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,.04);
+border:1px solid var(--border);
+color:#dfe7ff;
+text-decoration:none;
+flex:0 0 auto;
+}
+
+.top-actions a svg{
+width:18px;
+height:18px;
+stroke:currentColor;
+fill:none;
+stroke-width:1.9;
+stroke-linecap:round;
+stroke-linejoin:round;
+}
