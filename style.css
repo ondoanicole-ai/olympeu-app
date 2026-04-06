@@ -4372,5 +4372,12 @@ font-size:11px;
 padding:4px 8px;
 border-radius:999px;
 }
+.badge-dot{
+width:8px;
+height:8px;
+background:#4facfe;
+border-radius:50%;
+margin-left:auto;
+}
 
 
