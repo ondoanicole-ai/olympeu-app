@@ -305,3 +305,6 @@ btn.classList.remove("active");
 }, 1200);
 }
 }
+function optimizeProjectAI() {
+alert("OlympeUS AI : optimisation du projet à venir.");
+}
