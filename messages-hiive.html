@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messages – Hiive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-dark">
+
+<div class="hiive-messages">
+
+<!-- LEFT : conversations -->
+<aside class="hiive-chat-list">
+
+<div class="chat-header">
+<h2>Messages</h2>
+<input type="text" placeholder="Rechercher..." />
+</div>
+
+<div class="chat-item active">
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80">
+<div>
+<strong>Emma Martin</strong>
+<p>On avance sur le projet ?</p>
+</div>
+</div>
+
+<div class="chat-item">
+<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d">
+<div>
+<strong>Hakim Ajiqua</strong>
+<p>J’ai une idée audio 🔥</p>
+</div>
+</div>
+
+</aside>
+
+<!-- RIGHT : chat -->
+<section class="hiive-chat">
+
+<div class="chat-top">
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80">
+<strong>Emma Martin</strong>
+</div>
+
+<div class="chat-messages">
+
+<div class="msg other">
+Salut 👋
+</div>
+
+<div class="msg me">
+Hey ! Tu vas bien ?
+</div>
+
+<div class="msg other">
+On avance sur le projet ?
+</div>
+
+</div>
+
+<div class="chat-input">
+<input type="text" placeholder="Écrire un message..." />
+<button onclick="sendMessage()">Envoyer</button>
+</div>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
