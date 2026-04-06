@@ -20,7 +20,7 @@
 </div>
 <div class="chat-list-title">Messages récents</div> 
   
-<div class="chat-item unread">
+<div class="chat-item unread" data-user="emma">
 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" />
 <div>
 <strong>Emma Martin</strong>
@@ -34,7 +34,7 @@
 <span class="badge">2</span>
 </div>
 
-<div class="chat-item read">
+<div class="chat-item read" data-user="hakim">
 <img src="https://randomuser.me/api/portraits/men/32.jpg" />
 <div>
 <strong>Hakim Ajigua</strong>
@@ -54,20 +54,19 @@
 
 <div class="chat-messages">
 
-<div class="msg other">
-Salut 👋
+<div class="chat-conversation" id="emma">
+<div class="msg other">Salut 👋</div>
+<div class="msg me">Hey ! Tu vas bien ?</div>
+<div class="msg other">On avance sur le projet ?</div>
 </div>
 
-<div class="msg me">
-Hey ! Tu vas bien ?
-</div>
-
-<div class="msg other">
-On avance sur le projet ?
+<div class="chat-conversation" id="hakim" style="display:none;">
+<div class="msg other">J’ai une idée audio 🔥</div>
+<div class="msg me">Dis-moi, je t’écoute</div>
 </div>
 
 </div>
-
+  
 <div class="chat-input">
 <input type="text" placeholder="Écrire un message..." />
 <button onclick="sendMessage()">Envoyer</button>
