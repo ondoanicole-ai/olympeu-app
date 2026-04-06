@@ -308,3 +308,18 @@ btn.classList.remove("active");
 function optimizeProjectAI() {
 alert("OlympeUS AI : optimisation du projet à venir.");
 }
+function sendMessage(){
+const input = document.querySelector(".chat-input input");
+const container = document.querySelector(".chat-messages");
+
+if(input.value.trim() === "") return;
+
+const msg = document.createElement("div");
+msg.className = "msg me";
+msg.innerText = input.value;
+
+container.appendChild(msg);
+
+input.value = "";
+container.scrollTop = container.scrollHeight;
+}
