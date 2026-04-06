@@ -323,3 +323,12 @@ container.appendChild(msg);
 input.value = "";
 container.scrollTop = container.scrollHeight;
 }
+document.querySelectorAll('.chat-item').forEach(item=>{
+item.addEventListener('click', ()=>{
+item.classList.remove('unread');
+item.classList.add('read');
+
+const badge = item.querySelector('.badge');
+if(badge) badge.remove();
+});
+});
