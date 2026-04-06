@@ -3247,9 +3247,8 @@ display:inline-flex;
 align-items:flex-end;
 position:relative;
 line-height:1;
-text-shadow:
-0 0 8px rgba(255,255,255,0.10),
-0 0 18px rgba(255,255,255,0.04);
+text-shadow:  none;
+
 }
 
 .i-wrap{
