@@ -3958,3 +3958,20 @@ grid-template-columns:1fr;
 max-width:none;
 }
 }
+.btn-full{
+width:100%;
+}
+
+.olympeus-right .btn,
+.olympeus-right .btn-primary,
+.olympeus-right .btn-soft{
+min-height:44px;
+padding:0 16px;
+border-radius:14px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-weight:600;
+white-space:nowrap;
+}
