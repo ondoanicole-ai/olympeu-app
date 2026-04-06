@@ -391,3 +391,37 @@ if (badge) badge.remove();
 });
 });
 </script>
+<script>
+const items = document.querySelectorAll('.chat-item');
+
+items.forEach(item => {
+item.addEventListener('click', () => {
+
+// active visuel
+items.forEach(i => i.classList.remove('active'));
+item.classList.add('active');
+
+const user = item.dataset.user;
+
+// switch conversation
+document.querySelectorAll('.chat-conversation').forEach(conv=>{
+conv.style.display = 'none';
+});
+
+document.getElementById(user).style.display = 'block';
+
+// changer nom + avatar
+document.getElementById('chat-name').textContent = item.dataset.name;
+document.getElementById('chat-avatar').src = item.dataset.avatar;
+
+// enlever unread
+item.classList.remove('unread');
+item.classList.add('read');
+
+const badge = item.querySelector('.badge');
+if(badge) badge.remove();
+
+});
+});
+</script>
+
