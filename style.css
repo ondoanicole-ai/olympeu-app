@@ -3232,43 +3232,34 @@ border-radius: 999px;
 background: transparent;
 }
 .brand-name{
+position: relative;
 font-size: 26px;
 font-weight: 700;
 color: #ffffff;
-font-family: 'Inter', 'Sora', sans-serif;
+font-family: 'Inter', sans-serif;
 letter-spacing: -1px;
-display: flex;
-align-items: center;
-gap: 2px;
 }
 
 /* POINTS */
 .dot{
+position: absolute;
 width: 6px;
 height: 6px;
 border-radius: 50%;
-display: inline-block;
-margin: 0 2px;
 }
 
-/* POINT BLEU */
+/* POINT SUR 1er i */
 .dot.blue{
+left: 17px;
+top: -4px;
 background: radial-gradient(circle, #7DD3FC, #2563EB);
-box-shadow: 0 0 8px rgba(96,165,250,0.6);
+box-shadow: 0 0 6px rgba(96,165,250,0.6);
 }
 
-/* POINT MULTI */
+/* POINT SUR 2e i */
 .dot.mix{
+left: 28px;
+top: -4px;
 background: radial-gradient(circle, #A78BFA, #EC4899, #60A5FA);
-box-shadow: 0 0 10px rgba(236,72,153,0.6);
+box-shadow: 0 0 8px rgba(236,72,153,0.6);
 }
-.dot{
-animation: pulse 3s infinite ease-in-out;
-}
-
-@keyframes pulse{
-0%{ transform: scale(1); opacity: 0.9; }
-50%{ transform: scale(1.2); opacity: 1; }
-100%{ transform: scale(1); opacity: 0.9; }
-}
-
