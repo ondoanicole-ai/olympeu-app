@@ -4122,4 +4122,13 @@ opacity:0.7;
 .hiive-connections-card .panel-header{
 margin-bottom:8px;
 }
+.hiive-connection-item{
+transition:0.2s;
+border-radius:10px;
+padding:8px;
+}
+
+.hiive-connection-item:hover{
+background:rgba(255,255,255,0.04);
+}
 
