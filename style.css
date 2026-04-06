@@ -3231,13 +3231,3 @@ border-radius: 999px;
 #hiive-post-textarea::-webkit-scrollbar-track {
 background: transparent;
 }
-.site-logo{
-width:130px;
-height:auto;
-display:block;
-}
-
-.brand{
-display:flex;
-align-items:center;
-}
