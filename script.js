@@ -332,3 +332,37 @@ const badge = item.querySelector('.badge');
 if(badge) badge.remove();
 });
 });
+<script>
+const items = document.querySelectorAll('.chat-item');
+
+items.forEach(item => {
+item.addEventListener('click', () => {
+
+// active visuel
+items.forEach(i => i.classList.remove('active'));
+item.classList.add('active');
+
+// switch conversation
+const user = item.dataset.user;
+
+document.querySelectorAll('.chat-conversation').forEach(conv=>{
+conv.style.display = 'none';
+});
+
+document.getElementById(user).style.display = 'block';
+
+// enlever unread
+item.classList.remove('unread');
+item.classList.add('read');
+
+const badge = item.querySelector('.badge');
+if(badge) badge.remove();
+
+});
+});
+</script>
+
+
+<div class="chat-conversation" id="hakim" style="display:none;">
+<div class="msg other">J’ai une idée audio 🔥</div>
+</div>
