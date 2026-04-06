@@ -3243,3 +3243,6 @@ background: linear-gradient(90deg, #ffffff, #cbd5ff);
 
 line-height: 1;
 }
+body.login header {
+justify-content: flex-start !important;
+}
