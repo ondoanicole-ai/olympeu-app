@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Messages – OlympeUS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+
+<div class="olympeus-messages-shell">
+
+<!-- LEFT -->
+<aside class="olympeus-msg-sidebar">
+
+<div class="olympeus-msg-brand">
+<a href="feed-olympeus.html" class="olympeus-msg-logo">OlympeUS</a>
+</div>
+
+<div class="olympeus-msg-search">
+<input type="text" placeholder="Rechercher une discussion..." />
+</div>
+
+<div class="olympeus-msg-section-title">Discussions récentes</div>
+
+<div class="olympeus-thread unread active"
+data-user="karim"
+data-name="Karim Diouf"
+data-role="Éco leader · Projet énergie"
+data-avatar="https://randomuser.me/api/portraits/men/32.jpg">
+<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Karim Diouf" />
+<div class="olympeus-thread-body">
+<strong>Karim Diouf</strong>
+<p>On valide la prochaine étape du projet ?</p>
+</div>
+<span class="badge">1</span>
+</div>
+
+<div class="olympeus-thread read"
+data-user="emma"
+data-name="Emma Martin"
+data-role="Produit · Communication"
+data-avatar="https://randomuser.me/api/portraits/women/44.jpg">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Martin" />
+<div class="olympeus-thread-body">
+<strong>Emma Martin</strong>
+<p>J’ai avancé sur la présentation.</p>
+</div>
+<span class="olympeus-thread-status">Lu</span>
+</div>
+
+<div class="olympeus-thread read"
+data-user="florian"
+data-name="Florian Roux"
+data-role="Tech · IA"
+data-avatar="https://randomuser.me/api/portraits/men/45.jpg">
+<img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Florian Roux" />
+<div class="olympeus-thread-body">
+<strong>Florian Roux</strong>
+<p>Le prototype peut être prêt demain.</p>
+</div>
+<span class="olympeus-thread-status">Lu</span>
+</div>
+
+</aside>
+
+<!-- RIGHT -->
+<section class="olympeus-msg-main">
+
+<div class="olympeus-msg-top">
+<div class="olympeus-msg-contact">
+<img id="olympeus-chat-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Karim Diouf" />
+<div>
+<strong id="olympeus-chat-name">Karim Diouf</strong>
+<p id="olympeus-chat-role">Éco leader · Projet énergie</p>
+</div>
+</div>
+
+<div class="olympeus-msg-actions">
+<button type="button">Projet</button>
+<button type="button">Fichiers</button>
+<button type="button">IA</button>
+</div>
+</div>
+
+<div class="olympeus-chat-messages">
+
+<div class="olympeus-chat-conversation" id="karim">
+<div class="msg other">Salut Nicole, on valide la prochaine étape du projet ?</div>
+<div class="msg me">Oui, on peut avancer sur la version suivante.</div>
+<div class="msg other">Parfait. Je peux aussi préparer une synthèse pour l’équipe.</div>
+</div>
+
+<div class="olympeus-chat-conversation" id="emma" style="display:none;">
+<div class="msg other">J’ai avancé sur la présentation.</div>
+<div class="msg me">Super, tu me l’envoies dès que c’est prêt ?</div>
+</div>
+
+<div class="olympeus-chat-conversation" id="florian" style="display:none;">
+<div class="msg other">Le prototype peut être prêt demain.</div>
+<div class="msg me">Très bien, envoie-moi une version testable.</div>
+</div>
+
+</div>
+
+<div class="olympeus-msg-inputbar">
+<input type="text" placeholder="Écrire un message projet..." />
+<button type="button" onclick="sendOlympeusMessage()">Envoyer</button>
+</div>
+
+</section>
+
+</div>
+
+<script>
+const olympItems = document.querySelectorAll('.olympeus-thread');
+const olympName = document.getElementById('olympeus-chat-name');
+const olympRole = document.getElementById('olympeus-chat-role');
+const olympAvatar = document.getElementById('olympeus-chat-avatar');
+const olympInput = document.querySelector('.olympeus-msg-inputbar input');
+const olympMessages = document.querySelector('.olympeus-chat-messages');
+
+function getActiveOlympeusConversation() {
+return document.querySelector('.olympeus-chat-conversation:not([style*="display:none"])');
+}
+
+function scrollOlympeusChatToBottom() {
+if (olympMessages) {
+olympMessages.scrollTop = olympMessages.scrollHeight;
+}
+}
+
+function showOlympeusTyping() {
+const activeConversation = getActiveOlympeusConversation();
+if (!activeConversation) return null;
+
+const typing = document.createElement('div');
+typing.className = 'msg other typing-indicator';
+typing.textContent = 'écrit…';
+activeConversation.appendChild(typing);
+scrollOlympeusChatToBottom();
+return typing;
+}
+
+function simulateOlympeusReply(user) {
+const activeConversation = getActiveOlympeusConversation();
+if (!activeConversation) return;
+
+const replies = {
+karim: "Très bien, je prépare la suite du plan d’action.",
+emma: "D’accord, je te partage ça dans la journée.",
+florian: "Parfait, je t’envoie une version de test.",
+default: "Très bien, je reviens vers toi rapidement."
+};
+
+const typing = showOlympeusTyping();
+
+setTimeout(() => {
+if (typing) typing.remove();
+
+const reply = document.createElement('div');
+reply.className = 'msg other';
+reply.textContent = replies[user] || replies.default;
+activeConversation.appendChild(reply);
+scrollOlympeusChatToBottom();
+}, 1100);
+}
+
+olympItems.forEach(item => {
+item.addEventListener('click', () => {
+olympItems.forEach(i => i.classList.remove('active'));
+item.classList.add('active');
+
+const user = item.dataset.user;
+
+document.querySelectorAll('.olympeus-chat-conversation').forEach(conv => {
+conv.style.display = 'none';
+});
+
+const target = document.getElementById(user);
+if (target) target.style.display = 'block';
+
+if (olympName) olympName.textContent = item.dataset.name;
+if (olympRole) olympRole.textContent = item.dataset.role;
+if (olympAvatar) {
+olympAvatar.src = item.dataset.avatar;
+olympAvatar.alt = item.dataset.name;
+}
+
+item.classList.remove('unread');
+item.classList.add('read');
+
+const badge = item.querySelector('.badge');
+if (badge) badge.remove();
+
+let status = item.querySelector('.olympeus-thread-status');
+if (!status) {
+status = document.createElement('span');
+status.className = 'olympeus-thread-status';
+status.textContent = 'Lu';
+item.appendChild(status);
+}
+
+scrollOlympeusChatToBottom();
+});
+});
+
+function sendOlympeusMessage() {
+const activeConversation = getActiveOlympeusConversation();
+if (!olympInput || !activeConversation) return;
+
+const text = olympInput.value.trim();
+if (!text) return;
+
+const msg = document.createElement('div');
+msg.className = 'msg me';
+msg.textContent = text;
+
+activeConversation.appendChild(msg);
+olympInput.value = '';
+scrollOlympeusChatToBottom();
+
+const activeItem = document.querySelector('.olympeus-thread.active');
+if (activeItem) {
+simulateOlympeusReply(activeItem.dataset.user);
+}
+}
+
+if (olympInput) {
+olympInput.addEventListener('keydown', function(e) {
+if (e.key === 'Enter') {
+e.preventDefault();
+sendOlympeusMessage();
+}
+});
+}
+
+scrollOlympeusChatToBottom();
+</script>
+
+</body>
+</html>
