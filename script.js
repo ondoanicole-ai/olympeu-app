@@ -458,4 +458,5 @@ if (badge) badge.remove();
 });
 });
 </script>
-
+const messagesContainer = document.querySelector('.chat-messages');
+messagesContainer.scrollTop = messagesContainer.scrollHeight;
