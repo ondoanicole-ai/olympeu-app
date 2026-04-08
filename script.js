@@ -583,4 +583,153 @@ sendMessage();
 
 scrollChatToBottom();
 </script>
+document.addEventListener("DOMContentLoaded", () => {
+
+/* ===============================
+TOGGLE IA PANEL
+=============================== */
+window.toggleHiiveAI = function () {
+const panel = document.getElementById("hiive-ai-panel");
+
+if (!panel) return;
+
+panel.style.display =
+panel.style.display === "none" || panel.style.display === ""
+? "block"
+: "none";
+};
+
+
+/* ===============================
+OPTIMISATION IA (bouton)
+=============================== */
+window.optimizeWithHiiveAI = function () {
+const panel = document.getElementById("hiive-ai-panel");
+const textarea = document.getElementById("hiive-post-textarea");
+
+if (panel) panel.style.display = "block";
+
+if (textarea) {
+textarea.value += " ✨ Optimisé avec Hiive AI";
+}
+};
+
+
+/* ===============================
+SUGGESTIONS IA RAPIDES
+=============================== */
+window.fillHiiveAIPrompt = function (type) {
+const input = document.getElementById("hiive-ai-input");
+
+if (!input) return;
+
+if (type === "post") {
+input.value = "Rédige un post inspirant sur la création de contenu.";
+}
+
+if (type === "caption") {
+input.value = "Propose une légende engageante pour une vidéo.";
+}
+
+if (type === "video") {
+input.value = "Donne-moi une idée de vidéo courte virale.";
+}
+};
+
+
+/* ===============================
+SIMULATION REPONSE IA
+=============================== */
+window.simulateHiiveAI = function () {
+const output = document.getElementById("hiive-ai-response-text");
+
+if (!output) return;
+
+output.innerText =
+"🔥 Idée : partage ton parcours en 3 étapes avec un hook fort + une émotion + une punchline finale.";
+};
+
+
+/* ===============================
+BOUTONS FOLLOW / VOIR
+=============================== */
+document.querySelectorAll(".hiive-follow-btn").forEach(btn => {
+btn.addEventListener("click", () => {
+btn.innerText = "✔ Connecté";
+btn.style.opacity = "0.7";
+});
+});
+
+
+/* ===============================
+MINI ICÔNES PROFIL
+=============================== */
+document.querySelectorAll(".hiive-mini-icon").forEach((btn, index) => {
+btn.addEventListener("click", () => {
+if (index === 0) window.location.href = "profile-hiive.html";
+if (index === 1) alert("Contenus bientôt dispo");
+if (index === 2) alert("Audio bientôt dispo");
+});
+});
+
+
+/* ===============================
+BOUTON CREER
+=============================== */
+const createBtn = document.querySelector(".hiive-create-btn");
+
+if (createBtn) {
+createBtn.addEventListener("click", () => {
+document
+.getElementById("hiive-post-textarea")
+?.scrollIntoView({ behavior: "smooth" });
+});
+}
+
+
+/* ===============================
+BOUTON PUBLIER
+=============================== */
+document.querySelectorAll(".btn-primary").forEach(btn => {
+if (btn.innerText.includes("Publier")) {
+btn.addEventListener("click", () => {
+alert("Post publié 🚀 (simulation)");
+});
+}
+});
+
+
+/* ===============================
+TOOL BUTTONS (image/video/audio)
+=============================== */
+document.querySelectorAll(".hiive-tool-btn").forEach(btn => {
+btn.addEventListener("click", () => {
+alert("Fonction en cours de développement 🚀");
+});
+});
+
+
+/* ===============================
+POSTS (like interaction)
+=============================== */
+document.querySelectorAll(".hiive-post-actions button").forEach(btn => {
+btn.addEventListener("click", () => {
+btn.style.transform = "scale(1.1)";
+setTimeout(() => {
+btn.style.transform = "scale(1)";
+}, 150);
+});
+});
+
+
+/* ===============================
+VIBES CLICK
+=============================== */
+document.querySelectorAll(".hiive-vibe-preview").forEach(vibe => {
+vibe.addEventListener("click", () => {
+window.location.href = "vibes-hiive.html";
+});
+});
+
+});
 
