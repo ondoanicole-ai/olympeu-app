@@ -4379,5 +4379,39 @@ background:#4facfe;
 border-radius:50%;
 margin-left:auto;
 }
+.chat-list-title{
+font-size:12px;
+opacity:0.65;
+margin:14px 0 10px;
+padding-left:2px;
+}
+
+.chat-status-label{
+margin-left:auto;
+font-size:11px;
+color:rgba(255,255,255,0.55);
+}
+
+.chat-item.unread strong{
+font-weight:700;
+}
+
+.chat-item.unread p{
+color:#fff;
+opacity:1;
+}
+
+.chat-item.read p{
+opacity:0.65;
+}
+
+.badge{
+margin-left:auto;
+background:#4facfe;
+color:#fff;
+font-size:11px;
+padding:4px 8px;
+border-radius:999px;
+}
 
 
