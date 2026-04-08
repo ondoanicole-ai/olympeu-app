@@ -424,4 +424,38 @@ if(badge) badge.remove();
 });
 });
 </script>
+<script>
+const items = document.querySelectorAll('.chat-item');
+
+items.forEach(item => {
+item.addEventListener('click', () => {
+items.forEach(i => i.classList.remove('active'));
+item.classList.add('active');
+
+const user = item.dataset.user;
+
+document.querySelectorAll('.chat-conversation').forEach(conv => {
+conv.style.display = 'none';
+});
+
+const target = document.getElementById(user);
+if (target) target.style.display = 'block';
+
+const chatName = document.getElementById('chat-name');
+const chatAvatar = document.getElementById('chat-avatar');
+
+if (chatName) chatName.textContent = item.dataset.name;
+if (chatAvatar) {
+chatAvatar.src = item.dataset.avatar;
+chatAvatar.alt = item.dataset.name;
+}
+
+item.classList.remove('unread');
+item.classList.add('read');
+
+const badge = item.querySelector('.badge');
+if (badge) badge.remove();
+});
+});
+</script>
 
