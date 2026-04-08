@@ -460,3 +460,127 @@ if (badge) badge.remove();
 </script>
 const messagesContainer = document.querySelector('.chat-messages');
 messagesContainer.scrollTop = messagesContainer.scrollHeight;
+<script>
+const items = document.querySelectorAll('.chat-item');
+const chatName = document.getElementById('chat-name');
+const chatAvatar = document.getElementById('chat-avatar');
+const chatInput = document.querySelector('.chat-input input');
+const chatMessages = document.querySelector('.chat-messages');
+
+function getActiveConversation() {
+return document.querySelector('.chat-conversation:not([style*="display:none"])');
+}
+
+function scrollChatToBottom() {
+if (chatMessages) {
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+}
+
+function showTypingIndicator() {
+const activeConversation = getActiveConversation();
+if (!activeConversation) return null;
+
+let typing = document.createElement('div');
+typing.className = 'msg other typing-indicator';
+typing.textContent = 'écrit…';
+activeConversation.appendChild(typing);
+scrollChatToBottom();
+return typing;
+}
+
+function simulateReply(user) {
+const activeConversation = getActiveConversation();
+if (!activeConversation) return;
+
+const replies = {
+emma: "Oui, on peut avancer aujourd’hui si tu veux.",
+hakim: "Top, je t’envoie l’idée audio plus en détail.",
+default: "D’accord, je reviens vers toi rapidement."
+};
+
+const typing = showTypingIndicator();
+
+setTimeout(() => {
+if (typing) typing.remove();
+
+const reply = document.createElement('div');
+reply.className = 'msg other';
+reply.textContent = replies[user] || replies.default;
+activeConversation.appendChild(reply);
+scrollChatToBottom();
+}, 1200);
+}
+
+items.forEach(item => {
+item.addEventListener('click', () => {
+items.forEach(i => i.classList.remove('active'));
+item.classList.add('active');
+
+const user = item.dataset.user;
+
+document.querySelectorAll('.chat-conversation').forEach(conv => {
+conv.style.display = 'none';
+});
+
+const target = document.getElementById(user);
+if (target) target.style.display = 'block';
+
+if (chatName) chatName.textContent = item.dataset.name;
+if (chatAvatar) {
+chatAvatar.src = item.dataset.avatar;
+chatAvatar.alt = item.dataset.name;
+}
+
+item.classList.remove('unread');
+item.classList.add('read');
+
+const badge = item.querySelector('.badge');
+if (badge) badge.remove();
+
+let status = item.querySelector('.chat-status-label');
+if (!status) {
+status = document.createElement('span');
+status.className = 'chat-status-label';
+status.textContent = 'Lu';
+item.appendChild(status);
+}
+
+scrollChatToBottom();
+});
+});
+
+function sendMessage() {
+const activeConversation = getActiveConversation();
+if (!chatInput || !activeConversation) return;
+
+const text = chatInput.value.trim();
+if (!text) return;
+
+const msg = document.createElement('div');
+msg.className = 'msg me';
+msg.textContent = text;
+
+activeConversation.appendChild(msg);
+chatInput.value = '';
+scrollChatToBottom();
+
+const activeItem = document.querySelector('.chat-item.active');
+if (activeItem) {
+const user = activeItem.dataset.user;
+simulateReply(user);
+}
+}
+
+if (chatInput) {
+chatInput.addEventListener('keydown', function (e) {
+if (e.key === 'Enter') {
+e.preventDefault();
+sendMessage();
+}
+});
+}
+
+scrollChatToBottom();
+</script>
+
