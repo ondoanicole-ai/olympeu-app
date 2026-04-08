@@ -18,7 +18,8 @@
 <h2>Messages</h2>
 <input type="text" placeholder="Rechercher..." />
 </div>
-<div class="chat-list-title">Messages récents</div> 
+
+<div class="chat-list-title">Messages récents</div>
 
 <div class="chat-item unread active"
 data-user="emma"
@@ -41,8 +42,8 @@ data-avatar="https://randomuser.me/api/portraits/men/32.jpg">
 <strong>Hakim Ajigua</strong>
 <p>J’ai une idée audio 🔥</p>
 </div>
+<span class="chat-status-label">Lu</span>
 </div>
-
 
 </aside>
 
@@ -67,16 +68,81 @@ data-avatar="https://randomuser.me/api/portraits/men/32.jpg">
 <div class="msg me">Dis-moi, je t’écoute</div>
 </div>
 
-  
+</div>
+
 <div class="chat-input">
 <input type="text" placeholder="Écrire un message..." />
-<button onclick="sendMessage()">Envoyer</button>
+<button type="button" onclick="sendMessage()">Envoyer</button>
 </div>
 
 </section>
 
 </div>
 
-<script src="script.js"></script>
+<script>
+const items = document.querySelectorAll('.chat-item');
+
+items.forEach(item => {
+item.addEventListener('click', () => {
+items.forEach(i => i.classList.remove('active'));
+item.classList.add('active');
+
+const user = item.dataset.user;
+
+document.querySelectorAll('.chat-conversation').forEach(conv => {
+conv.style.display = 'none';
+});
+
+const target = document.getElementById(user);
+if (target) target.style.display = 'block';
+
+const chatName = document.getElementById('chat-name');
+const chatAvatar = document.getElementById('chat-avatar');
+
+if (chatName) chatName.textContent = item.dataset.name;
+if (chatAvatar) {
+chatAvatar.src = item.dataset.avatar;
+chatAvatar.alt = item.dataset.name;
+}
+
+item.classList.remove('unread');
+item.classList.add('read');
+
+const badge = item.querySelector('.badge');
+if (badge) badge.remove();
+
+let status = item.querySelector('.chat-status-label');
+if (!status) {
+status = document.createElement('span');
+status.className = 'chat-status-label';
+status.textContent = 'Lu';
+item.appendChild(status);
+}
+});
+});
+
+function sendMessage() {
+const input = document.querySelector('.chat-input input');
+const activeConversation = document.querySelector('.chat-conversation[style*="block"], .chat-conversation:not([style*="display:none"])');
+
+if (!input || !activeConversation) return;
+
+const text = input.value.trim();
+if (!text) return;
+
+const msg = document.createElement('div');
+msg.className = 'msg me';
+msg.textContent = text;
+
+activeConversation.appendChild(msg);
+input.value = '';
+
+const messagesContainer = document.querySelector('.chat-messages');
+if (messagesContainer) {
+messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+}
+</script>
+
 </body>
 </html>
