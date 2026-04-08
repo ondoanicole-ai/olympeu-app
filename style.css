@@ -4425,5 +4425,42 @@ display:flex;
 align-items:center;
 gap:12px;
 }
+.typing-indicator{
+opacity:.7;
+font-style:italic;
+}
+
+.chat-messages{
+scroll-behavior:smooth;
+}
+
+.chat-item{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.chat-item > div{
+display:flex;
+flex-direction:column;
+min-width:0;
+}
+
+.chat-item.active{
+background:linear-gradient(90deg, rgba(79,172,254,0.22), transparent);
+border-left:3px solid #4facfe;
+}
+
+.chat-item:hover{
+background:rgba(255,255,255,0.05);
+cursor:pointer;
+}
+
+.chat-status-label{
+margin-left:auto;
+padding-left:10px;
+font-size:11px;
+color:rgba(255,255,255,0.5);
+}
 
 
