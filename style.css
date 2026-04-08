@@ -4462,5 +4462,225 @@ padding-left:10px;
 font-size:11px;
 color:rgba(255,255,255,0.5);
 }
+/* =========================
+MESSAGES OLYMPEUS
+========================= */
+
+.olympeus-messages-shell{
+height:100vh;
+display:grid;
+grid-template-columns:320px 1fr;
+background:linear-gradient(180deg, #0d1326, #0a1020);
+}
+
+.olympeus-msg-sidebar{
+border-right:1px solid rgba(255,255,255,.06);
+padding:22px 18px;
+overflow-y:auto;
+}
+
+.olympeus-msg-logo{
+color:#fff;
+text-decoration:none;
+font-size:1.5rem;
+font-weight:800;
+}
+
+.olympeus-msg-brand{
+margin-bottom:18px;
+}
+
+.olympeus-msg-search input{
+width:100%;
+height:46px;
+padding:0 14px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.06);
+background:rgba(255,255,255,.04);
+color:#fff;
+}
+
+.olympeus-msg-section-title{
+margin:18px 0 12px;
+font-size:12px;
+color:rgba(255,255,255,.6);
+text-transform:uppercase;
+letter-spacing:.04em;
+}
+
+.olympeus-thread{
+display:flex;
+align-items:center;
+gap:12px;
+padding:12px;
+border-radius:16px;
+transition:.2s;
+position:relative;
+}
+
+.olympeus-thread:hover{
+background:rgba(255,255,255,.05);
+cursor:pointer;
+}
+
+.olympeus-thread.active{
+background:linear-gradient(90deg, rgba(79,172,254,.2), transparent);
+border-left:3px solid #4facfe;
+}
+
+.olympeus-thread img{
+width:46px;
+height:46px;
+border-radius:999px;
+object-fit:cover;
+flex:0 0 46px;
+}
+
+.olympeus-thread-body{
+display:flex;
+flex-direction:column;
+min-width:0;
+}
+
+.olympeus-thread-body strong{
+font-size:14px;
+}
+
+.olympeus-thread-body p{
+margin:4px 0 0;
+font-size:13px;
+color:rgba(255,255,255,.72);
+line-height:1.3;
+}
+
+.olympeus-thread.unread .olympeus-thread-body strong{
+font-weight:700;
+}
+
+.olympeus-thread.unread .olympeus-thread-body p{
+color:#fff;
+}
+
+.olympeus-thread-status{
+margin-left:auto;
+font-size:11px;
+color:rgba(255,255,255,.5);
+padding-left:10px;
+}
+
+.olympeus-msg-main{
+display:flex;
+flex-direction:column;
+min-width:0;
+}
+
+.olympeus-msg-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+padding:18px 22px;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.olympeus-msg-contact{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.olympeus-msg-contact img{
+width:48px;
+height:48px;
+border-radius:999px;
+object-fit:cover;
+}
+
+.olympeus-msg-contact strong{
+display:block;
+font-size:1rem;
+}
+
+.olympeus-msg-contact p{
+margin:4px 0 0;
+color:rgba(255,255,255,.6);
+font-size:.92rem;
+}
+
+.olympeus-msg-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.olympeus-msg-actions button{
+min-height:40px;
+padding:0 14px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.04);
+color:#fff;
+cursor:pointer;
+}
+
+.olympeus-chat-messages{
+flex:1;
+overflow-y:auto;
+padding:22px;
+scroll-behavior:smooth;
+}
+
+.olympeus-chat-conversation{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.olympeus-msg-inputbar{
+display:flex;
+gap:12px;
+padding:16px 22px;
+border-top:1px solid rgba(255,255,255,.06);
+background:rgba(0,0,0,.18);
+backdrop-filter:blur(10px);
+}
+
+.olympeus-msg-inputbar input{
+flex:1;
+height:48px;
+padding:0 14px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.06);
+background:rgba(255,255,255,.04);
+color:#fff;
+}
+
+.olympeus-msg-inputbar button{
+min-width:108px;
+height:48px;
+border:none;
+border-radius:14px;
+background:linear-gradient(90deg,#4facfe,#00f2fe);
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+@media (max-width: 900px){
+.olympeus-messages-shell{
+grid-template-columns:1fr;
+}
+
+.olympeus-msg-sidebar{
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,.06);
+max-height:260px;
+}
+
+.olympeus-msg-top{
+flex-direction:column;
+align-items:flex-start;
+}
+}
 
 
