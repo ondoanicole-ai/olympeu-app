@@ -1,68 +1,171 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hiive - Vibes</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hiive — Vibes</title>
+<link rel="stylesheet" href="style.css" />
 </head>
+<body class="theme-dark hiive-rails-body">
 
-<body class="theme-dark vibes-body">
+<header class="hiive-rails-topbar">
+<a href="feed-hiive-social.html" class="hiive-rails-back">← Retour</a>
+<div class="hiive-rails-brand">Hiive</div>
+<button class="hiive-rails-create" type="button">Créer</button>
+</header>
 
-<div class="vibes-container">
+<main class="hiive-rails-shell">
+<section class="hiive-rails-track" id="hiiveRailsTrack">
 
-<!-- TOP BAR -->
-<div class="vibes-topbar">
-<a href="feed-hiive-social.html" class="vibes-back">← Retour</a>
-<h2>Vibes</h2>
+<!-- FIL 1 -->
+<section class="hiive-rail active" data-rail="mood">
+<div class="hiive-rail-head">
+<h2>#mood</h2>
+<p>Ambiance, inspiration, émotion</p>
 </div>
 
-<!-- FEED -->
-<div class="vibes-feed">
-
-<!-- VIDEO 1 -->
-<div class="vibe-item">
-<video src="https://www.w3schools.com/html/mov_bbb.mp4" muted loop autoplay></video>
-
-<div class="vibe-overlay">
-<div class="vibe-user">
-<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<article class="hiive-rail-card">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1200&q=80" alt="Mood 1">
+<div class="hiive-rail-overlay">
+<div class="hiive-rail-user">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Martin">
+<div>
 <strong>Emma Martin</strong>
-</div>
-
-<p class="vibe-text">Créer du contenu chaque jour 🔥</p>
-
-<div class="vibe-actions">
-<button>❤️ 120</button>
-<button>💬 32</button>
-<button>↗</button>
+<span>#mood</span>
 </div>
 </div>
+<p>Créer du contenu chaque jour 🔥</p>
 </div>
+</article>
 
-<!-- VIDEO 2 -->
-<div class="vibe-item">
-<video src="https://www.w3schools.com/html/movie.mp4" muted loop autoplay></video>
-
-<div class="vibe-overlay">
-<div class="vibe-user">
-<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<article class="hiive-rail-card">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Mood 2">
+<div class="hiive-rail-overlay">
+<div class="hiive-rail-user">
+<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Hakim Ajiqua">
+<div>
 <strong>Hakim Ajiqua</strong>
+<span>#mood</span>
+</div>
+</div>
+<p>Une idée peut tout changer.</p>
+</div>
+</article>
+</section>
+
+<!-- FIL 2 -->
+<section class="hiive-rail" data-rail="style">
+<div class="hiive-rail-head">
+<h2>#style</h2>
+<p>Esthétique, image, identité</p>
 </div>
 
-<p class="vibe-text">Idée startup en 20 sec 🚀</p>
+<article class="hiive-rail-card">
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80" alt="Style 1">
+<div class="hiive-rail-overlay">
+<div class="hiive-rail-user">
+<img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jeanne Durand">
+<div>
+<strong>Jeanne Durand</strong>
+<span>#style</span>
+</div>
+</div>
+<p>Look minimal, identité forte.</p>
+</div>
+</article>
 
-<div class="vibe-actions">
-<button>❤️ 89</button>
-<button>💬 14</button>
-<button>↗</button>
+<article class="hiive-rail-card">
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="Style 2">
+<div class="hiive-rail-overlay">
+<div class="hiive-rail-user">
+<img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emilie Roche">
+<div>
+<strong>Emilie Roche</strong>
+<span>#style</span>
 </div>
 </div>
+<p>Ta signature visuelle compte.</p>
+</div>
+</article>
+</section>
+
+<!-- FIL 3 -->
+<section class="hiive-rail" data-rail="feels">
+<div class="hiive-rail-head">
+<h2>#feels</h2>
+<p>Ressenti, sincérité, connexion</p>
 </div>
 
+<article class="hiive-rail-card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Feels 1">
+<div class="hiive-rail-overlay">
+<div class="hiive-rail-user">
+<img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Florian Roux">
+<div>
+<strong>Florian Roux</strong>
+<span>#feels</span>
 </div>
 </div>
+<p>Quand une émotion devient un contenu.</p>
+</div>
+</article>
 
-<script src="script.js"></script>
+<article class="hiive-rail-card">
+<img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=1200&q=80" alt="Feels 2">
+<div class="hiive-rail-overlay">
+<div class="hiive-rail-user">
+<img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Sophie Lambert">
+<div>
+<strong>Sophie Lambert</strong>
+<span>#feels</span>
+</div>
+</div>
+<p>Le vrai attire plus que le parfait.</p>
+</div>
+</article>
+</section>
+
+</section>
+</main>
+
+<script>
+const track = document.getElementById("hiiveRailsTrack");
+const rails = document.querySelectorAll(".hiive-rail");
+
+function setActiveRail() {
+let bestRail = null;
+let bestDistance = Infinity;
+const viewportCenter = window.innerWidth / 2;
+
+rails.forEach((rail) => {
+const rect = rail.getBoundingClientRect();
+const railCenter = rect.left + rect.width / 2;
+const distance = Math.abs(viewportCenter - railCenter);
+
+if (distance < bestDistance) {
+bestDistance = distance;
+bestRail = rail;
+}
+});
+
+rails.forEach((rail) => rail.classList.remove("active"));
+if (bestRail) bestRail.classList.add("active");
+}
+
+rails.forEach((rail) => {
+rail.addEventListener("click", () => {
+rail.scrollIntoView({
+behavior: "smooth",
+inline: "center",
+block: "nearest"
+});
+});
+});
+
+track.addEventListener("scroll", setActiveRail, { passive: true });
+window.addEventListener("load", setActiveRail);
+window.addEventListener("resize", setActiveRail);
+</script>
+
 </body>
 </html>
