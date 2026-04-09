@@ -5743,39 +5743,6 @@ opacity:0;
 transform:translate(-50%, -58%) scale(1.2);
 }
 
-/* titre discret */
-.hiive-rail-head h2 {
-font-size:14px;
-margin:0;
-color:#9fdcff;
-text-shadow:0 0 6px rgba(0,200,255,0.6);
-}
-
-/* description très légère */
-.hiive-rail-head p {
-font-size:11px;
-margin:0;
-opacity:0.6;
-}
-
-/* enlève l’espace qu’il prenait */
-.hiive-rail {
-position:relative;
-padding-top:0 !important;
-}
-
-.hiive-rail-card {
-height:320px; /* augmente la taille */
-border-radius:16px;
-overflow:hidden;
-}
-
-/* version desktop plus grande */
-@media (min-width:1024px){
-.hiive-rail-card{
-height:380px;
-}
-}
 /* ===== FIX FINAL VIBES ===== */
 
 /* le rail ne réserve plus un gros bloc en haut */
