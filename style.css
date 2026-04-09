@@ -5491,3 +5491,9 @@ box-shadow:
 .hiive-rail-action span{
 color:#9fdcff;
 }
+.hiive-rail-overlay p{
+font-size:0.8rem;
+line-height:1.2;
+margin:4px 0 6px;
+max-width:65%;
+}
