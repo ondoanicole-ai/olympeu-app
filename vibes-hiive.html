@@ -28,7 +28,7 @@
 </div>
 
 <article class="hiive-rail-card">
-<video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata" class="hiive-rail-video">
 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
 </video>
 
@@ -72,7 +72,7 @@
 </article>
 
 <article class="hiive-rail-card">
-<video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata" class="hiive-rail-video">
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
 </video>
 
@@ -126,7 +126,7 @@
 </div>
 
 <article class="hiive-rail-card">
-<video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata" class="hiive-rail-video">
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
 </video>
 
@@ -170,7 +170,7 @@
 </article>
 
 <article class="hiive-rail-card">
-<video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata" class="hiive-rail-video">
 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
 </video>
 
@@ -224,7 +224,7 @@
 </div>
 
 <article class="hiive-rail-card">
-<video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata" class="hiive-rail-video">
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
 </video>
 
@@ -268,7 +268,7 @@
 </article>
 
 <article class="hiive-rail-card">
-<video autoplay muted loop playsinline>
+<video muted loop playsinline preload="metadata" class="hiive-rail-video">
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
 </video>
 
@@ -321,6 +321,19 @@
 const track = document.getElementById("hiiveRailsTrack");
 const rails = document.querySelectorAll(".hiive-rail");
 
+function pauseAllVideos() {
+document.querySelectorAll(".hiive-rail video").forEach(video => {
+video.pause();
+});
+}
+
+function playVideosInActiveRail(activeRail) {
+if (!activeRail) return;
+activeRail.querySelectorAll("video").forEach(video => {
+video.play().catch(() => {});
+});
+}
+
 function setActiveRail() {
 let best = null;
 let bestDistance = Infinity;
@@ -339,11 +352,36 @@ best = rail;
 
 rails.forEach(r => r.classList.remove("active"));
 if (best) best.classList.add("active");
+
+pauseAllVideos();
+playVideosInActiveRail(best);
 }
 
-track.addEventListener("scroll", setActiveRail);
-window.addEventListener("load", setActiveRail);
-window.addEventListener("resize", setActiveRail);
+let railScrollTimer;
+
+track.addEventListener("scroll", () => {
+clearTimeout(railScrollTimer);
+railScrollTimer = setTimeout(setActiveRail, 80);
+}, { passive: true });
+
+rails.forEach((rail) => {
+rail.addEventListener("click", () => {
+rail.scrollIntoView({
+behavior: "smooth",
+inline: "center",
+block: "nearest"
+});
+setTimeout(setActiveRail, 250);
+});
+});
+
+window.addEventListener("load", () => {
+setActiveRail();
+});
+
+window.addEventListener("resize", () => {
+setActiveRail();
+});
 </script>
 
 </body>
