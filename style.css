@@ -5105,3 +5105,86 @@ border:1px solid rgba(255,255,255,0.08);
 box-shadow:none;
 }
 }
+/* ===== Actions sociales cartes vibes ===== */
+
+.hiive-rail-topline{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+margin-bottom:10px;
+}
+
+.hiive-follow-action{
+min-height:34px;
+padding:0 12px;
+border:none;
+border-radius:999px;
+background:rgba(255,255,255,0.14);
+color:#fff;
+font-size:12px;
+font-weight:600;
+cursor:pointer;
+backdrop-filter:blur(8px);
+transition:.2s ease;
+}
+
+.hiive-follow-action:hover{
+background:rgba(79,172,254,0.24);
+}
+
+.hiive-follow-action.is-following{
+background:linear-gradient(90deg,#4facfe,#00f2fe);
+color:#fff;
+}
+
+.hiive-rail-actions{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:12px;
+}
+
+.hiive-rail-action{
+display:flex;
+align-items:center;
+gap:6px;
+min-height:36px;
+padding:0 10px;
+border:none;
+border-radius:999px;
+background:rgba(0,0,0,0.35);
+color:#fff;
+cursor:pointer;
+font-size:13px;
+backdrop-filter:blur(8px);
+transition:.2s ease;
+}
+
+.hiive-rail-action:hover{
+background:rgba(255,255,255,0.16);
+}
+
+.hiive-rail-action small{
+font-size:12px;
+color:#fff;
+}
+
+@media (max-width: 900px){
+.hiive-rail-actions{
+gap:6px;
+flex-wrap:wrap;
+}
+
+.hiive-rail-action{
+min-height:34px;
+padding:0 9px;
+font-size:12px;
+}
+
+.hiive-follow-action{
+min-height:32px;
+font-size:11px;
+padding:0 10px;
+}
+}
