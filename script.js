@@ -809,3 +809,60 @@ btn.style.transform = 'scale(1)';
 });
 });
 </script>
+<script>
+const track = document.getElementById("hiiveRailsTrack");
+const rails = document.querySelectorAll(".hiive-rail");
+
+/* ===== Gestion rail actif + autoplay ===== */
+
+function updateActiveRail() {
+let best = null;
+let bestDistance = Infinity;
+const center = window.innerWidth / 2;
+
+rails.forEach((rail) => {
+const rect = rail.getBoundingClientRect();
+const railCenter = rect.left + rect.width / 2;
+const distance = Math.abs(center - railCenter);
+
+if (distance < bestDistance) {
+bestDistance = distance;
+best = rail;
+}
+});
+
+rails.forEach((rail) => {
+rail.classList.remove("active");
+
+/* pause toutes les vidéos */
+rail.querySelectorAll("video").forEach(video => {
+video.pause();
+});
+});
+
+if (best) {
+best.classList.add("active");
+
+/* play uniquement celles du rail actif */
+best.querySelectorAll("video").forEach(video => {
+video.play().catch(() => {});
+});
+}
+}
+
+/* ===== clic pour centrer ===== */
+rails.forEach((rail) => {
+rail.addEventListener("click", () => {
+rail.scrollIntoView({
+behavior: "smooth",
+inline: "center",
+block: "nearest"
+});
+});
+});
+
+/* ===== events ===== */
+track.addEventListener("scroll", updateActiveRail, { passive: true });
+window.addEventListener("load", updateActiveRail);
+window.addEventListener("resize", updateActiveRail);
+</script>
