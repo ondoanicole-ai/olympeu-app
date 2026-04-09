@@ -5264,3 +5264,14 @@ box-shadow:
 0 0 10px rgba(79,172,254,0.2),
 0 0 18px rgba(0,242,254,0.12);
 }
+@media (min-width: 980px){
+.hiive-rail{
+flex:0 0 30%;
+max-width:30%;
+}
+
+.hiive-rail.active{
+flex-basis:36%;
+max-width:36%;
+}
+}
