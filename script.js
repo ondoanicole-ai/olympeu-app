@@ -763,3 +763,27 @@ video.pause();
 }, { threshold: 0.6 });
 
 vibes.forEach(vibe => observer.observe(vibe));
+const vibes = document.querySelectorAll(".vibe-item");
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+const video = entry.target.querySelector("video");
+
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+
+if(video){
+video.play().catch(()=>{});
+}
+
+} else {
+entry.target.classList.remove("active");
+
+if(video){
+video.pause();
+}
+}
+});
+}, { threshold: 0.7 });
+
+vibes.forEach(vibe => observer.observe(vibe));
