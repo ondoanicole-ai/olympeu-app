@@ -5188,3 +5188,79 @@ font-size:11px;
 padding:0 10px;
 }
 }
+/* ===== Rail actif / rails en pause ===== */
+
+.hiive-rail{
+border:1px solid rgba(255,255,255,0.08);
+opacity:0.72;
+transform:scale(0.97);
+transition:all .28s ease;
+}
+
+.hiive-rail:not(.active){
+box-shadow:0 0 10px rgba(90,180,255,0.08);
+}
+
+.hiive-rail.active{
+opacity:1;
+transform:scale(1.03);
+border:1px solid rgba(79,172,254,0.9);
+box-shadow:
+0 0 10px rgba(79,172,254,0.35),
+0 0 24px rgba(0,242,254,0.14);
+}
+
+/* Mobile : effet plus doux */
+@media (max-width: 900px){
+.hiive-rail{
+opacity:0.9;
+transform:scale(0.99);
+}
+
+.hiive-rail.active{
+transform:scale(1.01);
+border:1px solid rgba(79,172,254,0.45);
+box-shadow:
+0 0 8px rgba(79,172,254,0.18),
+0 0 18px rgba(0,242,254,0.08);
+}
+}
+
+/* ===== Actions style néon bleu sans remplissage ===== */
+
+.hiive-rail-action{
+background:transparent !important;
+border:1px solid rgba(79,172,254,0.42);
+color:#9fdcff;
+box-shadow:0 0 8px rgba(79,172,254,0.14);
+}
+
+.hiive-rail-action:hover{
+background:transparent !important;
+border-color:rgba(0,242,254,0.65);
+color:#d7f6ff;
+box-shadow:
+0 0 10px rgba(79,172,254,0.2),
+0 0 18px rgba(0,242,254,0.12);
+}
+
+.hiive-rail-action small{
+color:#9fdcff;
+}
+
+/* Bouton suivre dans le même esprit */
+.hiive-follow-action{
+background:transparent !important;
+border:1px solid rgba(79,172,254,0.42);
+color:#b8e9ff;
+box-shadow:0 0 8px rgba(79,172,254,0.14);
+}
+
+.hiive-follow-action:hover{
+background:transparent !important;
+border-color:rgba(0,242,254,0.68);
+color:#fff;
+box-shadow:
+0 0 10px rgba(79,172,254,0.2),
+0 0 18px rgba(0,242,254,0.12);
+}
