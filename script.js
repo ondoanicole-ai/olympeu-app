@@ -784,6 +784,6 @@ video.pause();
 }
 }
 });
-}, { threshold: 0.7 });
+}, { threshold: 0.6 }); // moins strict
 
 vibes.forEach(vibe => observer.observe(vibe));
