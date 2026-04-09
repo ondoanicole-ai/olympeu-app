@@ -6,6 +6,57 @@
 <title>Hiive — Vibes</title>
 <link rel="stylesheet" href="style.css" />
 </head>
+<script>
+const track = document.getElementById("hiiveRailsTrack");
+const rails = document.querySelectorAll(".hiive-rail");
+
+function updateActiveRail() {
+let bestRail = null;
+let bestDistance = Infinity;
+const viewportCenter = window.innerWidth / 2;
+
+rails.forEach((rail) => {
+const rect = rail.getBoundingClientRect();
+const railCenter = rect.left + rect.width / 2;
+const distance = Math.abs(viewportCenter - railCenter);
+
+if (distance < bestDistance) {
+bestDistance = distance;
+bestRail = rail;
+}
+});
+
+rails.forEach((rail) => {
+rail.classList.remove("active");
+
+rail.querySelectorAll("video").forEach((video) => {
+video.pause();
+});
+});
+
+if (bestRail) {
+bestRail.classList.add("active");
+
+bestRail.querySelectorAll("video").forEach((video) => {
+video.play().catch(() => {});
+});
+}
+}
+
+rails.forEach((rail) => {
+rail.addEventListener("click", () => {
+rail.scrollIntoView({
+behavior: "smooth",
+inline: "center",
+block: "nearest"
+});
+});
+});
+
+track.addEventListener("scroll", updateActiveRail, { passive: true });
+window.addEventListener("load", updateActiveRail);
+window.addEventListener("resize", updateActiveRail);
+</script>
 
 <body class="theme-dark hiive-rails-body">
 
