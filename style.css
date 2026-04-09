@@ -5776,3 +5776,161 @@ overflow:hidden;
 height:380px;
 }
 }
+/* ===== FIX FINAL VIBES ===== */
+
+/* le rail ne réserve plus un gros bloc en haut */
+.hiive-rail{
+position: relative !important;
+padding-top: 44px !important;
+}
+
+/* header du fil compact et flottant */
+.hiive-rail-head{
+position: absolute !important;
+top: 10px !important;
+left: 14px !important;
+right: 14px !important;
+z-index: 6 !important;
+
+background: transparent !important;
+padding: 0 !important;
+margin: 0 !important;
+min-height: auto !important;
+height: auto !important;
+}
+
+.hiive-rail-head h2{
+margin: 0 !important;
+font-size: 14px !important;
+line-height: 1.1 !important;
+}
+
+.hiive-rail-head p{
+margin: 2px 0 0 !important;
+font-size: 11px !important;
+line-height: 1.15 !important;
+opacity: .7 !important;
+}
+
+/* la carte vidéo remonte juste sous le titre */
+.hiive-rail-card{
+position: relative !important;
+height: 340px !important;
+margin-top: 8px !important;
+border-radius: 18px !important;
+overflow: hidden !important;
+}
+
+@media (min-width: 1024px){
+.hiive-rail-card{
+height: 390px !important;
+}
+}
+
+/* la vidéo prend toute la carte */
+.hiive-rail-card video,
+.hiive-rail-card img{
+width: 100% !important;
+height: 100% !important;
+object-fit: cover !important;
+display: block !important;
+}
+
+/* overlay compact en bas */
+.hiive-rail-overlay{
+position: absolute !important;
+left: 10px !important;
+right: 10px !important;
+bottom: 10px !important;
+
+display: flex !important;
+flex-direction: column !important;
+gap: 4px !important;
+
+padding: 0 !important;
+margin: 0 !important;
+background: transparent !important;
+}
+
+/* ligne user + suivre compacte */
+.hiive-rail-topline{
+display: flex !important;
+align-items: center !important;
+justify-content: space-between !important;
+gap: 8px !important;
+margin: 0 0 2px !important;
+}
+
+.hiive-rail-user{
+display: flex !important;
+align-items: center !important;
+gap: 6px !important;
+}
+
+.hiive-rail-user img{
+width: 26px !important;
+height: 26px !important;
+border-radius: 50% !important;
+flex: 0 0 26px !important;
+}
+
+.hiive-rail-user strong{
+font-size: 12px !important;
+line-height: 1 !important;
+}
+
+.hiive-rail-user span{
+font-size: 10px !important;
+line-height: 1 !important;
+opacity: .78 !important;
+}
+
+/* texte plus discret */
+.hiive-rail-overlay p{
+margin: 0 0 4px !important;
+font-size: 12px !important;
+line-height: 1.15 !important;
+max-width: 66% !important;
+}
+
+/* suivre plus petit */
+.hiive-follow-action{
+padding: 3px 9px !important;
+min-height: 26px !important;
+font-size: 10px !important;
+}
+
+/* boutons sociaux alignés et compacts */
+.hiive-rail-actions{
+display: flex !important;
+align-items: center !important;
+gap: 6px !important;
+margin: 0 !important;
+flex-wrap: nowrap !important;
+}
+
+.hiive-rail-action{
+display: inline-flex !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 4px !important;
+
+width: auto !important;
+min-width: auto !important;
+flex: 0 0 auto !important;
+
+padding: 4px 8px !important;
+min-height: 28px !important;
+border-radius: 999px !important;
+white-space: nowrap !important;
+}
+
+.hiive-rail-action svg{
+width: 13px !important;
+height: 13px !important;
+}
+
+.hiive-rail-action span{
+font-size: 11px !important;
+line-height: 1 !important;
+}
