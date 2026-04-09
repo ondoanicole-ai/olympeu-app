@@ -33,6 +33,8 @@
 </video>
 
 <div class="hiive-rail-overlay">
+
+<div class="hiive-rail-topline">
 <div class="hiive-rail-user">
 <img src="https://randomuser.me/api/portraits/women/44.jpg">
 <div>
@@ -40,7 +42,18 @@
 <span>#mood</span>
 </div>
 </div>
+
+<button class="hiive-follow-action">Suivre</button>
+</div>
+
 <p>Créer du contenu chaque jour 🔥</p>
+
+<div class="hiive-rail-actions">
+<button class="hiive-rail-action">❤️ 120</button>
+<button class="hiive-rail-action">💬 32</button>
+<button class="hiive-rail-action">🔁</button>
+</div>
+
 </div>
 </article>
 
@@ -50,6 +63,8 @@
 </video>
 
 <div class="hiive-rail-overlay">
+
+<div class="hiive-rail-topline">
 <div class="hiive-rail-user">
 <img src="https://randomuser.me/api/portraits/men/32.jpg">
 <div>
@@ -57,7 +72,18 @@
 <span>#mood</span>
 </div>
 </div>
+
+<button class="hiive-follow-action">Suivre</button>
+</div>
+
 <p>Une idée peut tout changer.</p>
+
+<div class="hiive-rail-actions">
+<button class="hiive-rail-action">❤️ 89</button>
+<button class="hiive-rail-action">💬 14</button>
+<button class="hiive-rail-action">🔁</button>
+</div>
+
 </div>
 </article>
 
@@ -77,6 +103,8 @@
 </video>
 
 <div class="hiive-rail-overlay">
+
+<div class="hiive-rail-topline">
 <div class="hiive-rail-user">
 <img src="https://randomuser.me/api/portraits/women/65.jpg">
 <div>
@@ -84,7 +112,18 @@
 <span>#style</span>
 </div>
 </div>
+
+<button class="hiive-follow-action">Suivre</button>
+</div>
+
 <p>Look minimal, identité forte.</p>
+
+<div class="hiive-rail-actions">
+<button class="hiive-rail-action">❤️ 210</button>
+<button class="hiive-rail-action">💬 48</button>
+<button class="hiive-rail-action">🔁</button>
+</div>
+
 </div>
 </article>
 
@@ -94,6 +133,8 @@
 </video>
 
 <div class="hiive-rail-overlay">
+
+<div class="hiive-rail-topline">
 <div class="hiive-rail-user">
 <img src="https://randomuser.me/api/portraits/women/68.jpg">
 <div>
@@ -101,7 +142,18 @@
 <span>#style</span>
 </div>
 </div>
+
+<button class="hiive-follow-action">Suivre</button>
+</div>
+
 <p>Ta signature visuelle compte.</p>
+
+<div class="hiive-rail-actions">
+<button class="hiive-rail-action">❤️ 132</button>
+<button class="hiive-rail-action">💬 21</button>
+<button class="hiive-rail-action">🔁</button>
+</div>
+
 </div>
 </article>
 
@@ -121,6 +173,8 @@
 </video>
 
 <div class="hiive-rail-overlay">
+
+<div class="hiive-rail-topline">
 <div class="hiive-rail-user">
 <img src="https://randomuser.me/api/portraits/men/41.jpg">
 <div>
@@ -128,24 +182,18 @@
 <span>#feels</span>
 </div>
 </div>
+
+<button class="hiive-follow-action">Suivre</button>
+</div>
+
 <p>Quand une émotion devient un contenu.</p>
-</div>
-</article>
 
-<article class="hiive-rail-card">
-<video autoplay muted loop playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
-</video>
+<div class="hiive-rail-actions">
+<button class="hiive-rail-action">❤️ 98</button>
+<button class="hiive-rail-action">💬 11</button>
+<button class="hiive-rail-action">🔁</button>
+</div>
 
-<div class="hiive-rail-overlay">
-<div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/women/52.jpg">
-<div>
-<strong>Sophie Lambert</strong>
-<span>#feels</span>
-</div>
-</div>
-<p>Le vrai attire plus que le parfait.</p>
 </div>
 </article>
 
@@ -154,35 +202,6 @@
 </section>
 
 </main>
-
-<script>
-const track = document.getElementById("hiiveRailsTrack");
-const rails = document.querySelectorAll(".hiive-rail");
-
-function setActiveRail() {
-let best = null;
-let bestDistance = Infinity;
-const center = window.innerWidth / 2;
-
-rails.forEach((rail) => {
-const rect = rail.getBoundingClientRect();
-const railCenter = rect.left + rect.width / 2;
-const distance = Math.abs(center - railCenter);
-
-if (distance < bestDistance) {
-bestDistance = distance;
-best = rail;
-}
-});
-
-rails.forEach(r => r.classList.remove("active"));
-if (best) best.classList.add("active");
-}
-
-track.addEventListener("scroll", setActiveRail);
-window.addEventListener("load", setActiveRail);
-window.addEventListener("resize", setActiveRail);
-</script>
 
 </body>
 </html>
