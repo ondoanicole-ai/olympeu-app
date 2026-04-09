@@ -5742,15 +5742,6 @@ transform:translate(-50%, -50%) scale(1);
 opacity:0;
 transform:translate(-50%, -58%) scale(1.2);
 }
-/* ===== SUPPRIME LE GROS BLOC NOIR ===== */
-.hiive-rail-head {
-position:absolute;
-top:10px;
-left:15px;
-z-index:5;
-background:transparent;
-padding:0;
-}
 
 /* titre discret */
 .hiive-rail-head h2 {
