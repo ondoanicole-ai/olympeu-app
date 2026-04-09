@@ -4947,3 +4947,13 @@ transition:all .3s ease;
 opacity:1;
 transform:scale(1);
 }
+.vibes-feed{
+background:
+radial-gradient(circle at center, #0a0f2c 0%, #05070d 60%, #000 100%);
+}
+.vibe-item:hover{
+transform:scale(1.02);
+}
+.vibes-feed{
+scroll-behavior:smooth;
+}
