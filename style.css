@@ -5502,3 +5502,10 @@ padding:4px 8px;
 font-size:11px;
 opacity:0.85;
 }
+.hiive-rail-overlay{
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+height:100%;
+padding:10px;
+}
