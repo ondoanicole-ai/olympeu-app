@@ -746,3 +746,20 @@ video.pause();
 });
 
 });
+const vibes = document.querySelectorAll(".vibe-item");
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+const video = entry.target.querySelector("video");
+
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+video.play();
+} else {
+entry.target.classList.remove("active");
+video.pause();
+}
+});
+}, { threshold: 0.6 });
+
+vibes.forEach(vibe => observer.observe(vibe));
