@@ -787,3 +787,25 @@ video.pause();
 }, { threshold: 0.6 }); // moins strict
 
 vibes.forEach(vibe => observer.observe(vibe));
+<script>
+document.querySelectorAll('.hiive-follow-action').forEach(btn => {
+btn.addEventListener('click', () => {
+if (btn.classList.contains('is-following')) {
+btn.classList.remove('is-following');
+btn.textContent = 'Suivre';
+} else {
+btn.classList.add('is-following');
+btn.textContent = 'Abonné';
+}
+});
+});
+
+document.querySelectorAll('.hiive-rail-action').forEach(btn => {
+btn.addEventListener('click', () => {
+btn.style.transform = 'scale(1.08)';
+setTimeout(() => {
+btn.style.transform = 'scale(1)';
+}, 140);
+});
+});
+</script>
