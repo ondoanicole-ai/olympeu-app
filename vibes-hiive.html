@@ -5,12 +5,108 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hiive — Vibes</title>
 <link rel="stylesheet" href="style.css" />
+
+<style>
+
+/* ===== OVERLAY PLUS COMPACT ===== */
+.hiive-rail-overlay {
+position:absolute;
+bottom:10px;
+left:10px;
+right:10px;
+display:flex;
+flex-direction:column;
+gap:6px;
+font-size:13px;
+}
+
+.hiive-rail-topline {
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.hiive-rail-user {
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.hiive-rail-user img {
+width:28px;
+height:28px;
+border-radius:50%;
+}
+
+.hiive-rail-overlay p {
+font-size:13px;
+margin:0;
+opacity:0.85;
+}
+
+/* ===== ACTIONS ===== */
+.hiive-rail-actions {
+display:flex;
+gap:8px;
+margin-top:6px;
+}
+
+.hiive-rail-action {
+display:flex;
+align-items:center;
+gap:4px;
+padding:5px 8px;
+border-radius:20px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(0,180,255,0.2);
+cursor:pointer;
+transition:0.2s;
+}
+
+.hiive-rail-action svg {
+width:16px;
+height:16px;
+fill:none;
+stroke:#00cfff;
+stroke-width:2;
+}
+
+.hiive-rail-action span {
+font-size:12px;
+}
+
+/* ===== LIKE ACTIVE ===== */
+.hiive-rail-action.liked svg {
+fill:#00cfff;
+stroke:#00cfff;
+}
+
+/* ===== ANIMATION HEART ===== */
+.heart-anim {
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%) scale(0);
+font-size:60px;
+color:#00cfff;
+pointer-events:none;
+animation:pop 0.6s ease;
+}
+
+@keyframes pop {
+0% {transform:translate(-50%,-50%) scale(0);opacity:0;}
+50% {transform:translate(-50%,-50%) scale(1.4);opacity:1;}
+100% {transform:translate(-50%,-50%) scale(1);opacity:0;}
+}
+
+</style>
+
 </head>
 
 <body class="theme-dark hiive-rails-body">
 
 <header class="hiive-rails-topbar">
-<a href="feed-hiive-social.html" class="hiive-rails-back">← Retour</a>
+<a href="#" class="hiive-rails-back">← Retour</a>
 <div class="hiive-rails-brand">Hiive</div>
 <button class="hiive-rails-create">Créer</button>
 </header>
@@ -28,280 +124,50 @@
 </div>
 
 <article class="hiive-rail-card">
-<video muted loop playsinline preload="metadata" class="hiive-rail-video">
+<video muted loop playsinline class="hiive-rail-video">
 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
 </video>
 
 <div class="hiive-rail-overlay">
+
 <div class="hiive-rail-topline">
 <div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Martin">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
 <div>
 <strong>Emma Martin</strong>
 <span>#mood</span>
 </div>
 </div>
-<button class="hiive-follow-action" type="button">Suivre</button>
+<button class="hiive-follow-action">Suivre</button>
 </div>
 
-<p>Créer du contenu chaque jour 🔥</p>
+<p>Créer du contenu 🔥</p>
 
-<button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
-<svg viewBox="0 0 24 24" aria-hidden="true">
+<div class="hiive-rail-actions">
+
+<button class="hiive-rail-action like-btn">
+<svg viewBox="0 0 24 24">
 <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
 </svg>
 <span>120</span>
 </button>
 
-<button class="hiive-rail-action" type="button" aria-label="Commenter">
-<svg viewBox="0 0 24 24" aria-hidden="true">
+<button class="hiive-rail-action">
+<svg viewBox="0 0 24 24">
 <path d="M4 6h16v10H8l-4 4V6z"></path>
 </svg>
 <span>32</span>
 </button>
 
-<button class="hiive-rail-action" type="button" aria-label="Partager">
-<svg viewBox="0 0 24 24" aria-hidden="true">
+<button class="hiive-rail-action">
+<svg viewBox="0 0 24 24">
 <path d="M14 9l-4 3 4 3V9z"></path>
 <path d="M20 6H4v12h16z"></path>
 </svg>
 </button>
-</div>
-</div>
-</article>
 
-<article class="hiive-rail-card">
-<video muted loop playsinline preload="metadata" class="hiive-rail-video">
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-</video>
-
-<div class="hiive-rail-overlay">
-<div class="hiive-rail-topline">
-<div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Hakim Ajiqua">
-<div>
-<strong>Hakim Ajiqua</strong>
-<span>#mood</span>
-</div>
-</div>
-<button class="hiive-follow-action" type="button">Suivre</button>
 </div>
 
-<p>Une idée peut tout changer.</p>
-
-<button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
-</svg>
-<span>120</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Commenter">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 6h16v10H8l-4 4V6z"></path>
-</svg>
-<span>14</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Partager">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M14 9l-4 3 4 3V9z"></path>
-<path d="M20 6H4v12h16z"></path>
-</svg>
-</button>
-</div>
-</div>
-</article>
-
-</section>
-
-<!-- ================= STYLE ================= -->
-<section class="hiive-rail">
-
-<div class="hiive-rail-head">
-<h2>#style</h2>
-<p>Esthétique, image, identité</p>
-</div>
-
-<article class="hiive-rail-card">
-<video muted loop playsinline preload="metadata" class="hiive-rail-video">
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
-</video>
-
-<div class="hiive-rail-overlay">
-<div class="hiive-rail-topline">
-<div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jeanne Durand">
-<div>
-<strong>Jeanne Durand</strong>
-<span>#style</span>
-</div>
-</div>
-<button class="hiive-follow-action" type="button">Suivre</button>
-</div>
-
-<p>Look minimal, identité forte.</p>
-
-<button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
-</svg>
-<span>120</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Commenter">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 6h16v10H8l-4 4V6z"></path>
-</svg>
-<span>48</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Partager">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M14 9l-4 3 4 3V9z"></path>
-<path d="M20 6H4v12h16z"></path>
-</svg>
-</button>
-</div>
-</div>
-</article>
-
-<article class="hiive-rail-card">
-<video muted loop playsinline preload="metadata" class="hiive-rail-video">
-<source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-</video>
-
-<div class="hiive-rail-overlay">
-<div class="hiive-rail-topline">
-<div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emilie Roche">
-<div>
-<strong>Emilie Roche</strong>
-<span>#style</span>
-</div>
-</div>
-<button class="hiive-follow-action" type="button">Suivre</button>
-</div>
-
-<p>Ta signature visuelle compte.</p>
-
-<button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
-</svg>
-<span>120</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Commenter">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 6h16v10H8l-4 4V6z"></path>
-</svg>
-<span>21</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Partager">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M14 9l-4 3 4 3V9z"></path>
-<path d="M20 6H4v12h16z"></path>
-</svg>
-</button>
-</div>
-</div>
-</article>
-
-</section>
-
-<!-- ================= FEELS ================= -->
-<section class="hiive-rail">
-
-<div class="hiive-rail-head">
-<h2>#feels</h2>
-<p>Ressenti, sincérité, connexion</p>
-</div>
-
-<article class="hiive-rail-card">
-<video muted loop playsinline preload="metadata" class="hiive-rail-video">
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
-</video>
-
-<div class="hiive-rail-overlay">
-<div class="hiive-rail-topline">
-<div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Florian Roux">
-<div>
-<strong>Florian Roux</strong>
-<span>#feels</span>
-</div>
-</div>
-<button class="hiive-follow-action" type="button">Suivre</button>
-</div>
-
-<p>Quand une émotion devient un contenu.</p>
-
-<button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
-</svg>
-<span>120</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Commenter">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 6h16v10H8l-4 4V6z"></path>
-</svg>
-<span>11</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Partager">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M14 9l-4 3 4 3V9z"></path>
-<path d="M20 6H4v12h16z"></path>
-</svg>
-</button>
-</div>
-</div>
-</article>
-
-<article class="hiive-rail-card">
-<video muted loop playsinline preload="metadata" class="hiive-rail-video">
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
-</video>
-
-<div class="hiive-rail-overlay">
-<div class="hiive-rail-topline">
-<div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Sophie Lambert">
-<div>
-<strong>Sophie Lambert</strong>
-<span>#feels</span>
-</div>
-</div>
-<button class="hiive-follow-action" type="button">Suivre</button>
-</div>
-
-<p>Le vrai attire plus que le parfait.</p>
-
-<button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
-</svg>
-<span>120</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Commenter">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 6h16v10H8l-4 4V6z"></path>
-</svg>
-<span>9</span>
-</button>
-
-<button class="hiive-rail-action" type="button" aria-label="Partager">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M14 9l-4 3 4 3V9z"></path>
-<path d="M20 6H4v12h16z"></path>
-</svg>
-</button>
-</div>
 </div>
 </article>
 
@@ -312,70 +178,74 @@
 </main>
 
 <script>
+
 const track = document.getElementById("hiiveRailsTrack");
 const rails = document.querySelectorAll(".hiive-rail");
 
+/* ===== VIDEO CONTROL ===== */
 function pauseAllVideos() {
-document.querySelectorAll(".hiive-rail video").forEach(video => {
-video.pause();
+document.querySelectorAll("video").forEach(v => v.pause());
+}
+
+function playActive(rail){
+rail.querySelectorAll("video").forEach(v=>{
+v.play().catch(()=>{});
 });
 }
 
-function playVideosInActiveRail(activeRail) {
-if (!activeRail) return;
-activeRail.querySelectorAll("video").forEach(video => {
-video.play().catch(() => {});
-});
-}
+function setActiveRail(){
+let center = window.innerWidth / 2;
+let best=null;
+let bestDist=9999;
 
-function setActiveRail() {
-let best = null;
-let bestDistance = Infinity;
-const center = window.innerWidth / 2;
-
-rails.forEach((rail) => {
-const rect = rail.getBoundingClientRect();
-const railCenter = rect.left + rect.width / 2;
-const distance = Math.abs(center - railCenter);
-
-if (distance < bestDistance) {
-bestDistance = distance;
-best = rail;
-}
+rails.forEach(r=>{
+let rect = r.getBoundingClientRect();
+let dist = Math.abs(center - (rect.left + rect.width/2));
+if(dist < bestDist){bestDist = dist; best = r;}
 });
 
-rails.forEach(r => r.classList.remove("active"));
-if (best) best.classList.add("active");
+rails.forEach(r=>r.classList.remove("active"));
+if(best) best.classList.add("active");
 
 pauseAllVideos();
-playVideosInActiveRail(best);
+playActive(best);
 }
 
-let railScrollTimer;
+track.addEventListener("scroll", setActiveRail);
+window.addEventListener("load", setActiveRail);
 
-track.addEventListener("scroll", () => {
-clearTimeout(railScrollTimer);
-railScrollTimer = setTimeout(setActiveRail, 80);
-}, { passive: true });
-
-rails.forEach((rail) => {
-rail.addEventListener("click", () => {
-rail.scrollIntoView({
-behavior: "smooth",
-inline: "center",
-block: "nearest"
-});
-setTimeout(setActiveRail, 250);
+/* ===== LIKE CLICK ===== */
+document.querySelectorAll(".like-btn").forEach(btn=>{
+btn.addEventListener("click", ()=>{
+btn.classList.toggle("liked");
 });
 });
 
-window.addEventListener("load", () => {
-setActiveRail();
+/* ===== DOUBLE TAP LIKE ===== */
+document.querySelectorAll(".hiive-rail-card").forEach(card=>{
+let lastTap = 0;
+
+card.addEventListener("click", ()=>{
+let now = Date.now();
+
+if(now - lastTap < 300){
+
+let heart = document.createElement("div");
+heart.className = "heart-anim";
+heart.innerHTML = "❤";
+card.appendChild(heart);
+
+setTimeout(()=>heart.remove(),600);
+
+let likeBtn = card.querySelector(".like-btn");
+if(likeBtn) likeBtn.classList.add("liked");
+
+}
+
+lastTap = now;
+});
 });
 
-window.addEventListener("resize", () => {
-setActiveRail();
-});
 </script>
 
 </body>
