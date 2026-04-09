@@ -5340,3 +5340,59 @@ box-shadow:
 .hiive-rail-action span{
 color:#9fdcff;
 }
+/* vidéo plus grande */
+.hiive-rail-card{
+height: 44vh;
+min-height: 320px;
+}
+
+/* active rail un peu plus généreux */
+@media (min-width: 980px){
+.hiive-rail.active .hiive-rail-card{
+height: 48vh;
+}
+}
+
+/* overlay plus compact */
+.hiive-rail-overlay{
+padding: 12px;
+}
+
+.hiive-rail-topline{
+margin-bottom: 6px;
+}
+
+.hiive-rail-user img{
+width: 34px;
+height: 34px;
+}
+
+.hiive-rail-user strong{
+font-size: .92rem;
+}
+
+.hiive-rail-user span{
+font-size: .76rem;
+}
+
+.hiive-rail-overlay p{
+margin: 0 0 8px;
+font-size: .9rem;
+line-height: 1.25;
+max-width: 78%;
+}
+
+/* boutons un peu plus fins */
+.hiive-rail-actions{
+gap: 8px;
+margin-top: 8px;
+}
+
+.hiive-rail-action{
+padding: 5px 9px;
+}
+
+.hiive-follow-action{
+padding: 5px 10px;
+font-size: 12px;
+}
