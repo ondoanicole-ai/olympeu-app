@@ -787,3 +787,41 @@ track.addEventListener("scroll", updateActiveRail, { passive: true });
 window.addEventListener("load", updateActiveRail);
 window.addEventListener("resize", updateActiveRail);
 </script>
+<script>
+document.querySelectorAll('.like-btn').forEach((btn) => {
+btn.addEventListener('click', (e) => {
+e.stopPropagation();
+
+const countEl = btn.querySelector('span');
+let count = parseInt(countEl.textContent, 10) || 0;
+
+if (btn.classList.contains('is-liked')) {
+btn.classList.remove('is-liked');
+countEl.textContent = Math.max(0, count - 1);
+} else {
+btn.classList.add('is-liked');
+countEl.textContent = count + 1;
+}
+
+btn.classList.remove('hiive-like-pop');
+void btn.offsetWidth;
+btn.classList.add('hiive-like-pop');
+
+const card = btn.closest('.hiive-rail-card');
+if (card) {
+let burst = card.querySelector('.hiive-like-burst');
+
+if (!burst) {
+burst = document.createElement('div');
+burst.className = 'hiive-like-burst';
+burst.textContent = '❤';
+card.appendChild(burst);
+}
+
+burst.classList.remove('show');
+void burst.offsetWidth;
+burst.classList.add('show');
+}
+});
+});
+</script>
