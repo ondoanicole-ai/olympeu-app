@@ -5,6 +5,164 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hiive — Vibes</title>
 <link rel="stylesheet" href="style.css" />
+
+<style>
+.hiive-rail-overlay{
+position:absolute;
+bottom:10px;
+left:10px;
+right:10px;
+display:flex;
+flex-direction:column;
+gap:6px;
+font-size:13px;
+}
+
+.hiive-rail-topline{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+.hiive-rail-user{
+display:flex;
+align-items:center;
+gap:8px;
+min-width:0;
+}
+
+.hiive-rail-user img{
+width:28px;
+height:28px;
+border-radius:50%;
+flex:0 0 28px;
+}
+
+.hiive-rail-user strong{
+display:block;
+font-size:13px;
+line-height:1.05;
+}
+
+.hiive-rail-user span{
+display:block;
+font-size:11px;
+opacity:.75;
+line-height:1;
+}
+
+.hiive-rail-overlay p{
+font-size:13px;
+line-height:1.2;
+margin:0;
+opacity:.9;
+max-width:72%;
+}
+
+.hiive-rail-actions{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:6px;
+flex-wrap:nowrap;
+}
+
+.hiive-rail-action{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:5px;
+padding:5px 9px;
+min-height:30px;
+border-radius:999px;
+background:transparent;
+border:1px solid rgba(79,172,254,0.42);
+color:#9fdcff;
+cursor:pointer;
+transition:.2s ease;
+white-space:nowrap;
+box-shadow:0 0 8px rgba(79,172,254,0.14);
+}
+
+.hiive-rail-action svg{
+width:14px;
+height:14px;
+stroke:#9fdcff;
+fill:none;
+stroke-width:1.8;
+flex:0 0 14px;
+}
+
+.hiive-rail-action:hover{
+border-color:rgba(0,242,254,0.7);
+box-shadow:
+0 0 10px rgba(79,172,254,0.24),
+0 0 18px rgba(0,242,254,0.12);
+}
+
+.hiive-follow-action{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:4px 10px;
+min-height:28px;
+border-radius:999px;
+background:transparent;
+border:1px solid rgba(79,172,254,0.42);
+color:#bfe9ff;
+cursor:pointer;
+transition:.2s ease;
+font-size:11px;
+white-space:nowrap;
+box-shadow:0 0 8px rgba(79,172,254,0.14);
+}
+
+.hiive-follow-action:hover{
+border-color:rgba(0,242,254,0.7);
+box-shadow:
+0 0 10px rgba(79,172,254,0.24),
+0 0 18px rgba(0,242,254,0.12);
+}
+
+.hiive-rail-card{
+position:relative;
+}
+
+.hiive-rail-card video{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.hiive-like-burst{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%, -50%) scale(.4);
+opacity:0;
+pointer-events:none;
+font-size:52px;
+line-height:1;
+color:#00cfff;
+}
+
+.hiive-like-burst.show{
+animation:hiiveLikeBurst .55s ease forwards;
+}
+
+@keyframes hiiveLikeBurst{
+0%{opacity:0;transform:translate(-50%, -50%) scale(.4);}
+20%{opacity:1;transform:translate(-50%, -50%) scale(1);}
+100%{opacity:0;transform:translate(-50%, -58%) scale(1.2);}
+}
+
+.like-btn.liked svg{
+fill:#00cfff;
+stroke:#00cfff;
+}
+</style>
 </head>
 
 <body class="theme-dark hiive-rails-body">
@@ -46,6 +204,7 @@
 
 <p>Créer du contenu chaque jour 🔥</p>
 
+<div class="hiive-rail-actions">
 <button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
@@ -89,11 +248,12 @@
 
 <p>Une idée peut tout changer.</p>
 
+<div class="hiive-rail-actions">
 <button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
 </svg>
-<span>120</span>
+<span>89</span>
 </button>
 
 <button class="hiive-rail-action" type="button" aria-label="Commenter">
@@ -142,11 +302,12 @@
 
 <p>Look minimal, identité forte.</p>
 
+<div class="hiive-rail-actions">
 <button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
 </svg>
-<span>120</span>
+<span>210</span>
 </button>
 
 <button class="hiive-rail-action" type="button" aria-label="Commenter">
@@ -185,11 +346,12 @@
 
 <p>Ta signature visuelle compte.</p>
 
+<div class="hiive-rail-actions">
 <button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
 </svg>
-<span>120</span>
+<span>132</span>
 </button>
 
 <button class="hiive-rail-action" type="button" aria-label="Commenter">
@@ -238,11 +400,12 @@
 
 <p>Quand une émotion devient un contenu.</p>
 
+<div class="hiive-rail-actions">
 <button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
 </svg>
-<span>120</span>
+<span>98</span>
 </button>
 
 <button class="hiive-rail-action" type="button" aria-label="Commenter">
@@ -281,11 +444,12 @@
 
 <p>Le vrai attire plus que le parfait.</p>
 
+<div class="hiive-rail-actions">
 <button class="hiive-rail-action like-btn" type="button" aria-label="J’aime">
 <svg viewBox="0 0 24 24" aria-hidden="true">
 <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
 </svg>
-<span>120</span>
+<span>76</span>
 </button>
 
 <button class="hiive-rail-action" type="button" aria-label="Commenter">
@@ -375,6 +539,28 @@ setActiveRail();
 
 window.addEventListener("resize", () => {
 setActiveRail();
+});
+
+document.querySelectorAll(".like-btn").forEach(btn => {
+btn.addEventListener("click", (e) => {
+e.stopPropagation();
+btn.classList.toggle("liked");
+
+const card = btn.closest(".hiive-rail-card");
+if (!card) return;
+
+let heart = card.querySelector(".hiive-like-burst");
+if (!heart) {
+heart = document.createElement("div");
+heart.className = "hiive-like-burst";
+heart.textContent = "❤";
+card.appendChild(heart);
+}
+
+heart.classList.remove("show");
+void heart.offsetWidth;
+heart.classList.add("show");
+});
 });
 </script>
 
