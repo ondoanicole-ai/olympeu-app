@@ -5803,22 +5803,6 @@ object-fit: cover !important;
 display: block !important;
 }
 
-/* overlay compact en bas */
-.hiive-rail-overlay{
-position: absolute !important;
-left: 10px !important;
-right: 10px !important;
-bottom: 10px !important;
-
-display: flex !important;
-flex-direction: column !important;
-gap: 4px !important;
-
-padding: 0 !important;
-margin: 0 !important;
-background: transparent !important;
-}
-
 /* ligne user + suivre compacte */
 .hiive-rail-topline{
 display: flex !important;
@@ -5892,4 +5876,11 @@ height: 13px !important;
 .hiive-rail-action span{
 font-size: 11px !important;
 line-height: 1 !important;
+}
+/* texte plus discret */
+.hiive-rail-overlay p{
+margin: 0 0 4px !important;
+font-size: 12px !important;
+line-height: 1.15 !important;
+max-width: 66% !important;
 }
