@@ -5017,3 +5017,33 @@ max-width:35%;
 height:31vh;
 }
 }
+/* Scrollbars desktop fines, bleu néon léger */
+.hiive-rail,
+.hiive-rails-track{
+scrollbar-width: thin;
+scrollbar-color: rgba(84, 194, 255, 0.65) rgba(255,255,255,0.05);
+}
+
+.hiive-rail::-webkit-scrollbar,
+.hiive-rails-track::-webkit-scrollbar{
+width: 6px;
+height: 6px;
+}
+
+.hiive-rail::-webkit-scrollbar-track,
+.hiive-rails-track::-webkit-scrollbar-track{
+background: rgba(255,255,255,0.04);
+border-radius: 999px;
+}
+
+.hiive-rail::-webkit-scrollbar-thumb,
+.hiive-rails-track::-webkit-scrollbar-thumb{
+background: linear-gradient(180deg, rgba(79,172,254,0.95), rgba(0,242,254,0.75));
+border-radius: 999px;
+box-shadow: 0 0 8px rgba(79,172,254,0.35);
+}
+
+.hiive-rail::-webkit-scrollbar-thumb:hover,
+.hiive-rails-track::-webkit-scrollbar-thumb:hover{
+background: linear-gradient(180deg, rgba(115,215,255,1), rgba(0,242,254,0.9));
+}
