@@ -6,57 +6,6 @@
 <title>Hiive — Vibes</title>
 <link rel="stylesheet" href="style.css" />
 </head>
-<script>
-const track = document.getElementById("hiiveRailsTrack");
-const rails = document.querySelectorAll(".hiive-rail");
-
-function updateActiveRail() {
-let bestRail = null;
-let bestDistance = Infinity;
-const viewportCenter = window.innerWidth / 2;
-
-rails.forEach((rail) => {
-const rect = rail.getBoundingClientRect();
-const railCenter = rect.left + rect.width / 2;
-const distance = Math.abs(viewportCenter - railCenter);
-
-if (distance < bestDistance) {
-bestDistance = distance;
-bestRail = rail;
-}
-});
-
-rails.forEach((rail) => {
-rail.classList.remove("active");
-
-rail.querySelectorAll("video").forEach((video) => {
-video.pause();
-});
-});
-
-if (bestRail) {
-bestRail.classList.add("active");
-
-bestRail.querySelectorAll("video").forEach((video) => {
-video.play().catch(() => {});
-});
-}
-}
-
-rails.forEach((rail) => {
-rail.addEventListener("click", () => {
-rail.scrollIntoView({
-behavior: "smooth",
-inline: "center",
-block: "nearest"
-});
-});
-});
-
-track.addEventListener("scroll", updateActiveRail, { passive: true });
-window.addEventListener("load", updateActiveRail);
-window.addEventListener("resize", updateActiveRail);
-</script>
 
 <body class="theme-dark hiive-rails-body">
 
@@ -84,27 +33,41 @@ window.addEventListener("resize", updateActiveRail);
 </video>
 
 <div class="hiive-rail-overlay">
-
 <div class="hiive-rail-topline">
 <div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Martin">
 <div>
 <strong>Emma Martin</strong>
 <span>#mood</span>
 </div>
 </div>
-
-<button class="hiive-follow-action">Suivre</button>
+<button class="hiive-follow-action" type="button">Suivre</button>
 </div>
 
 <p>Créer du contenu chaque jour 🔥</p>
 
 <div class="hiive-rail-actions">
-<button class="hiive-rail-action">❤️ 120</button>
-<button class="hiive-rail-action">💬 32</button>
-<button class="hiive-rail-action">🔁</button>
-</div>
+<button class="hiive-rail-action" type="button" aria-label="J’aime">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+<span>120</span>
+</button>
 
+<button class="hiive-rail-action" type="button" aria-label="Commenter">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+<span>32</span>
+</button>
+
+<button class="hiive-rail-action" type="button" aria-label="Partager">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+</button>
+</div>
 </div>
 </article>
 
@@ -114,27 +77,41 @@ window.addEventListener("resize", updateActiveRail);
 </video>
 
 <div class="hiive-rail-overlay">
-
 <div class="hiive-rail-topline">
 <div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Hakim Ajiqua">
 <div>
 <strong>Hakim Ajiqua</strong>
 <span>#mood</span>
 </div>
 </div>
-
-<button class="hiive-follow-action">Suivre</button>
+<button class="hiive-follow-action" type="button">Suivre</button>
 </div>
 
 <p>Une idée peut tout changer.</p>
 
 <div class="hiive-rail-actions">
-<button class="hiive-rail-action">❤️ 89</button>
-<button class="hiive-rail-action">💬 14</button>
-<button class="hiive-rail-action">🔁</button>
-</div>
+<button class="hiive-rail-action" type="button" aria-label="J’aime">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+<span>89</span>
+</button>
 
+<button class="hiive-rail-action" type="button" aria-label="Commenter">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+<span>14</span>
+</button>
+
+<button class="hiive-rail-action" type="button" aria-label="Partager">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+</button>
+</div>
 </div>
 </article>
 
@@ -154,27 +131,41 @@ window.addEventListener("resize", updateActiveRail);
 </video>
 
 <div class="hiive-rail-overlay">
-
 <div class="hiive-rail-topline">
 <div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/women/65.jpg">
+<img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jeanne Durand">
 <div>
 <strong>Jeanne Durand</strong>
 <span>#style</span>
 </div>
 </div>
-
-<button class="hiive-follow-action">Suivre</button>
+<button class="hiive-follow-action" type="button">Suivre</button>
 </div>
 
 <p>Look minimal, identité forte.</p>
 
 <div class="hiive-rail-actions">
-<button class="hiive-rail-action">❤️ 210</button>
-<button class="hiive-rail-action">💬 48</button>
-<button class="hiive-rail-action">🔁</button>
-</div>
+<button class="hiive-rail-action" type="button" aria-label="J’aime">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+<span>210</span>
+</button>
 
+<button class="hiive-rail-action" type="button" aria-label="Commenter">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+<span>48</span>
+</button>
+
+<button class="hiive-rail-action" type="button" aria-label="Partager">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+</button>
+</div>
 </div>
 </article>
 
@@ -184,27 +175,41 @@ window.addEventListener("resize", updateActiveRail);
 </video>
 
 <div class="hiive-rail-overlay">
-
 <div class="hiive-rail-topline">
 <div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/women/68.jpg">
+<img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emilie Roche">
 <div>
 <strong>Emilie Roche</strong>
 <span>#style</span>
 </div>
 </div>
-
-<button class="hiive-follow-action">Suivre</button>
+<button class="hiive-follow-action" type="button">Suivre</button>
 </div>
 
 <p>Ta signature visuelle compte.</p>
 
 <div class="hiive-rail-actions">
-<button class="hiive-rail-action">❤️ 132</button>
-<button class="hiive-rail-action">💬 21</button>
-<button class="hiive-rail-action">🔁</button>
-</div>
+<button class="hiive-rail-action" type="button" aria-label="J’aime">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+<span>132</span>
+</button>
 
+<button class="hiive-rail-action" type="button" aria-label="Commenter">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+<span>21</span>
+</button>
+
+<button class="hiive-rail-action" type="button" aria-label="Partager">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+</button>
+</div>
 </div>
 </article>
 
@@ -224,27 +229,85 @@ window.addEventListener("resize", updateActiveRail);
 </video>
 
 <div class="hiive-rail-overlay">
-
 <div class="hiive-rail-topline">
 <div class="hiive-rail-user">
-<img src="https://randomuser.me/api/portraits/men/41.jpg">
+<img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Florian Roux">
 <div>
 <strong>Florian Roux</strong>
 <span>#feels</span>
 </div>
 </div>
-
-<button class="hiive-follow-action">Suivre</button>
+<button class="hiive-follow-action" type="button">Suivre</button>
 </div>
 
 <p>Quand une émotion devient un contenu.</p>
 
 <div class="hiive-rail-actions">
-<button class="hiive-rail-action">❤️ 98</button>
-<button class="hiive-rail-action">💬 11</button>
-<button class="hiive-rail-action">🔁</button>
+<button class="hiive-rail-action" type="button" aria-label="J’aime">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+<span>98</span>
+</button>
+
+<button class="hiive-rail-action" type="button" aria-label="Commenter">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+<span>11</span>
+</button>
+
+<button class="hiive-rail-action" type="button" aria-label="Partager">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+</button>
+</div>
+</div>
+</article>
+
+<article class="hiive-rail-card">
+<video autoplay muted loop playsinline>
+<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+</video>
+
+<div class="hiive-rail-overlay">
+<div class="hiive-rail-topline">
+<div class="hiive-rail-user">
+<img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Sophie Lambert">
+<div>
+<strong>Sophie Lambert</strong>
+<span>#feels</span>
+</div>
+</div>
+<button class="hiive-follow-action" type="button">Suivre</button>
 </div>
 
+<p>Le vrai attire plus que le parfait.</p>
+
+<div class="hiive-rail-actions">
+<button class="hiive-rail-action" type="button" aria-label="J’aime">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+<span>76</span>
+</button>
+
+<button class="hiive-rail-action" type="button" aria-label="Commenter">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+<span>9</span>
+</button>
+
+<button class="hiive-rail-action" type="button" aria-label="Partager">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+</button>
+</div>
 </div>
 </article>
 
@@ -253,6 +316,35 @@ window.addEventListener("resize", updateActiveRail);
 </section>
 
 </main>
+
+<script>
+const track = document.getElementById("hiiveRailsTrack");
+const rails = document.querySelectorAll(".hiive-rail");
+
+function setActiveRail() {
+let best = null;
+let bestDistance = Infinity;
+const center = window.innerWidth / 2;
+
+rails.forEach((rail) => {
+const rect = rail.getBoundingClientRect();
+const railCenter = rect.left + rect.width / 2;
+const distance = Math.abs(center - railCenter);
+
+if (distance < bestDistance) {
+bestDistance = distance;
+best = rail;
+}
+});
+
+rails.forEach(r => r.classList.remove("active"));
+if (best) best.classList.add("active");
+}
+
+track.addEventListener("scroll", setActiveRail);
+window.addEventListener("load", setActiveRail);
+window.addEventListener("resize", setActiveRail);
+</script>
 
 </body>
 </html>
