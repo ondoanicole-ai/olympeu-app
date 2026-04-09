@@ -5570,3 +5570,176 @@ animation:hiiveLikePop .22s ease;
 50%{ transform:scale(1.14); }
 100%{ transform:scale(1); }
 }
+/* ===== FIX actions vibes ===== */
+
+.hiive-rail-actions{
+display:flex !important;
+align-items:center !important;
+gap:8px !important;
+margin-top:8px !important;
+flex-wrap:nowrap !important;
+}
+
+.hiive-rail-action{
+display:inline-flex !important;
+align-items:center !important;
+justify-content:center !important;
+gap:6px !important;
+
+width:auto !important;
+min-width:auto !important;
+max-width:none !important;
+flex:0 0 auto !important;
+
+padding:5px 10px !important;
+min-height:32px !important;
+border-radius:999px !important;
+
+background:transparent !important;
+border:1px solid rgba(79,172,254,0.42) !important;
+color:#9fdcff !important;
+
+box-shadow:0 0 8px rgba(79,172,254,0.14) !important;
+cursor:pointer !important;
+white-space:nowrap !important;
+}
+
+.hiive-rail-action svg{
+width:14px !important;
+height:14px !important;
+stroke:#9fdcff !important;
+fill:none !important;
+stroke-width:1.8 !important;
+flex:0 0 14px !important;
+}
+
+.hiive-rail-action span{
+display:inline !important;
+font-size:12px !important;
+line-height:1 !important;
+color:#9fdcff !important;
+}
+
+.hiive-rail-action:hover{
+border-color:rgba(0,242,254,0.72) !important;
+box-shadow:
+0 0 10px rgba(79,172,254,0.24),
+0 0 18px rgba(0,242,254,0.12) !important;
+}
+
+/* Bouton suivre compact */
+.hiive-follow-action{
+display:inline-flex !important;
+align-items:center !important;
+justify-content:center !important;
+
+width:auto !important;
+min-width:auto !important;
+flex:0 0 auto !important;
+
+padding:4px 10px !important;
+min-height:30px !important;
+border-radius:999px !important;
+
+background:transparent !important;
+border:1px solid rgba(79,172,254,0.42) !important;
+color:#bfe9ff !important;
+font-size:11px !important;
+line-height:1 !important;
+white-space:nowrap !important;
+}
+
+.hiive-follow-action:hover{
+border-color:rgba(0,242,254,0.72) !important;
+box-shadow:
+0 0 10px rgba(79,172,254,0.24),
+0 0 18px rgba(0,242,254,0.12) !important;
+}
+
+/* overlay plus compact */
+.hiive-rail-overlay{
+padding:10px !important;
+}
+
+.hiive-rail-topline{
+display:flex !important;
+align-items:center !important;
+justify-content:space-between !important;
+gap:10px !important;
+margin-bottom:4px !important;
+}
+
+.hiive-rail-user{
+display:flex !important;
+align-items:center !important;
+gap:8px !important;
+min-width:0 !important;
+}
+
+.hiive-rail-user img{
+width:28px !important;
+height:28px !important;
+border-radius:50% !important;
+flex:0 0 28px !important;
+}
+
+.hiive-rail-user strong{
+display:block !important;
+font-size:13px !important;
+line-height:1.05 !important;
+}
+
+.hiive-rail-user span{
+display:block !important;
+font-size:11px !important;
+opacity:.75 !important;
+line-height:1 !important;
+}
+
+.hiive-rail-overlay p{
+margin:4px 0 6px !important;
+font-size:13px !important;
+line-height:1.2 !important;
+max-width:70% !important;
+}
+
+/* effet like propre */
+.hiive-rail-action.like-btn{
+position:relative !important;
+}
+
+.hiive-rail-action.like-btn.is-liked svg{
+fill:#ff4d6d !important;
+stroke:#ff4d6d !important;
+transform:scale(1.08) !important;
+}
+
+.hiive-like-burst{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%, -50%) scale(.4);
+opacity:0;
+pointer-events:none;
+font-size:52px;
+line-height:1;
+}
+
+.hiive-like-burst.show{
+animation:hiiveLikeBurst .55s ease forwards;
+}
+
+@keyframes hiiveLikeBurst{
+0%{
+opacity:0;
+transform:translate(-50%, -50%) scale(.4);
+}
+20%{
+opacity:1;
+transform:translate(-50%, -50%) scale(1);
+}
+100%{
+opacity:0;
+transform:translate(-50%, -58%) scale(1.2);
+}
+}
