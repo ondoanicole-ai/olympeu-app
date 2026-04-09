@@ -5509,3 +5509,64 @@ justify-content:flex-end;
 height:100%;
 padding:10px;
 }
+/* ===== Like animation ===== */
+
+.hiive-rail-action.like-btn{
+position:relative;
+overflow:visible;
+}
+
+.hiive-rail-action.like-btn svg{
+transition:transform .18s ease, stroke .18s ease, fill .18s ease;
+}
+
+.hiive-rail-action.like-btn.is-liked svg{
+fill:#ff4d6d;
+stroke:#ff4d6d;
+transform:scale(1.08);
+}
+
+.hiive-rail-action.like-btn.is-liked span{
+color:#ffd6de;
+}
+
+.hiive-like-burst{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%, -50%) scale(.4);
+opacity:0;
+pointer-events:none;
+font-size:52px;
+line-height:1;
+filter:drop-shadow(0 0 14px rgba(255,77,109,.35));
+}
+
+.hiive-like-burst.show{
+animation:hiiveLikeBurst .55s ease forwards;
+}
+
+@keyframes hiiveLikeBurst{
+0%{
+opacity:0;
+transform:translate(-50%, -50%) scale(.4);
+}
+20%{
+opacity:1;
+transform:translate(-50%, -50%) scale(1);
+}
+100%{
+opacity:0;
+transform:translate(-50%, -58%) scale(1.25);
+}
+}
+
+.hiive-like-pop{
+animation:hiiveLikePop .22s ease;
+}
+
+@keyframes hiiveLikePop{
+0%{ transform:scale(1); }
+50%{ transform:scale(1.14); }
+100%{ transform:scale(1); }
+}
