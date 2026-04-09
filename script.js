@@ -733,3 +733,16 @@ window.location.href = "vibes-hiive.html";
 
 });
 
+/* ===== VIBES AUTOPLAY ===== */
+
+document.querySelectorAll(".vibe-item video").forEach(video => {
+
+video.addEventListener("click", () => {
+if(video.paused){
+video.play();
+} else {
+video.pause();
+}
+});
+
+});
