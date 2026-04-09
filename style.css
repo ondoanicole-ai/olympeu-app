@@ -5773,3 +5773,15 @@ position:relative;
 padding-top:0 !important;
 }
 
+.hiive-rail-card {
+height:320px; /* augmente la taille */
+border-radius:16px;
+overflow:hidden;
+}
+
+/* version desktop plus grande */
+@media (min-width:1024px){
+.hiive-rail-card{
+height:380px;
+}
+}
