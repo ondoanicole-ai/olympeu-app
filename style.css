@@ -5922,3 +5922,35 @@ content: none !important;
 margin: 0 0 4px !important;
 max-width: 66% !important;
 }
+.hiive-rails-back{
+display:inline-flex;
+align-items:center;
+gap:6px;
+
+padding:6px 12px;
+border-radius:999px;
+
+border:1px solid rgba(255,255,255,0.6);
+color:#fff;
+text-decoration:none;
+
+font-size:13px;
+font-weight:500;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter: blur(6px);
+
+transition:all .2s ease;
+}
+
+/* hover */
+.hiive-rails-back:hover{
+border-color:#fff;
+background:rgba(255,255,255,0.12);
+
+box-shadow:
+0 0 8px rgba(255,255,255,0.2),
+0 0 16px rgba(79,172,254,0.2);
+
+transform:translateY(-1px);
+}
