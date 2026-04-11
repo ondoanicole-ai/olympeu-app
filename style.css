@@ -6256,3 +6256,36 @@ background:rgba(255,255,255,.02);
 color:rgba(255,255,255,.65);
 font-size:13px;
 }
+/* ===== FIX GLOBAL DARK UI ===== */
+
+body,
+html {
+color: #ffffff !important;
+}
+
+/* Tous les textes */
+* {
+color: #ffffff;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5 {
+color: #ffffff !important;
+}
+
+/* Paragraphes */
+p, span, div {
+color: rgba(255,255,255,0.85);
+}
+
+/* Inputs */
+input, textarea {
+color: #fff !important;
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Placeholder */
+input::placeholder {
+color: rgba(255,255,255,0.5);
+}
