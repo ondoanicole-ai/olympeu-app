@@ -1,88 +1,159 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Connexion Hiive Social</title>
-<link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiive — Connexion</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+
+body{
+margin:0;
+font-family: 'Inter', sans-serif;
+background: radial-gradient(circle at top, #0a1628, #050a14);
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
+}
+
+/* ===== CARD ===== */
+
+.loginCard{
+width:360px;
+padding:30px;
+border-radius:20px;
+background: rgba(255,255,255,0.03);
+backdrop-filter: blur(12px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* ===== HEADER ===== */
+
+.logo{
+font-size:28px;
+font-weight:800;
+margin-bottom:5px;
+}
+
+.subtitle{
+color:rgba(255,255,255,0.6);
+margin-bottom:25px;
+}
+
+/* ===== INPUT ===== */
+
+.inputGroup{
+margin-bottom:15px;
+}
+
+.inputGroup input{
+width:100%;
+padding:12px 14px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.04);
+color:#fff;
+outline:none;
+}
+
+.inputGroup input:focus{
+border-color:#4facfe;
+box-shadow:0 0 0 2px rgba(79,172,254,0.2);
+}
+
+/* ===== BUTTON ===== */
+
+.loginBtn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+font-weight:700;
+color:#fff;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+cursor:pointer;
+margin-top:10px;
+box-shadow:0 0 15px rgba(79,172,254,0.3);
+}
+
+.loginBtn:hover{
+transform:translateY(-1px);
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+text-align:center;
+margin-top:20px;
+font-size:14px;
+color:rgba(255,255,255,0.6);
+}
+
+.footer a{
+color:#4facfe;
+text-decoration:none;
+font-weight:600;
+}
+
+/* ===== ERROR ===== */
+
+.error{
+color:#ff4d6d;
+font-size:13px;
+margin-top:8px;
+display:none;
+}
+
+</style>
 </head>
-<body class="theme-dark">
 
-<header class="topbar">
-<a href="index.html" class="brand">
-<span class="brand-name hiive-logo">hiive</span>
-</a>
+<body>
 
-<nav class="topnav">
-<a href="hiive-social.html" class="btn btn-soft">Retour à hiive</a>
-<a href="signup-hiive.html" class="btn btn-primary">Créer un compte</a>
-</nav>
-</header>
+<div class="loginCard">
 
-<main class="page-shell wide">
-<section class="hiive-auth-layout">
+<div class="logo">Hiive</div>
+<div class="subtitle">Connexion à votre compte</div>
 
-<div class="hiive-auth-left panel">
-<p class="eyebrow">Hiive Social</p>
-<h1>
-Retrouvez votre espace,<br>
-vos contenus et votre<br>
-<span>communauté.</span>
-</h1>
-
-<p class="muted">
-Connectez-vous pour publier, interagir, suivre les tendances et retrouver vos profils préférés.
-</p>
-
-<div class="hiive-auth-feed-preview">
-<div class="hiive-auth-post">
-<div class="hiive-auth-post-head">
-<div class="hiive-auth-avatar">N</div>
-<div>
-<strong>Nicole</strong>
-<p class="muted">Créateur · il y a 1 h</p>
-</div>
-</div>
-<p>Je prépare une nouvelle série de contenus autour de l’entrepreneuriat et de la créativité.</p>
+<div class="inputGroup">
+<input type="email" id="email" placeholder="Email">
 </div>
 
-<div class="hiive-auth-post">
-<div class="hiive-auth-post-head">
-<div class="hiive-auth-avatar">E</div>
-<div>
-<strong>Emma Martin</strong>
-<p class="muted">Photo · Vidéo</p>
-</div>
-</div>
-<p>Exploration, storytelling, inspiration visuelle et formats créatifs.</p>
-</div>
-</div>
+<div class="inputGroup">
+<input type="password" id="password" placeholder="Mot de passe">
 </div>
 
-<div class="hiive-auth-right panel">
-<p class="eyebrow">Connexion</p>
-<h2>Bon retour sur hiive</h2>
+<button class="loginBtn" onclick="login()">Se connecter</button>
 
-<form class="form-stack" onsubmit="event.preventDefault(); window.location.href='feed-hiive.html';">
-<input type="email" placeholder="Email" required />
-<input type="password" placeholder="Mot de passe" required />
-<button type="submit" class="btn btn-primary btn-full">Se connecter</button>
-</form>
+<div class="error" id="errorMsg">Identifiants incorrects</div>
 
-<p class="helper">
-Pas encore de compte ?
-<a href="signup-hiive.html">Créer un compte</a>
-</p>
-
-<div class="hiive-auth-alt">
-<span>Ou</span>
-<a href="login.html" class="btn btn-soft btn-full">Connexion OlympeUS</a>
-</div>
+<div class="footer">
+Pas encore de compte ? <a href="#">Créer un compte</a>
 </div>
 
-</section>
-</main>
+</div>
 
-<script src="script.js"></script>
+<script>
+
+function login(){
+const email = document.getElementById('email').value;
+const password = document.getElementById('password').value;
+const error = document.getElementById('errorMsg');
+
+if(email === "test@hiive.com" && password === "1234"){
+alert("Connexion réussie !");
+// futur : redirection
+// window.location.href = "videos-hiive.html";
+}else{
+error.style.display = "block";
+}
+}
+
+</script>
+
 </body>
 </html>
