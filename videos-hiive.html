@@ -2111,12 +2111,11 @@ return str
 
 function getFilteredVideosByCategory(category){
 return videos.filter(v => {
-const fmtOk = v.format === currentFormat;
 const catOk = v.category === category;
 const query = currentSearch.trim().toLowerCase();
 const hay = `${v.title} ${v.desc} ${v.user} ${v.handle} ${v.tag} ${category}`.toLowerCase();
 const searchOk = !query || hay.includes(query);
-return fmtOk && catOk && searchOk;
+return catOk && searchOk;
 });
 }
 
