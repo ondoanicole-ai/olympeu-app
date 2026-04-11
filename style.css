@@ -5943,4 +5943,83 @@ line-height:1 !important;
 box-shadow:0 0 8px rgba(255,255,255,0.08) !important;
 transition:all .2s ease !important;
 }
+@media (max-width: 768px){
+
+.videos-shell{
+padding:12px 10px 70px;
+}
+
+.videos-toolbar{
+align-items:flex-start;
+gap:12px;
+}
+
+.videos-page-title{
+font-size:28px;
+}
+
+.videos-page-sub{
+font-size:13px;
+line-height:1.35;
+}
+
+.videos-categories{
+top:72px;
+padding:8px 0 14px;
+gap:8px;
+}
+
+.videos-cat-btn{
+padding:9px 13px;
+font-size:12px;
+}
+
+.videos-section{
+padding:14px;
+border-radius:20px;
+}
+
+.videos-section-head h2{
+font-size:22px;
+}
+
+.videos-section-head p{
+font-size:13px;
+line-height:1.35;
+}
+
+.videos-row{
+gap:12px;
+}
+
+.video-card{
+flex:0 0 92vw;
+}
+
+.video-thumb{
+aspect-ratio:16 / 10;
+}
+
+.video-meta{
+padding:12px;
+}
+
+.video-title{
+font-size:18px;
+}
+
+.video-sub{
+font-size:13px;
+}
+
+.video-stat{
+font-size:11px;
+padding:5px 9px;
+}
+
+.video-play{
+width:48px;
+height:48px;
+}
+}
 
