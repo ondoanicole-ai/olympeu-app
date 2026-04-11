@@ -6217,4 +6217,35 @@ height: 16px !important;
 overflow: hidden !important;
 }
 }
+.cats{
+overflow-x: auto !important;
+overflow-y: hidden !important;
+white-space: nowrap !important;
+padding-bottom: 10px !important;
+scrollbar-width: thin !important;
+scrollbar-color: rgba(95,210,255,.65) transparent !important;
+}
+
+.cats::-webkit-scrollbar{
+height: 6px !important;
+}
+
+.cats::-webkit-scrollbar-track{
+background: transparent !important;
+}
+
+.cats::-webkit-scrollbar-thumb{
+background: linear-gradient(90deg, rgba(95,210,255,.9), rgba(79,172,254,.9)) !important;
+border-radius: 999px !important;
+}
+
+.cats::-webkit-scrollbar-thumb:hover{
+background: linear-gradient(90deg, rgba(120,230,255,1), rgba(79,172,254,1)) !important;
+}
+
+.cats::after{
+content: "";
+flex: 0 0 14px;
+}
+
 
