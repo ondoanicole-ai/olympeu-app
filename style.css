@@ -6199,4 +6199,22 @@ flex-direction: column !important;
 gap: 12px !important;
 }
 }
+@media (max-width: 768px){
+
+.play{
+width: 42px !important;
+height: 42px !important;
+right: 10px !important;
+bottom: 10px !important;
+}
+
+.play svg{
+width: 16px !important;
+height: 16px !important;
+}
+
+.thumb{
+overflow: hidden !important;
+}
+}
 
