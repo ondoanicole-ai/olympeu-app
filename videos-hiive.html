@@ -1682,244 +1682,261 @@ const STORAGE_VIEWS = 'hiive_views_v2';
 
 const baseVideos = [
 {
-id:'media_1',
-category:'media',
-format:'short',
-type:'video',
-title:'Actu minute',
-desc:'Une capsule rapide pour résumer l’essentiel d’un sujet d’actualité.',
+id:'media_1', category:'media', format:'short', type:'video',
+title:'Actu minute', desc:'Une capsule rapide pour résumer l’essentiel.',
 src:'https://www.w3schools.com/html/mov_bbb.mp4',
-user:'Emma Martin',
-handle:'@emma.media',
-tag:'Actu',
-avatar:'https://randomuser.me/api/portraits/women/44.jpg',
-duration:'3 min'
+user:'Emma Martin', handle:'@emma.media', tag:'Actu',
+avatar:'https://randomuser.me/api/portraits/women/44.jpg', duration:'3 min'
 },
 {
-id:'science_1',
-category:'science',
-format:'short',
-type:'video',
-title:'Science simple',
-desc:'Une idée scientifique rendue facile à comprendre.',
-src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4',
-user:'Jeanne Durand',
-handle:'@jeanne.lab',
-tag:'Science',
-avatar:'https://randomuser.me/api/portraits/women/65.jpg',
-duration:'5 min'
-},
-{
-id:'religion_1',
-category:'religion',
-format:'long',
-type:'video',
-title:'Lecture de texte',
-desc:'Une approche claire et posée autour d’un texte religieux.',
-src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
-user:'Sarah K.',
-handle:'@sarah.foi',
-tag:'Religion',
-avatar:'https://randomuser.me/api/portraits/women/22.jpg',
-duration:'13 min'
-},
-{
-id:'paranormal_1',
-category:'paranormal',
-format:'short',
-type:'video',
-title:'Phénomène étrange',
-desc:'Un format court autour d’un fait inexpliqué ou troublant.',
-src:'https://www.w3schools.com/html/movie.mp4',
-user:'Noa Lens',
-handle:'@noa.mystere',
-tag:'Mystère',
-avatar:'https://randomuser.me/api/portraits/men/11.jpg',
-duration:'4 min'
-},
-{
-id:'business_1',
-category:'business',
-format:'short',
-type:'video',
-title:'Startup mindset',
-desc:'Une idée claire sur la logique entrepreneuriale.',
-src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4',
-user:'Nicole Ondoa',
-handle:'@nicole.biz',
-tag:'Business',
-avatar:'https://randomuser.me/api/portraits/women/44.jpg',
-duration:'4 min'
-},
-{
-id:'lifestyle_1',
-category:'lifestyle',
-format:'short',
-type:'video',
-title:'Routine',
-desc:'Un format lifestyle simple, visuel et apaisé.',
-src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
-user:'Sophie Lambert',
-handle:'@sophie.life',
-tag:'Lifestyle',
-avatar:'https://randomuser.me/api/portraits/women/52.jpg',
-duration:'3 min'
-},
-{
-id:'humour_1',
-category:'humour',
-format:'short',
-type:'video',
-title:'Minute drôle',
-desc:'Une pause légère dans le scroll.',
-src:'https://www.w3schools.com/html/movie.mp4',
-user:'Hakim Ajiqua',
-handle:'@hakim.fun',
-tag:'Humour',
-avatar:'https://randomuser.me/api/portraits/men/32.jpg',
-duration:'1 min'
-},
-{
-id:'politique_1',
-category:'politique',
-format:'long',
-type:'video',
-title:'Décryptage politique',
-desc:'Comprendre sans simplifier à outrance.',
-src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
-user:'Florian Roux',
-handle:'@florian.politique',
-tag:'Décryptage',
-avatar:'https://randomuser.me/api/portraits/men/41.jpg',
-duration:'15 min'
-},
-{
-id:'histoire_1',
-category:'histoire',
-format:'short',
-type:'video',
-title:'Histoire courte',
-desc:'Un point de repère en format vivant.',
+id:'media_2', category:'media', format:'long', type:'video',
+title:'Décryptage express', desc:'Un angle simple sur un sujet d’actualité.',
 src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
-user:'Emma Martin',
-handle:'@emma.histoire',
-tag:'Histoire',
-avatar:'https://randomuser.me/api/portraits/women/44.jpg',
-duration:'4 min'
+user:'Hakim Ajiqua', handle:'@hakim.story', tag:'Décryptage',
+avatar:'https://randomuser.me/api/portraits/men/32.jpg', duration:'8 min'
+},
+
+{
+id:'science_1', category:'science', format:'short', type:'video',
+title:'Science simple', desc:'Comprendre un phénomène rapidement.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4',
+user:'Jeanne Durand', handle:'@jeanne.lab', tag:'Science',
+avatar:'https://randomuser.me/api/portraits/women/65.jpg', duration:'5 min'
 },
 {
-id:'cinema_1',
-category:'cinema',
-format:'long',
-type:'video',
-title:'Lecture de scène',
-desc:'Image, rythme, émotion.',
+id:'science_2', category:'science', format:'long', type:'video',
+title:'Expérience visuelle', desc:'Une démonstration claire en vidéo.',
 src:'https://www.w3schools.com/html/movie.mp4',
-user:'Jeanne Durand',
-handle:'@jeanne.cinema',
-tag:'Cinéma',
-avatar:'https://randomuser.me/api/portraits/women/65.jpg',
-duration:'11 min'
+user:'Emilie Roche', handle:'@emilie.science', tag:'Expérience',
+avatar:'https://randomuser.me/api/portraits/women/68.jpg', duration:'12 min'
+},
+
+{
+id:'religion_1', category:'religion', format:'short', type:'video',
+title:'Pensée du jour', desc:'Une parole simple et inspirante.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+user:'David N.', handle:'@david.foi', tag:'Foi',
+avatar:'https://randomuser.me/api/portraits/men/54.jpg', duration:'2 min'
 },
 {
-id:'enfants_1',
-category:'enfants',
-format:'short',
-type:'video',
-title:'Éveil visuel',
-desc:'Format doux, simple et coloré.',
+id:'religion_2', category:'religion', format:'long', type:'video',
+title:'Lecture de texte', desc:'Une approche claire d’un texte religieux.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Sarah K.', handle:'@sarah.foi', tag:'Religion',
+avatar:'https://randomuser.me/api/portraits/women/22.jpg', duration:'13 min'
+},
+
+{
+id:'paranormal_1', category:'paranormal', format:'short', type:'video',
+title:'Phénomène étrange', desc:'Un récit court autour d’un fait inexpliqué.',
+src:'https://www.w3schools.com/html/movie.mp4',
+user:'Noa Lens', handle:'@noa.mystere', tag:'Mystère',
+avatar:'https://randomuser.me/api/portraits/men/11.jpg', duration:'4 min'
+},
+{
+id:'paranormal_2', category:'paranormal', format:'long', type:'video',
+title:'Dossier sombre', desc:'Un récit plus long sur un phénomène troublant.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Iris Moon', handle:'@iris.moon', tag:'Paranormal',
+avatar:'https://randomuser.me/api/portraits/women/18.jpg', duration:'14 min'
+},
+
+{
+id:'business_1', category:'business', format:'short', type:'video',
+title:'Startup mindset', desc:'Une idée claire sur la logique entrepreneuriale.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4',
+user:'Nicole Ondoa', handle:'@nicole.biz', tag:'Business',
+avatar:'https://randomuser.me/api/portraits/women/44.jpg', duration:'4 min'
+},
+{
+id:'business_2', category:'business', format:'long', type:'video',
+title:'Construire un projet', desc:'Une vidéo plus longue sur la structuration d’un projet.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Florian Roux', handle:'@florian.biz', tag:'Stratégie',
+avatar:'https://randomuser.me/api/portraits/men/41.jpg', duration:'18 min'
+},
+
+{
+id:'lifestyle_1', category:'lifestyle', format:'short', type:'video',
+title:'Routine', desc:'Un format lifestyle simple, visuel et apaisé.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Sophie Lambert', handle:'@sophie.life', tag:'Lifestyle',
+avatar:'https://randomuser.me/api/portraits/women/52.jpg', duration:'3 min'
+},
+{
+id:'lifestyle_2', category:'lifestyle', format:'long', type:'video',
+title:'Morning vibe', desc:'Une ambiance simple pour commencer la journée.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+user:'Lina Soft', handle:'@lina.day', tag:'Routine',
+avatar:'https://randomuser.me/api/portraits/women/12.jpg', duration:'9 min'
+},
+
+{
+id:'humour_1', category:'humour', format:'short', type:'video',
+title:'Minute drôle', desc:'Une pause légère dans le scroll.',
+src:'https://www.w3schools.com/html/movie.mp4',
+user:'Hakim Ajiqua', handle:'@hakim.fun', tag:'Humour',
+avatar:'https://randomuser.me/api/portraits/men/32.jpg', duration:'1 min'
+},
+{
+id:'humour_2', category:'humour', format:'long', type:'video',
+title:'Réaction drôle', desc:'Un moment léger et spontané.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+user:'Nora Smile', handle:'@nora.fun', tag:'Fun',
+avatar:'https://randomuser.me/api/portraits/women/33.jpg', duration:'7 min'
+},
+
+{
+id:'politique_1', category:'politique', format:'short', type:'video',
+title:'Décision publique', desc:'Une capsule sur une décision et ses effets.',
+src:'https://www.w3schools.com/html/mov_bbb.mp4',
+user:'Nadia Focus', handle:'@nadia.public', tag:'Public',
+avatar:'https://randomuser.me/api/portraits/women/41.jpg', duration:'3 min'
+},
+{
+id:'politique_2', category:'politique', format:'long', type:'video',
+title:'Décryptage politique', desc:'Une lecture simple d’un sujet institutionnel.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Florian Roux', handle:'@florian.politique', tag:'Décryptage',
+avatar:'https://randomuser.me/api/portraits/men/41.jpg', duration:'15 min'
+},
+
+{
+id:'histoire_1', category:'histoire', format:'short', type:'video',
+title:'Histoire courte', desc:'Un fait ou une période résumée clairement.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+user:'Emma Martin', handle:'@emma.histoire', tag:'Histoire',
+avatar:'https://randomuser.me/api/portraits/women/44.jpg', duration:'4 min'
+},
+{
+id:'histoire_2', category:'histoire', format:'long', type:'video',
+title:'Chronique d’époque', desc:'Une plongée dans une grande période.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Marc Leclerc', handle:'@marc.hist', tag:'Chronique',
+avatar:'https://randomuser.me/api/portraits/men/61.jpg', duration:'14 min'
+},
+
+{
+id:'cinema_1', category:'cinema', format:'short', type:'video',
+title:'Plan culte', desc:'Un détail visuel raconté rapidement.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+user:'Nina Frame', handle:'@nina.frame', tag:'Analyse',
+avatar:'https://randomuser.me/api/portraits/women/26.jpg', duration:'3 min'
+},
+{
+id:'cinema_2', category:'cinema', format:'long', type:'video',
+title:'Lecture de scène', desc:'Décoder une scène, un cadrage et une ambiance.',
+src:'https://www.w3schools.com/html/movie.mp4',
+user:'Jeanne Durand', handle:'@jeanne.cinema', tag:'Cinéma',
+avatar:'https://randomuser.me/api/portraits/women/65.jpg', duration:'11 min'
+},
+
+{
+id:'enfants_1', category:'enfants', format:'short', type:'video',
+title:'Éveil visuel', desc:'Apprendre en s’amusant à travers des images simples.',
 src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm',
-user:'Sophie Lambert',
-handle:'@sophie.kids',
-tag:'Enfants',
-avatar:'https://randomuser.me/api/portraits/women/52.jpg',
-duration:'3 min'
+user:'Sophie Lambert', handle:'@sophie.kids', tag:'Enfants',
+avatar:'https://randomuser.me/api/portraits/women/52.jpg', duration:'3 min'
 },
 {
-id:'tech_1',
-category:'tech',
-format:'short',
-type:'video',
-title:'Tech rapide',
-desc:'Un usage concret sans détour.',
-src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4',
-user:'Nicole Ondoa',
-handle:'@nicole.tech',
-tag:'Tech',
-avatar:'https://randomuser.me/api/portraits/women/44.jpg',
-duration:'4 min'
-},
-{
-id:'education_1',
-category:'education',
-format:'long',
-type:'video',
-title:'Apprendre clairement',
-desc:'Un format plus long pour mieux retenir.',
-src:'https://www.w3schools.com/html/mov_bbb.mp4',
-user:'Jeanne Durand',
-handle:'@jeanne.learn',
-tag:'Éducation',
-avatar:'https://randomuser.me/api/portraits/women/65.jpg',
-duration:'16 min'
-},
-{
-id:'sante_1',
-category:'sante',
-format:'short',
-type:'video',
-title:'Équilibre simple',
-desc:'Respirer, ralentir, recentrer.',
-src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
-user:'Sophie Lambert',
-handle:'@sophie.well',
-tag:'Bien-être',
-avatar:'https://randomuser.me/api/portraits/women/52.jpg',
-duration:'4 min'
-},
-{
-id:'spiritualite_1',
-category:'spiritualite',
-format:'long',
-type:'video',
-title:'Présence intérieure',
-desc:'Prendre un temps pour revenir à soi et respirer.',
-src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
-user:'Maya Noor',
-handle:'@maya.spirit',
-tag:'Spiritualité',
-avatar:'https://randomuser.me/api/portraits/women/30.jpg',
-duration:'17 min'
-},
-{
-id:'detente_1',
-category:'detente',
-format:'short',
-type:'video',
-title:'Pause visuelle',
-desc:'Un moment simple pour relâcher la pression.',
+id:'enfants_2', category:'enfants', format:'long', type:'video',
+title:'Couleurs & sons', desc:'Une capsule ludique et visuelle.',
 src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
-user:'Lina Soft',
-handle:'@lina.pause',
-tag:'Détente',
-avatar:'https://randomuser.me/api/portraits/women/12.jpg',
-duration:'3 min'
+user:'Lola Kids', handle:'@lola.kids', tag:'Ludique',
+avatar:'https://randomuser.me/api/portraits/women/21.jpg', duration:'8 min'
+},
+
+{
+id:'tech_1', category:'tech', format:'short', type:'video',
+title:'Tech rapide', desc:'Une astuce ou un outil utile expliqué vite.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4',
+user:'Nicole Ondoa', handle:'@nicole.tech', tag:'Tech',
+avatar:'https://randomuser.me/api/portraits/women/44.jpg', duration:'4 min'
 },
 {
-id:'musique_1',
-category:'musique',
-format:'short',
-type:'video',
-title:'Session live',
-desc:'Une capsule musicale avec une vraie identité sonore.',
+id:'tech_2', category:'tech', format:'long', type:'video',
+title:'Outil du jour', desc:'Une présentation détaillée d’un outil numérique.',
+src:'https://www.w3schools.com/html/mov_bbb.mp4',
+user:'Max Digital', handle:'@max.tools', tag:'Outils',
+avatar:'https://randomuser.me/api/portraits/men/24.jpg', duration:'10 min'
+},
+
+{
+id:'education_1', category:'education', format:'short', type:'video',
+title:'Leçon rapide', desc:'Un concept expliqué en quelques minutes.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+user:'Nina Learn', handle:'@nina.learn', tag:'Leçon',
+avatar:'https://randomuser.me/api/portraits/women/49.jpg', duration:'3 min'
+},
+{
+id:'education_2', category:'education', format:'long', type:'video',
+title:'Apprendre clairement', desc:'Une vidéo pédagogique pensée pour aller au fond.',
+src:'https://www.w3schools.com/html/mov_bbb.mp4',
+user:'Jeanne Durand', handle:'@jeanne.learn', tag:'Éducation',
+avatar:'https://randomuser.me/api/portraits/women/65.jpg', duration:'16 min'
+},
+
+{
+id:'sante_1', category:'sante', format:'short', type:'video',
+title:'Équilibre simple', desc:'Un rappel utile pour prendre soin de soi.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Sophie Lambert', handle:'@sophie.well', tag:'Bien-être',
+avatar:'https://randomuser.me/api/portraits/women/52.jpg', duration:'4 min'
+},
+{
+id:'sante_2', category:'sante', format:'long', type:'video',
+title:'Routine saine', desc:'Une routine simple et progressive.',
+src:'https://www.w3schools.com/html/mov_bbb.mp4',
+user:'Claire Zen', handle:'@claire.zen', tag:'Santé',
+avatar:'https://randomuser.me/api/portraits/women/31.jpg', duration:'9 min'
+},
+
+{
+id:'spiritualite_1', category:'spiritualite', format:'short', type:'video',
+title:'Souffle calme', desc:'Un moment court pour respirer et ralentir.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+user:'Lina Aura', handle:'@lina.aura', tag:'Méditation',
+avatar:'https://randomuser.me/api/portraits/women/16.jpg', duration:'2 min'
+},
+{
+id:'spiritualite_2', category:'spiritualite', format:'long', type:'video',
+title:'Présence intérieure', desc:'Un contenu calme et profond pour se recentrer.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Maya Noor', handle:'@maya.spirit', tag:'Spiritualité',
+avatar:'https://randomuser.me/api/portraits/women/30.jpg', duration:'17 min'
+},
+
+{
+id:'detente_1', category:'detente', format:'short', type:'video',
+title:'Pause visuelle', desc:'Un contenu reposant pour relâcher la pression.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+user:'Lina Soft', handle:'@lina.pause', tag:'Détente',
+avatar:'https://randomuser.me/api/portraits/women/12.jpg', duration:'3 min'
+},
+{
+id:'detente_2', category:'detente', format:'long', type:'video',
+title:'Slow moment', desc:'Une capsule calme pour ralentir le rythme.',
+src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4',
+user:'Mila Soft', handle:'@mila.soft', tag:'Calme',
+avatar:'https://randomuser.me/api/portraits/women/24.jpg', duration:'8 min'
+},
+
+{
+id:'musique_1', category:'musique', format:'short', type:'video',
+title:'Session live', desc:'Une capsule musicale avec une vraie identité sonore.',
 src:'https://www.w3schools.com/html/movie.mp4',
-user:'Nina Vox',
-handle:'@nina.music',
-tag:'Musique',
-avatar:'https://randomuser.me/api/portraits/women/50.jpg',
-duration:'4 min'
+user:'Nina Vox', handle:'@nina.music', tag:'Musique',
+avatar:'https://randomuser.me/api/portraits/women/50.jpg', duration:'4 min'
+},
+{
+id:'musique_2', category:'musique', format:'long', type:'video',
+title:'Studio session', desc:'Une session plus longue et plus riche.',
+src:'https://www.w3schools.com/html/mov_bbb.mp4',
+user:'Léo Wave', handle:'@leo.wave', tag:'Studio',
+avatar:'https://randomuser.me/api/portraits/men/47.jpg', duration:'12 min'
 }
 ];
+
 
 const defaultViews = {
 media_1:12000,
