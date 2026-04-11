@@ -6247,3 +6247,12 @@ background: linear-gradient(90deg, rgba(120,230,255,1), rgba(79,172,254,1)) !imp
 content: "";
 flex: 0 0 14px;
 }
+.emptyRowMessage{
+min-width:100%;
+padding:18px;
+border-radius:18px;
+border:1px dashed rgba(255,255,255,.10);
+background:rgba(255,255,255,.02);
+color:rgba(255,255,255,.65);
+font-size:13px;
+}
