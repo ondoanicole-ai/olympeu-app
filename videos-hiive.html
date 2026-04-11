@@ -1120,19 +1120,12 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </main>
 
 <div class="video-viewer" id="videoViewer">
-<div class="video-viewer-card">
-<div class="video-viewer-top">
-<strong id="viewerTitle">Lecture vidéo</strong>
+<div class="tiktok-viewer-top">
 <button class="video-close" id="closeViewer">✕</button>
+<div class="tiktok-viewer-label" id="viewerCategory">Catégorie</div>
 </div>
-<div class="video-viewer-player">
-<video id="viewerVideo" controls playsinline></video>
-</div>
-<div class="video-viewer-info">
-<h3 id="viewerHeading">Titre</h3>
-<p id="viewerDesc">Description</p>
-</div>
-</div>
+
+<div class="tiktok-feed" id="tiktokFeed"></div>
 </div>
 
 <script>
