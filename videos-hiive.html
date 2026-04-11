@@ -2160,16 +2160,28 @@ ${media}
 
 function renderSections(){
 rows.forEach(row => {
+
 const category = row.dataset.category;
 const list = getFilteredVideosByCategory(category);
-row.innerHTML = list.map(renderCard).join('');
 const section = row.closest('.section');
-section.style.display = list.length ? '' : 'none';
+
+if (list.length > 0) {
+row.innerHTML = list.map(renderCard).join('');
+} else {
+row.innerHTML = `
+<div class="emptyRowMessage">
+Aucun contenu disponible pour le moment
+</div>
+`;
+}
+
+section.style.display = ''; // toujours visible
 });
 
 bindCardEvents();
 observeVisibleSections();
 }
+
 
 function bindCardEvents(){
 document.querySelectorAll('.card').forEach(card => {
