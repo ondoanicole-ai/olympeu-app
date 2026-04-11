@@ -1181,24 +1181,44 @@ if (activeChip) activeChip.classList.add('active');
 });
 }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
 
-sections.forEach(section => observer.observe(section));
+function updateObserverTargets() {
+observer.disconnect();
+document.querySelectorAll('.videos-section').forEach(section => {
+if (section.style.display !== 'none') {
+observer.observe(section);
+}
+});
+}
+
+function applyFormatFilter(selected) {
+sections.forEach(section => {
+const sectionCards = section.querySelectorAll('.video-card');
+let visibleCount = 0;
+
+sectionCards.forEach(card => {
+const matches = card.dataset.format === selected;
+card.style.display = matches ? '' : 'none';
+if (matches) visibleCount++;
+});
+
+section.style.display = visibleCount > 0 ? '' : 'none';
+});
+
+updateObserverTargets();
+}
 
 formatBtns.forEach(btn => {
 btn.addEventListener('click', () => {
 formatBtns.forEach(b => b.classList.remove('active'));
 btn.classList.add('active');
+applyFormatFilter(btn.dataset.format);
+});
+});
 
-const selected = btn.dataset.format;
-cards.forEach(card => {
-if (card.dataset.format === selected) {
-card.style.display = '';
-} else {
-card.style.display = 'none';
-}
-});
-});
-});
+const activeBtn = document.querySelector('.videos-format-btn.active');
+applyFormatFilter(activeBtn ? activeBtn.dataset.format : 'short');
 </script>
+
 
 </body>
 </html>
