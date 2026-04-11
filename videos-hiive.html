@@ -1110,6 +1110,237 @@ stroke:#fff !important;
 stroke:#ff4d6d !important;
 fill:#ff4d6d !important;
 }
+/* ===== UPLOAD MODAL FINAL ===== */
+
+.uploadModal{
+background:rgba(2,6,12,.88) !important;
+backdrop-filter:blur(10px) !important;
+}
+
+.uploadCard{
+width:min(860px,94vw) !important;
+max-height:90vh !important;
+overflow:auto !important;
+border-radius:26px !important;
+border:1px solid rgba(255,255,255,.08) !important;
+background:
+radial-gradient(circle at top, rgba(79,172,254,.10), transparent 30%),
+linear-gradient(180deg, rgba(14,22,38,.98), rgba(8,14,24,.98)) !important;
+box-shadow:
+0 18px 60px rgba(0,0,0,.45),
+0 0 24px rgba(79,172,254,.12) !important;
+}
+
+/* Scrollbar premium du panneau */
+.uploadCard{
+scrollbar-width:thin;
+scrollbar-color: rgba(95,210,255,.95) rgba(255,255,255,.04);
+}
+
+.uploadCard::-webkit-scrollbar{
+width:10px;
+}
+
+.uploadCard::-webkit-scrollbar-track{
+background:rgba(255,255,255,.04);
+border-radius:999px;
+margin:10px 0;
+}
+
+.uploadCard::-webkit-scrollbar-thumb{
+background:linear-gradient(180deg,#79dcff,#4facfe);
+border-radius:999px;
+border:2px solid rgba(8,14,24,.95);
+box-shadow:0 0 10px rgba(79,172,254,.35);
+}
+
+.uploadCard::-webkit-scrollbar-thumb:hover{
+background:linear-gradient(180deg,#9ae7ff,#63b6ff);
+}
+
+/* En-tête */
+.uploadHead{
+position:sticky;
+top:0;
+z-index:4;
+background:linear-gradient(180deg, rgba(10,18,30,.96), rgba(10,18,30,.82)) !important;
+backdrop-filter:blur(8px);
+border-bottom:1px solid rgba(255,255,255,.06) !important;
+padding:18px 20px !important;
+}
+
+.uploadHead strong{
+color:#fff !important;
+font-size:24px !important;
+font-weight:800 !important;
+}
+
+/* Corps */
+.uploadBody{
+padding:20px !important;
+}
+
+.uploadGrid{
+gap:18px !important;
+}
+
+.formBlock label{
+color:#eaf6ff !important;
+font-size:13px !important;
+font-weight:800 !important;
+margin-bottom:2px;
+}
+
+/* Inputs premium */
+.formBlock input,
+.formBlock textarea,
+.formBlock select{
+background:rgba(255,255,255,.04) !important;
+border:1px solid rgba(255,255,255,.08) !important;
+color:#fff !important;
+border-radius:16px !important;
+padding:13px 14px !important;
+box-shadow:inset 0 0 0 1px rgba(255,255,255,.01);
+transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.formBlock input:focus,
+.formBlock textarea:focus,
+.formBlock select:focus{
+border-color:rgba(79,172,254,.5) !important;
+box-shadow:0 0 0 3px rgba(79,172,254,.14), 0 0 14px rgba(79,172,254,.10) !important;
+background:rgba(255,255,255,.05) !important;
+outline:none !important;
+}
+
+.formBlock input::placeholder,
+.formBlock textarea::placeholder{
+color:rgba(255,255,255,.42) !important;
+}
+
+/* Zone aperçu */
+.uploadPreview{
+min-height:320px !important;
+border-radius:20px !important;
+border:1px dashed rgba(255,255,255,.12) !important;
+background:
+linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)) !important;
+color:rgba(255,255,255,.55) !important;
+font-size:14px !important;
+overflow:hidden !important;
+}
+
+.uploadPreview img,
+.uploadPreview video{
+width:100% !important;
+height:100% !important;
+object-fit:cover !important;
+display:block !important;
+}
+
+/* Input file plus propre */
+#uploadFile{
+padding:10px !important;
+background:rgba(255,255,255,.03) !important;
+}
+
+#uploadFile::file-selector-button{
+border:none;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+color:#fff;
+padding:10px 14px;
+margin-right:12px;
+border-radius:12px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 0 12px rgba(79,172,254,.22);
+}
+
+#uploadFile::-webkit-file-upload-button{
+border:none;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+color:#fff;
+padding:10px 14px;
+margin-right:12px;
+border-radius:12px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 0 12px rgba(79,172,254,.22);
+}
+
+/* Boutons bas */
+.uploadActions{
+position:sticky;
+bottom:0;
+background:linear-gradient(180deg, rgba(8,14,24,.05), rgba(8,14,24,.92)) !important;
+padding-top:16px !important;
+margin-top:20px !important;
+z-index:3;
+}
+
+.btnSoft{
+border-radius:14px !important;
+padding:12px 16px !important;
+border:1px solid rgba(255,255,255,.10) !important;
+background:rgba(255,255,255,.04) !important;
+color:#fff !important;
+font-weight:700 !important;
+}
+
+.btnSoft:hover{
+background:rgba(255,255,255,.08) !important;
+}
+
+.btnPrimary{
+border-radius:14px !important;
+padding:12px 18px !important;
+background:linear-gradient(135deg,#4facfe,#00f2fe) !important;
+color:#fff !important;
+font-weight:800 !important;
+border:none !important;
+box-shadow:0 0 16px rgba(79,172,254,.28) !important;
+}
+
+.btnPrimary:hover{
+transform:translateY(-1px);
+box-shadow:0 0 22px rgba(79,172,254,.38) !important;
+}
+
+/* Bouton fermer */
+.uploadHead .closeBtn{
+background:rgba(255,255,255,.06) !important;
+color:#fff !important;
+border:1px solid rgba(255,255,255,.08) !important;
+}
+
+.uploadHead .closeBtn:hover{
+background:rgba(255,255,255,.1) !important;
+}
+
+/* Mobile */
+@media (max-width:768px){
+.uploadCard{
+width:96vw !important;
+max-height:92vh !important;
+border-radius:22px !important;
+}
+
+.uploadHead strong{
+font-size:20px !important;
+}
+
+.uploadBody{
+padding:16px !important;
+}
+
+.uploadPreview{
+min-height:220px !important;
+}
+
+.uploadCard::-webkit-scrollbar{
+width:6px;
+}
+}
 </style>
 </head>
 <body>
