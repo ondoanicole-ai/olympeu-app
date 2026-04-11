@@ -7,17 +7,18 @@
 
 <style>
 :root{
---bg:#060914;
---bg2:#0b1220;
---panel:#0f172a;
---panel2:#111b31;
---line:rgba(255,255,255,0.08);
---line-blue:rgba(79,172,254,0.42);
+--bg:#050814;
+--bg-soft:#0c1222;
+--panel:#10182d;
+--panel-2:#131d36;
 --text:#f5f8ff;
 --muted:rgba(255,255,255,0.72);
---blue:#8edfff;
---blue2:#4facfe;
---glow:0 0 12px rgba(79,172,254,0.18), 0 0 24px rgba(0,242,254,0.08);
+--line:rgba(255,255,255,0.08);
+--line-blue:rgba(79,172,254,0.42);
+--blue:#7adfff;
+--blue-2:#4facfe;
+--glow:0 0 12px rgba(79,172,254,0.20), 0 0 28px rgba(0,242,254,0.08);
+--danger:#ff4d6d;
 }
 
 *{
@@ -30,23 +31,31 @@ scroll-behavior:smooth;
 
 body{
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
 color:var(--text);
+font-family:Arial, Helvetica, sans-serif;
 background:
-radial-gradient(circle at top, rgba(56,112,196,0.14), transparent 32%),
+radial-gradient(circle at top, rgba(56,112,196,0.16), transparent 32%),
 linear-gradient(180deg, #050814 0%, #09101b 100%);
+}
+
+a{
+color:inherit;
+}
+
+button{
+font-family:inherit;
 }
 
 .videos-topbar{
 position:sticky;
 top:0;
-z-index:60;
+z-index:80;
 display:grid;
 grid-template-columns:1fr auto 1fr;
 align-items:center;
 gap:16px;
-padding:16px 20px 12px;
-background:rgba(6,10,18,0.84);
+padding:16px 22px 12px;
+background:rgba(6,10,18,0.86);
 backdrop-filter:blur(12px);
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
@@ -86,6 +95,7 @@ text-align:center;
 margin:0;
 font-size:28px;
 font-weight:700;
+letter-spacing:.2px;
 }
 
 .videos-slogan{
@@ -121,8 +131,8 @@ display:flex;
 align-items:flex-start;
 justify-content:space-between;
 gap:16px;
-flex-wrap:wrap;
 margin-bottom:14px;
+flex-wrap:wrap;
 }
 
 .videos-page-title{
@@ -133,8 +143,8 @@ font-weight:700;
 
 .videos-page-sub{
 margin:4px 0 0;
-font-size:14px;
 color:var(--muted);
+font-size:14px;
 line-height:1.4;
 }
 
@@ -167,19 +177,18 @@ box-shadow:var(--glow);
 }
 
 .videos-search-bar{
-margin:8px 0 16px;
+margin:0 0 16px;
 }
 
 .videos-search-input{
 width:100%;
 padding:14px 16px;
-border-radius:18px;
+border-radius:16px;
 border:1px solid rgba(255,255,255,0.10);
 background:rgba(255,255,255,0.05);
 color:#fff;
 font-size:14px;
 outline:none;
-box-shadow:0 0 0 1px rgba(255,255,255,0.02) inset;
 }
 
 .videos-search-input::placeholder{
@@ -194,7 +203,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 .videos-categories{
 position:sticky;
 top:78px;
-z-index:55;
+z-index:70;
 display:flex;
 gap:10px;
 overflow-x:auto;
@@ -366,6 +375,33 @@ stroke-width:2;
 padding:14px 14px 15px;
 }
 
+.video-user{
+display:flex;
+align-items:center;
+gap:8px;
+margin-bottom:8px;
+}
+
+.video-user img{
+width:28px;
+height:28px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.video-user strong{
+display:block;
+font-size:13px;
+line-height:1.1;
+}
+
+.video-user span{
+display:block;
+font-size:11px;
+color:var(--muted);
+line-height:1.1;
+}
+
 .video-title{
 margin:0 0 6px;
 font-size:19px;
@@ -393,7 +429,7 @@ color:#c5efff;
 font-size:12px;
 }
 
-/* viewer desktop */
+/* VIEWER DESKTOP */
 .video-viewer{
 position:fixed;
 inset:0;
@@ -411,7 +447,7 @@ display:flex;
 }
 
 .video-viewer-card{
-width:min(1020px, 100%);
+width:min(1120px, 96vw);
 background:#09101d;
 border:1px solid rgba(255,255,255,0.08);
 border-radius:24px;
@@ -444,8 +480,10 @@ font-size:18px;
 }
 
 .video-viewer-player{
+position:relative;
 aspect-ratio:16/9;
 background:#03060b;
+padding:14px 14px 10px;
 }
 
 .video-viewer-player video{
@@ -454,10 +492,63 @@ height:100%;
 object-fit:contain;
 display:block;
 background:#03060b;
+border-radius:18px;
+}
+
+.viewer-nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+z-index:8;
+width:44px;
+height:44px;
+border-radius:50%;
+border:1px solid rgba(255,255,255,0.2);
+background:rgba(0,0,0,0.4);
+color:#fff;
+font-size:28px;
+line-height:1;
+cursor:pointer;
+display:grid;
+place-items:center;
+box-shadow:0 0 12px rgba(79,172,254,0.14);
+}
+
+.viewer-nav-left{
+left:24px;
+}
+
+.viewer-nav-right{
+right:24px;
 }
 
 .video-viewer-info{
 padding:16px;
+}
+
+.viewer-user{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:12px;
+}
+
+.viewer-user img{
+width:38px;
+height:38px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.viewer-user strong{
+display:block;
+font-size:15px;
+}
+
+.viewer-user span{
+display:block;
+font-size:12px;
+color:var(--muted);
 }
 
 .video-viewer-info h3{
@@ -466,160 +557,61 @@ font-size:22px;
 }
 
 .video-viewer-info p{
-margin:0;
+margin:0 0 14px;
 color:var(--muted);
 line-height:1.45;
 }
 
-/* viewer mobile tik tok */
-.mobile-tiktok-viewer{
-position:fixed;
-inset:0;
-z-index:140;
-display:none;
-background:#000;
-}
-
-.mobile-tiktok-viewer.open{
-display:block;
-}
-
-.mobile-tiktok-top{
-position:absolute;
-top:0;
-left:0;
-right:0;
-z-index:30;
+.viewer-actions-bar{
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:14px 16px;
-background:linear-gradient(to bottom, rgba(0,0,0,0.65), transparent);
+gap:12px;
+margin-top:10px;
+flex-wrap:wrap;
 }
 
-.mobile-tiktok-label{
-color:#fff;
-font-size:13px;
-opacity:.85;
+.viewer-actions-left{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
 }
 
-.mobile-tiktok-feed{
-height:100vh;
-overflow-y:auto;
-scroll-snap-type:y mandatory;
-scrollbar-width:none;
-}
-
-.mobile-tiktok-feed::-webkit-scrollbar{
-display:none;
-}
-
-.mobile-tiktok-item{
-position:relative;
-width:100%;
-height:100vh;
-scroll-snap-align:start;
-background:#000;
-overflow:hidden;
-}
-
-.mobile-tiktok-item video{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-background:#000;
-}
-
-.mobile-tiktok-overlay{
-position:absolute;
-left:0;
-right:0;
-bottom:0;
-z-index:20;
-padding:18px 14px 24px;
-background:linear-gradient(to top, rgba(0,0,0,0.76), transparent);
-color:#fff;
-}
-
-.mobile-tiktok-meta{
-max-width:72%;
-}
-
-.mobile-tiktok-user{
+.viewer-action{
 display:flex;
 align-items:center;
-gap:8px;
-margin-bottom:8px;
-}
-
-.mobile-tiktok-user img{
-width:36px;
-height:36px;
-border-radius:50%;
-object-fit:cover;
-}
-
-.mobile-tiktok-user strong{
-display:block;
-font-size:15px;
-line-height:1.1;
-}
-
-.mobile-tiktok-user span{
-display:block;
-font-size:11px;
-line-height:1.1;
-opacity:.78;
-}
-
-.mobile-tiktok-desc{
-margin:0;
-font-size:13px;
-line-height:1.35;
-}
-
-.mobile-tiktok-actions{
-position:absolute;
-right:14px;
-bottom:112px;
-z-index:25;
-display:flex;
-flex-direction:column;
-gap:14px;
-}
-
-.mobile-tiktok-action{
-width:50px;
-height:50px;
-border-radius:50%;
-border:1px solid rgba(255,255,255,0.14);
-background:rgba(0,0,0,0.42);
-backdrop-filter:blur(8px);
-display:grid;
-place-items:center;
-cursor:pointer;
-box-shadow:0 0 12px rgba(79,172,254,0.14);
-}
-
-.mobile-tiktok-action svg{
-width:18px;
-height:18px;
-stroke:#e2f6ff;
-fill:none;
-stroke-width:1.8;
-}
-
-.mobile-tiktok-action.like-on svg{
-fill:#ff4d6d;
-stroke:#ff4d6d;
-}
-
-.mobile-tiktok-count{
-margin-top:4px;
-text-align:center;
-font-size:11px;
+gap:6px;
+padding:8px 12px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,0.12);
+background:rgba(255,255,255,0.04);
 color:#fff;
+font-size:13px;
+cursor:pointer;
+transition:.2s;
+}
+
+.viewer-action:hover{
+background:rgba(255,255,255,0.08);
+}
+
+.viewer-action svg{
+width:16px;
+height:16px;
+stroke:#fff;
+fill:none;
+stroke-width:2;
+}
+
+.viewer-action.like.active svg{
+fill:var(--danger);
+stroke:var(--danger);
+}
+
+/* VIEWER MOBILE */
+.tiktok-viewer-top,
+.tiktok-feed{
+display:none;
 }
 
 @media (max-width: 980px){
@@ -648,16 +640,12 @@ padding:14px 12px 70px;
 font-size:28px;
 }
 
-.videos-page-sub{
-font-size:13px;
-}
-
 .videos-section-head h2{
 font-size:24px;
 }
 
 .video-card{
-flex:0 0 88vw;
+flex:0 0 84vw;
 }
 
 .videos-categories{
@@ -671,11 +659,42 @@ padding:12px 10px 70px;
 }
 
 .videos-toolbar{
+align-items:flex-start;
 gap:12px;
 }
 
 .videos-page-title{
 font-size:28px;
+}
+
+.videos-page-sub{
+font-size:13px;
+line-height:1.35;
+}
+
+.videos-categories{
+top:72px;
+padding:8px 0 14px;
+gap:8px;
+}
+
+.videos-cat-btn{
+padding:9px 13px;
+font-size:12px;
+}
+
+.videos-section{
+padding:14px;
+border-radius:20px;
+}
+
+.videos-section-head h2{
+font-size:22px;
+}
+
+.videos-section-head p{
+font-size:13px;
+line-height:1.35;
 }
 
 .videos-row{
@@ -688,6 +707,10 @@ flex:0 0 92vw;
 
 .video-thumb{
 aspect-ratio:16 / 10;
+}
+
+.video-meta{
+padding:12px;
 }
 
 .video-title{
@@ -703,15 +726,177 @@ font-size:11px;
 padding:5px 9px;
 }
 
+.video-play{
+width:48px;
+height:48px;
+}
+
 .video-viewer{
+padding:0 !important;
+background:#000 !important;
+backdrop-filter:none !important;
+display:none;
+}
+
+.video-viewer.open{
+display:block !important;
+}
+
+.video-viewer-card{
 display:none !important;
+}
+
+.tiktok-viewer-top{
+position:absolute;
+top:0;
+left:0;
+right:0;
+z-index:30;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding-top:calc(14px + env(safe-area-inset-top));
+padding-left:16px;
+padding-right:16px;
+padding-bottom:14px;
+background:linear-gradient(to bottom, rgba(0,0,0,0.65), transparent);
+}
+
+.tiktok-viewer-label{
+color:#fff;
+font-size:13px;
+opacity:.85;
+}
+
+.tiktok-feed{
+display:block;
+height:100dvh;
+overflow-y:auto;
+scroll-snap-type:y mandatory;
+scrollbar-width:none;
+background:#000;
+}
+
+.tiktok-feed::-webkit-scrollbar{
+display:none;
+}
+
+.tiktok-item{
+position:relative;
+width:100%;
+height:100dvh;
+scroll-snap-align:start;
+background:#000;
+overflow:hidden;
+}
+
+.tiktok-item video{
+width:100%;
+height:100%;
+object-fit:contain;
+display:block;
+background:#000;
+}
+
+.tiktok-overlay{
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+z-index:20;
+padding:18px 14px calc(24px + env(safe-area-inset-bottom));
+background:linear-gradient(to top, rgba(0,0,0,0.78), transparent);
+color:#fff;
+}
+
+.tiktok-meta{
+max-width:72%;
+}
+
+.tiktok-user{
+display:flex;
+align-items:center;
+gap:8px;
+margin-bottom:8px;
+}
+
+.tiktok-user img{
+width:36px;
+height:36px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.tiktok-user strong{
+display:block;
+font-size:15px;
+line-height:1.1;
+}
+
+.tiktok-user span{
+display:block;
+font-size:11px;
+line-height:1.1;
+opacity:.78;
+}
+
+.tiktok-desc{
+margin:0;
+font-size:13px;
+line-height:1.35;
+}
+
+.tiktok-actions{
+position:absolute;
+right:14px;
+bottom:calc(112px + env(safe-area-inset-bottom));
+z-index:25;
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.tiktok-action-wrap{
+text-align:center;
+}
+
+.tiktok-action{
+width:50px;
+height:50px;
+border-radius:50%;
+border:1px solid rgba(255,255,255,0.14);
+background:rgba(0,0,0,0.42);
+backdrop-filter:blur(8px);
+display:grid;
+place-items:center;
+cursor:pointer;
+box-shadow:0 0 12px rgba(79,172,254,0.14);
+}
+
+.tiktok-action svg{
+width:18px;
+height:18px;
+stroke:#e2f6ff;
+fill:none;
+stroke-width:1.8;
+}
+
+.tiktok-action.like-on svg{
+fill:var(--danger);
+stroke:var(--danger);
+}
+
+.tiktok-count{
+margin-top:4px;
+text-align:center;
+font-size:11px;
+color:#fff;
 }
 }
 </style>
 </head>
 
 <body>
-
 <header class="videos-topbar">
 <div class="videos-topbar-left">
 <a href="feed-hiive-social.html" class="videos-back">← Retour</a>
@@ -728,11 +913,10 @@ display:none !important;
 </header>
 
 <main class="videos-shell">
-
 <section class="videos-toolbar">
 <div>
 <h1 class="videos-page-title">Vidéos</h1>
-<p class="videos-page-sub">Explorez l'essentiel en image.</p>
+<p class="videos-page-sub">Découvre par univers, choisis un format, puis explore horizontalement à l’intérieur de chaque catégorie.</p>
 </div>
 
 <div class="videos-format-switch">
@@ -742,7 +926,7 @@ display:none !important;
 </section>
 
 <div class="videos-search-bar">
-<input id="videosSearchInput" class="videos-search-input" type="text" placeholder="Rechercher une vidéo, un thème, un créateur..." />
+<input class="videos-search-input" type="text" id="videosSearchInput" placeholder="Rechercher une vidéo, un thème, un créateur..." />
 </div>
 
 <nav class="videos-categories">
@@ -758,10 +942,6 @@ display:none !important;
 <a href="#tech" class="videos-cat-btn">Tech</a>
 <a href="#education" class="videos-cat-btn">Éducation</a>
 <a href="#sante" class="videos-cat-btn">Santé / bien-être</a>
-<a href="#spiritualite" class="videos-cat-btn">Spiritualité</a>
-<a href="#sport" class="videos-cat-btn">Sport</a>
-<a href="#cuisine" class="videos-cat-btn">Cuisine</a>
-<a href="#voyage" class="videos-cat-btn">Voyage</a>
 </nav>
 
 <section class="videos-sections">
@@ -774,59 +954,67 @@ display:none !important;
 </div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="media" data-title="Actu minute" data-desc="Une capsule rapide pour résumer l’essentiel d’un sujet d’actualité." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+<article class="video-card" data-format="short" data-title="Actu minute" data-desc="Une capsule rapide pour résumer l’essentiel d’un sujet d’actualité." data-src="https://www.w3schools.com/html/mov_bbb.mp4" data-user="Emma Martin" data-handle="@emma.media" data-tag="Actu" data-comments="32 commentaires" data-avatar="https://randomuser.me/api/portraits/women/44.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
 </video>
 <span class="video-label">Actu</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<div><strong>Emma Martin</strong><span>@emma.media</span></div>
+</div>
 <h3 class="video-title">Actu minute</h3>
 <p class="video-sub">Le point rapide sur ce qui compte aujourd’hui.</p>
-<div class="video-stats">
-<span class="video-stat">12k vues</span>
-<span class="video-stat">3 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">12k vues</span><span class="video-stat">3 min</span></div>
 </div>
 </article>
 
-<article class="video-card" data-format="short" data-category="media" data-title="Point de vue" data-desc="Un angle éditorial court sur un sujet de société." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+<article class="video-card" data-format="short" data-title="Point de vue" data-desc="Un angle éditorial court sur un sujet de société." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" data-user="Hakim Ajiqua" data-handle="@hakim.story" data-tag="Décryptage" data-comments="18 commentaires" data-avatar="https://randomuser.me/api/portraits/men/32.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
 </video>
 <span class="video-label">Décryptage</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+<div><strong>Hakim Ajiqua</strong><span>@hakim.story</span></div>
+</div>
 <h3 class="video-title">Point de vue</h3>
 <p class="video-sub">Un angle simple, rapide, direct.</p>
-<div class="video-stats">
-<span class="video-stat">8.4k vues</span>
-<span class="video-stat">2 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">8.4k vues</span><span class="video-stat">2 min</span></div>
 </div>
 </article>
 
-<article class="video-card" data-format="long" data-category="media" data-title="En direct du sujet" data-desc="Une lecture plus posée d’un thème chaud, avec davantage de contexte." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="long" data-title="En direct du sujet" data-desc="Une lecture plus posée d’un thème chaud, avec davantage de contexte." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" data-user="Florian Roux" data-handle="@florian.news" data-tag="Live" data-comments="47 commentaires" data-avatar="https://randomuser.me/api/portraits/men/41.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
 </video>
 <span class="video-label">Live</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/men/41.jpg" alt="">
+<div><strong>Florian Roux</strong><span>@florian.news</span></div>
+</div>
 <h3 class="video-title">En direct du sujet</h3>
 <p class="video-sub">Une prise de recul en format plus long.</p>
-<div class="video-stats">
-<span class="video-stat">15k vues</span>
-<span class="video-stat">14 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">15k vues</span><span class="video-stat">14 min</span></div>
 </div>
 </article>
 </div>
@@ -834,47 +1022,49 @@ display:none !important;
 
 <section class="videos-section" id="science">
 <div class="videos-section-head">
-<div>
-<h2>Sciences</h2>
-<p>Explications, phénomènes, curiosités et découvertes.</p>
-</div>
+<div><h2>Sciences</h2><p>Explications, phénomènes, curiosités et découvertes.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="science" data-title="Science simple" data-desc="Une idée scientifique rendue facile à comprendre." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
+<article class="video-card" data-format="short" data-title="Science simple" data-desc="Une idée scientifique rendue facile à comprendre." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" data-user="Jeanne Durand" data-handle="@jeanne.lab" data-tag="Science" data-comments="21 commentaires" data-avatar="https://randomuser.me/api/portraits/women/65.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
 </video>
 <span class="video-label">Science</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+<div><strong>Jeanne Durand</strong><span>@jeanne.lab</span></div>
+</div>
 <h3 class="video-title">Science simple</h3>
 <p class="video-sub">Comprendre un phénomène en quelques minutes.</p>
-<div class="video-stats">
-<span class="video-stat">21k vues</span>
-<span class="video-stat">5 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">21k vues</span><span class="video-stat">5 min</span></div>
 </div>
 </article>
 
-<article class="video-card" data-format="long" data-category="science" data-title="Expérience visuelle" data-desc="Une démonstration plus développée pour illustrer un principe scientifique." data-src="https://www.w3schools.com/html/movie.mp4">
+<article class="video-card" data-format="long" data-title="Expérience visuelle" data-desc="Une démonstration plus développée pour illustrer un principe scientifique." data-src="https://www.w3schools.com/html/movie.mp4" data-user="Emilie Roche" data-handle="@emilie.science" data-tag="Expérience" data-comments="14 commentaires" data-avatar="https://randomuser.me/api/portraits/women/68.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
 </video>
 <span class="video-label">Expérience</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+<div><strong>Emilie Roche</strong><span>@emilie.science</span></div>
+</div>
 <h3 class="video-title">Expérience visuelle</h3>
 <p class="video-sub">Voir pour comprendre, avec plus de contexte.</p>
-<div class="video-stats">
-<span class="video-stat">17k vues</span>
-<span class="video-stat">12 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">17k vues</span><span class="video-stat">12 min</span></div>
 </div>
 </article>
 </div>
@@ -882,47 +1072,49 @@ display:none !important;
 
 <section class="videos-section" id="business">
 <div class="videos-section-head">
-<div>
-<h2>Business</h2>
-<p>Entrepreneuriat, stratégie, finance et création d’activité.</p>
-</div>
+<div><h2>Business</h2><p>Entrepreneuriat, stratégie, finance et création d’activité.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="business" data-title="Startup mindset" data-desc="Une idée claire sur la logique entrepreneuriale." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
+<article class="video-card" data-format="short" data-title="Startup mindset" data-desc="Une idée claire sur la logique entrepreneuriale." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" data-user="Nicole Ondoa" data-handle="@nicole.biz" data-tag="Business" data-comments="12 commentaires" data-avatar="https://randomuser.me/api/portraits/women/44.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
 </video>
 <span class="video-label">Business</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<div><strong>Nicole Ondoa</strong><span>@nicole.biz</span></div>
+</div>
 <h3 class="video-title">Startup mindset</h3>
 <p class="video-sub">Entreprendre avec méthode.</p>
-<div class="video-stats">
-<span class="video-stat">11k vues</span>
-<span class="video-stat">4 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">11k vues</span><span class="video-stat">4 min</span></div>
 </div>
 </article>
 
-<article class="video-card" data-format="long" data-category="business" data-title="Construire un projet" data-desc="Une vidéo plus longue sur la structuration d’un projet rentable." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="long" data-title="Construire un projet" data-desc="Une vidéo plus longue sur la structuration d’un projet rentable." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" data-user="Florian Roux" data-handle="@florian.biz" data-tag="Stratégie" data-comments="25 commentaires" data-avatar="https://randomuser.me/api/portraits/men/41.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
 </video>
 <span class="video-label">Stratégie</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/men/41.jpg" alt="">
+<div><strong>Florian Roux</strong><span>@florian.biz</span></div>
+</div>
 <h3 class="video-title">Construire un projet</h3>
 <p class="video-sub">Vision, étapes et cohérence économique.</p>
-<div class="video-stats">
-<span class="video-stat">7.6k vues</span>
-<span class="video-stat">18 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">7.6k vues</span><span class="video-stat">18 min</span></div>
 </div>
 </article>
 </div>
@@ -930,29 +1122,28 @@ display:none !important;
 
 <section class="videos-section" id="lifestyle">
 <div class="videos-section-head">
-<div>
-<h2>Lifestyle</h2>
-<p>Routines, équilibre, image de soi, quotidien et style de vie.</p>
-</div>
+<div><h2>Lifestyle</h2><p>Routines, équilibre, image de soi, quotidien et style de vie.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="lifestyle" data-title="Routine" data-desc="Un format lifestyle simple, visuel et apaisé." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="short" data-title="Routine" data-desc="Un format lifestyle simple, visuel et apaisé." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" data-user="Sophie Lambert" data-handle="@sophie.life" data-tag="Lifestyle" data-comments="19 commentaires" data-avatar="https://randomuser.me/api/portraits/women/52.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
 </video>
 <span class="video-label">Lifestyle</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/52.jpg" alt="">
+<div><strong>Sophie Lambert</strong><span>@sophie.life</span></div>
+</div>
 <h3 class="video-title">Routine</h3>
 <p class="video-sub">Organisation, rythme, équilibre.</p>
-<div class="video-stats">
-<span class="video-stat">9.2k vues</span>
-<span class="video-stat">3 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">9.2k vues</span><span class="video-stat">3 min</span></div>
 </div>
 </article>
 </div>
@@ -960,29 +1151,28 @@ display:none !important;
 
 <section class="videos-section" id="humour">
 <div class="videos-section-head">
-<div>
-<h2>Humour</h2>
-<p>Formats légers, réactions et capsules pour respirer.</p>
-</div>
+<div><h2>Humour</h2><p>Formats légers, réactions et capsules pour respirer.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="humour" data-title="Minute drôle" data-desc="Une capsule pour souffler et sourire." data-src="https://www.w3schools.com/html/movie.mp4">
+<article class="video-card" data-format="short" data-title="Minute drôle" data-desc="Une capsule pour souffler et sourire." data-src="https://www.w3schools.com/html/movie.mp4" data-user="Hakim Ajiqua" data-handle="@hakim.fun" data-tag="Humour" data-comments="41 commentaires" data-avatar="https://randomuser.me/api/portraits/men/32.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
 </video>
 <span class="video-label">Humour</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+<div><strong>Hakim Ajiqua</strong><span>@hakim.fun</span></div>
+</div>
 <h3 class="video-title">Minute drôle</h3>
 <p class="video-sub">Une pause légère dans le scroll.</p>
-<div class="video-stats">
-<span class="video-stat">22k vues</span>
-<span class="video-stat">1 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">22k vues</span><span class="video-stat">1 min</span></div>
 </div>
 </article>
 </div>
@@ -990,29 +1180,28 @@ display:none !important;
 
 <section class="videos-section" id="politique">
 <div class="videos-section-head">
-<div>
-<h2>Politique</h2>
-<p>Débats, institutions, décisions publiques et lecture des enjeux.</p>
-</div>
+<div><h2>Politique</h2><p>Débats, institutions, décisions publiques et lecture des enjeux.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="long" data-category="politique" data-title="Décryptage politique" data-desc="Une lecture simple d’un sujet institutionnel ou d’un choix public." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="long" data-title="Décryptage politique" data-desc="Une lecture simple d’un sujet institutionnel ou d’un choix public." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" data-user="Florian Roux" data-handle="@florian.politique" data-tag="Décryptage" data-comments="33 commentaires" data-avatar="https://randomuser.me/api/portraits/men/41.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
 </video>
 <span class="video-label">Décryptage</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/men/41.jpg" alt="">
+<div><strong>Florian Roux</strong><span>@florian.politique</span></div>
+</div>
 <h3 class="video-title">Décryptage politique</h3>
 <p class="video-sub">Comprendre sans simplifier à outrance.</p>
-<div class="video-stats">
-<span class="video-stat">7.9k vues</span>
-<span class="video-stat">15 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">7.9k vues</span><span class="video-stat">15 min</span></div>
 </div>
 </article>
 </div>
@@ -1020,29 +1209,28 @@ display:none !important;
 
 <section class="videos-section" id="histoire">
 <div class="videos-section-head">
-<div>
-<h2>Histoire</h2>
-<p>Repères, récits, civilisations et grandes périodes.</p>
-</div>
+<div><h2>Histoire</h2><p>Repères, récits, civilisations et grandes périodes.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="histoire" data-title="Histoire courte" data-desc="Un fait ou une période résumée clairement." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+<article class="video-card" data-format="short" data-title="Histoire courte" data-desc="Un fait ou une période résumée clairement." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" data-user="Emma Martin" data-handle="@emma.histoire" data-tag="Histoire" data-comments="11 commentaires" data-avatar="https://randomuser.me/api/portraits/women/44.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
 </video>
 <span class="video-label">Histoire</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<div><strong>Emma Martin</strong><span>@emma.histoire</span></div>
+</div>
 <h3 class="video-title">Histoire courte</h3>
 <p class="video-sub">Un point de repère en format vivant.</p>
-<div class="video-stats">
-<span class="video-stat">14k vues</span>
-<span class="video-stat">4 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">14k vues</span><span class="video-stat">4 min</span></div>
 </div>
 </article>
 </div>
@@ -1050,29 +1238,28 @@ display:none !important;
 
 <section class="videos-section" id="cinema">
 <div class="videos-section-head">
-<div>
-<h2>Cinéma</h2>
-<p>Scènes, narration, image, mise en scène et émotions.</p>
-</div>
+<div><h2>Cinéma</h2><p>Scènes, narration, image, mise en scène et émotions.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="long" data-category="cinema" data-title="Lecture de scène" data-desc="Décoder une scène, un cadrage, une ambiance." data-src="https://www.w3schools.com/html/movie.mp4">
+<article class="video-card" data-format="long" data-title="Lecture de scène" data-desc="Décoder une scène, un cadrage, une ambiance." data-src="https://www.w3schools.com/html/movie.mp4" data-user="Jeanne Durand" data-handle="@jeanne.cinema" data-tag="Cinéma" data-comments="27 commentaires" data-avatar="https://randomuser.me/api/portraits/women/65.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
 </video>
 <span class="video-label">Cinéma</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+<div><strong>Jeanne Durand</strong><span>@jeanne.cinema</span></div>
+</div>
 <h3 class="video-title">Lecture de scène</h3>
 <p class="video-sub">Image, rythme, émotion.</p>
-<div class="video-stats">
-<span class="video-stat">16k vues</span>
-<span class="video-stat">11 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">16k vues</span><span class="video-stat">11 min</span></div>
 </div>
 </article>
 </div>
@@ -1080,29 +1267,28 @@ display:none !important;
 
 <section class="videos-section" id="enfants">
 <div class="videos-section-head">
-<div>
-<h2>Enfants</h2>
-<p>Contenus d’éveil, pédagogiques, visuels et adaptés.</p>
-</div>
+<div><h2>Enfants</h2><p>Contenus d’éveil, pédagogiques, visuels et adaptés.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="enfants" data-title="Éveil visuel" data-desc="Apprendre en s’amusant à travers des images simples." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
+<article class="video-card" data-format="short" data-title="Éveil visuel" data-desc="Apprendre en s’amusant à travers des images simples." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" data-user="Sophie Lambert" data-handle="@sophie.kids" data-tag="Enfants" data-comments="8 commentaires" data-avatar="https://randomuser.me/api/portraits/women/52.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
 </video>
 <span class="video-label">Enfants</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/52.jpg" alt="">
+<div><strong>Sophie Lambert</strong><span>@sophie.kids</span></div>
+</div>
 <h3 class="video-title">Éveil visuel</h3>
 <p class="video-sub">Format doux, simple et coloré.</p>
-<div class="video-stats">
-<span class="video-stat">6.3k vues</span>
-<span class="video-stat">3 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">6.3k vues</span><span class="video-stat">3 min</span></div>
 </div>
 </article>
 </div>
@@ -1110,29 +1296,28 @@ display:none !important;
 
 <section class="videos-section" id="tech">
 <div class="videos-section-head">
-<div>
-<h2>Tech</h2>
-<p>Outils, IA, numérique, innovations et usages concrets.</p>
-</div>
+<div><h2>Tech</h2><p>Outils, IA, numérique, innovations et usages concrets.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="tech" data-title="Tech rapide" data-desc="Une astuce ou un outil utile expliqué vite." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
+<article class="video-card" data-format="short" data-title="Tech rapide" data-desc="Une astuce ou un outil utile expliqué vite." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" data-user="Nicole Ondoa" data-handle="@nicole.tech" data-tag="Tech" data-comments="17 commentaires" data-avatar="https://randomuser.me/api/portraits/women/44.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
 </video>
 <span class="video-label">Tech</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<div><strong>Nicole Ondoa</strong><span>@nicole.tech</span></div>
+</div>
 <h3 class="video-title">Tech rapide</h3>
 <p class="video-sub">Un usage concret sans détour.</p>
-<div class="video-stats">
-<span class="video-stat">13k vues</span>
-<span class="video-stat">4 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">13k vues</span><span class="video-stat">4 min</span></div>
 </div>
 </article>
 </div>
@@ -1140,29 +1325,28 @@ display:none !important;
 
 <section class="videos-section" id="education">
 <div class="videos-section-head">
-<div>
-<h2>Éducation</h2>
-<p>Apprendre, expliquer, transmettre et structurer la compréhension.</p>
-</div>
+<div><h2>Éducation</h2><p>Apprendre, expliquer, transmettre et structurer la compréhension.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="long" data-category="education" data-title="Apprendre clairement" data-desc="Une vidéo pédagogique pensée pour aller au fond." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+<article class="video-card" data-format="long" data-title="Apprendre clairement" data-desc="Une vidéo pédagogique pensée pour aller au fond." data-src="https://www.w3schools.com/html/mov_bbb.mp4" data-user="Jeanne Durand" data-handle="@jeanne.learn" data-tag="Éducation" data-comments="22 commentaires" data-avatar="https://randomuser.me/api/portraits/women/65.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
 </video>
 <span class="video-label">Éducation</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+<div><strong>Jeanne Durand</strong><span>@jeanne.learn</span></div>
+</div>
 <h3 class="video-title">Apprendre clairement</h3>
 <p class="video-sub">Un format plus long pour mieux retenir.</p>
-<div class="video-stats">
-<span class="video-stat">5.8k vues</span>
-<span class="video-stat">16 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">5.8k vues</span><span class="video-stat">16 min</span></div>
 </div>
 </article>
 </div>
@@ -1170,149 +1354,28 @@ display:none !important;
 
 <section class="videos-section" id="sante">
 <div class="videos-section-head">
-<div>
-<h2>Santé / bien-être</h2>
-<p>Habitudes, équilibre, respiration, énergie et mieux-être.</p>
-</div>
+<div><h2>Santé / bien-être</h2><p>Habitudes, équilibre, respiration, énergie et mieux-être.</p></div>
 <a href="#" class="videos-more">Voir plus</a>
 </div>
-
 <div class="videos-row">
-<article class="video-card" data-format="short" data-category="sante" data-title="Équilibre simple" data-desc="Un rappel utile pour prendre soin de soi." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="short" data-title="Équilibre simple" data-desc="Un rappel utile pour prendre soin de soi." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" data-user="Sophie Lambert" data-handle="@sophie.well" data-tag="Bien-être" data-comments="13 commentaires" data-avatar="https://randomuser.me/api/portraits/women/52.jpg">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
 </video>
 <span class="video-label">Bien-être</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
+<div class="video-play">
+<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+</div>
 </div>
 <div class="video-meta">
+<div class="video-user">
+<img src="https://randomuser.me/api/portraits/women/52.jpg" alt="">
+<div><strong>Sophie Lambert</strong><span>@sophie.well</span></div>
+</div>
 <h3 class="video-title">Équilibre simple</h3>
 <p class="video-sub">Respirer, ralentir, recentrer.</p>
-<div class="video-stats">
-<span class="video-stat">7.3k vues</span>
-<span class="video-stat">4 min</span>
-</div>
-</div>
-</article>
-</div>
-</section>
-
-<section class="videos-section" id="spiritualite">
-<div class="videos-section-head">
-<div>
-<h2>Spiritualité</h2>
-<p>Intériorité, sens, élévation, présence et réflexion.</p>
-</div>
-<a href="#" class="videos-more">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-format="long" data-category="spiritualite" data-title="Temps intérieur" data-desc="Une réflexion plus posée sur le sens et la présence." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-</video>
-<span class="video-label">Spiritualité</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Temps intérieur</h3>
-<p class="video-sub">Une approche plus contemplative.</p>
-<div class="video-stats">
-<span class="video-stat">4.9k vues</span>
-<span class="video-stat">13 min</span>
-</div>
-</div>
-</article>
-</div>
-</section>
-
-<section class="videos-section" id="sport">
-<div class="videos-section-head">
-<div>
-<h2>Sport</h2>
-<p>Mouvement, discipline, progression, énergie et effort.</p>
-</div>
-<a href="#" class="videos-more">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-format="short" data-category="sport" data-title="Routine sport" data-desc="Un format court sur le mouvement et la discipline." data-src="https://www.w3schools.com/html/movie.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-</video>
-<span class="video-label">Sport</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Routine sport</h3>
-<p class="video-sub">Énergie et régularité.</p>
-<div class="video-stats">
-<span class="video-stat">8.8k vues</span>
-<span class="video-stat">5 min</span>
-</div>
-</div>
-</article>
-</div>
-</section>
-
-<section class="videos-section" id="cuisine">
-<div class="videos-section-head">
-<div>
-<h2>Cuisine</h2>
-<p>Recettes, gestes, saveurs et créativité culinaire.</p>
-</div>
-<a href="#" class="videos-more">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-format="short" data-category="cuisine" data-title="Recette rapide" data-desc="Une idée simple à refaire facilement." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
-</video>
-<span class="video-label">Cuisine</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Recette rapide</h3>
-<p class="video-sub">Simple, visuel, accessible.</p>
-<div class="video-stats">
-<span class="video-stat">10k vues</span>
-<span class="video-stat">3 min</span>
-</div>
-</div>
-</article>
-</div>
-</section>
-
-<section class="videos-section" id="voyage">
-<div class="videos-section-head">
-<div>
-<h2>Voyage</h2>
-<p>Découverte, mobilité, lieux, regards et sensations de route.</p>
-</div>
-<a href="#" class="videos-more">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-format="long" data-category="voyage" data-title="Regard de voyage" data-desc="Une ambiance plus immersive autour d’un lieu." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
-</video>
-<span class="video-label">Voyage</span>
-<div class="video-play"><svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg></div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Regard de voyage</h3>
-<p class="video-sub">Prendre le temps de voir un lieu.</p>
-<div class="video-stats">
-<span class="video-stat">6.7k vues</span>
-<span class="video-stat">17 min</span>
-</div>
+<div class="video-stats"><span class="video-stat">7.3k vues</span><span class="video-stat">4 min</span></div>
 </div>
 </article>
 </div>
@@ -1327,39 +1390,84 @@ display:none !important;
 <strong id="viewerTitle">Lecture vidéo</strong>
 <button class="video-close" id="closeViewer">✕</button>
 </div>
+
 <div class="video-viewer-player">
+<button class="viewer-nav viewer-nav-left" id="viewerPrevBtn" type="button">‹</button>
 <video id="viewerVideo" controls playsinline></video>
+<button class="viewer-nav viewer-nav-right" id="viewerNextBtn" type="button">›</button>
 </div>
+
 <div class="video-viewer-info">
+<div class="viewer-user">
+<img id="viewerUserAvatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<div>
+<strong id="viewerUserName">Utilisateur</strong>
+<span id="viewerUserTag">@profil</span>
+</div>
+</div>
+
 <h3 id="viewerHeading">Titre</h3>
 <p id="viewerDesc">Description</p>
+
+<div class="viewer-actions-bar">
+<div class="viewer-actions-left">
+<button class="viewer-action like" id="viewerLikeBtn" type="button">
+<svg viewBox="0 0 24 24">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+<span id="viewerViews">0</span>
+</button>
+
+<button class="viewer-action" type="button">
+<svg viewBox="0 0 24 24">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+<span id="viewerComments">0</span>
+</button>
+</div>
+
+<button class="viewer-action" type="button">
+<svg viewBox="0 0 24 24">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+Partager
+</button>
 </div>
 </div>
 </div>
 
-<div class="mobile-tiktok-viewer" id="mobileTiktokViewer">
-<div class="mobile-tiktok-top">
-<button class="video-close" id="closeMobileTiktok">✕</button>
-<div class="mobile-tiktok-label" id="mobileTiktokCategory">Catégorie</div>
+<div class="tiktok-viewer-top">
+<button class="video-close" id="closeViewerMobile">✕</button>
+<div class="tiktok-viewer-label" id="viewerCategory">Catégorie</div>
 </div>
 
-<div class="mobile-tiktok-feed" id="mobileTiktokFeed"></div>
+<div class="tiktok-feed" id="tiktokFeed"></div>
 </div>
 
 <script>
 const cards = document.querySelectorAll('.video-card');
 const rowVideos = document.querySelectorAll('.video-thumb video');
 const viewer = document.getElementById('videoViewer');
+
 const viewerVideo = document.getElementById('viewerVideo');
 const viewerTitle = document.getElementById('viewerTitle');
 const viewerHeading = document.getElementById('viewerHeading');
 const viewerDesc = document.getElementById('viewerDesc');
-const closeViewer = document.getElementById('closeViewer');
+const viewerViews = document.getElementById('viewerViews');
+const viewerComments = document.getElementById('viewerComments');
+const viewerUserName = document.getElementById('viewerUserName');
+const viewerUserTag = document.getElementById('viewerUserTag');
+const viewerUserAvatar = document.getElementById('viewerUserAvatar');
 
-const mobileTiktokViewer = document.getElementById('mobileTiktokViewer');
-const mobileTiktokFeed = document.getElementById('mobileTiktokFeed');
-const mobileTiktokCategory = document.getElementById('mobileTiktokCategory');
-const closeMobileTiktok = document.getElementById('closeMobileTiktok');
+const viewerPrevBtn = document.getElementById('viewerPrevBtn');
+const viewerNextBtn = document.getElementById('viewerNextBtn');
+const viewerLikeBtn = document.getElementById('viewerLikeBtn');
+
+const closeViewer = document.getElementById('closeViewer');
+const closeViewerMobile = document.getElementById('closeViewerMobile');
+const viewerCategory = document.getElementById('viewerCategory');
+const tiktokFeed = document.getElementById('tiktokFeed');
 
 const chips = document.querySelectorAll('.videos-cat-btn');
 const sections = document.querySelectorAll('.videos-section');
@@ -1367,7 +1475,8 @@ const formatBtns = document.querySelectorAll('.videos-format-btn');
 const searchInput = document.getElementById('videosSearchInput');
 
 let currentFormat = 'short';
-let currentSearch = '';
+let desktopViewerCards = [];
+let currentDesktopIndex = 0;
 
 rowVideos.forEach(video => {
 video.addEventListener('mouseenter', () => {
@@ -1384,119 +1493,127 @@ video.currentTime = 0;
 });
 });
 
-function openDesktopViewer(card) {
-const src = card.dataset.src;
-const title = card.dataset.title;
-const desc = card.dataset.desc;
-
-viewerVideo.src = src;
-viewerTitle.textContent = title;
-viewerHeading.textContent = title;
-viewerDesc.textContent = desc;
-
-viewer.classList.add('open');
-viewerVideo.play().catch(() => {});
+function getCardViews(card){
+const firstStat = card.querySelector('.video-stat');
+return firstStat ? firstStat.textContent : '0 vue';
 }
 
-function getVisibleCardsInSection(section) {
+function getCardsInSection(section) {
 return Array.from(section.querySelectorAll('.video-card')).filter(card => {
-return card.style.display !== 'none';
+return card.dataset.format === currentFormat && card.style.display !== 'none';
 });
 }
 
-function buildMobileTiktokFeed(section, clickedCard) {
-mobileTiktokFeed.innerHTML = '';
+function renderDesktopViewer(card, section){
+viewerTitle.textContent = card.dataset.title || 'Lecture vidéo';
+viewerHeading.textContent = card.dataset.title || 'Titre';
+viewerDesc.textContent = card.dataset.desc || '';
+viewerViews.textContent = getCardViews(card);
+viewerComments.textContent = card.dataset.comments || '0 commentaire';
+viewerUserName.textContent = card.dataset.user || 'Utilisateur';
+viewerUserTag.textContent = card.dataset.handle || '@profil';
+viewerUserAvatar.src = card.dataset.avatar || 'https://randomuser.me/api/portraits/women/44.jpg';
 
-const sectionTitle = section.querySelector('h2');
-mobileTiktokCategory.textContent = sectionTitle ? sectionTitle.textContent : 'Catégorie';
+viewerCategory.textContent = section.querySelector('h2')?.textContent || 'Catégorie';
+viewerVideo.src = card.dataset.src || '';
+viewerVideo.play().catch(() => {});
+}
 
-const sectionCards = getVisibleCardsInSection(section);
+function openDesktopViewer(card, section){
+desktopViewerCards = getCardsInSection(section);
+currentDesktopIndex = desktopViewerCards.indexOf(card);
+renderDesktopViewer(desktopViewerCards[currentDesktopIndex], section);
+viewer.classList.add('open');
+}
 
-sectionCards.forEach(card => {
-const src = card.dataset.src;
-const title = card.dataset.title;
-const desc = card.dataset.desc;
-const category = card.dataset.category || '';
-const badge = card.querySelector('.video-label')?.textContent || '';
-const stats = card.querySelectorAll('.video-stat');
-const likesText = stats[0] ? stats[0].textContent : '';
-const durationText = stats[1] ? stats[1].textContent : '';
+function buildTiktokFeed(section, clickedCard) {
+tiktokFeed.innerHTML = '';
+viewerCategory.textContent = section.querySelector('h2')?.textContent || 'Catégorie';
+
+const cardsInSection = getCardsInSection(section);
+
+cardsInSection.forEach(card => {
+const src = card.dataset.src || '';
+const desc = card.dataset.desc || '';
+const badge = card.dataset.tag || '';
+const views = getCardViews(card);
+const comments = card.dataset.comments || '0 commentaire';
+const user = card.dataset.user || 'Utilisateur';
+const handle = card.dataset.handle || '@profil';
+const avatar = card.dataset.avatar || 'https://randomuser.me/api/portraits/women/44.jpg';
 
 const item = document.createElement('div');
-item.className = 'mobile-tiktok-item';
-
+item.className = 'tiktok-item';
 item.innerHTML = `
 <video muted loop playsinline preload="metadata">
 <source src="${src}">
 </video>
 
-<div class="mobile-tiktok-overlay">
-<div class="mobile-tiktok-meta">
-<div class="mobile-tiktok-user">
-<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<div class="tiktok-overlay">
+<div class="tiktok-meta">
+<div class="tiktok-user">
+<img src="${avatar}" alt="">
 <div>
-<strong>${title}</strong>
-<span>#${category} · ${badge}</span>
+<strong>${user}</strong>
+<span>${handle} · ${badge}</span>
 </div>
 </div>
-<p class="mobile-tiktok-desc">${desc}</p>
+<p class="tiktok-desc">${desc}</p>
 </div>
 
-<div class="mobile-tiktok-actions">
-<div>
-<button class="mobile-tiktok-action like-btn" type="button" aria-label="J’aime">
+<div class="tiktok-actions">
+<div class="tiktok-action-wrap">
+<button class="tiktok-action like-btn" type="button" aria-label="J’aime">
 <svg viewBox="0 0 24 24">
 <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
 </svg>
 </button>
-<div class="mobile-tiktok-count">${likesText}</div>
+<div class="tiktok-count">${views}</div>
 </div>
 
-<div>
-<button class="mobile-tiktok-action" type="button" aria-label="Durée">
+<div class="tiktok-action-wrap">
+<button class="tiktok-action" type="button" aria-label="Commenter">
 <svg viewBox="0 0 24 24">
-<path d="M12 7v5l3 3"></path>
-<circle cx="12" cy="12" r="9"></circle>
+<path d="M4 6h16v10H8l-4 4V6z"></path>
 </svg>
 </button>
-<div class="mobile-tiktok-count">${durationText}</div>
+<div class="tiktok-count">${comments}</div>
 </div>
 
-<div>
-<button class="mobile-tiktok-action" type="button" aria-label="Partager">
+<div class="tiktok-action-wrap">
+<button class="tiktok-action" type="button" aria-label="Partager">
 <svg viewBox="0 0 24 24">
 <path d="M14 9l-4 3 4 3V9z"></path>
 <path d="M20 6H4v12h16z"></path>
 </svg>
 </button>
-<div class="mobile-tiktok-count">Partager</div>
+<div class="tiktok-count">Partager</div>
 </div>
 </div>
 </div>
 `;
-
-mobileTiktokFeed.appendChild(item);
+tiktokFeed.appendChild(item);
 });
 
-const items = Array.from(mobileTiktokFeed.querySelectorAll('.mobile-tiktok-item'));
-const clickedIndex = sectionCards.indexOf(clickedCard);
+const items = Array.from(tiktokFeed.querySelectorAll('.tiktok-item'));
+const clickedIndex = cardsInSection.indexOf(clickedCard);
 
 requestAnimationFrame(() => {
 if (clickedIndex >= 0 && items[clickedIndex]) {
 items[clickedIndex].scrollIntoView({ block: 'start' });
 }
-initMobileTiktokAutoplay();
-bindMobileTikTokLikes();
+initTiktokAutoplay();
+bindTikTokLikes();
 });
 }
 
-function initMobileTiktokAutoplay() {
-const items = document.querySelectorAll('.mobile-tiktok-item');
-const videos = document.querySelectorAll('.mobile-tiktok-item video');
+function initTiktokAutoplay() {
+const items = document.querySelectorAll('.tiktok-item');
+const videos = document.querySelectorAll('.tiktok-item video');
 
 videos.forEach(v => v.pause());
 
-const mobileObserver = new IntersectionObserver((entries) => {
+const observerTikTok = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
 const video = entry.target.querySelector('video');
 if (!video) return;
@@ -1507,13 +1624,13 @@ video.play().catch(() => {});
 video.pause();
 }
 });
-}, { threshold: 0.72 });
+}, { threshold: 0.7 });
 
-items.forEach(item => mobileObserver.observe(item));
+items.forEach(item => observerTikTok.observe(item));
 }
 
-function bindMobileTikTokLikes() {
-document.querySelectorAll('.mobile-tiktok-action.like-btn').forEach(btn => {
+function bindTikTokLikes() {
+document.querySelectorAll('.tiktok-action.like-btn').forEach(btn => {
 btn.addEventListener('click', (e) => {
 e.stopPropagation();
 btn.classList.toggle('like-on');
@@ -1521,69 +1638,70 @@ btn.classList.toggle('like-on');
 });
 }
 
-cards.forEach(card => {
-card.addEventListener('click', () => {
-if (window.innerWidth <= 768) {
+function openViewer(card) {
 const section = card.closest('.videos-section');
 if (!section) return;
-buildMobileTiktokFeed(section, card);
-mobileTiktokViewer.classList.add('open');
+
+if (window.innerWidth <= 768) {
+viewer.classList.add('open');
+buildTiktokFeed(section, card);
 } else {
-openDesktopViewer(card);
+openDesktopViewer(card, section);
 }
-});
+}
+
+cards.forEach(card => {
+card.addEventListener('click', () => openViewer(card));
 });
 
-closeViewer.addEventListener('click', () => {
+function closeAllViewer() {
 viewer.classList.remove('open');
 viewerVideo.pause();
 viewerVideo.src = '';
-});
+tiktokFeed.innerHTML = '';
+}
+
+closeViewer.addEventListener('click', closeAllViewer);
+closeViewerMobile.addEventListener('click', closeAllViewer);
 
 viewer.addEventListener('click', (e) => {
 if (e.target === viewer) {
-viewer.classList.remove('open');
-viewerVideo.pause();
-viewerVideo.src = '';
-}
-});
-
-closeMobileTiktok.addEventListener('click', () => {
-mobileTiktokViewer.classList.remove('open');
-mobileTiktokFeed.querySelectorAll('video').forEach(v => {
-v.pause();
-v.currentTime = 0;
-});
-mobileTiktokFeed.innerHTML = '';
-});
-
-mobileTiktokViewer.addEventListener('click', (e) => {
-if (e.target === mobileTiktokViewer) {
-mobileTiktokViewer.classList.remove('open');
-mobileTiktokFeed.querySelectorAll('video').forEach(v => {
-v.pause();
-v.currentTime = 0;
-});
-mobileTiktokFeed.innerHTML = '';
+closeAllViewer();
 }
 });
 
 document.addEventListener('keydown', (e) => {
 if (e.key === 'Escape') {
-viewer.classList.remove('open');
-viewerVideo.pause();
-viewerVideo.src = '';
-
-mobileTiktokViewer.classList.remove('open');
-mobileTiktokFeed.querySelectorAll('video').forEach(v => {
-v.pause();
-v.currentTime = 0;
-});
-mobileTiktokFeed.innerHTML = '';
+closeAllViewer();
 }
 });
 
-const sectionObserver = new IntersectionObserver((entries) => {
+viewerPrevBtn.addEventListener('click', () => {
+if (!desktopViewerCards.length) return;
+currentDesktopIndex = (currentDesktopIndex - 1 + desktopViewerCards.length) % desktopViewerCards.length;
+const card = desktopViewerCards[currentDesktopIndex];
+renderDesktopViewer(card, card.closest('.videos-section'));
+});
+
+viewerNextBtn.addEventListener('click', () => {
+if (!desktopViewerCards.length) return;
+currentDesktopIndex = (currentDesktopIndex + 1) % desktopViewerCards.length;
+const card = desktopViewerCards[currentDesktopIndex];
+renderDesktopViewer(card, card.closest('.videos-section'));
+});
+
+viewerLikeBtn.addEventListener('click', () => {
+viewerLikeBtn.classList.toggle('active');
+});
+
+viewerVideo.addEventListener('ended', () => {
+if (!desktopViewerCards.length) return;
+currentDesktopIndex = (currentDesktopIndex + 1) % desktopViewerCards.length;
+const card = desktopViewerCards[currentDesktopIndex];
+renderDesktopViewer(card, card.closest('.videos-section'));
+});
+
+const observer = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
 if (entry.isIntersecting) {
 chips.forEach(chip => chip.classList.remove('active'));
@@ -1595,34 +1713,37 @@ if (activeChip) activeChip.classList.add('active');
 }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
 
 function updateObserverTargets() {
-sectionObserver.disconnect();
+observer.disconnect();
 document.querySelectorAll('.videos-section').forEach(section => {
 if (section.style.display !== 'none') {
-sectionObserver.observe(section);
+observer.observe(section);
 }
 });
 }
 
 function applyFilters() {
+const query = searchInput.value.trim().toLowerCase();
+
 sections.forEach(section => {
 const sectionCards = section.querySelectorAll('.video-card');
 let visibleCount = 0;
 
 sectionCards.forEach(card => {
-const matchesFormat = card.dataset.format === currentFormat;
-
-const haystack = (
+const formatMatch = card.dataset.format === currentFormat;
+const text = (
 (card.dataset.title || '') + ' ' +
 (card.dataset.desc || '') + ' ' +
-(card.dataset.category || '') + ' ' +
-(card.querySelector('.video-label')?.textContent || '')
+(card.dataset.user || '') + ' ' +
+(card.dataset.tag || '') + ' ' +
+(card.dataset.handle || '') + ' ' +
+(section.id || '')
 ).toLowerCase();
 
-const matchesSearch = haystack.includes(currentSearch);
+const searchMatch = query === '' || text.includes(query);
+const show = formatMatch && searchMatch;
 
-const visible = matchesFormat && matchesSearch;
-card.style.display = visible ? '' : 'none';
-if (visible) visibleCount++;
+card.style.display = show ? '' : 'none';
+if (show) visibleCount++;
 });
 
 section.style.display = visibleCount > 0 ? '' : 'none';
@@ -1640,15 +1761,11 @@ applyFilters();
 });
 });
 
-searchInput.addEventListener('input', (e) => {
-currentSearch = e.target.value.trim().toLowerCase();
-applyFilters();
-});
+searchInput.addEventListener('input', applyFilters);
 
 const activeBtn = document.querySelector('.videos-format-btn.active');
 currentFormat = activeBtn ? activeBtn.dataset.format : 'short';
 applyFilters();
 </script>
-
 </body>
 </html>
