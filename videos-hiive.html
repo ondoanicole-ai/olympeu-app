@@ -518,7 +518,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-brand-wrap">
-<div class="videos-brand">Hiive</div>
+<div class="videos-brand">hiive</div>
 <div class="videos-slogan">Swipe &amp; Scroll</div>
 </div>
 
@@ -1120,13 +1120,21 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </main>
 
 <div class="video-viewer" id="videoViewer">
-<div class="tiktok-viewer-top">
-<button class="video-close" id="closeViewer">✕</button>
-<div class="tiktok-viewer-label" id="viewerCategory">Catégorie</div>
+<div class="video-viewer-card">
+<div class="video-viewer-top">
+<strong id="viewerTitle">Lecture vidéo</strong>
+<button class="video-close" id="closeViewer">X</button>
+</div>
+<div class="video-viewer-player">
+<video id="viewerVideo" controls playsinline></video>
+</div>
+<div class="video-viewer-info">
+<h3 id="viewerHeading">Titre</h3>
+<p id="viewerDesc">Description</p>
+</div>
+</div>
 </div>
 
-<div class="tiktok-feed" id="tiktokFeed"></div>
-</div>
 
 <script>
 const cards = document.querySelectorAll('.video-card');
@@ -1230,90 +1238,64 @@ item.innerHTML = `
 </div>
 `;
 
-tiktokFeed.appendChild(item);
-});
+<script>
+const cards = document.querySelectorAll('.video-card');
+const rowVideos = document.querySelectorAll('.video-thumb video');
+const viewer = document.getElementById('videoViewer');
+const viewerVideo = document.getElementById('viewerVideo');
+const viewerTitle = document.getElementById('viewerTitle');
+const viewerHeading = document.getElementById('viewerHeading');
+const viewerDesc = document.getElementById('viewerDesc');
+const closeViewer = document.getElementById('closeViewer');
+const chips = document.querySelectorAll('.videos-cat-btn');
+const sections = document.querySelectorAll('.videos-section');
+const formatBtns = document.querySelectorAll('.videos-format-btn');
 
-const items = Array.from(tiktokFeed.querySelectorAll('.tiktok-item'));
-const clickedIndex = cardsInSection.indexOf(clickedCard);
-
-requestAnimationFrame(() => {
-if (clickedIndex >= 0 && items[clickedIndex]) {
-items[clickedIndex].scrollIntoView({ block: 'start' });
-}
-initTiktokAutoplay();
-bindTikTokLikes();
-});
-}
-
-function initTiktokAutoplay() {
-const items = document.querySelectorAll('.tiktok-item');
-const videos = document.querySelectorAll('.tiktok-item video');
-
-videos.forEach(v => v.pause());
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-const video = entry.target.querySelector('video');
-if (!video) return;
-
-if (entry.isIntersecting) {
+rowVideos.forEach(video => {
+video.addEventListener('mouseenter', () => {
 video.play().catch(() => {});
-} else {
+});
+video.addEventListener('mouseleave', () => {
 video.pause();
-}
-});
-}, { threshold: 0.7 });
-
-items.forEach(item => observer.observe(item));
-}
-
-function bindTikTokLikes() {
-document.querySelectorAll('.tiktok-action.like-btn').forEach(btn => {
-btn.addEventListener('click', (e) => {
-e.stopPropagation();
-btn.classList.toggle('like-on');
+video.currentTime = 0;
 });
 });
-}
 
 cards.forEach(card => {
 card.addEventListener('click', () => {
-const section = card.closest('.videos-section');
-if (!section) return;
+const src = card.dataset.src;
+const title = card.dataset.title;
+const desc = card.dataset.desc;
 
-buildTiktokFeed(section, card);
+viewerVideo.src = src;
+viewerTitle.textContent = title;
+viewerHeading.textContent = title;
+viewerDesc.textContent = desc;
+
 viewer.classList.add('open');
+viewerVideo.play().catch(() => {});
 });
 });
 
 closeViewer.addEventListener('click', () => {
 viewer.classList.remove('open');
-tiktokFeed.querySelectorAll('video').forEach(v => {
-v.pause();
-v.currentTime = 0;
-});
-tiktokFeed.innerHTML = '';
+viewerVideo.pause();
+viewerVideo.src = '';
 });
 
 viewer.addEventListener('click', (e) => {
 if (e.target === viewer) {
 viewer.classList.remove('open');
-tiktokFeed.querySelectorAll('video').forEach(v => {
-v.pause();
-v.currentTime = 0;
-});
-tiktokFeed.innerHTML = '';
+viewerVideo.pause();
+viewerVideo.src = '';
 }
 });
 
 document.addEventListener('keydown', (e) => {
 if (e.key === 'Escape') {
 viewer.classList.remove('open');
-tiktokFeed.querySelectorAll('video').forEach(v => {
-v.pause();
-v.currentTime = 0;
-});
-tiktokFeed.innerHTML = '';
+viewerVideo.pause();
+viewerVideo.src = '';
 }
 });
 
@@ -1338,8 +1320,6 @@ observer.observe(section);
 }
 
 function applyFormatFilter(selected) {
-currentFormat = selected;
-
 sections.forEach(section => {
 const sectionCards = section.querySelectorAll('.video-card');
 let visibleCount = 0;
@@ -1367,6 +1347,7 @@ applyFormatFilter(btn.dataset.format);
 const activeBtn = document.querySelector('.videos-format-btn.active');
 applyFormatFilter(activeBtn ? activeBtn.dataset.format : 'short');
 </script>
+
 
 
 
