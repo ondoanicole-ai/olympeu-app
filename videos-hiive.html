@@ -158,12 +158,30 @@ outline:none;
 color:rgba(255,255,255,.55);
 }
 
-/* CATEGORIES IN 2 ROWS */
-.catBlocks{
+/* CATEGORIES PANNELS */
+.catPanels{
 display:grid;
-gap:10px;
+grid-template-columns:1fr 1fr;
+gap:14px;
 margin-bottom:18px;
 }
+
+.catPanel{
+background:linear-gradient(180deg, rgba(17,29,51,.92), rgba(12,22,40,.92));
+border:1px solid rgba(79,172,254,.18);
+border-radius:22px;
+padding:14px;
+box-shadow:0 0 14px rgba(79,172,254,.10);
+}
+
+.catPanelTitle{
+margin-bottom:10px;
+font-size:13px;
+font-weight:800;
+color:#dff4ff;
+letter-spacing:.2px;
+}
+
 .catRow{
 display:flex;
 gap:8px;
@@ -172,12 +190,20 @@ padding-bottom:4px;
 scrollbar-width:thin;
 scrollbar-color:rgba(95,210,255,.7) transparent;
 }
-.catRow::-webkit-scrollbar{height:5px}
-.catRow::-webkit-scrollbar-track{background:transparent}
+
+.catRow::-webkit-scrollbar{
+height:5px;
+}
+
+.catRow::-webkit-scrollbar-track{
+background:transparent;
+}
+
 .catRow::-webkit-scrollbar-thumb{
-background:linear-gradient(90deg,rgba(95,210,255,.9),rgba(79,172,254,.9));
+background:linear-gradient(90deg, rgba(95,210,255,.9), rgba(79,172,254,.9));
 border-radius:999px;
 }
+
 .catBtn{
 flex:0 0 auto;
 padding:8px 12px;
@@ -188,49 +214,35 @@ color:#fff;
 font-size:12px;
 font-weight:700;
 white-space:nowrap;
+transition:.2s ease;
 }
+
 .catBtn:hover,
 .catBtn.active{
 border-color:rgba(79,172,254,.45);
-box-shadow:var(--shadow);
+box-shadow:0 0 10px rgba(79,172,254,.18);
 color:#dff4ff;
 }
 
-/* SECTIONS */
-.sections{
-display:flex;
-flex-direction:column;
-gap:18px;
+@media (max-width: 900px){
+.catPanels{
+grid-template-columns:1fr;
 }
-.section{
-background:linear-gradient(180deg,rgba(15,23,42,.88),rgba(11,18,33,.88));
-border:1px solid rgba(255,255,255,.06);
-border-radius:24px;
-padding:18px;
+
+.catPanel{
+padding:12px;
+border-radius:18px;
 }
-.sectionHead{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-gap:14px;
-margin-bottom:14px;
+
+.catPanelTitle{
+font-size:12px;
+margin-bottom:8px;
 }
-.sectionHead h2{
-margin:0 0 6px;
-font-size:26px;
-font-weight:800;
+
+.catBtn{
+padding:8px 11px;
+font-size:11px;
 }
-.sectionHead p{
-margin:0;
-color:var(--muted);
-font-size:14px;
-line-height:1.4;
-}
-.more{
-color:var(--blue);
-font-size:13px;
-font-weight:800;
-white-space:nowrap;
 }
 
 /* VIDEO ROW */
@@ -811,7 +823,10 @@ font-size:11px;
 <input id="searchInput" type="text" placeholder="Rechercher une vidéo, un thème, un créateur..." />
 </div>
 
-<div class="catBlocks">
+<div class="catPanels">
+
+<div class="catPanel">
+<div class="catPanelTitle">Univers principaux</div>
 <div class="catRow">
 <a href="#media" class="catBtn active">Média / actu</a>
 <a href="#science" class="catBtn">Sciences</a>
@@ -821,10 +836,13 @@ font-size:11px;
 <a href="#lifestyle" class="catBtn">Lifestyle</a>
 <a href="#humour" class="catBtn">Humour</a>
 <a href="#politique" class="catBtn">Politique</a>
-<a href="#histoire" class="catBtn">Histoire</a>
+</div>
 </div>
 
+<div class="catPanel">
+<div class="catPanelTitle">Autres catégories</div>
 <div class="catRow">
+<a href="#histoire" class="catBtn">Histoire</a>
 <a href="#cinema" class="catBtn">Cinéma</a>
 <a href="#enfants" class="catBtn">Enfants</a>
 <a href="#tech" class="catBtn">Tech</a>
@@ -835,6 +853,9 @@ font-size:11px;
 <a href="#musique" class="catBtn">Musique</a>
 </div>
 </div>
+
+</div>
+
 
 <div class="sections">
 
