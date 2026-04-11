@@ -651,6 +651,8 @@ display:none;
 
 @media (max-width:768px){
 
+/* ================= GLOBAL ================= */
+
 html, body{
 overflow-x:hidden !important;
 }
@@ -658,6 +660,18 @@ overflow-x:hidden !important;
 body{
 width:100%;
 }
+
+.shell{
+padding:12px 10px 70px !important;
+overflow-x:hidden !important;
+max-width:100% !important;
+}
+
+.pageTitle{
+font-size:28px !important;
+}
+
+/* ================= HEADER ================= */
 
 .topbar{
 grid-template-columns:1fr auto !important;
@@ -668,29 +682,11 @@ padding:14px 12px 10px !important;
 .brandWrap{text-align:right !important;}
 .brand{font-size:24px !important;}
 
-.shell{
-padding:12px 10px 70px !important;
-overflow-x:hidden !important;
-max-width:100% !important;
-}
+/* ================= CATEGORIES ================= */
 
-.pageTitle{font-size:28px !important;}
-
-.section{
-padding:14px !important;
-border-radius:20px !important;
-overflow:hidden !important;
-}
-
-.sectionHead h2{
-font-size:22px !important;
-}
-
-/* catégories en blocs */
 .catPanels{
 grid-template-columns:1fr !important;
 gap:12px !important;
-overflow-x:hidden !important;
 }
 
 .catPanel{
@@ -704,7 +700,6 @@ display:flex !important;
 gap:8px !important;
 flex-wrap:nowrap !important;
 width:100% !important;
-max-width:100% !important;
 overflow-x:auto !important;
 overflow-y:hidden !important;
 white-space:nowrap !important;
@@ -724,27 +719,48 @@ font-size:11px !important;
 padding:8px 11px !important;
 }
 
-/* lignes vidéos */
+/* ================= SECTIONS ================= */
+
+.sections{
+overflow-x:hidden !important;
+}
+
+.section{
+padding:14px !important;
+border-radius:20px !important;
+overflow:hidden !important;
+}
+
+.sectionHead h2{
+font-size:22px !important;
+}
+
+/* ================= ROW VIDEOS ================= */
+
 .row{
 display:flex !important;
 gap:12px !important;
 overflow-x:auto !important;
 overflow-y:hidden !important;
-max-width:100% !important;
+width:100% !important;
+padding:0 2px 6px 0 !important;
 scroll-snap-type:x mandatory !important;
 -webkit-overflow-scrolling:touch !important;
 scrollbar-width:none !important;
+overscroll-behavior-x:contain !important;
 }
 
 .row::-webkit-scrollbar{
 display:none !important;
 }
 
+/* ================= CARDS ================= */
+
 .card{
-flex:0 0 calc(100vw - 28px) !important;
-width:calc(100vw - 28px) !important;
-min-width:calc(100vw - 28px) !important;
-max-width:calc(100vw - 28px) !important;
+flex:0 0 84vw !important;
+width:84vw !important;
+min-width:84vw !important;
+max-width:84vw !important;
 }
 
 .thumb{
@@ -752,15 +768,26 @@ aspect-ratio:16/10 !important;
 overflow:hidden !important;
 }
 
-.meta{padding:12px !important;}
-.title{font-size:18px !important;}
-.sub{font-size:13px !important;}
+.meta{
+padding:12px !important;
+max-width:100% !important;
+}
+
+.title{
+font-size:18px !important;
+}
+
+.sub{
+font-size:13px !important;
+}
+
 .stat{
 font-size:11px !important;
 padding:5px 9px !important;
 }
 
-/* bouton play */
+/* ================= PLAY BUTTON ================= */
+
 .play{
 width:32px !important;
 height:32px !important;
@@ -774,17 +801,16 @@ width:12px !important;
 height:12px !important;
 }
 
-/* viewer mobile tiktok */
+/* ================= VIEWER (MODE TIKTOK) ================= */
+
 .viewer{
 position:fixed !important;
 inset:0 !important;
 width:100vw !important;
 height:100dvh !important;
-padding:0 !important;
 background:#000 !important;
 overflow:hidden !important;
 z-index:9999 !important;
-backdrop-filter:none !important;
 display:none;
 }
 
@@ -795,6 +821,8 @@ display:block !important;
 .viewerCard{
 display:none !important;
 }
+
+/* ===== TOP BAR ===== */
 
 .mobileTop{
 display:flex !important;
@@ -816,6 +844,8 @@ background:linear-gradient(to bottom, rgba(0,0,0,.65), transparent) !important;
 font-size:13px !important;
 opacity:.85 !important;
 }
+
+/* ===== FEED ===== */
 
 .mobileFeed{
 display:block !important;
@@ -848,8 +878,9 @@ width:100% !important;
 height:100% !important;
 object-fit:cover !important;
 display:block !important;
-background:#000 !important;
 }
+
+/* ===== OVERLAY ===== */
 
 .mobileOverlay{
 position:absolute !important;
@@ -896,6 +927,8 @@ font-size:13px !important;
 line-height:1.35 !important;
 }
 
+/* ===== ACTIONS ===== */
+
 .mobileActions{
 position:absolute !important;
 right:12px !important;
@@ -940,6 +973,7 @@ margin-top:4px !important;
 text-align:center !important;
 font-size:11px !important;
 }
+
 }
 
 </style>
