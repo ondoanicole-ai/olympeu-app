@@ -1132,60 +1132,188 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 const cards = document.querySelectorAll('.video-card');
 const rowVideos = document.querySelectorAll('.video-thumb video');
 const viewer = document.getElementById('videoViewer');
-const viewerVideo = document.getElementById('viewerVideo');
-const viewerTitle = document.getElementById('viewerTitle');
-const viewerHeading = document.getElementById('viewerHeading');
-const viewerDesc = document.getElementById('viewerDesc');
 const closeViewer = document.getElementById('closeViewer');
 const chips = document.querySelectorAll('.videos-cat-btn');
 const sections = document.querySelectorAll('.videos-section');
 const formatBtns = document.querySelectorAll('.videos-format-btn');
+const tiktokFeed = document.getElementById('tiktokFeed');
+const viewerCategory = document.getElementById('viewerCategory');
+
+let currentFormat = 'short';
 
 rowVideos.forEach(video => {
 video.addEventListener('mouseenter', () => {
+if (window.innerWidth > 768) {
 video.play().catch(() => {});
+}
 });
 video.addEventListener('mouseleave', () => {
+if (window.innerWidth > 768) {
 video.pause();
 video.currentTime = 0;
+}
 });
 });
 
-cards.forEach(card => {
-card.addEventListener('click', () => {
+function getCardsInSection(section) {
+return Array.from(section.querySelectorAll('.video-card')).filter(card => {
+return card.dataset.format === currentFormat && card.style.display !== 'none';
+});
+}
+
+function buildTiktokFeed(section, clickedCard) {
+tiktokFeed.innerHTML = '';
+
+const sectionTitle = section.querySelector('h2');
+viewerCategory.textContent = sectionTitle ? sectionTitle.textContent : 'Catégorie';
+
+const cardsInSection = getCardsInSection(section);
+
+cardsInSection.forEach(card => {
 const src = card.dataset.src;
 const title = card.dataset.title;
 const desc = card.dataset.desc;
+const badge = card.querySelector('.video-label')?.textContent || '';
+const statViews = card.querySelector('.video-stat')?.textContent || '';
+const categoryId = section.id || '';
 
-viewerVideo.src = src;
-viewerTitle.textContent = title;
-viewerHeading.textContent = title;
-viewerDesc.textContent = desc;
+const item = document.createElement('div');
+item.className = 'tiktok-item';
+item.dataset.src = src;
 
+item.innerHTML = `
+<video muted loop playsinline preload="metadata">
+<source src="${src}">
+</video>
+
+<div class="tiktok-overlay">
+<div class="tiktok-meta">
+<div class="tiktok-user">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<div>
+<strong>${title}</strong>
+<span>#${categoryId} · ${badge}</span>
+</div>
+</div>
+<p class="tiktok-desc">${desc}</p>
+</div>
+
+<div class="tiktok-actions">
+<div>
+<button class="tiktok-action like-btn" type="button" aria-label="J’aime">
+<svg viewBox="0 0 24 24">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+</button>
+<div class="tiktok-count">${statViews || '0 vue'}</div>
+</div>
+
+<div>
+<button class="tiktok-action" type="button" aria-label="Commenter">
+<svg viewBox="0 0 24 24">
+<path d="M4 6h16v10H8l-4 4V6z"></path>
+</svg>
+</button>
+<div class="tiktok-count">Commenter</div>
+</div>
+
+<div>
+<button class="tiktok-action" type="button" aria-label="Partager">
+<svg viewBox="0 0 24 24">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+</button>
+<div class="tiktok-count">Partager</div>
+</div>
+</div>
+</div>
+`;
+
+tiktokFeed.appendChild(item);
+});
+
+const items = Array.from(tiktokFeed.querySelectorAll('.tiktok-item'));
+const clickedIndex = cardsInSection.indexOf(clickedCard);
+
+requestAnimationFrame(() => {
+if (clickedIndex >= 0 && items[clickedIndex]) {
+items[clickedIndex].scrollIntoView({ block: 'start' });
+}
+initTiktokAutoplay();
+bindTikTokLikes();
+});
+}
+
+function initTiktokAutoplay() {
+const items = document.querySelectorAll('.tiktok-item');
+const videos = document.querySelectorAll('.tiktok-item video');
+
+videos.forEach(v => v.pause());
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+const video = entry.target.querySelector('video');
+if (!video) return;
+
+if (entry.isIntersecting) {
+video.play().catch(() => {});
+} else {
+video.pause();
+}
+});
+}, { threshold: 0.7 });
+
+items.forEach(item => observer.observe(item));
+}
+
+function bindTikTokLikes() {
+document.querySelectorAll('.tiktok-action.like-btn').forEach(btn => {
+btn.addEventListener('click', (e) => {
+e.stopPropagation();
+btn.classList.toggle('like-on');
+});
+});
+}
+
+cards.forEach(card => {
+card.addEventListener('click', () => {
+const section = card.closest('.videos-section');
+if (!section) return;
+
+buildTiktokFeed(section, card);
 viewer.classList.add('open');
-viewerVideo.play().catch(() => {});
 });
 });
 
 closeViewer.addEventListener('click', () => {
 viewer.classList.remove('open');
-viewerVideo.pause();
-viewerVideo.src = '';
+tiktokFeed.querySelectorAll('video').forEach(v => {
+v.pause();
+v.currentTime = 0;
+});
+tiktokFeed.innerHTML = '';
 });
 
 viewer.addEventListener('click', (e) => {
 if (e.target === viewer) {
 viewer.classList.remove('open');
-viewerVideo.pause();
-viewerVideo.src = '';
+tiktokFeed.querySelectorAll('video').forEach(v => {
+v.pause();
+v.currentTime = 0;
+});
+tiktokFeed.innerHTML = '';
 }
 });
 
 document.addEventListener('keydown', (e) => {
 if (e.key === 'Escape') {
 viewer.classList.remove('open');
-viewerVideo.pause();
-viewerVideo.src = '';
+tiktokFeed.querySelectorAll('video').forEach(v => {
+v.pause();
+v.currentTime = 0;
+});
+tiktokFeed.innerHTML = '';
 }
 });
 
@@ -1210,6 +1338,8 @@ observer.observe(section);
 }
 
 function applyFormatFilter(selected) {
+currentFormat = selected;
+
 sections.forEach(section => {
 const sectionCards = section.querySelectorAll('.video-card');
 let visibleCount = 0;
@@ -1237,6 +1367,7 @@ applyFormatFilter(btn.dataset.format);
 const activeBtn = document.querySelector('.videos-format-btn.active');
 applyFormatFilter(activeBtn ? activeBtn.dataset.format : 'short');
 </script>
+
 
 
 </body>
