@@ -2,1038 +2,257 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Hiive — Vidéos</title>
-<link rel="stylesheet" href="style.css" />
+
 <style>
-:root{
---bg:#070b14;
---panel:#0f1728;
---panel-2:#131d33;
---line:rgba(255,255,255,0.08);
---line-blue:rgba(79,172,254,0.45);
---text:#f4f7ff;
---muted:rgba(255,255,255,0.72);
---blue:#7fd6ff;
---blue-2:#4facfe;
---glow:0 0 10px rgba(79,172,254,0.22), 0 0 24px rgba(0,242,254,0.1);
-}
 
-*{box-sizing:border-box}
-
-body.theme-dark.videos-hiive-body{
+/* ===== BASE ===== */
+body{
 margin:0;
-background:
-radial-gradient(circle at top, rgba(38,78,150,0.22), transparent 35%),
-linear-gradient(180deg, #050814 0%, #08101c 100%);
-color:var(--text);
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial, sans-serif;
+background:#050814;
+color:#fff;
 }
 
-.videos-topbar{
-position:sticky;
-top:0;
-z-index:50;
+/* ===== HEADER ===== */
+.topbar{
 display:flex;
-align-items:center;
 justify-content:space-between;
-gap:14px;
-padding:16px 22px;
-background:rgba(6,10,18,0.82);
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--line);
+align-items:center;
+padding:16px 20px;
 }
 
-.videos-back{
-display:inline-flex;
-align-items:center;
-gap:8px;
+.back{
+padding:6px 12px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,0.5);
+text-decoration:none;
+color:#fff;
+}
+
+.brand{
+font-weight:700;
+font-size:22px;
+}
+
+.slogan{
+text-align:center;
+margin-top:10px;
+font-size:13px;
+opacity:.7;
+}
+
+/* ===== SWITCH ===== */
+.format-switch{
+display:flex;
+justify-content:center;
+gap:10px;
+margin:20px 0;
+}
+
+.format-switch button{
 padding:8px 14px;
 border-radius:999px;
-border:1px solid rgba(255,255,255,0.55);
-background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.2);
+background:transparent;
 color:#fff;
-text-decoration:none;
-font-size:14px;
-font-weight:600;
-}
-
-.videos-brand{
-font-size:28px;
-font-weight:700;
-letter-spacing:.2px;
-}
-
-.videos-top-actions{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.videos-create{
-border:0;
-border-radius:999px;
-padding:10px 18px;
-background:linear-gradient(135deg, #5fd2ff, #66a3ff);
-color:#06101d;
-font-weight:700;
 cursor:pointer;
 }
 
-.videos-shell{
-max-width:1500px;
-margin:0 auto;
-padding:20px 18px 80px;
+.format-switch .active{
+background:#4facfe;
+color:#000;
 }
 
-.videos-hero{
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:16px;
-margin-bottom:18px;
-}
-
-.videos-hero-card,
-.videos-hero-side{
-background:rgba(13,19,34,0.76);
-border:1px solid var(--line);
-border-radius:22px;
-padding:18px;
-box-shadow:var(--glow);
-}
-
-.videos-hero-card h1{
-margin:0 0 6px;
-font-size:30px;
-}
-
-.videos-hero-card p{
-margin:0;
-color:var(--muted);
-line-height:1.45;
-}
-
-.videos-stats{
-display:flex;
-gap:10px;
-margin-top:16px;
-flex-wrap:wrap;
-}
-
-.videos-stat{
-padding:10px 14px;
-border-radius:14px;
-background:rgba(255,255,255,0.04);
-border:1px solid var(--line);
-color:#d9eeff;
-font-size:13px;
-}
-
-.videos-hero-side{
-display:flex;
-flex-direction:column;
-justify-content:center;
-gap:10px;
-}
-
-.videos-hero-side strong{
-font-size:17px;
-}
-
-.videos-hero-side span{
-color:var(--muted);
-line-height:1.45;
-}
-
-.videos-categories{
-position:sticky;
-top:74px;
-z-index:40;
+/* ===== CATEGORIES ===== */
+.categories{
 display:flex;
 gap:10px;
 overflow-x:auto;
-padding:6px 2px 14px;
-scrollbar-width:none;
+padding:10px;
 }
 
-.videos-categories::-webkit-scrollbar{display:none}
-
-.videos-chip{
-flex:0 0 auto;
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:10px 14px;
+.categories a{
+padding:8px 14px;
 border-radius:999px;
+border:1px solid rgba(255,255,255,0.15);
 text-decoration:none;
-color:#d9eeff;
-background:rgba(255,255,255,0.04);
-border:1px solid var(--line);
-transition:.2s ease;
+color:#fff;
 font-size:13px;
 white-space:nowrap;
 }
 
-.videos-chip:hover,
-.videos-chip.active{
-border-color:var(--line-blue);
-box-shadow:var(--glow);
-color:#fff;
+.categories a:hover{
+border-color:#4facfe;
 }
 
-.videos-sections{
-display:flex;
-flex-direction:column;
-gap:20px;
+/* ===== SECTIONS ===== */
+.section{
+padding:20px;
 }
 
-.videos-category{
-background:rgba(9,15,27,0.78);
-border:1px solid var(--line);
-border-radius:24px;
-padding:18px;
+.section h2{
+margin-bottom:10px;
 }
 
-.videos-category-head{
-display:flex;
-align-items:end;
-justify-content:space-between;
-gap:14px;
-margin-bottom:14px;
-}
-
-.videos-category-head h2{
-margin:0 0 4px;
-font-size:23px;
-}
-
-.videos-category-head p{
-margin:0;
-color:var(--muted);
-font-size:13px;
-}
-
-.videos-category-link{
-color:var(--blue);
-text-decoration:none;
-font-size:13px;
-font-weight:600;
-}
-
-.videos-row{
+/* ===== VIDEOS ===== */
+.row{
 display:flex;
 gap:14px;
 overflow-x:auto;
-scroll-snap-type:x mandatory;
-padding-bottom:6px;
-scrollbar-width:thin;
-scrollbar-color:#4facfe transparent;
 }
 
-.videos-row::-webkit-scrollbar{
-height:6px;
-}
-
-.videos-row::-webkit-scrollbar-thumb{
-background:linear-gradient(90deg, #55cfff, #4facfe);
-border-radius:999px;
-}
-
-.videos-row::-webkit-scrollbar-track{
-background:transparent;
-}
-
-.video-card{
-flex:0 0 320px;
-scroll-snap-align:start;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.06);
-border-radius:20px;
+.card{
+min-width:260px;
+border-radius:16px;
 overflow:hidden;
-transition:.22s ease;
-cursor:pointer;
-}
-
-.video-card:hover{
-transform:translateY(-2px);
-border-color:var(--line-blue);
-box-shadow:var(--glow);
-}
-
-.video-thumb{
-position:relative;
-aspect-ratio:16/9;
-overflow:hidden;
-background:#05070d;
-}
-
-.video-thumb video{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-.video-badge{
-position:absolute;
-top:10px;
-left:10px;
-padding:5px 9px;
-border-radius:999px;
-background:rgba(0,0,0,0.45);
-border:1px solid rgba(255,255,255,0.15);
-font-size:11px;
-backdrop-filter:blur(8px);
-}
-
-.video-play{
-position:absolute;
-right:12px;
-bottom:12px;
-width:46px;
-height:46px;
-border-radius:50%;
-display:grid;
-place-items:center;
-background:rgba(10,17,31,0.68);
-border:1px solid rgba(255,255,255,0.14);
-box-shadow:var(--glow);
-}
-
-.video-play svg{
-width:20px;
-height:20px;
-stroke:#c8f1ff;
-fill:none;
-stroke-width:2;
-}
-
-.video-meta{
-padding:13px 14px 14px;
-}
-
-.video-title{
-margin:0 0 6px;
-font-size:16px;
-line-height:1.25;
-}
-
-.video-sub{
-margin:0 0 10px;
-color:var(--muted);
-font-size:13px;
-line-height:1.35;
-}
-
-.video-stats{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-}
-
-.video-stat{
-padding:5px 9px;
-border-radius:999px;
-border:1px solid rgba(79,172,254,0.28);
-color:#bfe9ff;
-font-size:12px;
-}
-
-.video-viewer{
-position:fixed;
-inset:0;
-z-index:100;
-display:none;
-align-items:center;
-justify-content:center;
-background:rgba(2,6,12,0.92);
-backdrop-filter:blur(10px);
-padding:22px;
-}
-
-.video-viewer.open{
-display:flex;
-}
-
-.video-viewer-card{
-width:min(980px, 100%);
-background:#09101d;
+background:#0b1222;
 border:1px solid rgba(255,255,255,0.08);
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 0 30px rgba(0,0,0,0.35), var(--glow);
-}
-
-.video-viewer-top{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:14px;
-padding:14px 16px;
-border-bottom:1px solid rgba(255,255,255,0.06);
-}
-
-.video-viewer-top strong{
-font-size:18px;
-}
-
-.video-close{
-border:0;
-width:40px;
-height:40px;
-border-radius:50%;
-background:rgba(255,255,255,0.06);
-color:#fff;
 cursor:pointer;
-font-size:18px;
 }
 
-.video-viewer-player{
-aspect-ratio:16/9;
-background:#03060b;
-}
-
-.video-viewer-player video{
+.card video{
 width:100%;
-height:100%;
-object-fit:contain;
-display:block;
-background:#03060b;
+height:160px;
+object-fit:cover;
 }
 
-.video-viewer-info{
-padding:16px;
+.meta{
+padding:10px;
 }
 
-.video-viewer-info h3{
-margin:0 0 8px;
-font-size:22px;
+.title{
+font-size:14px;
+margin-bottom:6px;
 }
 
-.video-viewer-info p{
-margin:0;
-color:var(--muted);
-line-height:1.45;
+.sub{
+font-size:12px;
+opacity:.7;
 }
 
-@media (max-width: 980px){
-.videos-hero{
-grid-template-columns:1fr;
-}
-
-.videos-brand{
-font-size:24px;
-}
-
-.video-card{
-flex:0 0 84vw;
-}
-
-.videos-shell{
-padding-inline:12px;
-}
-
-.videos-topbar{
-padding:14px 12px;
-}
-
-.videos-categories{
-top:68px;
-}
-}
 </style>
 </head>
 
-<body class="theme-dark videos-hiive-body">
+<body>
 
-<header class="videos-topbar">
-<a href="feed-hiive-social.html" class="videos-back">← Retour</a>
-<div class="videos-brand">Hiive</div>
-<div class="videos-top-actions">
-<button class="videos-create">Créer</button>
-</div>
-</header>
-
-<main class="videos-shell">
-
-<section class="videos-hero">
-<div class="videos-hero-card">
-<h1>Vidéos Hiive</h1>
-<p>Découvre, explore et regarde par univers. Fais glisser horizontalement pour parcourir les vidéos d’une catégorie, puis verticalement pour changer d’univers.</p>
-<div class="videos-stats">
-<span class="videos-stat">Formats courts</span>
-<span class="videos-stat">Exploration par thèmes</span>
-<span class="videos-stat">Lecture immersive</span>
-</div>
+<div class="topbar">
+<a href="feed-hiive-social.html" class="back">← Retour</a>
+<div class="brand">Hiive</div>
+<div></div>
 </div>
 
-<div class="videos-hero-side">
-<strong>Concept de navigation</strong>
-<span>Horizontal = vidéos d’une même famille. Vertical = changement de catégorie. Clic sur une vidéo = mode grand format.</span>
+<div class="slogan">Swipe & Scroll</div>
+
+<!-- SWITCH -->
+<div class="format-switch">
+<button class="active">Courts</button>
+<button>Longs</button>
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories">
+<a href="#media">Média</a>
+<a href="#science">Sciences</a>
+<a href="#business">Business</a>
+<a href="#lifestyle">Lifestyle</a>
+<a href="#humour">Humour</a>
+<a href="#politique">Politique</a>
+<a href="#histoire">Histoire</a>
+<a href="#cinema">Cinéma</a>
+<a href="#enfants">Enfants</a>
+</div>
+
+<!-- MEDIA -->
+<section class="section" id="media">
+<h2>Média</h2>
+<div class="row">
+<div class="card">
+<video muted loop>
+<source src="https://www.w3schools.com/html/mov_bbb.mp4">
+</video>
+<div class="meta">
+<div class="title">Actu rapide</div>
+<div class="sub">Résumé du jour</div>
+</div>
+</div>
+
+<div class="card">
+<video muted loop>
+<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+</video>
+<div class="meta">
+<div class="title">Décryptage</div>
+<div class="sub">Comprendre vite</div>
+</div>
+</div>
 </div>
 </section>
 
-<nav class="videos-categories">
-<a href="#media" class="videos-chip active">📰 Média / actu</a>
-<a href="#science" class="videos-chip">🔬 Sciences</a>
-<a href="#religion" class="videos-chip">⛪ Religion</a>
-<a href="#paranormal" class="videos-chip">👁️ Paranormal</a>
-<a href="#humour" class="videos-chip">😂 Humour</a>
-<a href="#politique" class="videos-chip">🏛️ Politique</a>
-<a href="#histoire" class="videos-chip">📚 Histoire</a>
-<a href="#cinema" class="videos-chip">🎬 Cinéma</a>
-</nav>
-
-<section class="videos-sections">
-
-<section class="videos-category" id="media">
-<div class="videos-category-head">
-<div>
-<h2>Média / actu</h2>
-<p>Formats rapides, regard sur le présent, sujets qui bougent.</p>
-</div>
-<a href="#" class="videos-category-link">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-title="Actu minute" data-desc="Une capsule rapide pour résumer l’essentiel d’un sujet d’actualité." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+<!-- BUSINESS -->
+<section class="section" id="business">
+<h2>Business</h2>
+<div class="row">
+<div class="card">
+<video muted loop>
+<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
 </video>
-<span class="video-badge">Actu</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+<div class="meta">
+<div class="title">Startup mindset</div>
+<div class="sub">Entreprendre</div>
 </div>
 </div>
-<div class="video-meta">
-<h3 class="video-title">Actu minute</h3>
-<p class="video-sub">Le point rapide sur ce qui compte aujourd’hui.</p>
-<div class="video-stats">
-<span class="video-stat">12k vues</span>
-<span class="video-stat">3 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Point de vue" data-desc="Un angle éditorial court sur un sujet de société." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Décryptage</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Point de vue</h3>
-<p class="video-sub">Un angle simple, rapide, direct.</p>
-<div class="video-stats">
-<span class="video-stat">8.4k vues</span>
-<span class="video-stat">2 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="En direct du sujet" data-desc="Vision condensée d’un thème chaud." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Live</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">En direct du sujet</h3>
-<p class="video-sub">Une prise de recul en format court.</p>
-<div class="video-stats">
-<span class="video-stat">15k vues</span>
-<span class="video-stat">4 min</span>
-</div>
-</div>
-</article>
 </div>
 </section>
 
-<section class="videos-category" id="science">
-<div class="videos-category-head">
-<div>
-<h2>Sciences</h2>
-<p>Explications, phénomènes, curiosités et découvertes.</p>
-</div>
-<a href="#" class="videos-category-link">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-title="Science simple" data-desc="Une idée scientifique rendue facile à comprendre." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
+<!-- LIFESTYLE -->
+<section class="section" id="lifestyle">
+<h2>Lifestyle</h2>
+<div class="row">
+<div class="card">
+<video muted loop>
+<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
 </video>
-<span class="video-badge">Science</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+<div class="meta">
+<div class="title">Routine</div>
+<div class="sub">Organisation</div>
 </div>
 </div>
-<div class="video-meta">
-<h3 class="video-title">Science simple</h3>
-<p class="video-sub">Comprendre un phénomène en quelques minutes.</p>
-<div class="video-stats">
-<span class="video-stat">21k vues</span>
-<span class="video-stat">5 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Expérience visuelle" data-desc="Une démonstration courte pour illustrer un principe scientifique." data-src="https://www.w3schools.com/html/movie.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Expérience</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Expérience visuelle</h3>
-<p class="video-sub">Voir pour comprendre.</p>
-<div class="video-stats">
-<span class="video-stat">17k vues</span>
-<span class="video-stat">3 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Question de science" data-desc="Un format court qui répond à une vraie question." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
-</video>
-<span class="video-badge">Question</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Question de science</h3>
-<p class="video-sub">Réponse claire, visuelle, rapide.</p>
-<div class="video-stats">
-<span class="video-stat">9.1k vues</span>
-<span class="video-stat">2 min</span>
-</div>
-</div>
-</article>
 </div>
 </section>
 
-<section class="videos-category" id="religion">
-<div class="videos-category-head">
-<div>
-<h2>Religion</h2>
-<p>Réflexions, méditations, symboles et transmission.</p>
-</div>
-<a href="#" class="videos-category-link">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-title="Parole du jour" data-desc="Un extrait méditatif pour ouvrir une réflexion." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Méditation</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Parole du jour</h3>
-<p class="video-sub">Un temps court pour réfléchir autrement.</p>
-<div class="video-stats">
-<span class="video-stat">6.2k vues</span>
-<span class="video-stat">4 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Symbole et sens" data-desc="Décoder un symbole et son histoire." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Sens</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Symbole et sens</h3>
-<p class="video-sub">Relier la forme, l’histoire et la foi.</p>
-<div class="video-stats">
-<span class="video-stat">4.8k vues</span>
-<span class="video-stat">6 min</span>
-</div>
-</div>
-</article>
-</div>
-</section>
-
-<section class="videos-category" id="paranormal">
-<div class="videos-category-head">
-<div>
-<h2>Paranormal</h2>
-<p>Mystères, légendes, observations et récits étranges.</p>
-</div>
-<a href="#" class="videos-category-link">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-title="Mystère en 3 minutes" data-desc="Un récit bref autour d’un phénomène inexpliqué." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Mystère</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Mystère en 3 minutes</h3>
-<p class="video-sub">Un format narratif immersif.</p>
-<div class="video-stats">
-<span class="video-stat">11k vues</span>
-<span class="video-stat">3 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Archive étrange" data-desc="Une archive mystérieuse revisitée." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Archive</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Archive étrange</h3>
-<p class="video-sub">Une ambiance qui intrigue.</p>
-<div class="video-stats">
-<span class="video-stat">13k vues</span>
-<span class="video-stat">5 min</span>
-</div>
-</div>
-</article>
-</div>
-</section>
-
-<section class="videos-category" id="humour">
-<div class="videos-category-head">
-<div>
+<!-- HUMOUR -->
+<section class="section" id="humour">
 <h2>Humour</h2>
-<p>Moments légers, réactions, absurdes et formats qui détendent.</p>
-</div>
-<a href="#" class="videos-category-link">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-title="Minute drôle" data-desc="Une capsule pour souffler et sourire." data-src="https://www.w3schools.com/html/movie.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+<div class="row">
+<div class="card">
+<video muted loop>
+<source src="https://www.w3schools.com/html/movie.mp4">
 </video>
-<span class="video-badge">Humour</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+<div class="meta">
+<div class="title">Funny moment</div>
+<div class="sub">Détente</div>
 </div>
 </div>
-<div class="video-meta">
-<h3 class="video-title">Minute drôle</h3>
-<p class="video-sub">Une pause légère dans le scroll.</p>
-<div class="video-stats">
-<span class="video-stat">22k vues</span>
-<span class="video-stat">1 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Réaction instantanée" data-desc="Format court, montage rapide, effet direct." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
-</video>
-<span class="video-badge">Réaction</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Réaction instantanée</h3>
-<p class="video-sub">Énergie rapide, format social.</p>
-<div class="video-stats">
-<span class="video-stat">18k vues</span>
-<span class="video-stat">2 min</span>
-</div>
-</div>
-</article>
 </div>
 </section>
 
-<section class="videos-category" id="politique">
-<div class="videos-category-head">
-<div>
-<h2>Politique</h2>
-<p>Débats, institutions, enjeux et lecture des décisions.</p>
-</div>
-<a href="#" class="videos-category-link">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-title="Décryptage politique" data-desc="Une lecture simple d’un sujet institutionnel ou d’un choix public." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
+<!-- ENFANTS -->
+<section class="section" id="enfants">
+<h2>Enfants</h2>
+<div class="row">
+<div class="card">
+<video muted loop>
+<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
 </video>
-<span class="video-badge">Décryptage</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
+<div class="meta">
+<div class="title">Éveil</div>
+<div class="sub">Apprendre en s’amusant</div>
 </div>
 </div>
-<div class="video-meta">
-<h3 class="video-title">Décryptage politique</h3>
-<p class="video-sub">Comprendre sans simplifier à outrance.</p>
-<div class="video-stats">
-<span class="video-stat">7.9k vues</span>
-<span class="video-stat">5 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Lecture d’un débat" data-desc="Le fond d’un débat en version claire." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Analyse</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Lecture d’un débat</h3>
-<p class="video-sub">Un format plus posé mais toujours fluide.</p>
-<div class="video-stats">
-<span class="video-stat">5.6k vues</span>
-<span class="video-stat">7 min</span>
-</div>
-</div>
-</article>
 </div>
 </section>
-
-<section class="videos-category" id="histoire">
-<div class="videos-category-head">
-<div>
-<h2>Histoire</h2>
-<p>Repères, récits, civilisations et grandes périodes.</p>
-</div>
-<a href="#" class="videos-category-link">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-title="Histoire courte" data-desc="Un fait ou une période résumée clairement." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Histoire</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Histoire courte</h3>
-<p class="video-sub">Un point de repère en format vivant.</p>
-<div class="video-stats">
-<span class="video-stat">14k vues</span>
-<span class="video-stat">4 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Une époque, une idée" data-desc="Voir comment une période a façonné le présent." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Repères</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Une époque, une idée</h3>
-<p class="video-sub">Format narratif et pédagogique.</p>
-<div class="video-stats">
-<span class="video-stat">10k vues</span>
-<span class="video-stat">6 min</span>
-</div>
-</div>
-</article>
-</div>
-</section>
-
-<section class="videos-category" id="cinema">
-<div class="videos-category-head">
-<div>
-<h2>Cinéma</h2>
-<p>Scènes, analyses visuelles, narration, image et émotions.</p>
-</div>
-<a href="#" class="videos-category-link">Voir plus</a>
-</div>
-
-<div class="videos-row">
-<article class="video-card" data-title="Lecture de scène" data-desc="Décoder une scène, un cadrage, une ambiance." data-src="https://www.w3schools.com/html/movie.mp4">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-</video>
-<span class="video-badge">Cinéma</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Lecture de scène</h3>
-<p class="video-sub">Image, rythme, émotion.</p>
-<div class="video-stats">
-<span class="video-stat">16k vues</span>
-<span class="video-stat">3 min</span>
-</div>
-</div>
-</article>
-
-<article class="video-card" data-title="Le détail qui change tout" data-desc="Une lecture cinématographique d’un détail de mise en scène." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
-<div class="video-thumb">
-<video muted preload="metadata" playsinline>
-<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
-</video>
-<span class="video-badge">Analyse</span>
-<div class="video-play">
-<svg viewBox="0 0 24 24"><path d="M8 6l8 6-8 6z"></path></svg>
-</div>
-</div>
-<div class="video-meta">
-<h3 class="video-title">Le détail qui change tout</h3>
-<p class="video-sub">Le petit élément qui transforme la lecture.</p>
-<div class="video-stats">
-<span class="video-stat">9.8k vues</span>
-<span class="video-stat">4 min</span>
-</div>
-</div>
-</article>
-</div>
-</section>
-
-</section>
-</main>
-
-<div class="video-viewer" id="videoViewer">
-<div class="video-viewer-card">
-<div class="video-viewer-top">
-<strong id="viewerTitle">Lecture vidéo</strong>
-<button class="video-close" id="closeViewer">✕</button>
-</div>
-<div class="video-viewer-player">
-<video id="viewerVideo" controls playsinline></video>
-</div>
-<div class="video-viewer-info">
-<h3 id="viewerHeading">Titre</h3>
-<p id="viewerDesc">Description</p>
-</div>
-</div>
-</div>
-
-<script>
-const cards = document.querySelectorAll('.video-card');
-const rowVideos = document.querySelectorAll('.video-thumb video');
-const viewer = document.getElementById('videoViewer');
-const viewerVideo = document.getElementById('viewerVideo');
-const viewerTitle = document.getElementById('viewerTitle');
-const viewerHeading = document.getElementById('viewerHeading');
-const viewerDesc = document.getElementById('viewerDesc');
-const closeViewer = document.getElementById('closeViewer');
-const chips = document.querySelectorAll('.videos-chip');
-const sections = document.querySelectorAll('.videos-category');
-
-rowVideos.forEach(video => {
-video.addEventListener('mouseenter', () => {
-video.play().catch(() => {});
-});
-video.addEventListener('mouseleave', () => {
-video.pause();
-video.currentTime = 0;
-});
-});
-
-cards.forEach(card => {
-card.addEventListener('click', () => {
-const src = card.dataset.src;
-const title = card.dataset.title;
-const desc = card.dataset.desc;
-
-viewerVideo.src = src;
-viewerTitle.textContent = title;
-viewerHeading.textContent = title;
-viewerDesc.textContent = desc;
-
-viewer.classList.add('open');
-viewerVideo.play().catch(() => {});
-});
-});
-
-closeViewer.addEventListener('click', () => {
-viewer.classList.remove('open');
-viewerVideo.pause();
-viewerVideo.src = '';
-});
-
-viewer.addEventListener('click', (e) => {
-if (e.target === viewer) {
-viewer.classList.remove('open');
-viewerVideo.pause();
-viewerVideo.src = '';
-}
-});
-
-document.addEventListener('keydown', (e) => {
-if (e.key === 'Escape') {
-viewer.classList.remove('open');
-viewerVideo.pause();
-viewerVideo.src = '';
-}
-});
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-chips.forEach(chip => chip.classList.remove('active'));
-const id = entry.target.getAttribute('id');
-const activeChip = document.querySelector('.videos-chip[href="#' + id + '"]');
-if (activeChip) activeChip.classList.add('active');
-}
-});
-}, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-
-sections.forEach(section => observer.observe(section));
-</script>
 
 </body>
 </html>
