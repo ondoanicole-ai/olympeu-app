@@ -4,35 +4,36 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hiive — Vidéos</title>
-<link rel="stylesheet" href="style.css" />
 
 <style>
 :root{
 --bg:#060914;
---bg2:#0a1020;
+--bg2:#0b1220;
 --panel:#0f172a;
---panel-2:#111c33;
+--panel2:#111b31;
 --line:rgba(255,255,255,0.08);
---line-blue:rgba(79,172,254,0.45);
+--line-blue:rgba(79,172,254,0.42);
 --text:#f5f8ff;
 --muted:rgba(255,255,255,0.72);
---blue:#6fd7ff;
+--blue:#8edfff;
 --blue2:#4facfe;
---glow:0 0 12px rgba(79,172,254,0.20), 0 0 28px rgba(0,242,254,0.08);
+--glow:0 0 12px rgba(79,172,254,0.18), 0 0 24px rgba(0,242,254,0.08);
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box;
+}
 
 html{
 scroll-behavior:smooth;
 }
 
-body.theme-dark.videos-hiive-body{
+body{
 margin:0;
-color:var(--text);
 font-family:Arial, Helvetica, sans-serif;
+color:var(--text);
 background:
-radial-gradient(circle at top, rgba(56,112,196,0.16), transparent 32%),
+radial-gradient(circle at top, rgba(56,112,196,0.14), transparent 32%),
 linear-gradient(180deg, #050814 0%, #09101b 100%);
 }
 
@@ -44,7 +45,7 @@ display:grid;
 grid-template-columns:1fr auto 1fr;
 align-items:center;
 gap:16px;
-padding:16px 22px 12px;
+padding:16px 20px 12px;
 background:rgba(6,10,18,0.84);
 backdrop-filter:blur(12px);
 border-bottom:1px solid rgba(255,255,255,0.05);
@@ -82,10 +83,9 @@ text-align:center;
 }
 
 .videos-brand{
+margin:0;
 font-size:28px;
 font-weight:700;
-letter-spacing:.2px;
-margin:0;
 }
 
 .videos-slogan{
@@ -111,18 +111,18 @@ box-shadow:var(--glow);
 }
 
 .videos-shell{
-max-width:1540px;
+max-width:1520px;
 margin:0 auto;
 padding:18px 18px 80px;
 }
 
 .videos-toolbar{
 display:flex;
-align-items:center;
+align-items:flex-start;
 justify-content:space-between;
 gap:16px;
-margin-bottom:16px;
 flex-wrap:wrap;
+margin-bottom:14px;
 }
 
 .videos-page-title{
@@ -133,8 +133,8 @@ font-weight:700;
 
 .videos-page-sub{
 margin:4px 0 0;
-color:var(--muted);
 font-size:14px;
+color:var(--muted);
 line-height:1.4;
 }
 
@@ -164,6 +164,31 @@ transition:.2s ease;
 background:linear-gradient(135deg, #64d8ff, #66a3ff);
 color:#04111f;
 box-shadow:var(--glow);
+}
+
+.videos-search-bar{
+margin:8px 0 16px;
+}
+
+.videos-search-input{
+width:100%;
+padding:14px 16px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.10);
+background:rgba(255,255,255,0.05);
+color:#fff;
+font-size:14px;
+outline:none;
+box-shadow:0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+.videos-search-input::placeholder{
+color:rgba(255,255,255,0.55);
+}
+
+.videos-search-input:focus{
+border-color:rgba(79,172,254,0.45);
+box-shadow:0 0 10px rgba(79,172,254,0.14);
 }
 
 .videos-categories{
@@ -368,6 +393,7 @@ color:#c5efff;
 font-size:12px;
 }
 
+/* viewer desktop */
 .video-viewer{
 position:fixed;
 inset:0;
@@ -425,11 +451,11 @@ background:#03060b;
 .video-viewer-player video{
 width:100%;
 height:100%;
-object-fit:cover;
+object-fit:contain;
 display:block;
 background:#03060b;
 }
-  
+
 .video-viewer-info{
 padding:16px;
 }
@@ -443,6 +469,157 @@ font-size:22px;
 margin:0;
 color:var(--muted);
 line-height:1.45;
+}
+
+/* viewer mobile tik tok */
+.mobile-tiktok-viewer{
+position:fixed;
+inset:0;
+z-index:140;
+display:none;
+background:#000;
+}
+
+.mobile-tiktok-viewer.open{
+display:block;
+}
+
+.mobile-tiktok-top{
+position:absolute;
+top:0;
+left:0;
+right:0;
+z-index:30;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 16px;
+background:linear-gradient(to bottom, rgba(0,0,0,0.65), transparent);
+}
+
+.mobile-tiktok-label{
+color:#fff;
+font-size:13px;
+opacity:.85;
+}
+
+.mobile-tiktok-feed{
+height:100vh;
+overflow-y:auto;
+scroll-snap-type:y mandatory;
+scrollbar-width:none;
+}
+
+.mobile-tiktok-feed::-webkit-scrollbar{
+display:none;
+}
+
+.mobile-tiktok-item{
+position:relative;
+width:100%;
+height:100vh;
+scroll-snap-align:start;
+background:#000;
+overflow:hidden;
+}
+
+.mobile-tiktok-item video{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+background:#000;
+}
+
+.mobile-tiktok-overlay{
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+z-index:20;
+padding:18px 14px 24px;
+background:linear-gradient(to top, rgba(0,0,0,0.76), transparent);
+color:#fff;
+}
+
+.mobile-tiktok-meta{
+max-width:72%;
+}
+
+.mobile-tiktok-user{
+display:flex;
+align-items:center;
+gap:8px;
+margin-bottom:8px;
+}
+
+.mobile-tiktok-user img{
+width:36px;
+height:36px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.mobile-tiktok-user strong{
+display:block;
+font-size:15px;
+line-height:1.1;
+}
+
+.mobile-tiktok-user span{
+display:block;
+font-size:11px;
+line-height:1.1;
+opacity:.78;
+}
+
+.mobile-tiktok-desc{
+margin:0;
+font-size:13px;
+line-height:1.35;
+}
+
+.mobile-tiktok-actions{
+position:absolute;
+right:14px;
+bottom:112px;
+z-index:25;
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.mobile-tiktok-action{
+width:50px;
+height:50px;
+border-radius:50%;
+border:1px solid rgba(255,255,255,0.14);
+background:rgba(0,0,0,0.42);
+backdrop-filter:blur(8px);
+display:grid;
+place-items:center;
+cursor:pointer;
+box-shadow:0 0 12px rgba(79,172,254,0.14);
+}
+
+.mobile-tiktok-action svg{
+width:18px;
+height:18px;
+stroke:#e2f6ff;
+fill:none;
+stroke-width:1.8;
+}
+
+.mobile-tiktok-action.like-on svg{
+fill:#ff4d6d;
+stroke:#ff4d6d;
+}
+
+.mobile-tiktok-count{
+margin-top:4px;
+text-align:center;
+font-size:11px;
+color:#fff;
 }
 
 @media (max-width: 980px){
@@ -471,12 +648,16 @@ padding:14px 12px 70px;
 font-size:28px;
 }
 
+.videos-page-sub{
+font-size:13px;
+}
+
 .videos-section-head h2{
 font-size:24px;
 }
 
 .video-card{
-flex:0 0 84vw;
+flex:0 0 88vw;
 }
 
 .videos-categories{
@@ -484,33 +665,52 @@ top:70px;
 }
 }
 
-.videos-search-bar{
-margin: 10px 0 16px;
+@media (max-width: 768px){
+.videos-shell{
+padding:12px 10px 70px;
 }
 
-.videos-search-bar input{
-width:100%;
-padding:14px 16px;
-border-radius:16px;
-border:1px solid rgba(255,255,255,0.10);
-background:rgba(255,255,255,0.05);
-color:#fff;
-font-size:14px;
-outline:none;
+.videos-toolbar{
+gap:12px;
 }
 
-.videos-search-bar input::placeholder{
-color:rgba(255,255,255,0.55);
+.videos-page-title{
+font-size:28px;
 }
 
-.videos-search-bar input:focus{
-border-color:rgba(79,172,254,0.45);
-box-shadow:0 0 10px rgba(79,172,254,0.14);
+.videos-row{
+gap:12px;
+}
+
+.video-card{
+flex:0 0 92vw;
+}
+
+.video-thumb{
+aspect-ratio:16 / 10;
+}
+
+.video-title{
+font-size:18px;
+}
+
+.video-sub{
+font-size:13px;
+}
+
+.video-stat{
+font-size:11px;
+padding:5px 9px;
+}
+
+.video-viewer{
+display:none !important;
+}
 }
 </style>
 </head>
 
-<body class="theme-dark videos-hiive-body">
+<body>
 
 <header class="videos-topbar">
 <div class="videos-topbar-left">
@@ -518,7 +718,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-brand-wrap">
-<div class="videos-brand">hiive</div>
+<div class="videos-brand">Hiive</div>
 <div class="videos-slogan">Swipe &amp; Scroll</div>
 </div>
 
@@ -531,8 +731,8 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 
 <section class="videos-toolbar">
 <div>
-<h1 class="videos-page-title">hiive Vidéos</h1>
-<p class="videos-page-sub">Explorez l'essentiel en image.</p>
+<h1 class="videos-page-title">Vidéos</h1>
+<p class="videos-page-sub">Découvre par univers, choisis un format, puis explore horizontalement à l’intérieur de chaque catégorie.</p>
 </div>
 
 <div class="videos-format-switch">
@@ -540,9 +740,11 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 <button class="videos-format-btn" data-format="long">Longs</button>
 </div>
 </section>
+
 <div class="videos-search-bar">
-<input type="text" placeholder="Rechercher une vidéo, un thème, un créateur..." />
+<input id="videosSearchInput" class="videos-search-input" type="text" placeholder="Rechercher une vidéo, un thème, un créateur..." />
 </div>
+
 <nav class="videos-categories">
 <a href="#media" class="videos-cat-btn active">Média / actu</a>
 <a href="#science" class="videos-cat-btn">Sciences</a>
@@ -574,7 +776,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Actu minute" data-desc="Une capsule rapide pour résumer l’essentiel d’un sujet d’actualité." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+<article class="video-card" data-format="short" data-category="media" data-title="Actu minute" data-desc="Une capsule rapide pour résumer l’essentiel d’un sujet d’actualité." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
@@ -592,7 +794,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 </article>
 
-<article class="video-card" data-format="short" data-title="Point de vue" data-desc="Un angle éditorial court sur un sujet de société." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+<article class="video-card" data-format="short" data-category="media" data-title="Point de vue" data-desc="Un angle éditorial court sur un sujet de société." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
@@ -610,7 +812,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 </article>
 
-<article class="video-card" data-format="long" data-title="En direct du sujet" data-desc="Une lecture plus posée d’un thème chaud, avec davantage de contexte." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="long" data-category="media" data-title="En direct du sujet" data-desc="Une lecture plus posée d’un thème chaud, avec davantage de contexte." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
@@ -640,7 +842,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Science simple" data-desc="Une idée scientifique rendue facile à comprendre." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
+<article class="video-card" data-format="short" data-category="science" data-title="Science simple" data-desc="Une idée scientifique rendue facile à comprendre." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
@@ -658,7 +860,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 </article>
 
-<article class="video-card" data-format="long" data-title="Expérience visuelle" data-desc="Une démonstration plus développée pour illustrer un principe scientifique." data-src="https://www.w3schools.com/html/movie.mp4">
+<article class="video-card" data-format="long" data-category="science" data-title="Expérience visuelle" data-desc="Une démonstration plus développée pour illustrer un principe scientifique." data-src="https://www.w3schools.com/html/movie.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
@@ -688,7 +890,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Startup mindset" data-desc="Une idée claire sur la logique entrepreneuriale." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
+<article class="video-card" data-format="short" data-category="business" data-title="Startup mindset" data-desc="Une idée claire sur la logique entrepreneuriale." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
@@ -706,7 +908,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 </article>
 
-<article class="video-card" data-format="long" data-title="Construire un projet" data-desc="Une vidéo plus longue sur la structuration d’un projet rentable." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="long" data-category="business" data-title="Construire un projet" data-desc="Une vidéo plus longue sur la structuration d’un projet rentable." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
@@ -736,7 +938,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Routine" data-desc="Un format lifestyle simple, visuel et apaisé." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="short" data-category="lifestyle" data-title="Routine" data-desc="Un format lifestyle simple, visuel et apaisé." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
@@ -766,7 +968,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Minute drôle" data-desc="Une capsule pour souffler et sourire." data-src="https://www.w3schools.com/html/movie.mp4">
+<article class="video-card" data-format="short" data-category="humour" data-title="Minute drôle" data-desc="Une capsule pour souffler et sourire." data-src="https://www.w3schools.com/html/movie.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
@@ -796,7 +998,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="long" data-title="Décryptage politique" data-desc="Une lecture simple d’un sujet institutionnel ou d’un choix public." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="long" data-category="politique" data-title="Décryptage politique" data-desc="Une lecture simple d’un sujet institutionnel ou d’un choix public." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
@@ -826,7 +1028,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Histoire courte" data-desc="Un fait ou une période résumée clairement." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+<article class="video-card" data-format="short" data-category="histoire" data-title="Histoire courte" data-desc="Un fait ou une période résumée clairement." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
@@ -856,7 +1058,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="long" data-title="Lecture de scène" data-desc="Décoder une scène, un cadrage, une ambiance." data-src="https://www.w3schools.com/html/movie.mp4">
+<article class="video-card" data-format="long" data-category="cinema" data-title="Lecture de scène" data-desc="Décoder une scène, un cadrage, une ambiance." data-src="https://www.w3schools.com/html/movie.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
@@ -886,7 +1088,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Éveil visuel" data-desc="Apprendre en s’amusant à travers des images simples." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
+<article class="video-card" data-format="short" data-category="enfants" data-title="Éveil visuel" data-desc="Apprendre en s’amusant à travers des images simples." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
@@ -916,7 +1118,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Tech rapide" data-desc="Une astuce ou un outil utile expliqué vite." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
+<article class="video-card" data-format="short" data-category="tech" data-title="Tech rapide" data-desc="Une astuce ou un outil utile expliqué vite." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4" type="video/mp4">
@@ -946,7 +1148,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="long" data-title="Apprendre clairement" data-desc="Une vidéo pédagogique pensée pour aller au fond." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+<article class="video-card" data-format="long" data-category="education" data-title="Apprendre clairement" data-desc="Une vidéo pédagogique pensée pour aller au fond." data-src="https://www.w3schools.com/html/mov_bbb.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
@@ -976,7 +1178,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Équilibre simple" data-desc="Un rappel utile pour prendre soin de soi." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="short" data-category="sante" data-title="Équilibre simple" data-desc="Un rappel utile pour prendre soin de soi." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
@@ -1006,7 +1208,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="long" data-title="Temps intérieur" data-desc="Une réflexion plus posée sur le sens et la présence." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
+<article class="video-card" data-format="long" data-category="spiritualite" data-title="Temps intérieur" data-desc="Une réflexion plus posée sur le sens et la présence." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
@@ -1036,7 +1238,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Routine sport" data-desc="Un format court sur le mouvement et la discipline." data-src="https://www.w3schools.com/html/movie.mp4">
+<article class="video-card" data-format="short" data-category="sport" data-title="Routine sport" data-desc="Un format court sur le mouvement et la discipline." data-src="https://www.w3schools.com/html/movie.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
@@ -1066,7 +1268,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="short" data-title="Recette rapide" data-desc="Une idée simple à refaire facilement." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
+<article class="video-card" data-format="short" data-category="cuisine" data-title="Recette rapide" data-desc="Une idée simple à refaire facilement." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
@@ -1096,7 +1298,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 
 <div class="videos-row">
-<article class="video-card" data-format="long" data-title="Regard de voyage" data-desc="Une ambiance plus immersive autour d’un lieu." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
+<article class="video-card" data-format="long" data-category="voyage" data-title="Regard de voyage" data-desc="Une ambiance plus immersive autour d’un lieu." data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4">
 <div class="video-thumb">
 <video muted preload="metadata" playsinline>
 <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/river.mp4" type="video/mp4">
@@ -1123,7 +1325,7 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 <div class="video-viewer-card">
 <div class="video-viewer-top">
 <strong id="viewerTitle">Lecture vidéo</strong>
-<button class="video-close" id="closeViewer">X</button>
+<button class="video-close" id="closeViewer">✕</button>
 </div>
 <div class="video-viewer-player">
 <video id="viewerVideo" controls playsinline></video>
@@ -1135,108 +1337,14 @@ box-shadow:0 0 10px rgba(79,172,254,0.14);
 </div>
 </div>
 
-
-<script>
-const cards = document.querySelectorAll('.video-card');
-const rowVideos = document.querySelectorAll('.video-thumb video');
-const viewer = document.getElementById('videoViewer');
-const closeViewer = document.getElementById('closeViewer');
-const chips = document.querySelectorAll('.videos-cat-btn');
-const sections = document.querySelectorAll('.videos-section');
-const formatBtns = document.querySelectorAll('.videos-format-btn');
-const tiktokFeed = document.getElementById('tiktokFeed');
-const viewerCategory = document.getElementById('viewerCategory');
-
-let currentFormat = 'short';
-
-rowVideos.forEach(video => {
-video.addEventListener('mouseenter', () => {
-if (window.innerWidth > 768) {
-video.play().catch(() => {});
-}
-});
-video.addEventListener('mouseleave', () => {
-if (window.innerWidth > 768) {
-video.pause();
-video.currentTime = 0;
-}
-});
-});
-
-function getCardsInSection(section) {
-return Array.from(section.querySelectorAll('.video-card')).filter(card => {
-return card.dataset.format === currentFormat && card.style.display !== 'none';
-});
-}
-
-function buildTiktokFeed(section, clickedCard) {
-tiktokFeed.innerHTML = '';
-
-const sectionTitle = section.querySelector('h2');
-viewerCategory.textContent = sectionTitle ? sectionTitle.textContent : 'Catégorie';
-
-const cardsInSection = getCardsInSection(section);
-
-cardsInSection.forEach(card => {
-const src = card.dataset.src;
-const title = card.dataset.title;
-const desc = card.dataset.desc;
-const badge = card.querySelector('.video-label')?.textContent || '';
-const statViews = card.querySelector('.video-stat')?.textContent || '';
-const categoryId = section.id || '';
-
-const item = document.createElement('div');
-item.className = 'tiktok-item';
-item.dataset.src = src;
-
-item.innerHTML = `
-<video muted loop playsinline preload="metadata">
-<source src="${src}">
-</video>
-
-<div class="tiktok-overlay">
-<div class="tiktok-meta">
-<div class="tiktok-user">
-<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-<div>
-<strong>${title}</strong>
-<span>#${categoryId} · ${badge}</span>
-</div>
-</div>
-<p class="tiktok-desc">${desc}</p>
+<div class="mobile-tiktok-viewer" id="mobileTiktokViewer">
+<div class="mobile-tiktok-top">
+<button class="video-close" id="closeMobileTiktok">✕</button>
+<div class="mobile-tiktok-label" id="mobileTiktokCategory">Catégorie</div>
 </div>
 
-<div class="tiktok-actions">
-<div>
-<button class="tiktok-action like-btn" type="button" aria-label="J’aime">
-<svg viewBox="0 0 24 24">
-<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
-</svg>
-</button>
-<div class="tiktok-count">${statViews || '0 vue'}</div>
+<div class="mobile-tiktok-feed" id="mobileTiktokFeed"></div>
 </div>
-
-<div>
-<button class="tiktok-action" type="button" aria-label="Commenter">
-<svg viewBox="0 0 24 24">
-<path d="M4 6h16v10H8l-4 4V6z"></path>
-</svg>
-</button>
-<div class="tiktok-count">Commenter</div>
-</div>
-
-<div>
-<button class="tiktok-action" type="button" aria-label="Partager">
-<svg viewBox="0 0 24 24">
-<path d="M14 9l-4 3 4 3V9z"></path>
-<path d="M20 6H4v12h16z"></path>
-</svg>
-</button>
-<div class="tiktok-count">Partager</div>
-</div>
-</div>
-</div>
-;
 
 <script>
 const cards = document.querySelectorAll('.video-card');
@@ -1247,22 +1355,36 @@ const viewerTitle = document.getElementById('viewerTitle');
 const viewerHeading = document.getElementById('viewerHeading');
 const viewerDesc = document.getElementById('viewerDesc');
 const closeViewer = document.getElementById('closeViewer');
+
+const mobileTiktokViewer = document.getElementById('mobileTiktokViewer');
+const mobileTiktokFeed = document.getElementById('mobileTiktokFeed');
+const mobileTiktokCategory = document.getElementById('mobileTiktokCategory');
+const closeMobileTiktok = document.getElementById('closeMobileTiktok');
+
 const chips = document.querySelectorAll('.videos-cat-btn');
 const sections = document.querySelectorAll('.videos-section');
 const formatBtns = document.querySelectorAll('.videos-format-btn');
+const searchInput = document.getElementById('videosSearchInput');
+
+let currentFormat = 'short';
+let currentSearch = '';
 
 rowVideos.forEach(video => {
 video.addEventListener('mouseenter', () => {
+if (window.innerWidth > 768) {
 video.play().catch(() => {});
+}
 });
+
 video.addEventListener('mouseleave', () => {
+if (window.innerWidth > 768) {
 video.pause();
 video.currentTime = 0;
+}
 });
 });
 
-cards.forEach(card => {
-card.addEventListener('click', () => {
+function openDesktopViewer(card) {
 const src = card.dataset.src;
 const title = card.dataset.title;
 const desc = card.dataset.desc;
@@ -1274,6 +1396,141 @@ viewerDesc.textContent = desc;
 
 viewer.classList.add('open');
 viewerVideo.play().catch(() => {});
+}
+
+function getVisibleCardsInSection(section) {
+return Array.from(section.querySelectorAll('.video-card')).filter(card => {
+return card.style.display !== 'none';
+});
+}
+
+function buildMobileTiktokFeed(section, clickedCard) {
+mobileTiktokFeed.innerHTML = '';
+
+const sectionTitle = section.querySelector('h2');
+mobileTiktokCategory.textContent = sectionTitle ? sectionTitle.textContent : 'Catégorie';
+
+const sectionCards = getVisibleCardsInSection(section);
+
+sectionCards.forEach(card => {
+const src = card.dataset.src;
+const title = card.dataset.title;
+const desc = card.dataset.desc;
+const category = card.dataset.category || '';
+const badge = card.querySelector('.video-label')?.textContent || '';
+const stats = card.querySelectorAll('.video-stat');
+const likesText = stats[0] ? stats[0].textContent : '';
+const durationText = stats[1] ? stats[1].textContent : '';
+
+const item = document.createElement('div');
+item.className = 'mobile-tiktok-item';
+
+item.innerHTML = `
+<video muted loop playsinline preload="metadata">
+<source src="${src}">
+</video>
+
+<div class="mobile-tiktok-overlay">
+<div class="mobile-tiktok-meta">
+<div class="mobile-tiktok-user">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<div>
+<strong>${title}</strong>
+<span>#${category} · ${badge}</span>
+</div>
+</div>
+<p class="mobile-tiktok-desc">${desc}</p>
+</div>
+
+<div class="mobile-tiktok-actions">
+<div>
+<button class="mobile-tiktok-action like-btn" type="button" aria-label="J’aime">
+<svg viewBox="0 0 24 24">
+<path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"></path>
+</svg>
+</button>
+<div class="mobile-tiktok-count">${likesText}</div>
+</div>
+
+<div>
+<button class="mobile-tiktok-action" type="button" aria-label="Durée">
+<svg viewBox="0 0 24 24">
+<path d="M12 7v5l3 3"></path>
+<circle cx="12" cy="12" r="9"></circle>
+</svg>
+</button>
+<div class="mobile-tiktok-count">${durationText}</div>
+</div>
+
+<div>
+<button class="mobile-tiktok-action" type="button" aria-label="Partager">
+<svg viewBox="0 0 24 24">
+<path d="M14 9l-4 3 4 3V9z"></path>
+<path d="M20 6H4v12h16z"></path>
+</svg>
+</button>
+<div class="mobile-tiktok-count">Partager</div>
+</div>
+</div>
+</div>
+`;
+
+mobileTiktokFeed.appendChild(item);
+});
+
+const items = Array.from(mobileTiktokFeed.querySelectorAll('.mobile-tiktok-item'));
+const clickedIndex = sectionCards.indexOf(clickedCard);
+
+requestAnimationFrame(() => {
+if (clickedIndex >= 0 && items[clickedIndex]) {
+items[clickedIndex].scrollIntoView({ block: 'start' });
+}
+initMobileTiktokAutoplay();
+bindMobileTikTokLikes();
+});
+}
+
+function initMobileTiktokAutoplay() {
+const items = document.querySelectorAll('.mobile-tiktok-item');
+const videos = document.querySelectorAll('.mobile-tiktok-item video');
+
+videos.forEach(v => v.pause());
+
+const mobileObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+const video = entry.target.querySelector('video');
+if (!video) return;
+
+if (entry.isIntersecting) {
+video.play().catch(() => {});
+} else {
+video.pause();
+}
+});
+}, { threshold: 0.72 });
+
+items.forEach(item => mobileObserver.observe(item));
+}
+
+function bindMobileTikTokLikes() {
+document.querySelectorAll('.mobile-tiktok-action.like-btn').forEach(btn => {
+btn.addEventListener('click', (e) => {
+e.stopPropagation();
+btn.classList.toggle('like-on');
+});
+});
+}
+
+cards.forEach(card => {
+card.addEventListener('click', () => {
+if (window.innerWidth <= 768) {
+const section = card.closest('.videos-section');
+if (!section) return;
+buildMobileTiktokFeed(section, card);
+mobileTiktokViewer.classList.add('open');
+} else {
+openDesktopViewer(card);
+}
 });
 });
 
@@ -1291,15 +1548,42 @@ viewerVideo.src = '';
 }
 });
 
+closeMobileTiktok.addEventListener('click', () => {
+mobileTiktokViewer.classList.remove('open');
+mobileTiktokFeed.querySelectorAll('video').forEach(v => {
+v.pause();
+v.currentTime = 0;
+});
+mobileTiktokFeed.innerHTML = '';
+});
+
+mobileTiktokViewer.addEventListener('click', (e) => {
+if (e.target === mobileTiktokViewer) {
+mobileTiktokViewer.classList.remove('open');
+mobileTiktokFeed.querySelectorAll('video').forEach(v => {
+v.pause();
+v.currentTime = 0;
+});
+mobileTiktokFeed.innerHTML = '';
+}
+});
+
 document.addEventListener('keydown', (e) => {
 if (e.key === 'Escape') {
 viewer.classList.remove('open');
 viewerVideo.pause();
 viewerVideo.src = '';
+
+mobileTiktokViewer.classList.remove('open');
+mobileTiktokFeed.querySelectorAll('video').forEach(v => {
+v.pause();
+v.currentTime = 0;
+});
+mobileTiktokFeed.innerHTML = '';
 }
 });
 
-const observer = new IntersectionObserver((entries) => {
+const sectionObserver = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
 if (entry.isIntersecting) {
 chips.forEach(chip => chip.classList.remove('active'));
@@ -1311,23 +1595,34 @@ if (activeChip) activeChip.classList.add('active');
 }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
 
 function updateObserverTargets() {
-observer.disconnect();
+sectionObserver.disconnect();
 document.querySelectorAll('.videos-section').forEach(section => {
 if (section.style.display !== 'none') {
-observer.observe(section);
+sectionObserver.observe(section);
 }
 });
 }
 
-function applyFormatFilter(selected) {
+function applyFilters() {
 sections.forEach(section => {
 const sectionCards = section.querySelectorAll('.video-card');
 let visibleCount = 0;
 
 sectionCards.forEach(card => {
-const matches = card.dataset.format === selected;
-card.style.display = matches ? '' : 'none';
-if (matches) visibleCount++;
+const matchesFormat = card.dataset.format === currentFormat;
+
+const haystack = (
+(card.dataset.title || '') + ' ' +
+(card.dataset.desc || '') + ' ' +
+(card.dataset.category || '') + ' ' +
+(card.querySelector('.video-label')?.textContent || '')
+).toLowerCase();
+
+const matchesSearch = haystack.includes(currentSearch);
+
+const visible = matchesFormat && matchesSearch;
+card.style.display = visible ? '' : 'none';
+if (visible) visibleCount++;
 });
 
 section.style.display = visibleCount > 0 ? '' : 'none';
@@ -1340,16 +1635,20 @@ formatBtns.forEach(btn => {
 btn.addEventListener('click', () => {
 formatBtns.forEach(b => b.classList.remove('active'));
 btn.classList.add('active');
-applyFormatFilter(btn.dataset.format);
+currentFormat = btn.dataset.format;
+applyFilters();
 });
+});
+
+searchInput.addEventListener('input', (e) => {
+currentSearch = e.target.value.trim().toLowerCase();
+applyFilters();
 });
 
 const activeBtn = document.querySelector('.videos-format-btn.active');
-applyFormatFilter(activeBtn ? activeBtn.dataset.format : 'short');
+currentFormat = activeBtn ? activeBtn.dataset.format : 'short';
+applyFilters();
 </script>
-
-
-
 
 </body>
 </html>
