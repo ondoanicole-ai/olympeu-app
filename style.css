@@ -6106,4 +6106,27 @@ height:100%;
 object-fit:cover !important;
 }
 }
+.videos-search-bar{
+margin: 10px 0 16px;
+}
+
+.videos-search-bar input{
+width:100%;
+padding:14px 16px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.10);
+background:rgba(255,255,255,0.05);
+color:#fff;
+font-size:14px;
+outline:none;
+}
+
+.videos-search-bar input::placeholder{
+color:rgba(255,255,255,0.55);
+}
+
+.videos-search-bar input:focus{
+border-color:rgba(79,172,254,0.45);
+box-shadow:0 0 10px rgba(79,172,254,0.14);
+}
 
