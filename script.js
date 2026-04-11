@@ -825,3 +825,53 @@ burst.classList.add('show');
 });
 });
 </script>
+/* ===== connexions hiive ===== */
+const users = [
+{id:1, name:"Emma Martin", handle:"@emma", status:"connected"},
+{id:2, name:"Hakim Ajiqua", handle:"@hakim", status:"add"},
+{id:3, name:"Nina Vox", handle:"@nina", status:"request"}
+];
+
+let currentTab = "connections";
+
+function renderUsers(){
+const container = document.getElementById("listContainer");
+
+let filtered = users.filter(u=>{
+if(currentTab === "connections") return u.status === "connected";
+if(currentTab === "suggestions") return u.status === "add";
+if(currentTab === "requests") return u.status === "request";
+});
+
+container.innerHTML = filtered.map(u=>`
+<div class="userCard">
+<div class="userInfo">
+<img src="https://randomuser.me/api/portraits/men/${u.id+20}.jpg">
+<div>
+<strong>${u.name}</strong>
+<span>${u.handle}</span>
+</div>
+</div>
+
+${
+u.status === "connected"
+? `<button class="addBtn connected">Connecté</button>`
+: u.status === "add"
+? `<button class="addBtn">Ajouter</button>`
+: `<button class="addBtn">Accepter</button>`
+}
+
+</div>
+`).join('');
+}
+
+function switchTab(tab){
+currentTab = tab;
+
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+event.target.classList.add("active");
+
+renderUsers();
+}
+
+renderUsers();
