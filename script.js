@@ -875,3 +875,54 @@ renderUsers();
 }
 
 renderUsers();
+function renderUsers(){
+const search = document.getElementById("searchUser").value.toLowerCase();
+
+const filtered = users.filter(u => {
+const matchSearch =
+!search ||
+u.name.toLowerCase().includes(search) ||
+u.handle.toLowerCase().includes(search) ||
+u.role.toLowerCase().includes(search);
+
+if (!matchSearch) return false;
+
+if (currentTab === "connections") {
+return u.connection === "connected";
+}
+
+if (currentTab === "suggestions") {
+return u.connection === "none" || u.connection === "pending";
+}
+
+if (currentTab === "requests") {
+return u.connection === "request";
+}
+
+return true;
+});
+
+document.getElementById("listContainer").innerHTML = filtered.map(u => `
+<div class="userCard">
+<div class="userLeft">
+<img src="https://randomuser.me/api/portraits/${u.id % 2 === 0 ? 'men' : 'women'}/${u.id + 20}.jpg" alt="${u.name}">
+<div class="userMeta">
+<strong>${u.name}</strong>
+<span class="userHandle">${u.handle}</span>
+<div class="userBio">${u.bio}</div>
+<div class="userExtra">
+<span class="userBadge">${u.role}</span>
+<span class="userMutuals">${u.mutuals} connexions en commun</span>
+</div>
+</div>
+</div>
+
+<div class="userActions">
+<button class="${u.following ? 'btnGhost' : 'btnBlue'}" onclick="toggleFollow(${u.id})">
+${u.following ? 'Suivi' : 'Suivre'}
+</button>
+${renderConnectionButton(u)}
+</div>
+</div>
+`).join('');
+}
