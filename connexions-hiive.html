@@ -169,12 +169,66 @@ color:#fff;
 
 /* USERS DEMO */
 const users = [
-{id:1,name:"Emma Martin",handle:"@emma",status:"connected"},
-{id:2,name:"Hakim Ajiqua",handle:"@hakim",status:"follow"},
-{id:3,name:"Nina Learn",handle:"@nina",status:"connect"},
-{id:4,name:"Max Digital",handle:"@max",status:"request"},
-{id:5,name:"Claire Zen",handle:"@claire",status:"follow"},
-{id:6,name:"Jean Tech",handle:"@jean",status:"connect"},
+{
+id:1,
+name:"Emma Martin",
+handle:"@emma.media",
+role:"Créatrice",
+bio:"Actu visuelle, formats courts et décryptage.",
+mutuals:12,
+following:true,
+connection:"connected"
+},
+{
+id:2,
+name:"Hakim Ajiqua",
+handle:"@hakim.story",
+role:"Créateur",
+bio:"Storytelling, vidéo, formats immersifs.",
+mutuals:5,
+following:false,
+connection:"none"
+},
+{
+id:3,
+name:"Nina Learn",
+handle:"@nina.learn",
+role:"Éducation",
+bio:"Contenus pédagogiques et vulgarisation.",
+mutuals:8,
+following:true,
+connection:"pending"
+},
+{
+id:4,
+name:"Max Digital",
+handle:"@max.tools",
+role:"Tech",
+bio:"Outils numériques, tests et comparatifs.",
+mutuals:3,
+following:false,
+connection:"request"
+},
+{
+id:5,
+name:"Claire Zen",
+handle:"@claire.well",
+role:"Lifestyle",
+bio:"Bien-être, équilibre et routines.",
+mutuals:9,
+following:true,
+connection:"none"
+},
+{
+id:6,
+name:"Jean Vision",
+handle:"@jean.project",
+role:"Projet",
+bio:"Entrepreneuriat, stratégie et exécution.",
+mutuals:14,
+following:false,
+connection:"connected"
+}
 ];
 
 let currentTab = "connections";
