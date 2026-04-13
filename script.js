@@ -926,3 +926,40 @@ ${renderConnectionButton(u)}
 </div>
 `).join('');
 }
+function renderConnectionButton(u){
+if (u.connection === "connected") {
+return `<button class="btnGreen">Connecté</button>`;
+}
+
+if (u.connection === "pending") {
+return `<button class="btnGhost">Demande envoyée</button>`;
+}
+
+if (u.connection === "request") {
+return `<button class="btnBlue" onclick="acceptConnection(${u.id})">Accepter</button>`;
+}
+
+return `<button class="btnGhost" onclick="sendConnection(${u.id})">Connexion</button>`;
+}
+
+function toggleFollow(id){
+const user = users.find(u => u.id === id);
+if (!user) return;
+user.following = !user.following;
+renderUsers();
+}
+
+function sendConnection(id){
+const user = users.find(u => u.id === id);
+if (!user) return;
+user.connection = "pending";
+renderUsers();
+}
+
+function acceptConnection(id){
+const user = users.find(u => u.id === id);
+if (!user) return;
+user.connection = "connected";
+renderUsers();
+}
+
