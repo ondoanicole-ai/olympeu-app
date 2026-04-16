@@ -5570,7 +5570,7 @@ animation:hiiveLikePop .22s ease;
 50%{ transform:scale(1.14); }
 100%{ transform:scale(1); }
 }
-/* ===== FIX actions vibes ===== */
+/* ===== FIX actions wave ===== */
 
 .hiive-rail-actions{
 display:flex !important;
