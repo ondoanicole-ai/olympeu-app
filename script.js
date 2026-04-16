@@ -725,7 +725,7 @@ btn.style.transform = "scale(1)";
 /* ===============================
 Wave CLICK
 =============================== */
-document.querySelectorAll(".hiive-vibe-preview").forEach(vibe => {
+document.querySelectorAll(".hiive-wave-preview").forEach(wave => {
 wave.addEventListener("click", () => {
 window.location.href = "wave-hiive.html";
 });
