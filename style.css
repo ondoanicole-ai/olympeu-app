@@ -3029,7 +3029,7 @@ display:grid;
 gap:10px;
 margin-top:14px;
 }
-/* Correction bouton Optimiser avec IA - US */
+/* Correction bouton Optimiser avec IA - hiive*/
 .hiive-ai-trigger{
 display:inline-flex;
 align-items:center;
@@ -3086,7 +3086,7 @@ stroke-width:1.9;
 stroke-linecap:round;
 stroke-linejoin:round;
 }
-/* Réparer les clics du composer US */
+/* Réparer les clics du composer hiive */
 .hiive-composer-card{
 position: relative;
 }
@@ -3118,7 +3118,7 @@ z-index: 1;
 .btn{
 cursor: pointer;
 }
-/* Composer US plus propre */
+/* Composer hiive plus propre */
 .hiive-tools{
 display: grid;
 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3168,7 +3168,7 @@ grid-template-columns: 1fr;
 grid-template-columns: 1fr;
 }
 }
-/* ===== Réparer zones cliquables US ===== */
+/* ===== Réparer zones cliquables hiive ===== */
 
 .hiive-composer-card,
 .hiive-side-card,
@@ -3211,7 +3211,7 @@ z-index: 4;
 pointer-events: auto;
 cursor: pointer;
 }
-#us-post-textarea {
+#hiive-post-textarea {
 min-height: 140px;
 max-height: 260px;
 padding-right: 14px;
@@ -4807,7 +4807,7 @@ color:#d9d3ff;
 background:rgba(124,108,255,.14);
 border-color:rgba(124,108,255,.28);
 }
-.vibe-item{
+.wave-item{
 width:520px;
 max-width:92vw;
 height:85vh;
@@ -4819,13 +4819,13 @@ opacity:0.88;
 transform:scale(0.98);
 }
 
-.vibe-item.active{
+.wave-item.active{
 opacity:1;
 transform:scale(1);
 box-shadow:0 25px 80px rgba(0,0,0,0.45);
 }
 
-.vibe-item video{
+.wave-item video{
 width:100%;
 height:100%;
 object-fit:cover;
@@ -5105,7 +5105,7 @@ border:1px solid rgba(255,255,255,0.08);
 box-shadow:none;
 }
 }
-/* ===== Actions sociales cartes vibes ===== */
+/* ===== Actions sociales cartes wave ===== */
 
 .hiive-rail-topline{
 display:flex;
@@ -5743,7 +5743,7 @@ opacity:0;
 transform:translate(-50%, -58%) scale(1.2);
 }
 
-/* ===== FIX FINAL VIBES ===== */
+/* ===== FIX FINAL WAVE ===== */
 
 /* le rail ne réserve plus un gros bloc en haut */
 .hiive-rail{
