@@ -723,11 +723,11 @@ btn.style.transform = "scale(1)";
 
 
 /* ===============================
-VIBES CLICK
+Wave CLICK
 =============================== */
 document.querySelectorAll(".hiive-vibe-preview").forEach(vibe => {
-vibe.addEventListener("click", () => {
-window.location.href = "vibes-hiive.html";
+wave.addEventListener("click", () => {
+window.location.href = "wave-hiive.html";
 });
 });
 
